@@ -1,0 +1,129 @@
+[gd_scene load_steps=16 format=3 uid="uid://cmrxptxlcvwyl"]
+
+[ext_resource type="Texture2D" uid="uid://d31enr2l8beft" path="res://Textures/Wood Planks/Planks_Albedo.png" id="1_pnxhl"]
+[ext_resource type="Texture2D" uid="uid://gwmh5hctqh1g" path="res://Textures/Wood Planks/Planks_AO.png" id="2_6e65y"]
+[ext_resource type="Texture2D" uid="uid://b4yqbyfs1e6gn" path="res://Textures/Wood Planks/Planks_Height.png" id="3_ol8or"]
+[ext_resource type="Texture2D" uid="uid://dt1lnxl5h5b3h" path="res://Textures/Wood Planks/Planks_Normal.png" id="4_hnxjp"]
+[ext_resource type="Texture2D" uid="uid://bi661l2uyhc23" path="res://Textures/Wood Planks/Planks_Rough.png" id="5_1edpd"]
+[ext_resource type="Shader" path="res://scripts/Shaders/Pixel.gdshader" id="6_n4ymq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4igyk"]
+albedo_color = Color(0.472846, 0.385525, 0.171227, 1)
+albedo_texture = ExtResource("1_pnxhl")
+metallic_specular = 0.43
+roughness_texture = ExtResource("5_1edpd")
+normal_enabled = true
+normal_scale = 12.51
+normal_texture = ExtResource("4_hnxjp")
+ao_enabled = true
+ao_texture = ExtResource("2_6e65y")
+heightmap_enabled = true
+heightmap_texture = ExtResource("3_ol8or")
+uv1_scale = Vector3(0.305, 0.305, 0.305)
+uv1_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4rtx4"]
+size = Vector3(62.5645, 0.161865, 13.8877)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mmt65"]
+frequency = 0.1568
+fractal_octaves = 10
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_i3hu2"]
+width = 2048
+height = 2048
+noise = SubResource("FastNoiseLite_mmt65")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ldxb7"]
+albedo_color = Color(0.374139, 0.374139, 0.374139, 1)
+roughness_texture = SubResource("NoiseTexture2D_i3hu2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3qfjm"]
+albedo_color = Color(0.377919, 0.377919, 0.377919, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_w7gia"]
+material = SubResource("StandardMaterial3D_3qfjm")
+
+[sub_resource type="QuadMesh" id="QuadMesh_1dwx3"]
+size = Vector2(2, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dymo7"]
+render_priority = 0
+shader = ExtResource("6_n4ymq")
+
+[node name="EvictionPapers" type="Node3D"]
+
+[node name="Build" type="Node3D" parent="."]
+
+[node name="ProtoCSGBox3D" type="CSGBox3D" parent="Build"]
+material_override = SubResource("StandardMaterial3D_4igyk")
+size = Vector3(12.1035, 0.133789, 14.582)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Build/ProtoCSGBox3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Build/ProtoCSGBox3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_4rtx4")
+
+[node name="ProtoCSGBox3D3" type="CSGBox3D" parent="Build"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40581, 0)
+material_override = SubResource("StandardMaterial3D_4igyk")
+size = Vector3(3.67773, 0.0758667, 6.71094)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Build/ProtoCSGBox3D3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Build/ProtoCSGBox3D3/StaticBody3D"]
+shape = SubResource("BoxShape3D_4rtx4")
+
+[node name="ProtoCSGBox3D2" type="CSGBox3D" parent="Build"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+material_override = SubResource("StandardMaterial3D_4igyk")
+size = Vector3(12.1035, 0.133789, 14.5752)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Build/ProtoCSGBox3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Build/ProtoCSGBox3D2/StaticBody3D"]
+shape = SubResource("BoxShape3D_4rtx4")
+
+[node name="ProtoCSGBox3D6" type="CSGBox3D" parent="Build"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.7642, 1.81079, 0)
+material_override = SubResource("StandardMaterial3D_4igyk")
+size = Vector3(1, 4.5874, 5.54492)
+
+[node name="ProtoCSGBox3D7" type="CSGBox3D" parent="Build"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.22015, 2.50555, 0)
+size = Vector3(0.301758, 5.11316, 14.5605)
+material = SubResource("StandardMaterial3D_ldxb7")
+
+[node name="ProtoCSGBox3D8" type="CSGBox3D" parent="Build"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1905, 2.50555, 0)
+size = Vector3(0.301758, 5.11316, 14.584)
+material = SubResource("StandardMaterial3D_ldxb7")
+
+[node name="ProtoCSGBox3D9" type="CSGBox3D" parent="Build"]
+transform = Transform3D(-5.18687e-08, 0, 1, 0, 1, 0, -1.18662, 0, -4.37114e-08, 0.0148217, 2.50555, -7.36334)
+size = Vector3(0.301758, 5.11316, 14.5605)
+material = SubResource("StandardMaterial3D_ldxb7")
+
+[node name="ProtoCSGBox3D10" type="CSGBox3D" parent="Build"]
+transform = Transform3D(-5.18687e-08, 0, 1, 0, 1, 0, -1.18662, 0, -4.37114e-08, 0.0148223, 2.50555, 7.36334)
+size = Vector3(0.301758, 5.11316, 14.584)
+material = SubResource("StandardMaterial3D_ldxb7")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Build"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4.88331, 0)
+light_energy = 0.137
+shadow_enabled = true
+spot_range = 6.71536
+spot_attenuation = -2.43
+
+[node name="Paper" type="MeshInstance3D" parent="Build"]
+transform = Transform3D(0.657168, 0, 0.0611331, 0, 0.480202, 0, -0.0843484, 0, 0.476295, 1.03745, 1.44385, -0.0130352)
+mesh = SubResource("PlaneMesh_w7gia")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-2.5216e-08, -0.816833, 0.576874, -3.57049e-08, 0.576874, 0.816833, -1, 1.77636e-15, -4.37114e-08, 1.71123, 2.51726, -0.0226927)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D"]
+transform = Transform3D(1, 0, -7.10543e-15, 0, 1, -7.7647e-23, 0, -7.7647e-23, 1, 7.6346e-09, 0.0192102, -0.174659)
+mesh = SubResource("QuadMesh_1dwx3")
+surface_material_override/0 = SubResource("ShaderMaterial_dymo7")

@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://6d27ul2h641w"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_p2d7i"]
+[ext_resource type="PackedScene" uid="uid://di16lr7iqjtmr" path="res://Manage/head.tscn" id="2_n4tw0"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ne0jo"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iahyr"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_p2d7i")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_ne0jo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_iahyr")
+
+[node name="Head" parent="." instance=ExtResource("2_n4tw0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.770399, 0)
+
+[node name="Look" type="RayCast3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+target_position = Vector3(0, -5, 0)

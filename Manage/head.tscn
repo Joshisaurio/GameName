@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://di16lr7iqjtmr"]
+
+[ext_resource type="Shader" path="res://scripts/Shaders/PixelDither.gdshader" id="1_2uxsy"]
+[ext_resource type="Script" path="res://scripts/head.gd" id="1_q22hp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_il5kj"]
+render_priority = 0
+shader = ExtResource("1_2uxsy")
+shader_parameter/enable_fog = true
+shader_parameter/fog_color = null
+shader_parameter/noise_color = null
+shader_parameter/fog_distance = 100.0
+shader_parameter/fog_fade_range = 50.0
+shader_parameter/enable_noise = true
+shader_parameter/noise_time_fac = 4.0
+shader_parameter/enable_color_limitation = true
+shader_parameter/color_levels = 32
+shader_parameter/enable_dithering = true
+shader_parameter/dither_strength = 0.3
+shader_parameter/pixel_size = 4
+
+[sub_resource type="QuadMesh" id="QuadMesh_c5ll7"]
+material = SubResource("ShaderMaterial_il5kj")
+size = Vector2(2, 2)
+
+[node name="Head" type="Node3D"]
+script = ExtResource("1_q22hp")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+current = true
+fov = 53.3
+size = 0.035
+
+[node name="Dither" type="MeshInstance3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.177375)
+mesh = SubResource("QuadMesh_c5ll7")
