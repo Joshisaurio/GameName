@@ -1,19 +1,19 @@
 [gd_scene load_steps=35 format=4 uid="uid://wqowkdaccyal"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_nuewp"]
-[ext_resource type="Texture2D" uid="uid://p8rbidcmaw6k" path="res://Textures/wood_floor_1.png" id="2_84q3j"]
-[ext_resource type="Texture2D" uid="uid://d31enr2l8beft" path="res://Textures/Wood Planks/Planks_Albedo.png" id="3_ncovm"]
-[ext_resource type="Texture2D" uid="uid://gwmh5hctqh1g" path="res://Textures/Wood Planks/Planks_AO.png" id="4_ee3jt"]
+[ext_resource type="Texture2D" uid="uid://p8rbidcmaw6k" path="res://Textures/TempTextures/wood_floor_1.png" id="2_84q3j"]
+[ext_resource type="Texture2D" uid="uid://d31enr2l8beft" path="res://Textures/TempTextures/Wood Planks/Planks_Albedo.png" id="3_ncovm"]
+[ext_resource type="Texture2D" uid="uid://gwmh5hctqh1g" path="res://Textures/TempTextures/Wood Planks/Planks_AO.png" id="4_ee3jt"]
 [ext_resource type="PackedScene" uid="uid://6d27ul2h641w" path="res://Manage/player.tscn" id="4_uvix7"]
-[ext_resource type="Texture2D" uid="uid://b4yqbyfs1e6gn" path="res://Textures/Wood Planks/Planks_Height.png" id="5_3b8bc"]
-[ext_resource type="Texture2D" uid="uid://dt1lnxl5h5b3h" path="res://Textures/Wood Planks/Planks_Normal.png" id="6_awwe8"]
-[ext_resource type="Texture2D" uid="uid://bi661l2uyhc23" path="res://Textures/Wood Planks/Planks_Rough.png" id="7_ve1u6"]
-[ext_resource type="Texture2D" uid="uid://behg4xoawgpuq" path="res://Textures/Bricks/Bricks_Albedo.png" id="9_rpj2j"]
-[ext_resource type="Texture2D" uid="uid://bwmkijk6rpwyd" path="res://Textures/Bricks/Bricks_AO.png" id="10_p3jc5"]
-[ext_resource type="Texture2D" uid="uid://dq6www0ket7sk" path="res://Textures/Bricks/Bricks_Height.png" id="11_celku"]
-[ext_resource type="Texture2D" uid="uid://boseo512v3njk" path="res://Textures/Bricks/Bricks_Metallic.png" id="12_oh4a7"]
-[ext_resource type="Texture2D" uid="uid://c5tytg6glu0gg" path="res://Textures/Bricks/Bricks_Normal.png" id="13_larya"]
-[ext_resource type="Texture2D" uid="uid://b4pi077vt2drw" path="res://Textures/Bricks/Bricks_Roughness.png" id="14_usc2m"]
+[ext_resource type="Texture2D" uid="uid://b4yqbyfs1e6gn" path="res://Textures/TempTextures/Wood Planks/Planks_Height.png" id="5_3b8bc"]
+[ext_resource type="Texture2D" uid="uid://dt1lnxl5h5b3h" path="res://Textures/TempTextures/Wood Planks/Planks_Normal.png" id="6_awwe8"]
+[ext_resource type="Texture2D" uid="uid://bi661l2uyhc23" path="res://Textures/TempTextures/Wood Planks/Planks_Rough.png" id="7_ve1u6"]
+[ext_resource type="Texture2D" uid="uid://behg4xoawgpuq" path="res://Textures/TempTextures/Bricks/Bricks_Albedo.png" id="9_rpj2j"]
+[ext_resource type="Texture2D" uid="uid://bwmkijk6rpwyd" path="res://Textures/TempTextures/Bricks/Bricks_AO.png" id="10_p3jc5"]
+[ext_resource type="Texture2D" uid="uid://dq6www0ket7sk" path="res://Textures/TempTextures/Bricks/Bricks_Height.png" id="11_celku"]
+[ext_resource type="Texture2D" uid="uid://boseo512v3njk" path="res://Textures/TempTextures/Bricks/Bricks_Metallic.png" id="12_oh4a7"]
+[ext_resource type="Texture2D" uid="uid://c5tytg6glu0gg" path="res://Textures/TempTextures/Bricks/Bricks_Normal.png" id="13_larya"]
+[ext_resource type="Texture2D" uid="uid://b4pi077vt2drw" path="res://Textures/TempTextures/Bricks/Bricks_Roughness.png" id="14_usc2m"]
 
 [sub_resource type="Environment" id="Environment_2ffxr"]
 
@@ -202,263 +202,263 @@ environment = SubResource("Environment_2ffxr")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, -0.0656295, 0.997844, 0, -0.997844, -0.0656295, 0, 0, 0)
 
-[node name="Build" type="Node3D" parent="."]
+[node name="PrototypeBuild" type="Node3D" parent="."]
 
-[node name="ProtoCSGBox3D" type="CSGBox3D" parent="Build"]
+[node name="ProtoCSGBox3D" type="CSGBox3D" parent="PrototypeBuild"]
 material_override = SubResource("StandardMaterial3D_m1vxe")
 size = Vector3(60.5283, 0.133789, 6.64355)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Build/ProtoCSGBox3D"]
+[node name="StaticBody3D" type="StaticBody3D" parent="PrototypeBuild/ProtoCSGBox3D"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Build/ProtoCSGBox3D/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PrototypeBuild/ProtoCSGBox3D/StaticBody3D"]
 shape = SubResource("BoxShape3D_yn7xb")
 
-[node name="ProtoCSGBox3D6" type="CSGBox3D" parent="Build"]
+[node name="ProtoCSGBox3D6" type="CSGBox3D" parent="PrototypeBuild"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.7642, 1.81079, 0)
 material_override = SubResource("StandardMaterial3D_m1vxe")
 size = Vector3(1, 4.5874, 5.54492)
 
-[node name="ProtoCSGBox3D7" type="CSGBox3D" parent="Build"]
+[node name="ProtoCSGBox3D7" type="CSGBox3D" parent="PrototypeBuild"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.701, 1.81079, 0)
 material_override = SubResource("StandardMaterial3D_dv2by")
 size = Vector3(1, 4.5874, 5.54492)
 
-[node name="ProtoCSGBox3D5" type="CSGBox3D" parent="Build"]
+[node name="ProtoCSGBox3D5" type="CSGBox3D" parent="PrototypeBuild"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.85428, 0)
 material_override = SubResource("StandardMaterial3D_m1vxe")
 size = Vector3(60.5283, 0.133789, 5.25757)
 
-[node name="ProtoCSGBox3D2" type="CSGBox3D" parent="Build"]
+[node name="ProtoCSGBox3D2" type="CSGBox3D" parent="PrototypeBuild"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.85809, 2.60803)
 size = Vector3(60.5283, 3.84998, 0.106204)
 material = SubResource("StandardMaterial3D_1i7sj")
 
-[node name="ProtoCSGBox3D6" type="CSGBox3D" parent="Build/ProtoCSGBox3D2"]
+[node name="ProtoCSGBox3D6" type="CSGBox3D" parent="PrototypeBuild/ProtoCSGBox3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32431, 0)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.146484)
 material = SubResource("StandardMaterial3D_1i7sj")
 
-[node name="ProtoCSGBox3D11" type="CSGBox3D" parent="Build/ProtoCSGBox3D2"]
+[node name="ProtoCSGBox3D11" type="CSGBox3D" parent="PrototypeBuild/ProtoCSGBox3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -0.32431, 0)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.146484)
 material = SubResource("StandardMaterial3D_1i7sj")
 
-[node name="ProtoCSGBox3D12" type="CSGBox3D" parent="Build/ProtoCSGBox3D2"]
+[node name="ProtoCSGBox3D12" type="CSGBox3D" parent="PrototypeBuild/ProtoCSGBox3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, -0.32431, 0)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.146484)
 material = SubResource("StandardMaterial3D_1i7sj")
 
-[node name="ProtoCSGBox3D13" type="CSGBox3D" parent="Build/ProtoCSGBox3D2"]
+[node name="ProtoCSGBox3D13" type="CSGBox3D" parent="PrototypeBuild/ProtoCSGBox3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, -0.32431, 0)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.146484)
 material = SubResource("StandardMaterial3D_1i7sj")
 
-[node name="ProtoCSGBox3D14" type="CSGBox3D" parent="Build/ProtoCSGBox3D2"]
+[node name="ProtoCSGBox3D14" type="CSGBox3D" parent="PrototypeBuild/ProtoCSGBox3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, -0.32431, 0)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.146484)
 material = SubResource("StandardMaterial3D_1i7sj")
 
-[node name="ProtoCSGBox3D7" type="CSGBox3D" parent="Build/ProtoCSGBox3D2"]
+[node name="ProtoCSGBox3D7" type="CSGBox3D" parent="PrototypeBuild/ProtoCSGBox3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -0.32431, 0)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.146484)
 material = SubResource("StandardMaterial3D_1i7sj")
 
-[node name="ProtoCSGBox3D8" type="CSGBox3D" parent="Build/ProtoCSGBox3D2"]
+[node name="ProtoCSGBox3D8" type="CSGBox3D" parent="PrototypeBuild/ProtoCSGBox3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, -0.32431, 0)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.146484)
 material = SubResource("StandardMaterial3D_1i7sj")
 
-[node name="ProtoCSGBox3D9" type="CSGBox3D" parent="Build/ProtoCSGBox3D2"]
+[node name="ProtoCSGBox3D9" type="CSGBox3D" parent="PrototypeBuild/ProtoCSGBox3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, -0.32431, 0)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.146484)
 material = SubResource("StandardMaterial3D_1i7sj")
 
-[node name="ProtoCSGBox3D10" type="CSGBox3D" parent="Build/ProtoCSGBox3D2"]
+[node name="ProtoCSGBox3D10" type="CSGBox3D" parent="PrototypeBuild/ProtoCSGBox3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, -0.32431, 0)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.146484)
 material = SubResource("StandardMaterial3D_1i7sj")
 
-[node name="ProtoCSGBox3D8" type="CSGBox3D" parent="Build"]
+[node name="ProtoCSGBox3D8" type="CSGBox3D" parent="PrototypeBuild"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.361796, 2.60064)
 size = Vector3(60.5283, 1.22723, 0.120973)
 material = SubResource("StandardMaterial3D_506ya")
 
-[node name="ProtoCSGBox3D6" type="CSGBox3D" parent="Build/ProtoCSGBox3D8"]
+[node name="ProtoCSGBox3D6" type="CSGBox3D" parent="PrototypeBuild/ProtoCSGBox3D8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32431, 0)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.146484)
 material = SubResource("StandardMaterial3D_1i7sj")
 
-[node name="ProtoCSGBox3D11" type="CSGBox3D" parent="Build/ProtoCSGBox3D8"]
+[node name="ProtoCSGBox3D11" type="CSGBox3D" parent="PrototypeBuild/ProtoCSGBox3D8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -0.32431, 0)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.146484)
 material = SubResource("StandardMaterial3D_1i7sj")
 
-[node name="ProtoCSGBox3D12" type="CSGBox3D" parent="Build/ProtoCSGBox3D8"]
+[node name="ProtoCSGBox3D12" type="CSGBox3D" parent="PrototypeBuild/ProtoCSGBox3D8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, -0.32431, 0)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.146484)
 material = SubResource("StandardMaterial3D_1i7sj")
 
-[node name="ProtoCSGBox3D13" type="CSGBox3D" parent="Build/ProtoCSGBox3D8"]
+[node name="ProtoCSGBox3D13" type="CSGBox3D" parent="PrototypeBuild/ProtoCSGBox3D8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, -0.32431, 0)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.146484)
 material = SubResource("StandardMaterial3D_1i7sj")
 
-[node name="ProtoCSGBox3D14" type="CSGBox3D" parent="Build/ProtoCSGBox3D8"]
+[node name="ProtoCSGBox3D14" type="CSGBox3D" parent="PrototypeBuild/ProtoCSGBox3D8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, -0.32431, 0)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.146484)
 material = SubResource("StandardMaterial3D_1i7sj")
 
-[node name="ProtoCSGBox3D7" type="CSGBox3D" parent="Build/ProtoCSGBox3D8"]
+[node name="ProtoCSGBox3D7" type="CSGBox3D" parent="PrototypeBuild/ProtoCSGBox3D8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -0.32431, 0)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.146484)
 material = SubResource("StandardMaterial3D_1i7sj")
 
-[node name="ProtoCSGBox3D8" type="CSGBox3D" parent="Build/ProtoCSGBox3D8"]
+[node name="ProtoCSGBox3D8" type="CSGBox3D" parent="PrototypeBuild/ProtoCSGBox3D8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, -0.32431, 0)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.146484)
 material = SubResource("StandardMaterial3D_1i7sj")
 
-[node name="ProtoCSGBox3D9" type="CSGBox3D" parent="Build/ProtoCSGBox3D8"]
+[node name="ProtoCSGBox3D9" type="CSGBox3D" parent="PrototypeBuild/ProtoCSGBox3D8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, -0.32431, 0)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.146484)
 material = SubResource("StandardMaterial3D_1i7sj")
 
-[node name="ProtoCSGBox3D10" type="CSGBox3D" parent="Build/ProtoCSGBox3D8"]
+[node name="ProtoCSGBox3D10" type="CSGBox3D" parent="PrototypeBuild/ProtoCSGBox3D8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, -0.32431, 0)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.146484)
 material = SubResource("StandardMaterial3D_1i7sj")
 
-[node name="ProtoCSGBox3D9" type="CSGBox3D" parent="Build"]
+[node name="ProtoCSGBox3D9" type="CSGBox3D" parent="PrototypeBuild"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.361796, -2.58904)
 size = Vector3(60.5283, 1.22723, 0.120973)
 material = SubResource("StandardMaterial3D_506ya")
 
-[node name="ProtoCSGBox3D6" type="CSGBox3D" parent="Build/ProtoCSGBox3D9"]
+[node name="ProtoCSGBox3D6" type="CSGBox3D" parent="PrototypeBuild/ProtoCSGBox3D9"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32431, 0)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.146484)
 material = SubResource("StandardMaterial3D_1i7sj")
 
-[node name="ProtoCSGBox3D11" type="CSGBox3D" parent="Build/ProtoCSGBox3D9"]
+[node name="ProtoCSGBox3D11" type="CSGBox3D" parent="PrototypeBuild/ProtoCSGBox3D9"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -0.32431, 0)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.146484)
 material = SubResource("StandardMaterial3D_1i7sj")
 
-[node name="ProtoCSGBox3D12" type="CSGBox3D" parent="Build/ProtoCSGBox3D9"]
+[node name="ProtoCSGBox3D12" type="CSGBox3D" parent="PrototypeBuild/ProtoCSGBox3D9"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, -0.32431, 0)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.146484)
 material = SubResource("StandardMaterial3D_1i7sj")
 
-[node name="ProtoCSGBox3D13" type="CSGBox3D" parent="Build/ProtoCSGBox3D9"]
+[node name="ProtoCSGBox3D13" type="CSGBox3D" parent="PrototypeBuild/ProtoCSGBox3D9"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, -0.32431, 0)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.146484)
 material = SubResource("StandardMaterial3D_1i7sj")
 
-[node name="ProtoCSGBox3D14" type="CSGBox3D" parent="Build/ProtoCSGBox3D9"]
+[node name="ProtoCSGBox3D14" type="CSGBox3D" parent="PrototypeBuild/ProtoCSGBox3D9"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, -0.32431, 0)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.146484)
 material = SubResource("StandardMaterial3D_1i7sj")
 
-[node name="ProtoCSGBox3D7" type="CSGBox3D" parent="Build/ProtoCSGBox3D9"]
+[node name="ProtoCSGBox3D7" type="CSGBox3D" parent="PrototypeBuild/ProtoCSGBox3D9"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -0.32431, 0)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.146484)
 material = SubResource("StandardMaterial3D_1i7sj")
 
-[node name="ProtoCSGBox3D8" type="CSGBox3D" parent="Build/ProtoCSGBox3D9"]
+[node name="ProtoCSGBox3D8" type="CSGBox3D" parent="PrototypeBuild/ProtoCSGBox3D9"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, -0.32431, 0)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.146484)
 material = SubResource("StandardMaterial3D_1i7sj")
 
-[node name="ProtoCSGBox3D9" type="CSGBox3D" parent="Build/ProtoCSGBox3D9"]
+[node name="ProtoCSGBox3D9" type="CSGBox3D" parent="PrototypeBuild/ProtoCSGBox3D9"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, -0.32431, 0)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.146484)
 material = SubResource("StandardMaterial3D_1i7sj")
 
-[node name="ProtoCSGBox3D10" type="CSGBox3D" parent="Build/ProtoCSGBox3D9"]
+[node name="ProtoCSGBox3D10" type="CSGBox3D" parent="PrototypeBuild/ProtoCSGBox3D9"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, -0.32431, 0)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.146484)
 material = SubResource("StandardMaterial3D_1i7sj")
 
-[node name="ProtoCSGBox3D3" type="CSGBox3D" parent="Build"]
+[node name="ProtoCSGBox3D3" type="CSGBox3D" parent="PrototypeBuild"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.85809, -2.59574)
 size = Vector3(60.5283, 3.84998, 0.106204)
 material = SubResource("StandardMaterial3D_1i7sj")
 
-[node name="ProtoCSGBox3D6" type="CSGBox3D" parent="Build/ProtoCSGBox3D3"]
+[node name="ProtoCSGBox3D6" type="CSGBox3D" parent="PrototypeBuild/ProtoCSGBox3D3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32431, 0)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.146484)
 material = SubResource("StandardMaterial3D_1i7sj")
 
-[node name="ProtoCSGBox3D11" type="CSGBox3D" parent="Build/ProtoCSGBox3D3"]
+[node name="ProtoCSGBox3D11" type="CSGBox3D" parent="PrototypeBuild/ProtoCSGBox3D3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -0.32431, 0)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.146484)
 material = SubResource("StandardMaterial3D_1i7sj")
 
-[node name="ProtoCSGBox3D12" type="CSGBox3D" parent="Build/ProtoCSGBox3D3"]
+[node name="ProtoCSGBox3D12" type="CSGBox3D" parent="PrototypeBuild/ProtoCSGBox3D3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, -0.32431, 0)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.146484)
 material = SubResource("StandardMaterial3D_1i7sj")
 
-[node name="ProtoCSGBox3D13" type="CSGBox3D" parent="Build/ProtoCSGBox3D3"]
+[node name="ProtoCSGBox3D13" type="CSGBox3D" parent="PrototypeBuild/ProtoCSGBox3D3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, -0.32431, 0)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.146484)
 material = SubResource("StandardMaterial3D_1i7sj")
 
-[node name="ProtoCSGBox3D14" type="CSGBox3D" parent="Build/ProtoCSGBox3D3"]
+[node name="ProtoCSGBox3D14" type="CSGBox3D" parent="PrototypeBuild/ProtoCSGBox3D3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, -0.32431, 0)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.146484)
 material = SubResource("StandardMaterial3D_1i7sj")
 
-[node name="ProtoCSGBox3D7" type="CSGBox3D" parent="Build/ProtoCSGBox3D3"]
+[node name="ProtoCSGBox3D7" type="CSGBox3D" parent="PrototypeBuild/ProtoCSGBox3D3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -0.32431, 0)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.146484)
 material = SubResource("StandardMaterial3D_1i7sj")
 
-[node name="ProtoCSGBox3D8" type="CSGBox3D" parent="Build/ProtoCSGBox3D3"]
+[node name="ProtoCSGBox3D8" type="CSGBox3D" parent="PrototypeBuild/ProtoCSGBox3D3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, -0.32431, 0)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.146484)
 material = SubResource("StandardMaterial3D_1i7sj")
 
-[node name="ProtoCSGBox3D9" type="CSGBox3D" parent="Build/ProtoCSGBox3D3"]
+[node name="ProtoCSGBox3D9" type="CSGBox3D" parent="PrototypeBuild/ProtoCSGBox3D3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, -0.32431, 0)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.146484)
 material = SubResource("StandardMaterial3D_1i7sj")
 
-[node name="ProtoCSGBox3D10" type="CSGBox3D" parent="Build/ProtoCSGBox3D3"]
+[node name="ProtoCSGBox3D10" type="CSGBox3D" parent="PrototypeBuild/ProtoCSGBox3D3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, -0.32431, 0)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.146484)

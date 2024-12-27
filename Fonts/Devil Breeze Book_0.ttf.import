@@ -1,0 +1,34 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://vqn221fu27ax"
+path="res://.godot/imported/Devil Breeze Book_0.ttf-b35ff5c8e3dc6aa214245a4f247bb717.fontdata"
+
+[deps]
+
+source_file="res://Fonts/Devil Breeze Book_0.ttf"
+dest_files=["res://.godot/imported/Devil Breeze Book_0.ttf-b35ff5c8e3dc6aa214245a4f247bb717.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+disable_embedded_bitmaps=true
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=1
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}
