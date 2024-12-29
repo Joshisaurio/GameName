@@ -16,8 +16,15 @@ func _process(delta):
 		
 func _on_resume_pressed():
 	get_tree().paused = false
-
+	$Click.play()
 
 func _on_back_to_menu_pressed():
+	$Click.play()
 	get_tree().paused = false
 	get_tree().get_first_node_in_group("gamemanager").load_level(preload("res://scenes/title.tscn"))
+
+func _on_button_mouse_entered():
+	$Hover.play()
+
+func _on_settings_pressed():
+	$Click.play()
