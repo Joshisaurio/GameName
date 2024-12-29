@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cdbr0ky4d6pof"]
+[gd_scene load_steps=7 format=3 uid="uid://cdbr0ky4d6pof"]
 
 [ext_resource type="Texture2D" uid="uid://de7p7ycehj63i" path="res://Textures/TempTextures/Pixel 32x32/9.png" id="1_fdorb"]
 [ext_resource type="PackedScene" uid="uid://6d27ul2h641w" path="res://Manage/player.tscn" id="2_mmqls"]
+
+[sub_resource type="Environment" id="Environment_6phuy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5bkkc"]
 albedo_color = Color(0.662452, 0.662452, 0.662452, 1)
@@ -9,55 +11,49 @@ albedo_texture = ExtResource("1_fdorb")
 uv1_scale = Vector3(0.905, 0.905, 0.905)
 uv1_triplanar = true
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_7lpel"]
-size = Vector3(102.699, 0.161865, 100.939)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lxs55"]
 albedo_color = Color(0.136826, 0.136826, 0.136826, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3jd2y"]
 albedo_color = Color(0, 0, 0, 1)
 
-[sub_resource type="Environment" id="Environment_6phuy"]
-
 [node name="Apartment" type="Node3D"]
 
-[node name="Build" type="Node3D" parent="."]
+[node name="Player" parent="." instance=ExtResource("2_mmqls")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.63939, 0)
+
+[node name="CollisionMap" type="Node" parent="."]
+
+[node name="Environment" type="Node" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
+environment = SubResource("Environment_6phuy")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment/WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, -0.0656295, 0.997844, 0, -0.997844, -0.0656295, 0, 0, 0)
+
+[node name="Lights" type="Node" parent="."]
+
+[node name="Build" type="Node" parent="."]
 
 [node name="Floor" type="CSGBox3D" parent="Build"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.391724, 0, 6.32855)
 size = Vector3(109.136, 0.133789, 108.128)
 material = SubResource("StandardMaterial3D_5bkkc")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Build/Floor"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Build/Floor/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.24937, 0, 2.729)
-shape = SubResource("BoxShape3D_7lpel")
-
-[node name="Floor3" type="CSGBox3D" parent="Build"]
+[node name="Ceiling" type="CSGBox3D" parent="Build"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14444, 4.74788, 1.0117)
 size = Vector3(112.25, 0.133789, 121.153)
 material = SubResource("StandardMaterial3D_lxs55")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Build/Floor3"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Build/Floor3/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.24937, 0, 2.729)
-shape = SubResource("BoxShape3D_7lpel")
-
-[node name="Floor2" type="CSGBox3D" parent="Build"]
+[node name="OfficeFloor" type="CSGBox3D" parent="Build"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -52.069)
 size = Vector3(16.928, 0.133789, 8.66797)
 material = SubResource("StandardMaterial3D_5bkkc")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Build/Floor2"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Build/Floor2/StaticBody3D"]
-shape = SubResource("BoxShape3D_7lpel")
-
 [node name="CentralWall" type="CSGBox3D" parent="Build"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00396156, 2.14395, 0.473261)
+use_collision = true
 size = Vector3(111.481, 5.25372, 119.334)
 
 [node name="Wall4" type="CSGBox3D" parent="Build/CentralWall"]
@@ -1001,16 +997,3 @@ material = SubResource("StandardMaterial3D_3jd2y")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
 size = Vector3(6.88849, 4.7789, 6.55808)
 material = SubResource("StandardMaterial3D_3jd2y")
-
-[node name="Lights" type="Node3D" parent="."]
-
-[node name="Enviroment" type="Node3D" parent="."]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Enviroment"]
-environment = SubResource("Environment_6phuy")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Enviroment/WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, -0.0656295, 0.997844, 0, -0.997844, -0.0656295, 0, 0, 0)
-
-[node name="Player" parent="." instance=ExtResource("2_mmqls")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.63939, 0)

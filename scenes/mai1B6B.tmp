@@ -18,11 +18,11 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("4_7q2lk")
+starting_time = null
 
 [node name="Timer" type="Timer" parent="Countdown"]
 
 [node name="Placeholder" type="Label" parent="Countdown"]
-layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 
