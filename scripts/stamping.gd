@@ -6,8 +6,6 @@ extends Node3D
 
 @onready var gamemanager = self.get_parent()
 
-@onready var gamemanager = self.get_parent()
-
 var dialogue_speed := 0.03
 
 var dialogues = [
