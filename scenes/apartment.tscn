@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cdbr0ky4d6pof"]
+[gd_scene load_steps=11 format=3 uid="uid://cdbr0ky4d6pof"]
 
 [ext_resource type="Texture2D" uid="uid://de7p7ycehj63i" path="res://Textures/TempTextures/Pixel 32x32/9.png" id="1_fdorb"]
 [ext_resource type="PackedScene" uid="uid://6d27ul2h641w" path="res://Manage/player.tscn" id="2_mmqls"]
+[ext_resource type="Script" path="res://scenes/pause.gd" id="3_crbmm"]
 
 [sub_resource type="Environment" id="Environment_6phuy"]
 
@@ -19,6 +20,14 @@ albedo_color = Color(0.187176, 0.187176, 0.187176, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3jd2y"]
 albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_sqbt1"]
+offsets = PackedFloat32Array(0.506024)
+colors = PackedColorArray(0, 0, 0, 0.588235)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_aui6l"]
+gradient = SubResource("Gradient_sqbt1")
+width = 1
 
 [node name="Apartment" type="Node3D"]
 
@@ -1811,3 +1820,30 @@ text = "3
      2"
 font_size = 487
 outline_size = 3
+
+[node name="Pause" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("3_crbmm")
+
+[node name="TextureRect" type="TextureRect" parent="Pause"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_aui6l")
+
+[node name="Label" type="Label" parent="Pause"]
+process_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "[ PAUSED ]"
