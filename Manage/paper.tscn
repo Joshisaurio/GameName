@@ -1,0 +1,196 @@
+[gd_scene load_steps=12 format=3 uid="uid://bysxvj7l2ctoa"]
+
+[ext_resource type="Shader" path="res://scripts/Shaders/Apply2D.gdshader" id="1_a2hi1"]
+[ext_resource type="Script" path="res://scripts/paper.gd" id="2_ikl7i"]
+[ext_resource type="Texture2D" uid="uid://cstl3m7c6sc1j" path="res://Textures/Logo/black-avatar-generic-person-symbol-profile-picture-isolated-white-background-black-avatar-generic-person-symbol-profile-picture-346347472.webp" id="3_y1ahw"]
+[ext_resource type="Texture2D" uid="uid://dp7svs0yo6vpk" path="res://Textures/Logo/Evicted.png" id="5_pq7xy"]
+[ext_resource type="FontFile" uid="uid://rr7so023gsh5" path="res://Fonts/Denise_Handwriting.ttf" id="6_rvsmq"]
+[ext_resource type="FontFile" uid="uid://bsdr6h5mdig3a" path="res://Fonts/LoftygoalsRegular-9Y5Xy.otf" id="7_li616"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_er1wj"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sbkjg"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_a2hi1")
+shader_parameter/screen_texture = SubResource("ViewportTexture_er1wj")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_yvk1a"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_sbkjg")
+flip_faces = true
+
+[sub_resource type="FontFile" id="FontFile_1uoqg"]
+data = PackedByteArray()
+font_name = ""
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/46/0/ascent = 0.0
+cache/0/46/0/descent = 0.0
+cache/0/46/0/underline_position = 0.0
+cache/0/46/0/underline_thickness = 0.0
+cache/0/46/0/scale = 1.0
+
+[sub_resource type="FontFile" id="FontFile_nlfl4"]
+data = PackedByteArray()
+font_name = ""
+cache/0/46/0/ascent = 0.0
+cache/0/46/0/descent = 0.0
+cache/0/46/0/underline_position = 0.0
+cache/0/46/0/underline_thickness = 0.0
+cache/0/46/0/scale = 1.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[node name="Paper" type="MeshInstance3D"]
+transform = Transform3D(3.73162e-08, 0, 0.352031, -2.48775e-08, -1, 4.03572e-15, 0.284565, -8.74228e-08, -4.61633e-08, 0, 0, 0)
+mesh = SubResource("PlaneMesh_yvk1a")
+script = ExtResource("2_ikl7i")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+
+[node name="Central" type="Control" parent="SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PaperBG" type="ColorRect" parent="SubViewport/Central"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.992157, 1, 0.67451, 1)
+
+[node name="TenantIcon" type="TextureRect" parent="SubViewport/Central/PaperBG"]
+layout_mode = 1
+offset_left = 3.365
+offset_top = 2.43
+offset_right = 203.365
+offset_bottom = 193.31
+texture = ExtResource("3_y1ahw")
+expand_mode = 1
+
+[node name="Namelbl" type="Label" parent="SubViewport/Central/PaperBG"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -289.62
+offset_top = 51.58
+offset_right = -34.62
+offset_bottom = 115.58
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontFile_1uoqg")
+theme_override_font_sizes/font_size = 46
+text = "Joe Mama"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TenantInfo" type="VBoxContainer" parent="SubViewport/Central/PaperBG"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 9.935
+offset_top = -60.103
+offset_right = 392.935
+offset_bottom = 109.897
+grow_vertical = 2
+
+[node name="Roomlbl" type="Label" parent="SubViewport/Central/PaperBG/TenantInfo"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontFile_nlfl4")
+theme_override_font_sizes/font_size = 46
+text = "Room: xxx"
+
+[node name="Infolbl" type="Label" parent="SubViewport/Central/PaperBG/TenantInfo"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontFile_nlfl4")
+theme_override_font_sizes/font_size = 46
+text = "Info: Null"
+
+[node name="Infolbl2" type="Label" parent="SubViewport/Central/PaperBG/TenantInfo"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontFile_nlfl4")
+theme_override_font_sizes/font_size = 46
+text = "Info: Null"
+
+[node name="Stamp" type="TextureRect" parent="SubViewport/Central/PaperBG"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 161.275
+offset_top = -214.315
+offset_right = -26.725
+offset_bottom = -14.315
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("5_pq7xy")
+expand_mode = 1
+
+[node name="Line" type="ColorRect" parent="SubViewport/Central/PaperBG"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -138.575
+offset_top = -32.54
+offset_right = 161.425
+offset_bottom = -30.86
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 1)
+
+[node name="Signature" type="Label" parent="SubViewport/Central/PaperBG/Line"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -245.52
+offset_top = -29.0
+offset_right = -152.52
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_rvsmq")
+theme_override_font_sizes/font_size = 31
+text = "Signature:"
+
+[node name="SigName" type="Label" parent="SubViewport/Central/PaperBG/Line"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -30.5
+offset_top = -23.0
+offset_right = 30.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_li616")
+theme_override_font_sizes/font_size = 36
+text = "Barry Barringson"
