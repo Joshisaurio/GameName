@@ -1,6 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://dr03t0auoehi"]
+[gd_scene load_steps=17 format=3 uid="uid://dr03t0auoehi"]
 
 [ext_resource type="Script" path="res://scripts/stamping.gd" id="1_iqntg"]
+[ext_resource type="Texture2D" uid="uid://d31enr2l8beft" path="res://Textures/TempTextures/Wood Planks/Planks_Albedo.png" id="3_1dv7n"]
+[ext_resource type="Texture2D" uid="uid://gwmh5hctqh1g" path="res://Textures/TempTextures/Wood Planks/Planks_AO.png" id="4_cqrjy"]
+[ext_resource type="Texture2D" uid="uid://b4yqbyfs1e6gn" path="res://Textures/TempTextures/Wood Planks/Planks_Height.png" id="5_c3oyk"]
+[ext_resource type="Texture2D" uid="uid://dt1lnxl5h5b3h" path="res://Textures/TempTextures/Wood Planks/Planks_Normal.png" id="6_q4sw5"]
+[ext_resource type="Texture2D" uid="uid://bi661l2uyhc23" path="res://Textures/TempTextures/Wood Planks/Planks_Rough.png" id="7_xn4s5"]
+[ext_resource type="Shader" path="res://scripts/Shaders/PixelDither.gdshader" id="8_sxxmg"]
 
 [sub_resource type="Animation" id="Animation_pldjm"]
 resource_name = "IntroAnim"
@@ -12,7 +18,7 @@ tracks/0/path = NodePath(".:mouse_filter")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 5),
+"times": PackedFloat32Array(0, 3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 2]
@@ -63,6 +69,103 @@ _data = {
 "RESET": SubResource("Animation_hwlop")
 }
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hcodw"]
+albedo_color = Color(0.472846, 0.385525, 0.171227, 1)
+albedo_texture = ExtResource("3_1dv7n")
+metallic_specular = 0.43
+roughness_texture = ExtResource("7_xn4s5")
+normal_enabled = true
+normal_scale = 12.51
+normal_texture = ExtResource("6_q4sw5")
+ao_enabled = true
+ao_texture = ExtResource("4_cqrjy")
+heightmap_enabled = true
+heightmap_texture = ExtResource("5_c3oyk")
+uv1_scale = Vector3(0.305, 0.305, 0.305)
+uv1_triplanar = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3leqx"]
+render_priority = 0
+shader = ExtResource("8_sxxmg")
+shader_parameter/enable_fog = true
+shader_parameter/fog_color = null
+shader_parameter/noise_color = null
+shader_parameter/fog_distance = 100.0
+shader_parameter/fog_fade_range = 50.0
+shader_parameter/enable_noise = true
+shader_parameter/noise_time_fac = 4.0
+shader_parameter/enable_color_limitation = true
+shader_parameter/color_levels = 32
+shader_parameter/enable_dithering = true
+shader_parameter/dither_strength = 0.3
+shader_parameter/pixel_size = 4
+
+[sub_resource type="QuadMesh" id="QuadMesh_taeuy"]
+material = SubResource("ShaderMaterial_3leqx")
+size = Vector2(2, 2)
+
+[sub_resource type="Animation" id="Animation_g34lr"]
+resource_name = "Camera"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.41655, 2.56875, 4.76837e-07), Vector3(-1.41655, 2.54251, 4.76837e-07), Vector3(-1.41655, 2.56875, 4.76837e-07)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.887343, -1.5708, 5.36739e-08), Vector3(-0.926124, -1.5708, 5.64941e-08), Vector3(-0.887343, -1.5708, 5.36739e-08)]
+}
+
+[sub_resource type="Animation" id="Animation_4vcvb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.41655, 2.56875, 4.76837e-07)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.887343, -1.5708, 5.36739e-08)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o77eu"]
+_data = {
+"Camera": SubResource("Animation_g34lr"),
+"RESET": SubResource("Animation_4vcvb")
+}
+
 [node name="Stamping" type="Node3D"]
 script = ExtResource("1_iqntg")
 
@@ -103,3 +206,65 @@ text = "[Insert a cutscene or something here]"
 libraries = {
 "": SubResource("AnimationLibrary_lctya")
 }
+
+[node name="Lighting" type="Node3D" parent="."]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5.78201, 0)
+light_energy = 3.139
+spot_range = 7.497
+spot_attenuation = -1.17
+spot_angle = 31.037
+
+[node name="Build" type="Node3D" parent="."]
+
+[node name="ProtoCSGBox3D" type="CSGBox3D" parent="Build"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.74501, 0)
+material_override = SubResource("StandardMaterial3D_hcodw")
+size = Vector3(3, 0.133789, 4.59546)
+
+[node name="ProtoCSGBox3D2" type="CSGBox3D" parent="Build"]
+material_override = SubResource("StandardMaterial3D_hcodw")
+size = Vector3(22.1741, 0.133789, 12.3831)
+
+[node name="ProtoCSGBox3D7" type="CSGBox3D" parent="Build"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+material_override = SubResource("StandardMaterial3D_hcodw")
+size = Vector3(22.1741, 0.133789, 12.3831)
+
+[node name="ProtoCSGBox3D5" type="CSGBox3D" parent="Build"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.93311, 6.02332)
+material_override = SubResource("StandardMaterial3D_hcodw")
+size = Vector3(22.1741, 6, 0.336426)
+
+[node name="ProtoCSGBox3D6" type="CSGBox3D" parent="Build"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.93311, -5.97668)
+material_override = SubResource("StandardMaterial3D_hcodw")
+size = Vector3(22.1741, 6, 0.336426)
+
+[node name="ProtoCSGBox3D3" type="CSGBox3D" parent="Build"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9847, 2.93311, 0)
+material_override = SubResource("StandardMaterial3D_hcodw")
+size = Vector3(0.204712, 6, 12.3831)
+
+[node name="ProtoCSGBox3D4" type="CSGBox3D" parent="Build"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0153, 2.93311, 0)
+material_override = SubResource("StandardMaterial3D_hcodw")
+size = Vector3(0.204712, 6, 12.3831)
+
+[node name="PaperOrigin" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.923547, 1.82297, 1.06934)
+gizmo_extents = 0.05
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-3.57837e-06, 0.775396, -0.631474, 3.38937e-08, 0.631474, 0.775396, 1, 2.75325e-06, -2.28593e-06, -1.41655, 2.56875, 4.76837e-07)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.30557e-10, 0.0561032, 0.00527382)
+mesh = SubResource("QuadMesh_taeuy")
+
+[node name="CamAnim" type="AnimationPlayer" parent="Camera3D"]
+libraries = {
+"": SubResource("AnimationLibrary_o77eu")
+}
+speed_scale = 0.3
