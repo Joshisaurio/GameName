@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://gbojdi3xktdn"]
+[gd_scene load_steps=43 format=4 uid="uid://b0c1cjw0ww7k4"]
 
 [ext_resource type="Script" path="res://scripts/title.gd" id="1_25y5n"]
 [ext_resource type="Texture2D" uid="uid://d31enr2l8beft" path="res://Textures/TempTextures/Wood Planks/Planks_Albedo.png" id="1_ji2vu"]
