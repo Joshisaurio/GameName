@@ -24,6 +24,10 @@ settings/stdout/print_fps=true
 window/size/viewport_width=1024
 window/size/viewport_height=768
 
+[global_group]
+
+gamemanager=""
+
 [input]
 
 forward={

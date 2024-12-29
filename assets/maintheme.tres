@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bre6n751ipump"]
+
+[ext_resource type="FontFile" uid="uid://bvbm4u6y1bvfr" path="res://AdobeGurmukhi-Bold.otf" id="1_m8w5t"]
+
+[resource]
+Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("1_m8w5t")
