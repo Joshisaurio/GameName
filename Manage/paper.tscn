@@ -22,8 +22,9 @@ material = SubResource("ShaderMaterial_sbkjg")
 flip_faces = true
 
 [sub_resource type="FontFile" id="FontFile_1uoqg"]
-data = PackedByteArray()
-font_name = ""
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -36,18 +37,19 @@ cache/0/46/0/underline_thickness = 0.0
 cache/0/46/0/scale = 1.0
 
 [sub_resource type="FontFile" id="FontFile_nlfl4"]
-data = PackedByteArray()
-font_name = ""
-cache/0/46/0/ascent = 0.0
-cache/0/46/0/descent = 0.0
-cache/0/46/0/underline_position = 0.0
-cache/0/46/0/underline_thickness = 0.0
-cache/0/46/0/scale = 1.0
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
 cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
+cache/0/46/0/ascent = 0.0
+cache/0/46/0/descent = 0.0
+cache/0/46/0/underline_position = 0.0
+cache/0/46/0/underline_thickness = 0.0
+cache/0/46/0/scale = 1.0
 
 [node name="Paper" type="MeshInstance3D"]
 transform = Transform3D(3.73162e-08, 0, 0.352031, -2.48775e-08, -1, 4.03572e-15, 0.284565, -8.74228e-08, -4.61633e-08, 0, 0, 0)

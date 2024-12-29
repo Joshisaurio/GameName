@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://b0c1cjw0ww7k4"]
+[gd_scene load_steps=45 format=4 uid="uid://b0c1cjw0ww7k4"]
 
 [ext_resource type="Script" path="res://scripts/title.gd" id="1_25y5n"]
 [ext_resource type="Texture2D" uid="uid://d31enr2l8beft" path="res://Textures/TempTextures/Wood Planks/Planks_Albedo.png" id="1_ji2vu"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://pnl4o5e0dhlj" path="res://Textures/Logo/youreOutLogo.png" id="7_i031p"]
 [ext_resource type="FontFile" uid="uid://b85pwm2y0ga2i" path="res://Fonts/ARJULIAN.ttf" id="8_rprnk"]
 [ext_resource type="FontFile" uid="uid://bvbm4u6y1bvfr" path="res://Fonts/AdobeGurmukhi-Bold.otf" id="9_6v78o"]
+[ext_resource type="AudioStream" uid="uid://vmrlyhdxfyg2" path="res://assets/audio/UI/SFX - UI Hover.wav" id="11_dnt25"]
+[ext_resource type="AudioStream" uid="uid://dqvxrnfjbxjs1" path="res://assets/audio/UI/SFX - UI Select (click).wav" id="12_8y5xm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hcodw"]
 albedo_color = Color(0.472846, 0.385525, 0.171227, 1)
@@ -580,6 +582,17 @@ shape = SubResource("BoxShape3D_hmnqp")
 transform = Transform3D(-0.414619, 0, 0.016322, 0, 0.000773191, 0, -0.0172037, 0, -0.393371, -0.851309, 1.81947, -0.0868698)
 mesh = SubResource("ArrayMesh_obcs1")
 skeleton = NodePath("")
+
+[node name="FolderSound" type="AudioStreamPlayer3D" parent="FolderMenu"]
+volume_db = 4.571
+
+[node name="UIHoverSound" type="AudioStreamPlayer3D" parent="FolderMenu"]
+stream = ExtResource("11_dnt25")
+max_polyphony = 5
+
+[node name="UIClickSound" type="AudioStreamPlayer3D" parent="FolderMenu"]
+stream = ExtResource("12_8y5xm")
+max_polyphony = 2
 
 [node name="2DUI" type="Control" parent="."]
 layout_mode = 3

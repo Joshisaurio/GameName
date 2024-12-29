@@ -35,9 +35,17 @@ var rotation_target_head : float
 # Used when bobing head
 @onready var head_start_pos : Vector3 = $Head.position
 @onready var Ray: RayCast3D = $Head/Look
+@onready var AudioPlayer = $FootSteps
+
+#Footsteps to pick from
+const FootstepA = preload("res://assets/audio/General/SFX - Footstep 1.wav")
+const FootstepB = preload("res://assets/audio/General/SFX - Footstep 2.wav")
+const FootstepC = preload("res://assets/audio/General/SFX - Footstep 3.wav")
+const FootstepD = preload("res://assets/audio/General/SFX - Footstep 4.wav")
 
 # Current player tick, used in head bob calculation
 var tick = 0
+var moving := false
 
 func _ready():
 	if Engine.is_editor_hint():
@@ -45,6 +53,10 @@ func _ready():
 
 	if CAPTURE_MOUSE_ON_START:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+func choose(options):
+	options.shuffle()
+	return options.front()
 
 func _physics_process(delta):
 	if Engine.is_editor_hint():
@@ -94,6 +106,9 @@ func move_player(delta):
 	var input_dir = Input.get_vector("left", "right", "forward", "back")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 
+	if input_dir != Vector2.ZERO: moving = true #Im sorry for your eyes in advance
+	else: moving = false
+
 	velocity.x = move_toward(velocity.x, direction.x * speed, accel * delta)
 	velocity.z = move_toward(velocity.z, direction.z * speed, accel * delta)
 
@@ -110,3 +125,9 @@ func reset_head_bob(delta):
 	if $Head.position == head_start_pos:
 		pass
 	$Head.position = lerp($Head.position, head_start_pos, 2 * (1/HEAD_BOB_FREQUENCY) * delta)
+
+func movement_check():
+	print("Checking")
+	if moving:
+		var stepsound = choose([FootstepA, FootstepB, FootstepC, FootstepD])
+		AudioPlayer.set_stream(stepsound) ; AudioPlayer.pitch_scale = randf_range(0.7, 1.3) ; AudioPlayer.play()

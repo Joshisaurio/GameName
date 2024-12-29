@@ -2,16 +2,22 @@ extends Node3D
 
 @onready var UIAnim = $UI/UIAnim
 @onready var Dialogue = $UI/Fader/Dialogue
+@onready var PaperPoint = $PaperOrigin
+
+const PAPER = preload("res://Manage/paper.tscn")
 
 var dialogue_speed := 0.03
 
 #Stamping stuff
 var total_evictions
+var eviction_page
 
 func _ready():
 	
 	UIAnim.play("IntroAnim")
 	display_dialogue("[Insert a cutscene or something here]", dialogue_speed)
+	await get_tree().create_timer(6).timeout
+	generate_eviction()
 
 func display_dialogue(text: String, speed: float):
 	
@@ -25,16 +31,9 @@ func display_dialogue(text: String, speed: float):
 	await get_tree().create_timer(3).timeout
 	Dialogue.text = ""
 
-func generate_evictions():
+func generate_eviction():
 	
 	total_evictions = randi_range(8, 18) #How many papers the player must stamp, sign, etc
+	eviction_page = PAPER.instantiate()
+	PaperPoint.add_child(eviction_page)
 	
-
-func show_next_eviction():
-	if total_evictions > 0:
-		show_eviction()
-		total_evictions -= 1
-	
-
-func show_eviction():
-	pass

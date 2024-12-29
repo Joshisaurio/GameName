@@ -7,6 +7,8 @@ extends Node
 @export var apartment = preload("res://scenes/apartment.tscn")
 var current_scene
 
+@export var player_name := ""
+
 func _ready():
 	
 	load_level(title_scene)
