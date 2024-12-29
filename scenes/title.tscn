@@ -391,7 +391,7 @@ material_override = SubResource("StandardMaterial3D_hcodw")
 size = Vector3(0.204712, 6, 12.3831)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-3.57837e-06, 0.775397, -0.631474, 3.38937e-08, 0.631474, 0.775397, 1, 2.75325e-06, -2.28593e-06, -1.41655, 2.56875, 4.76837e-07)
+transform = Transform3D(-3.57837e-06, 0.775397, -0.631475, 3.38937e-08, 0.631475, 0.775397, 1, 2.75326e-06, -2.28593e-06, -1.41655, 2.56875, 4.76837e-07)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.30557e-10, 0.0561032, 0.00527382)

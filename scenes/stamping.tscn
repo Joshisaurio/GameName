@@ -27,7 +27,7 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/path = NodePath("Fader:color")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -198,21 +198,6 @@ tracks/0/keys = {
 "values": [Vector3(-0.923547, 1.82297, 2.77713), Vector3(-0.923547, 1.82297, -0.0265827)]
 }
 
-[sub_resource type="Animation" id="Animation_qt7qb"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PaperOrigin:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.923547, 1.82297, 1.06934)]
-}
-
 [sub_resource type="Animation" id="Animation_dgarf"]
 resource_name = "Page_Out"
 length = 0.3
@@ -227,6 +212,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(-0.923547, 1.82297, -0.0265827), Vector3(-0.923547, 1.82297, -2.8342)]
+}
+
+[sub_resource type="Animation" id="Animation_qt7qb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PaperOrigin:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.923547, 1.82297, 1.06934)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2aihm"]
@@ -271,6 +271,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 26
 text = "[Insert a cutscene or something here]"
+horizontal_alignment = 1
 
 [node name="UIAnim" type="AnimationPlayer" parent="UI"]
 libraries = {

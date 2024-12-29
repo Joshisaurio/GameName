@@ -4,20 +4,33 @@ extends Node3D
 @onready var Dialogue = $UI/Fader/Dialogue
 @onready var PaperPoint = $PaperOrigin
 
-const PAPER = preload("res://Manage/paper.tscn")
+@onready var gamemanager = self.get_parent()
 
 var dialogue_speed := 0.03
 
-#Stamping stuff
-var total_evictions
-var eviction_page
+var dialogues = [
+	"Dialogue\n[Press space to continue]",
+	"More dialog",
+	"Final dialogue"]
+	
+var dialogue = 0
+
+var next = false
 
 func _ready():
 	
 	UIAnim.play("IntroAnim")
-	display_dialogue("[Insert a cutscene or something here]", dialogue_speed)
-	await get_tree().create_timer(6).timeout
-	generate_eviction()
+	display_dialogue(dialogues[dialogue], dialogue_speed)
+
+func _input(event):
+	if event is InputEventKey and next:
+		if dialogue < len(dialogues) - 1:
+			next = false
+			dialogue += 1
+			display_dialogue(dialogues[dialogue], dialogue_speed)
+		else:
+			gamemanager.load_level(gamemanager.apartment)
+	
 
 func display_dialogue(text: String, speed: float):
 	
@@ -27,9 +40,9 @@ func display_dialogue(text: String, speed: float):
 	for char in text:
 		Dialogue.text += char
 		await get_tree().create_timer(speed).timeout
+
+	next = true
 	
-	await get_tree().create_timer(3).timeout
-	Dialogue.text = ""
 
 func generate_eviction():
 	
