@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cdbr0ky4d6pof"]
+[gd_scene load_steps=8 format=3 uid="uid://cdbr0ky4d6pof"]
 
 [ext_resource type="Texture2D" uid="uid://de7p7ycehj63i" path="res://Textures/TempTextures/Pixel 32x32/9.png" id="1_fdorb"]
 [ext_resource type="PackedScene" uid="uid://6d27ul2h641w" path="res://Manage/player.tscn" id="2_mmqls"]
@@ -13,6 +13,9 @@ uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lxs55"]
 albedo_color = Color(0.136826, 0.136826, 0.136826, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ymnjw"]
+albedo_color = Color(0.187176, 0.187176, 0.187176, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3jd2y"]
 albedo_color = Color(0, 0, 0, 1)
@@ -117,6 +120,7 @@ material = SubResource("StandardMaterial3D_5bkkc")
 
 [node name="CentralWall" type="CSGBox3D" parent="Build"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00396156, 2.14395, 0.473261)
+material_override = SubResource("StandardMaterial3D_ymnjw")
 use_collision = true
 size = Vector3(111.481, 5.25372, 119.334)
 

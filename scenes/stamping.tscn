@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cumnita3y3x5e"]
+[gd_scene load_steps=27 format=3 uid="uid://cumnita3y3x5e"]
 
 [ext_resource type="Script" path="res://scripts/stamping.gd" id="1_iqntg"]
 [ext_resource type="Texture2D" uid="uid://d31enr2l8beft" path="res://Textures/TempTextures/Wood Planks/Planks_Albedo.png" id="3_1dv7n"]
@@ -236,6 +236,8 @@ _data = {
 "RESET": SubResource("Animation_qt7qb")
 }
 
+[sub_resource type="BoxMesh" id="BoxMesh_fdhne"]
+
 [node name="Stamping" type="Node3D"]
 script = ExtResource("1_iqntg")
 
@@ -347,3 +349,12 @@ speed_scale = 0.3
 libraries = {
 "": SubResource("AnimationLibrary_2aihm")
 }
+
+[node name="Stamp?" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0780194, 0, -0.135767, 0, 0.0470076, 0, -0.0827719, 0, -0.127971, -0.793444, 1.93185, -0.57357)
+mesh = SubResource("BoxMesh_fdhne")
+
+[node name="mesh" type="MeshInstance3D" parent="Stamp?"]
+transform = Transform3D(0.490924, 0, 0, 0, 1.7629, 0, 4.47035e-08, 0, 0.257097, 0, 1.31025, 0)
+mesh = SubResource("BoxMesh_fdhne")
+skeleton = NodePath("../..")

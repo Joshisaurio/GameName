@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/paper.gd" id="2_ikl7i"]
 [ext_resource type="Texture2D" uid="uid://cstl3m7c6sc1j" path="res://Textures/Logo/black-avatar-generic-person-symbol-profile-picture-isolated-white-background-black-avatar-generic-person-symbol-profile-picture-346347472.webp" id="3_y1ahw"]
 [ext_resource type="Texture2D" uid="uid://dp7svs0yo6vpk" path="res://Textures/Logo/Evicted.png" id="5_pq7xy"]
-[ext_resource type="FontFile" uid="uid://rr7so023gsh5" path="res://Fonts/Denise_Handwriting.ttf" id="6_rvsmq"]
+[ext_resource type="FontFile" uid="uid://ddv4kvejsa0fy" path="res://Fonts/ACaslonPro-Regular.otf" id="5_yfv72"]
 [ext_resource type="FontFile" uid="uid://bsdr6h5mdig3a" path="res://Fonts/LoftygoalsRegular-9Y5Xy.otf" id="7_li616"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_er1wj"]
@@ -176,7 +176,7 @@ offset_right = -152.52
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("6_rvsmq")
+theme_override_fonts/font = ExtResource("5_yfv72")
 theme_override_font_sizes/font_size = 31
 text = "Signature:"
 
@@ -195,4 +195,4 @@ grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_li616")
 theme_override_font_sizes/font_size = 36
-text = "Barry Barringson"
+text = "[Player Name]"

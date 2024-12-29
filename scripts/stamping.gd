@@ -43,10 +43,3 @@ func display_dialogue(text: String, speed: float):
 
 	next = true
 	
-
-func generate_eviction():
-	
-	total_evictions = randi_range(8, 18) #How many papers the player must stamp, sign, etc
-	eviction_page = PAPER.instantiate()
-	PaperPoint.add_child(eviction_page)
-	
