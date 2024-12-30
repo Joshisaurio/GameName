@@ -34,9 +34,6 @@ var rotation_target_head : float
 
 # Used when bobing head
 @onready var head_start_pos : Vector3 = $Head.position
-<<<<<<< Updated upstream
-@onready var Ray: RayCast3D = $Head/Look
-=======
 @onready var ray: RayCast3D = $Head/Look
 @onready var audio_player = $FootSteps
 
@@ -45,10 +42,10 @@ const FootstepA = preload("res://assets/audio/General/SFX - Footstep 1.wav")
 const FootstepB = preload("res://assets/audio/General/SFX - Footstep 2.wav")
 const FootstepC = preload("res://assets/audio/General/SFX - Footstep 3.wav")
 const FootstepD = preload("res://assets/audio/General/SFX - Footstep 4.wav")
->>>>>>> Stashed changes
 
 # Current player tick, used in head bob calculation
 var tick = 0
+var moving := false
 
 func _ready():
 	if Engine.is_editor_hint():
@@ -56,6 +53,10 @@ func _ready():
 
 	if CAPTURE_MOUSE_ON_START:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		
+func choose(options):
+	options.shuffle()
+	return options.front()
 
 func _physics_process(delta):
 	if Engine.is_editor_hint():
@@ -132,12 +133,9 @@ func reset_head_bob(delta):
 	if $Head.position == head_start_pos:
 		pass
 	$Head.position = lerp($Head.position, head_start_pos, 2 * (1/HEAD_BOB_FREQUENCY) * delta)
-<<<<<<< Updated upstream
-=======
 
 func movement_check():
 	print("Checking")
 	if moving:
 		var stepsound = choose([FootstepA, FootstepB, FootstepC, FootstepD])
 		audio_player.set_stream(stepsound) ; audio_player.pitch_scale = randf_range(0.7, 1.3) ; audio_player.play()
->>>>>>> Stashed changes

@@ -2,6 +2,8 @@ extends Node3D
 
 @onready var UIAnim = $UI/UIAnim
 @onready var Dialogue = $UI/Fader/Dialogue
+@onready var PaperPoint = $PaperOrigin
+@onready var gamemanager = self.get_parent()
 
 var dialogue_speed := 0.03
 func _ready():

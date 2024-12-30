@@ -193,6 +193,19 @@ albedo_color = Color(0.0728426, 0.0728426, 0.0728426, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_btnst")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 28.4767, 1.71655, 0.197725)
+CAPTURE_MOUSE_ON_START = null
+MOVEMENT_ENABLED = null
+SPEED = null
+ACCELERATION = null
+HEAD_BOB_ENABLED = null
+HEAD_BOB_FREQUENCY = null
+HEAD_BOB_INTENSITY = null
+CLAMP_HEAD_ROTATION_ENABLED = null
+CLAMP_HEAD_ROTATION_MIN = null
+CLAMP_HEAD_ROTATION_MAX = null
+MOUSE_ACCELERATION_ENABLED = null
+KEY_BIND_MOUSE_SENSITIVITY = null
+KEY_BIND_MOUSE_ACCELERATION = null
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_c8nwh")
