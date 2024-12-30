@@ -23,7 +23,6 @@ var last_names = [
 	"Clark", "Lewis", "Robinson", "Walker", "Hall", "Young", "King", "Wright"
 ]
 
-@export var input_enabled: bool = false
 @export var max_middle_names: int = 3
 @export var maxtime: int = 7
 
@@ -39,11 +38,12 @@ var time: float = 0
 @onready var tenant_label: RichTextLabel = $RichTextLabel
 
 func _ready() -> void:
+	prompt = _generate_name()
 	$ProgressBar.max_value = maxtime
+	_update_text()
 
 func _process(delta):
-	if input_enabled:
-		time += delta
+	time += delta
 	$ProgressBar.value = float(maxtime)-time
 	
 	if correct != 0 and failures !=0:
@@ -57,7 +57,7 @@ func _process(delta):
 		$TimeBonus.text = "Time bonus: 0"
 	
 func _unhandled_input(event: InputEvent) -> void:
-	if input_enabled and event is InputEventKey and not event.is_pressed():
+	if event is InputEventKey and not event.is_pressed():
 		if event.keycode < KEY_A or event.keycode > KEY_Z:
 			return
 		
@@ -119,10 +119,3 @@ func _update_text() -> void:
 	var display_text = "[color=green]" + colored_substring + "[/color]" + uncolored_substring
 	
 	tenant_label.text = display_text
-
-func _on_button_pressed():
-	$Button.hide()
-	prompt = _generate_name()
-	tenant_label.bbcode_enabled = true
-	_update_text()
-	input_enabled = true

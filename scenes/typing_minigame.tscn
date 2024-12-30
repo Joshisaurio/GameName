@@ -18,13 +18,6 @@ shortcut_keys_enabled = false
 meta_underlined = false
 hint_underlined = false
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_top = 39.0
-offset_right = 45.0
-offset_bottom = 70.0
-text = "start"
-
 [node name="Score" type="Label" parent="."]
 layout_mode = 0
 offset_top = 90.0
@@ -73,5 +66,3 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

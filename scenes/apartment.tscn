@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://de7p7ycehj63i" path="res://Textures/TempTextures/Pixel 32x32/9.png" id="1_fdorb"]
 [ext_resource type="PackedScene" uid="uid://6d27ul2h641w" path="res://Manage/player.tscn" id="2_mmqls"]
-[ext_resource type="PackedScene" uid="uid://bj7nht67yf5v8" path="res://scenes/pause.tscn" id="3_6xk6e"]
+[ext_resource type="PackedScene" uid="uid://dgvjlrsae8iq7" path="res://scenes/door.tscn" id="3_a8o4k"]
 
 [sub_resource type="Environment" id="Environment_6phuy"]
 
@@ -111,6 +111,7 @@ material = SubResource("StandardMaterial3D_5bkkc")
 
 [node name="Ceiling" type="CSGBox3D" parent="Build"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14444, 4.74788, 1.0117)
+visible = false
 size = Vector3(112.25, 0.133789, 121.153)
 material = SubResource("StandardMaterial3D_lxs55")
 
@@ -1813,4 +1814,7 @@ text = "3
 font_size = 487
 outline_size = 3
 
-[node name="Pause" parent="." instance=ExtResource("3_6xk6e")]
+[node name="Doors" type="Node" parent="."]
+
+[node name="StaticBody3D" parent="Doors" instance=ExtResource("3_a8o4k")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2.61801, -0.00474501, -11.2439)

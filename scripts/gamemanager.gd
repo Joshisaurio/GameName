@@ -10,7 +10,6 @@ var current_scene
 @export var player_name := ""
 
 func _ready():
-	
 	load_level(title_scene)
 
 func load_level(level: PackedScene): #Takes preloaded scenes and swaps them with the current one.

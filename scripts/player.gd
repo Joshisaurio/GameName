@@ -53,14 +53,6 @@ func _ready():
 
 	if CAPTURE_MOUSE_ON_START:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-		
-func choose(options):
-	options.shuffle()
-	return options.front()
-
-func choose(options):
-	options.shuffle()
-	return options.front()
 
 func _physics_process(delta):
 	if Engine.is_editor_hint():
@@ -88,9 +80,9 @@ func _unhandled_input(event):
 			if collided:
 				print("Raycast collided with " + collided.get_class())
 				if collided is Door:
-					collided._toggle_door()
-					collided._toggle_camera_focus()
-				
+					collided.door_interaction_requested.connect(_door_interaction, CONNECT_ONE_SHOT)
+					collided.clicked()
+					
 			
 	if event is InputEventMouseMotion && Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		set_rotation_target(event.relative)
@@ -142,7 +134,24 @@ func reset_head_bob(delta):
 	$Head.position = lerp($Head.position, head_start_pos, 2 * (1/HEAD_BOB_FREQUENCY) * delta)
 
 func movement_check():
-	print("Checking")
 	if moving:
-		var stepsound = choose([FootstepA, FootstepB, FootstepC, FootstepD])
-		audio_player.set_stream(stepsound) ; audio_player.pitch_scale = randf_range(0.7, 1.3) ; audio_player.play()
+		var footstep_sound = [FootstepA, FootstepB, FootstepC, FootstepD].pick_random()
+		
+		audio_player.set_stream(footstep_sound)
+		audio_player.pitch_scale = randf_range(0.7, 1.3) 
+		audio_player.play()
+
+func _door_interaction(door: Door) -> void:
+	if !door.open:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE # Temporary
+		MOVEMENT_ENABLED = false
+		HEAD_BOB_ENABLED = false
+		moving = false
+	else:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED # Temporary
+		MOVEMENT_ENABLED = true
+		HEAD_BOB_ENABLED = true
+		
+	door._toggle_door_state()
+		
+	
