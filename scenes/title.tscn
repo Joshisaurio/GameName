@@ -49,7 +49,7 @@ shader_parameter/enable_color_limitation = true
 shader_parameter/color_levels = 32
 shader_parameter/enable_dithering = true
 shader_parameter/dither_strength = 0.3
-shader_parameter/pixel_size = 4
+shader_parameter/pixel_size = 8
 
 [sub_resource type="QuadMesh" id="QuadMesh_foohx"]
 material = SubResource("ShaderMaterial_r16pc")
@@ -308,7 +308,7 @@ shader_parameter/uv2_scale = Vector3(1, 1, 1)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
 shader_parameter/texture_albedo = SubResource("GradientTexture2D_k80jl")
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_riraw"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_abtrp"]
 _surfaces = [{
 "aabb": AABB(-1, -1, -2.00115, 2, 2, 2),
 "format": 34896613377,
@@ -338,9 +338,9 @@ _surfaces = [{
 "vertex_data": PackedByteArray("/////wAA////////AAD///////8AAFTV//8AAAAA/////wAAAAD/v///AAAAAFTV/////////7///////////////////1TV//8AAP///7///wAA////v///AAD//1TVAAD//wAA//8AAP//AAD//wAA//8AAFTVAAAAAAAA//8AAAAAAAD/vwAAAAAAAFTVAAD//////78AAP///////wAA/////1TVAAAAAP///78AAAAA////vwAAAAD//1TV/7//v/9//7+qKqoq/7//vwAA/3+qKqoq//////9//7+qKqoq/////wAA/3+qKqoq/7//v/9//79U1VTV/7//vwAA/39U1VTV//////9//79U1VTV/////wAA/39U1VTV")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_riraw")
+shadow_mesh = SubResource("ArrayMesh_abtrp")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fxj6x"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_glaxh"]
 render_priority = 1
 transparency = 2
 alpha_scissor_threshold = 0.005
@@ -351,7 +351,7 @@ albedo_color = Color(0.999998, 0.999026, 0.563679, 1)
 albedo_texture = ExtResource("7_i031p")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_w5kuv"]
-material = SubResource("StandardMaterial3D_fxj6x")
+material = SubResource("StandardMaterial3D_glaxh")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_44af1"]
 size = Vector3(0.125061, 0.0439453, 1)
@@ -365,7 +365,7 @@ size = Vector3(0.115601, 0.0478516, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d8ug4"]
 albedo_color = Color(0.745581, 0.74558, 0.74558, 1)
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_2actl"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_ii1la"]
 _surfaces = [{
 "aabb": AABB(-1, -1, -2.00115, 2, 2, 2),
 "format": 34896613377,
@@ -395,7 +395,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray("/////wAA////////AAD///////8AAFTV//8AAAAA/////wAAAAD/v///AAAAAFTV/////////7///////////////////1TV//8AAP///7///wAA////v///AAD//1TVAAD//wAA//8AAP//AAD//wAA//8AAFTVAAAAAAAA//8AAAAAAAD/vwAAAAAAAFTVAAD//////78AAP///////wAA/////1TVAAAAAP///78AAAAA////vwAAAAD//1TV/7//v/9//7+qKqoq/7//vwAA/3+qKqoq//////9//7+qKqoq/////wAA/3+qKqoq/7//v/9//79U1VTV/7//vwAA/39U1VTV//////9//79U1VTV/////wAA/39U1VTV")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_2actl")
+shadow_mesh = SubResource("ArrayMesh_ii1la")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o361r"]
 size = Vector3(0.283325, 0.0605469, 1)
@@ -435,7 +435,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray("/////wAA////////AAD///////8AAFTV//8AAAAA/////wAAAAD/v///AAAAAFTV/////////7///////////////////1TV//8AAP///7///wAA////v///AAD//1TVAAD//wAA//8AAP//AAD//wAA//8AAFTVAAAAAAAA//8AAAAAAAD/vwAAAAAAAFTVAAD//////78AAP///////wAA/////1TVAAAAAP///78AAAAA////vwAAAAD//1TV/7//v/9//7+qKqoq/7//vwAA/3+qKqoq//////9//7+qKqoq/////wAA/3+qKqoq/7//v/9//79U1VTV/7//vwAA/39U1VTV//////9//79U1VTV/////wAA/39U1VTV")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_2actl")
+shadow_mesh = SubResource("ArrayMesh_ii1la")
 
 [sub_resource type="Animation" id="Animation_rb1vw"]
 resource_name = "Fade"
@@ -1034,6 +1034,39 @@ color = Color(0, 0, 0, 0)
 
 [node name="Desk" parent="." instance=ExtResource("15_11m7v")]
 transform = Transform3D(-9.2547e-08, 0, -2.11723, 0, 2.11723, 0, 2.11723, 0, -9.2547e-08, -0.663615, 0.141526, 0.0822092)
+
+[node name="SetName" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="ColorRect" parent="SetName"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.74902)
+
+[node name="TextEdit" type="TextEdit" parent="SetName/BG"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = -20.0
+offset_right = 105.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "Landlord"
 
 [connection signal="input_event" from="FolderMenu/Front/Playlbl/PlayArea" to="." method="_on_play_area_input_event"]
 [connection signal="mouse_entered" from="FolderMenu/Front/Playlbl/PlayArea" to="." method="_on_play_area_mouse_entered"]

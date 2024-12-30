@@ -135,8 +135,8 @@ func movement_check():
 func raycast_check():
 	if Ray.is_colliding():
 		var obj = Ray.get_collider()
-		if obj.is_in_group("Interact"):
+		if obj.is_in_group("Interactable"):
 			print("You can interact with this object")
 			$UI/Dot.visible = true
 	else:
-		print("Cant see nothing")
+		$UI/Dot.visible = false

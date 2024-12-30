@@ -1,15 +1,16 @@
-[gd_scene load_steps=20 format=3 uid="uid://cdbr0ky4d6pof"]
+[gd_scene load_steps=23 format=3 uid="uid://cdbr0ky4d6pof"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_e5w8m"]
 [ext_resource type="AudioStream" uid="uid://cix3w21uo7use" path="res://assets/audio/Ambience/SFX - Fluorescent Light.wav" id="2_5mjnv"]
 [ext_resource type="Texture2D" uid="uid://d31enr2l8beft" path="res://Textures/TempTextures/Wood Planks/Planks_Albedo.png" id="3_3vxm0"]
 [ext_resource type="Texture2D" uid="uid://gwmh5hctqh1g" path="res://Textures/TempTextures/Wood Planks/Planks_AO.png" id="4_4prnw"]
-[ext_resource type="PackedScene" uid="uid://cumnita3y3x5e" path="res://scenes/stamping.tscn" id="5_8kp3t"]
-[ext_resource type="PackedScene" uid="uid://bhkk8d63777sk" path="res://scenes/intro.tscn" id="5_hddd8"]
+[ext_resource type="PackedScene" uid="uid://d3vkw2ho5rpbs" path="res://scenes/stamping.tscn" id="5_8kp3t"]
+[ext_resource type="PackedScene" path="res://scenes/intro.tscn" id="5_hddd8"]
 [ext_resource type="Texture2D" uid="uid://b4yqbyfs1e6gn" path="res://Textures/TempTextures/Wood Planks/Planks_Height.png" id="5_tm8s7"]
 [ext_resource type="Texture2D" uid="uid://dt1lnxl5h5b3h" path="res://Textures/TempTextures/Wood Planks/Planks_Normal.png" id="6_6mc2w"]
 [ext_resource type="Texture2D" uid="uid://bi661l2uyhc23" path="res://Textures/TempTextures/Wood Planks/Planks_Rough.png" id="7_f4c44"]
 [ext_resource type="Texture2D" uid="uid://b023ua1ok05em" path="res://Textures/Asset 631.png" id="8_mcwg1"]
+[ext_resource type="Texture2D" uid="uid://0e4kop5vr6m7" path="res://Textures/sponge.JPG" id="8_p75b8"]
 
 [sub_resource type="Environment" id="Environment_6phuy"]
 
@@ -37,6 +38,12 @@ albedo_color = Color(0.187176, 0.187176, 0.187176, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3jd2y"]
 albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_if3yo"]
+albedo_texture = ExtResource("8_p75b8")
+
+[sub_resource type="QuadMesh" id="QuadMesh_itkbl"]
+material = SubResource("StandardMaterial3D_if3yo")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_le75j"]
 transparency = 2
@@ -1113,6 +1120,15 @@ material = SubResource("StandardMaterial3D_3jd2y")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
 size = Vector3(6.88849, 4.7789, 6.55808)
 material = SubResource("StandardMaterial3D_3jd2y")
+
+[node name="???" type="MeshInstance3D" parent="Build/CentralWall"]
+transform = Transform3D(0.975487, 0, 0, 0, 1.4789, 0, 0, 0, 0.975487, -3.21809, 0.318583, 53.861)
+mesh = SubResource("QuadMesh_itkbl")
+
+[node name="Label3D" type="Label3D" parent="Build/CentralWall/???"]
+transform = Transform3D(0.644296, 0, 0, 0, 0.644296, 0, 0, 0, 0.644296, -0.00510526, 0.387087, 0.00344849)
+text = "Don't play landlord game at 3AM"
+font_size = 12
 
 [node name="Details" type="Node" parent="."]
 

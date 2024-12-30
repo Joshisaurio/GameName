@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://corx55jlcs8e5"]
+[gd_scene load_steps=34 format=4 uid="uid://ufsrh5wnvvtl"]
 
 [ext_resource type="PackedScene" uid="uid://6d27ul2h641w" path="res://Manage/player.tscn" id="1_btnst"]
 [ext_resource type="Texture2D" uid="uid://d31enr2l8beft" path="res://Textures/TempTextures/Wood Planks/Planks_Albedo.png" id="2_cxm1j"]
@@ -192,7 +192,7 @@ albedo_color = Color(0.0728426, 0.0728426, 0.0728426, 1)
 [node name="ProtoTypeMap" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_btnst")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 28.4767, 1.71655, 0.197725)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 28.4767, 1.0868, 0.197725)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_c8nwh")

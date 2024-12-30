@@ -1,0 +1,308 @@
+[gd_scene load_steps=20 format=4 uid="uid://c2wyslgjksukw"]
+
+[ext_resource type="Texture2D" uid="uid://pnl4o5e0dhlj" path="res://Textures/Logo/youreOutLogo.png" id="1_2qwt6"]
+[ext_resource type="Script" path="res://scripts/folder.gd" id="1_8swob"]
+[ext_resource type="FontFile" uid="uid://b85pwm2y0ga2i" path="res://Fonts/ARJULIAN.ttf" id="2_fi87u"]
+
+[sub_resource type="Shader" id="Shader_sfvb0"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.3.stable's StandardMaterial3D.
+
+shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_burley, specular_schlick_ggx;
+
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
+uniform float point_size : hint_range(0.1, 128.0, 0.1);
+
+uniform float roughness : hint_range(0.0, 1.0);
+uniform sampler2D texture_metallic : hint_default_white, filter_linear_mipmap, repeat_enable;
+uniform vec4 metallic_texture_channel;
+uniform sampler2D texture_roughness : hint_roughness_r, filter_linear_mipmap, repeat_enable;
+
+uniform float specular : hint_range(0.0, 1.0, 0.01);
+uniform float metallic : hint_range(0.0, 1.0, 0.01);
+
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+void vertex() {
+	UV = UV * uv1_scale.xy + uv1_offset.xy;
+}
+
+void fragment() {
+	vec2 base_uv = UV;
+
+	vec4 albedo_tex = texture(texture_albedo, base_uv);
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+
+	float metallic_tex = dot(texture(texture_metallic, base_uv), metallic_texture_channel);
+	METALLIC = metallic_tex * metallic;
+	SPECULAR = specular;
+
+	vec4 roughness_texture_channel = vec4(1.0, 0.0, 0.0, 0.0);
+	float roughness_tex = dot(texture(texture_roughness, base_uv), roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+}
+"
+
+[sub_resource type="Gradient" id="Gradient_ydiq2"]
+colors = PackedColorArray(0.99386, 1, 0.863988, 1, 1, 1, 0.360784, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_k80jl"]
+gradient = SubResource("Gradient_ydiq2")
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.483146, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_un6l3"]
+render_priority = 0
+shader = SubResource("Shader_sfvb0")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = null
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/texture_albedo = SubResource("GradientTexture2D_k80jl")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_riraw"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -2.00115, 2, 2, 2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAAGAAQAAAACAAYAAwAGAAIAAwAHAAYABwAEAAYABwAFAAQABQADAAEABQAHAAMAAQACAAAAAQADAAIABQAAAAQABQABAAAA"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/////wAAAAD//wAAAAAAAP///////wAA//8AAP//AAAAAP//AAAAAAAAAAAAAAAAAAD/////AAAAAAAA//8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ckuwm"]
+resource_name = "Folder__Cube"
+_surfaces = [{
+"aabb": AABB(-1, -1, -2.00115, 2, 2, 2),
+"attribute_data": PackedByteArray("/5//f/+f/3//n/9//1//f/9f/3//X/9//5//P/+f/z//n/8//1//P/9f/z//X/8//5//v//f/3//n/+//1//v/8f/3//X/+//58AAP/f/z//n////18AAP8f/z//X///"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AQATAA0AAQAHABMACQASAAYACQAVABIAFwAOABQAFwARAA4AEAAKAAQAEAAWAAoABQAIAAIABQALAAgADwAAAAwADwADAAAA"),
+"material": SubResource("ShaderMaterial_un6l3"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("/////wAA////////AAD///////8AAFTV//8AAAAA/////wAAAAD/v///AAAAAFTV/////////7///////////////////1TV//8AAP///7///wAA////v///AAD//1TVAAD//wAA//8AAP//AAD//wAA//8AAFTVAAAAAAAA//8AAAAAAAD/vwAAAAAAAFTVAAD//////78AAP///////wAA/////1TVAAAAAP///78AAAAA////vwAAAAD//1TV/7//v/9//7+qKqoq/7//vwAA/3+qKqoq//////9//7+qKqoq/////wAA/3+qKqoq/7//v/9//79U1VTV/7//vwAA/39U1VTV//////9//79U1VTV/////wAA/39U1VTV")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_riraw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fxj6x"]
+render_priority = 1
+transparency = 2
+alpha_scissor_threshold = 0.005
+alpha_antialiasing_mode = 0
+blend_mode = 3
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.999998, 0.999026, 0.563679, 1)
+albedo_texture = ExtResource("1_2qwt6")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_sswn7"]
+material = SubResource("StandardMaterial3D_fxj6x")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d8ug4"]
+albedo_color = Color(0.745581, 0.74558, 0.74558, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_2actl"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -2.00115, 2, 2, 2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAAGAAQAAAACAAYAAwAGAAIAAwAHAAYABwAEAAYABwAFAAQABQADAAEABQAHAAMAAQACAAAAAQADAAIABQAAAAQABQABAAAA"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/////wAAAAD//wAAAAAAAP///////wAA//8AAP//AAAAAP//AAAAAAAAAAAAAAAAAAD/////AAAAAAAA//8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_vb5u8"]
+resource_name = "Folder__Cube_001"
+_surfaces = [{
+"aabb": AABB(-1, -1, -2.00115, 2, 2, 2),
+"attribute_data": PackedByteArray("/5//f/+f/3//n/9//1//f/9f/3//X/9//5//P/+f/z//n/8//1//P/9f/z//X/8//5//v//f/3//n/+//1//v/8f/3//X/+//58AAP/f/z//n////18AAP8f/z//X///"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AQATAA0AAQAHABMACQASAAYACQAVABIAFwAOABQAFwARAA4AEAAKAAQAEAAWAAoABQAIAAIABQALAAgADwAAAAwADwADAAAA"),
+"material": SubResource("StandardMaterial3D_d8ug4"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("/////wAA////////AAD///////8AAFTV//8AAAAA/////wAAAAD/v///AAAAAFTV/////////7///////////////////1TV//8AAP///7///wAA////v///AAD//1TVAAD//wAA//8AAP//AAD//wAA//8AAFTVAAAAAAAA//8AAAAAAAD/vwAAAAAAAFTVAAD//////78AAP///////wAA/////1TVAAAAAP///78AAAAA////vwAAAAD//1TV/7//v/9//7+qKqoq/7//vwAA/3+qKqoq//////9//7+qKqoq/////wAA/3+qKqoq/7//v/9//79U1VTV/7//vwAA/39U1VTV//////9//79U1VTV/////wAA/39U1VTV")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_2actl")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5hjjc"]
+albedo_color = Color(1, 1, 0.360784, 1)
+albedo_texture = SubResource("GradientTexture2D_k80jl")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_kp6tq"]
+resource_name = "Folder__Cube_001"
+_surfaces = [{
+"aabb": AABB(-1, -1, -2.00115, 2, 2, 2),
+"attribute_data": PackedByteArray("/5//f/+f/3//n/9//1//f/9f/3//X/9//5//P/+f/z//n/8//1//P/9f/z//X/8//5//v//f/3//n/+//1//v/8f/3//X/+//58AAP/f/z//n////18AAP8f/z//X///"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AQATAA0AAQAHABMACQASAAYACQAVABIAFwAOABQAFwARAA4AEAAKAAQAEAAWAAoABQAIAAIABQALAAgADwAAAAwADwADAAAA"),
+"material": SubResource("StandardMaterial3D_5hjjc"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("/////wAA////////AAD///////8AAFTV//8AAAAA/////wAAAAD/v///AAAAAFTV/////////7///////////////////1TV//8AAP///7///wAA////v///AAD//1TVAAD//wAA//8AAP//AAD//wAA//8AAFTVAAAAAAAA//8AAAAAAAD/vwAAAAAAAFTVAAD//////78AAP///////wAA/////1TVAAAAAP///78AAAAA////vwAAAAD//1TV/7//v/9//7+qKqoq/7//vwAA/3+qKqoq//////9//7+qKqoq/////wAA/3+qKqoq/7//v/9//79U1VTV/7//vwAA/39U1VTV//////9//79U1VTV/////wAA/39U1VTV")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_2actl")
+
+[sub_resource type="Animation" id="Animation_xnx71"]
+resource_name = "Open"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Front:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 3.14159, 0), Vector3(3.09621, 3.14159, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Paper:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 3.14159, 0), Vector3(3.08923, 3.14159, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Front:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.00910546, -0.390115), Vector3(0, 0.00250646, -0.390115)]
+}
+
+[sub_resource type="Animation" id="Animation_y4dh7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Front:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 3.14159, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Paper:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 3.14159, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Front:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.00910546, -0.390115)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x8opn"]
+_data = {
+"Open": SubResource("Animation_xnx71"),
+"RESET": SubResource("Animation_y4dh7")
+}
+
+[node name="FolderMenu" type="Node3D"]
+transform = Transform3D(0.421271, 0, 0, 0, 0.35462, 0, 0, 0, 0.315193, 0, 0, 0)
+script = ExtResource("1_8swob")
+
+[node name="Front" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.414976, 0, 5.56549e-08, 0, 0.000773191, 0, -6.26596e-08, 0, -0.368586, 0, 0.00910546, -0.390115)
+cast_shadow = 0
+mesh = SubResource("ArrayMesh_ckuwm")
+skeleton = NodePath("")
+
+[node name="LogoSpot" type="MeshInstance3D" parent="Front"]
+transform = Transform3D(0.00196172, 0, 0.458604, 0, 245.968, 0, -0.55881, 0, -0.00856351, -0.586351, 1.73193, -0.591414)
+mesh = SubResource("PlaneMesh_sswn7")
+skeleton = NodePath("../..")
+
+[node name="Title2" type="Label3D" parent="Front"]
+transform = Transform3D(0.0214479, -5.3289, -2.34057e-07, 9.1457e-07, -9.18602e-07, 21.0204, -6.10963, 0.0995067, 3.07709e-07, -0.552229, 13.5715, -1.15973)
+pixel_size = 0.0015
+render_priority = 1
+modulate = Color(0, 0, 0, 1)
+text = "The landlords
+guide to eviction"
+font = ExtResource("2_fi87u")
+font_size = 10
+outline_size = 0
+horizontal_alignment = 0
+
+[node name="Paper" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.40157, 0, 5.41866e-08, 0, 0.000773191, 0, -6.06354e-08, 0, -0.358862, 0, 0.00653227, -0.379069)
+mesh = SubResource("ArrayMesh_vb5u8")
+skeleton = NodePath("")
+
+[node name="Paper2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.40157, 0, 3.13727e-08, 0, 0.000773191, 0, -3.51064e-08, 0, -0.358862, 0, -0.00576359, -0.390115)
+mesh = SubResource("ArrayMesh_vb5u8")
+skeleton = NodePath("")
+
+[node name="Back" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.414976, 0, 3.44192e-08, 0, 0.000773191, 0, -3.62783e-08, 0, -0.393709, 0, -0.00949294, -0.390115)
+mesh = SubResource("ArrayMesh_kp6tq")
+skeleton = NodePath("")
+
+[node name="FolderSound" type="AudioStreamPlayer3D" parent="."]
+volume_db = 4.571
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_x8opn")
+}

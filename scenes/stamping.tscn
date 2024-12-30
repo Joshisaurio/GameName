@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://cumnita3y3x5e"]
+[gd_scene load_steps=23 format=4 uid="uid://d3vkw2ho5rpbs"]
 
 [ext_resource type="Script" path="res://scripts/stamping.gd" id="1_iqntg"]
 [ext_resource type="Texture2D" uid="uid://c48te6oks4h2s" path="res://Textures/Model Textures/Desk/YouAreOut(SP)_UVGrid_BaseColor.1001.png" id="2_tgls6"]
@@ -52,10 +52,10 @@ shadow_mesh = SubResource("ArrayMesh_fjfpn")
 albedo_texture = ExtResource("2_tgls6")
 metallic_specular = 0.15
 metallic_texture = ExtResource("3_xcxrf")
-roughness = 0.34
+roughness = 0.65
 roughness_texture = ExtResource("5_n710n")
 normal_enabled = true
-normal_scale = 2.8
+normal_scale = 1.75
 normal_texture = ExtResource("4_53mpr")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5ypl8"]
@@ -75,7 +75,7 @@ shader_parameter/enable_color_limitation = true
 shader_parameter/color_levels = 32
 shader_parameter/enable_dithering = true
 shader_parameter/dither_strength = 0.3
-shader_parameter/pixel_size = 8
+shader_parameter/pixel_size = 4
 
 [sub_resource type="QuadMesh" id="QuadMesh_taeuy"]
 material = SubResource("ShaderMaterial_3leqx")
@@ -214,10 +214,10 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(-0.923547, 1.82297, 2.77713), Vector3(-0.923547, 1.82297, -0.0265827)]
+"values": [Vector3(-1.115, 2.155, 1.042), Vector3(-1.1146, 2.1549, -0.019083)]
 }
 
-[sub_resource type="Animation" id="Animation_dgarf"]
+[sub_resource type="Animation" id="Animation_ee7uq"]
 resource_name = "Page_Out"
 length = 0.3
 tracks/0/type = "value"
@@ -230,7 +230,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(-0.923547, 1.82297, -0.0265827), Vector3(-0.923547, 1.82297, -2.8342)]
+"values": [Vector3(-1.1146, 2.1549, -0.019083), Vector3(-1.115, 2.155, -1.22475)]
 }
 
 [sub_resource type="Animation" id="Animation_qt7qb"]
@@ -251,7 +251,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2aihm"]
 _data = {
 "Page_In": SubResource("Animation_q1deu"),
-"Page_Out": SubResource("Animation_dgarf"),
+"Page_Out": SubResource("Animation_ee7uq"),
 "RESET": SubResource("Animation_qt7qb")
 }
 

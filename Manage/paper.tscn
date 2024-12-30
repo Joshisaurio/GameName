@@ -52,7 +52,7 @@ cache/0/46/0/underline_thickness = 0.0
 cache/0/46/0/scale = 1.0
 
 [node name="Paper" type="MeshInstance3D"]
-transform = Transform3D(3.73162e-08, 0, 0.352031, -2.48775e-08, -1, 4.03572e-15, 0.284565, -8.74228e-08, -4.61633e-08, 0, 0, 0)
+transform = Transform3D(1.80135e-08, 0, 0.169935, -1.2009e-08, -0.482726, 1.94815e-15, 0.137367, -4.22013e-08, -2.22842e-08, 0, 0, 0)
 mesh = SubResource("PlaneMesh_yvk1a")
 script = ExtResource("2_ikl7i")
 

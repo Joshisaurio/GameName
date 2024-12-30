@@ -17,7 +17,7 @@ shader_parameter/enable_color_limitation = true
 shader_parameter/color_levels = 32
 shader_parameter/enable_dithering = true
 shader_parameter/dither_strength = 0.3
-shader_parameter/pixel_size = 8
+shader_parameter/pixel_size = 4
 
 [sub_resource type="QuadMesh" id="QuadMesh_c5ll7"]
 material = SubResource("ShaderMaterial_il5kj")
