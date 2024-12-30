@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bvbx2ing88cfu"
+path="res://.godot/imported/SFX - UI folder Close.wav-4403122e656ec0df72ac1be5c123744c.sample"
+
+[deps]
+
+source_file="res://assets/audio/UI/SFX - UI folder Close.wav"
+dest_files=["res://.godot/imported/SFX - UI folder Close.wav-4403122e656ec0df72ac1be5c123744c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

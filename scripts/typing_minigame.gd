@@ -55,7 +55,7 @@ func _process(delta):
 		$TimeBonus.text = "Time bonus: " + str(50-round(50 * time/maxtime))
 	else:
 		$TimeBonus.text = "Time bonus: 0"
-
+	
 func _unhandled_input(event: InputEvent) -> void:
 	if input_enabled and event is InputEventKey and not event.is_pressed():
 		if event.keycode < KEY_A or event.keycode > KEY_Z:

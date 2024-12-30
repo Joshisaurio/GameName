@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://gbojdi3xktdn"]
+[gd_scene load_steps=45 format=4 uid="uid://b0c1cjw0ww7k4"]
 
 [ext_resource type="Script" path="res://scripts/title.gd" id="1_25y5n"]
 [ext_resource type="Texture2D" uid="uid://d31enr2l8beft" path="res://Textures/TempTextures/Wood Planks/Planks_Albedo.png" id="1_ji2vu"]
@@ -8,8 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://bi661l2uyhc23" path="res://Textures/TempTextures/Wood Planks/Planks_Rough.png" id="5_sry3t"]
 [ext_resource type="Shader" path="res://scripts/Shaders/PixelDither.gdshader" id="6_mrb2e"]
 [ext_resource type="Texture2D" uid="uid://pnl4o5e0dhlj" path="res://Textures/Logo/youreOutLogo.png" id="7_i031p"]
-[ext_resource type="FontFile" uid="uid://b85pwm2y0ga2i" path="res://Fonts/ARJULIAN.ttf" id="8_rprnk"]
-[ext_resource type="FontFile" uid="uid://bvbm4u6y1bvfr" path="res://Fonts/AdobeGurmukhi-Bold.otf" id="9_6v78o"]
+[ext_resource type="FontFile" uid="uid://b85pwm2y0ga2i" path="res://ARJULIAN.ttf" id="8_rprnk"]
+[ext_resource type="FontFile" uid="uid://bvbm4u6y1bvfr" path="res://AdobeGurmukhi-Bold.otf" id="9_6v78o"]
+[ext_resource type="AudioStream" uid="uid://vmrlyhdxfyg2" path="res://assets/audio/UI/SFX - UI Hover.wav" id="11_dnt25"]
+[ext_resource type="AudioStream" uid="uid://dqvxrnfjbxjs1" path="res://assets/audio/UI/SFX - UI Select (click).wav" id="12_8y5xm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hcodw"]
 albedo_color = Color(0.472846, 0.385525, 0.171227, 1)
@@ -26,7 +28,7 @@ heightmap_texture = ExtResource("3_3vp0y")
 uv1_scale = Vector3(0.305, 0.305, 0.305)
 uv1_triplanar = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3leqx"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r16pc"]
 render_priority = 0
 shader = ExtResource("6_mrb2e")
 shader_parameter/enable_fog = true
@@ -43,8 +45,70 @@ shader_parameter/dither_strength = 0.3
 shader_parameter/pixel_size = 4
 
 [sub_resource type="QuadMesh" id="QuadMesh_foohx"]
-material = SubResource("ShaderMaterial_3leqx")
+material = SubResource("ShaderMaterial_r16pc")
 size = Vector2(2, 2)
+
+[sub_resource type="Animation" id="Animation_g34lr"]
+resource_name = "Camera"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.41655, 2.56875, 4.76837e-07), Vector3(-1.41655, 2.54251, 4.76837e-07), Vector3(-1.41655, 2.56875, 4.76837e-07)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.887343, -1.5708, 5.36739e-08), Vector3(-0.926124, -1.5708, 5.64941e-08), Vector3(-0.887343, -1.5708, 5.36739e-08)]
+}
+
+[sub_resource type="Animation" id="Animation_4vcvb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.41655, 2.56875, 4.76837e-07)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.887343, -1.5708, 5.36739e-08)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o77eu"]
+_data = {
+"Camera": SubResource("Animation_g34lr"),
+"RESET": SubResource("Animation_4vcvb")
+}
 
 [sub_resource type="Animation" id="Animation_f1ai6"]
 resource_name = "Flip"
@@ -83,6 +147,49 @@ _data = {
 "RESET": SubResource("Animation_shc1x")
 }
 
+[sub_resource type="Shader" id="Shader_sfvb0"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.3.stable's StandardMaterial3D.
+
+shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_burley, specular_schlick_ggx;
+
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
+uniform float point_size : hint_range(0.1, 128.0, 0.1);
+
+uniform float roughness : hint_range(0.0, 1.0);
+uniform sampler2D texture_metallic : hint_default_white, filter_linear_mipmap, repeat_enable;
+uniform vec4 metallic_texture_channel;
+uniform sampler2D texture_roughness : hint_roughness_r, filter_linear_mipmap, repeat_enable;
+
+uniform float specular : hint_range(0.0, 1.0, 0.01);
+uniform float metallic : hint_range(0.0, 1.0, 0.01);
+
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+void vertex() {
+	UV = UV * uv1_scale.xy + uv1_offset.xy;
+}
+
+void fragment() {
+	vec2 base_uv = UV;
+
+	vec4 albedo_tex = texture(texture_albedo, base_uv);
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+
+	float metallic_tex = dot(texture(texture_metallic, base_uv), metallic_texture_channel);
+	METALLIC = metallic_tex * metallic;
+	SPECULAR = specular;
+
+	vec4 roughness_texture_channel = vec4(1.0, 0.0, 0.0, 0.0);
+	float roughness_tex = dot(texture(texture_roughness, base_uv), roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+}
+"
+
 [sub_resource type="Gradient" id="Gradient_ydiq2"]
 colors = PackedColorArray(0.99386, 1, 0.863988, 1, 1, 1, 0.360784, 1)
 
@@ -91,9 +198,20 @@ gradient = SubResource("Gradient_ydiq2")
 fill_from = Vector2(0.5, 1)
 fill_to = Vector2(0.483146, 0)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5hjjc"]
-albedo_color = Color(1, 1, 0.360784, 1)
-albedo_texture = SubResource("GradientTexture2D_k80jl")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_un6l3"]
+render_priority = 0
+shader = SubResource("Shader_sfvb0")
+shader_parameter/albedo = Color(1, 1, 0.360784, 1)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = null
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/texture_albedo = SubResource("GradientTexture2D_k80jl")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_riraw"]
 _surfaces = [{
@@ -117,7 +235,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 36,
 "index_data": PackedByteArray("AQATAA0AAQAHABMACQASAAYACQAVABIAFwAOABQAFwARAA4AEAAKAAQAEAAWAAoABQAIAAIABQALAAgADwAAAAwADwADAAAA"),
-"material": SubResource("StandardMaterial3D_5hjjc"),
+"material": SubResource("ShaderMaterial_un6l3"),
 "name": "Material",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -194,6 +312,10 @@ size = Vector3(0.262207, 0.0512085, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_hmnqp"]
 size = Vector3(0.170532, 0.0517578, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5hjjc"]
+albedo_color = Color(1, 1, 0.360784, 1)
+albedo_texture = SubResource("GradientTexture2D_k80jl")
+
 [sub_resource type="ArrayMesh" id="ArrayMesh_obcs1"]
 resource_name = "Folder__Cube_001"
 _surfaces = [{
@@ -211,67 +333,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_2actl")
-
-[sub_resource type="Animation" id="Animation_vty6x"]
-resource_name = "Cam"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera3D:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(-1.41655, 2.56875, 4.76837e-07), Vector3(-1.41655, 2.56588, 4.76837e-07), Vector3(-1.41655, 2.56875, 4.76837e-07)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Camera3D:rotation")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(-0.887343, -1.5708, 5.36738e-08), Vector3(-0.920993, -1.5708, 5.61045e-08), Vector3(-0.887343, -1.5708, 5.36738e-08)]
-}
-
-[sub_resource type="Animation" id="Animation_3irpp"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera3D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-1.41655, 2.56875, 4.76837e-07)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Camera3D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.887343, -1.5708, 5.36738e-08)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_l25hj"]
-_data = {
-"Cam": SubResource("Animation_vty6x"),
-"RESET": SubResource("Animation_3irpp")
-}
 
 [sub_resource type="Animation" id="Animation_th0el"]
 resource_name = "data_reset"
@@ -330,11 +391,17 @@ material_override = SubResource("StandardMaterial3D_hcodw")
 size = Vector3(0.204712, 6, 12.3831)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-2.09288e-09, 0.775397, -0.631475, 3.38937e-08, 0.631475, 0.775397, 1, -1.97802e-08, -2.76026e-08, -1.41655, 2.56875, 4.76837e-07)
+transform = Transform3D(-3.57837e-06, 0.775397, -0.631475, 3.38937e-08, 0.631475, 0.775397, 1, 2.75326e-06, -2.28593e-06, -1.41655, 2.56875, 4.76837e-07)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.30557e-10, 0.0561032, 0.00527382)
 mesh = SubResource("QuadMesh_foohx")
+
+[node name="CamAnim" type="AnimationPlayer" parent="Camera3D"]
+libraries = {
+"": SubResource("AnimationLibrary_o77eu")
+}
+speed_scale = 0.3
 
 [node name="FolderMenu" type="Node3D" parent="."]
 transform = Transform3D(0.99914, 0, 0.0414571, 0, 1, 0, -0.0414571, 0, 0.99914, -0.0304, 0, -0.316145)
@@ -345,7 +412,7 @@ libraries = {
 }
 
 [node name="Front" type="MeshInstance3D" parent="FolderMenu"]
-transform = Transform3D(-0.414619, 0, 0.0152805, 0, 0.000773191, 0, -0.0172037, 0, -0.368269, -0.85245, 1.83485, -0.0593743)
+transform = Transform3D(-0.414619, 0, 0.0152818, 0, 0.000773191, 0, -0.0172052, 0, -0.368269, -0.85245, 1.83485, -0.0593743)
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_oyx4y")
 skeleton = NodePath("")
@@ -516,11 +583,16 @@ transform = Transform3D(-0.414619, 0, 0.016322, 0, 0.000773191, 0, -0.0172037, 0
 mesh = SubResource("ArrayMesh_obcs1")
 skeleton = NodePath("")
 
-[node name="TitleAnim" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_l25hj")
-}
-speed_scale = 0.2
+[node name="FolderSound" type="AudioStreamPlayer3D" parent="FolderMenu"]
+volume_db = 4.571
+
+[node name="UIHoverSound" type="AudioStreamPlayer3D" parent="FolderMenu"]
+stream = ExtResource("11_dnt25")
+max_polyphony = 5
+
+[node name="UIClickSound" type="AudioStreamPlayer3D" parent="FolderMenu"]
+stream = ExtResource("12_8y5xm")
+max_polyphony = 2
 
 [node name="2DUI" type="Control" parent="."]
 layout_mode = 3

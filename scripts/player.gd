@@ -58,6 +58,10 @@ func choose(options):
 	options.shuffle()
 	return options.front()
 
+func choose(options):
+	options.shuffle()
+	return options.front()
+
 func _physics_process(delta):
 	if Engine.is_editor_hint():
 		return
@@ -116,6 +120,9 @@ func move_player(delta):
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir = Input.get_vector("left", "right", "forward", "back")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+
+	if input_dir != Vector2.ZERO: moving = true #Im sorry for your eyes in advance
+	else: moving = false
 
 	velocity.x = move_toward(velocity.x, direction.x * speed, accel * delta)
 	velocity.z = move_toward(velocity.z, direction.z * speed, accel * delta)

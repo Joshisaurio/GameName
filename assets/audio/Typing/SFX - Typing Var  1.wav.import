@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b17l2ca46qmpf"
+path="res://.godot/imported/SFX - Typing Var  1.wav-cf411d2bf4946bd03e9f4d5bf0ea2b98.sample"
+
+[deps]
+
+source_file="res://assets/audio/Typing/SFX - Typing Var  1.wav"
+dest_files=["res://.godot/imported/SFX - Typing Var  1.wav-cf411d2bf4946bd03e9f4d5bf0ea2b98.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -58,7 +58,6 @@ offset_right = 144.0
 offset_bottom = 13.5
 grow_horizontal = 2
 grow_vertical = 2
-step = 1.0
 value = 5.0
 
 [node name="Control" type="Control" parent="."]

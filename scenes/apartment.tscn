@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cdbr0ky4d6pof"]
+[gd_scene load_steps=9 format=3 uid="uid://cdbr0ky4d6pof"]
 
 [ext_resource type="Texture2D" uid="uid://de7p7ycehj63i" path="res://Textures/TempTextures/Pixel 32x32/9.png" id="1_fdorb"]
 [ext_resource type="PackedScene" uid="uid://6d27ul2h641w" path="res://Manage/player.tscn" id="2_mmqls"]
+[ext_resource type="PackedScene" uid="uid://bj7nht67yf5v8" path="res://scenes/pause.tscn" id="3_6xk6e"]
 
 [sub_resource type="Environment" id="Environment_6phuy"]
 
@@ -14,13 +15,16 @@ uv1_triplanar = true
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lxs55"]
 albedo_color = Color(0.136826, 0.136826, 0.136826, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ymnjw"]
+albedo_color = Color(0.187176, 0.187176, 0.187176, 1)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3jd2y"]
 albedo_color = Color(0, 0, 0, 1)
 
 [node name="Apartment" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("2_mmqls")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.63939, 0)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.63939, -50.6548)
 
 [node name="CollisionMap" type="Node" parent="."]
 
@@ -33,6 +37,70 @@ environment = SubResource("Environment_6phuy")
 transform = Transform3D(1, 0, 0, 0, -0.0656295, 0.997844, 0, -0.997844, -0.0656295, 0, 0, 0)
 
 [node name="Lights" type="Node" parent="."]
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.130009, 4.85803, 3.43935)
+light_energy = 16.0
+shadow_enabled = true
+spot_range = 9.33784
+spot_attenuation = 1.14
+spot_angle = 74.873
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.130009, 4.85803, 25.7753)
+light_energy = 16.0
+shadow_enabled = true
+spot_range = 9.33784
+spot_attenuation = 1.14
+spot_angle = 74.873
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.130009, 4.85803, -10.1465)
+light_energy = 16.0
+shadow_enabled = true
+spot_range = 9.33784
+spot_attenuation = 1.14
+spot_angle = 74.873
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.130009, 4.85803, -30.8292)
+light_energy = 16.0
+shadow_enabled = true
+spot_range = 9.33784
+spot_attenuation = 1.14
+spot_angle = 74.873
+
+[node name="SpotLight3D6" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -28.0269, 4.85803, -30.8292)
+light_energy = 16.0
+shadow_enabled = true
+spot_range = 9.33784
+spot_attenuation = 1.14
+spot_angle = 74.873
+
+[node name="SpotLight3D7" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -28.0269, 4.85803, 3.49466)
+light_energy = 16.0
+shadow_enabled = true
+spot_range = 9.33784
+spot_attenuation = 1.14
+spot_angle = 74.873
+
+[node name="SpotLight3D8" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 28.427, 4.85803, -9.26217)
+light_energy = 16.0
+shadow_enabled = true
+spot_range = 9.33784
+spot_attenuation = 1.14
+spot_angle = 74.873
+
+[node name="SpotLight3D9" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 28.427, 4.85803, 26.6079)
+light_energy = 16.0
+shadow_enabled = true
+spot_range = 9.33784
+spot_attenuation = 1.14
+spot_angle = 74.873
 
 [node name="Build" type="Node" parent="."]
 
@@ -53,6 +121,7 @@ material = SubResource("StandardMaterial3D_5bkkc")
 
 [node name="CentralWall" type="CSGBox3D" parent="Build"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00396156, 2.14395, 0.473261)
+material_override = SubResource("StandardMaterial3D_ymnjw")
 use_collision = true
 size = Vector3(111.481, 5.25372, 119.334)
 
@@ -138,6 +207,12 @@ material = SubResource("StandardMaterial3D_3jd2y")
 [node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout56"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
 size = Vector3(6.88849, 4.7789, 6.55808)
+material = SubResource("StandardMaterial3D_3jd2y")
+
+[node name="RoomCutout83" type="CSGBox3D" parent="Build/CentralWall"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.111918, -0.483662, -47.5598)
+operation = 2
+size = Vector3(1.95605, 3.2413, 0.684021)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="RoomCutout57" type="CSGBox3D" parent="Build/CentralWall"]
@@ -603,7 +678,7 @@ size = Vector3(6.53018, 4.7789, 6.55808)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="RoomCutout75" type="CSGBox3D" parent="Build/CentralWall"]
-transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, -47.81, -0.463687, 0.279181)
+transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, -47.81, -0.463687, 0.334523)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
 material = SubResource("StandardMaterial3D_3jd2y")
@@ -614,7 +689,7 @@ size = Vector3(6.88849, 4.7789, 6.55808)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="RoomCutout76" type="CSGBox3D" parent="Build/CentralWall"]
-transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, -41.0018, -0.463687, 0.279181)
+transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, -41.0018, -0.463687, 0.346212)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
 material = SubResource("StandardMaterial3D_3jd2y")
@@ -997,3 +1072,745 @@ material = SubResource("StandardMaterial3D_3jd2y")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
 size = Vector3(6.88849, 4.7789, 6.55808)
 material = SubResource("StandardMaterial3D_3jd2y")
+
+[node name="Details" type="Node" parent="."]
+
+[node name="Room" type="Label3D" parent="Details"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.44059, 2.68283, -35.5272)
+pixel_size = 0.0005
+text = "3
+   0
+       1"
+font_size = 487
+outline_size = 3
+
+[node name="Room2" type="Label3D" parent="Details"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.44059, 2.68283, -27.9541)
+pixel_size = 0.0005
+text = "3
+   0
+       2"
+font_size = 487
+outline_size = 3
+
+[node name="Room3" type="Label3D" parent="Details"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.44059, 2.68283, -20.4269)
+pixel_size = 0.0005
+text = "3
+   0
+       3"
+font_size = 487
+outline_size = 3
+
+[node name="Room4" type="Label3D" parent="Details"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.56948, 2.68283, -12.6756)
+pixel_size = 0.0005
+text = "3
+   0
+       4"
+font_size = 487
+outline_size = 3
+
+[node name="Room5" type="Label3D" parent="Details"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.2863, 2.68283, -12.6756)
+pixel_size = 0.0005
+text = "3
+   0
+       5"
+font_size = 487
+outline_size = 3
+
+[node name="Room6" type="Label3D" parent="Details"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.9069, 2.68283, -12.6756)
+pixel_size = 0.0005
+text = "3
+   0
+       6"
+font_size = 487
+outline_size = 3
+
+[node name="Room7" type="Label3D" parent="Details"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.5205, 2.68283, -12.6756)
+pixel_size = 0.0005
+text = "3
+   0
+       7"
+font_size = 487
+outline_size = 3
+
+[node name="Room8" type="Label3D" parent="Details"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.2259, 2.68283, -12.6756)
+pixel_size = 0.0005
+text = "3
+   0
+       8"
+font_size = 487
+outline_size = 3
+
+[node name="Room9" type="Label3D" parent="Details"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.8943, 2.68283, -12.6756)
+pixel_size = 0.0005
+text = "3
+   0
+      9"
+font_size = 487
+outline_size = 3
+
+[node name="Room10" type="Label3D" parent="Details"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.2279, 2.68283, -12.6756)
+pixel_size = 0.0005
+text = "3
+   1
+      0"
+font_size = 487
+outline_size = 3
+
+[node name="Room11" type="Label3D" parent="Details"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 45.9752, 2.68283, -7.5944)
+pixel_size = 0.0005
+text = "3
+   1
+      1"
+font_size = 487
+outline_size = 3
+
+[node name="Room12" type="Label3D" parent="Details"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 38.5319, 2.68283, -7.5944)
+pixel_size = 0.0005
+text = "3
+   1
+      2"
+font_size = 487
+outline_size = 3
+
+[node name="Room13" type="Label3D" parent="Details"]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 30.8546, 2.68283, -0.554942)
+pixel_size = 0.0005
+text = "3
+   1
+      3"
+font_size = 487
+outline_size = 3
+
+[node name="Room14" type="Label3D" parent="Details"]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 30.8546, 2.68283, 7.46002)
+pixel_size = 0.0005
+text = "3
+   1
+      4"
+font_size = 487
+outline_size = 3
+
+[node name="Room15" type="Label3D" parent="Details"]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 30.8546, 2.68283, 15.429)
+pixel_size = 0.0005
+text = "3
+   1
+      5"
+font_size = 487
+outline_size = 3
+
+[node name="Room16" type="Label3D" parent="Details"]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 30.8546, 2.68283, 23.5785)
+pixel_size = 0.0005
+text = "3
+   1
+      6"
+font_size = 487
+outline_size = 3
+
+[node name="Room17" type="Label3D" parent="Details"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 44.9315, 2.68283, 24.0778)
+pixel_size = 0.0005
+text = "3
+   1
+      7"
+font_size = 487
+outline_size = 3
+
+[node name="Room18" type="Label3D" parent="Details"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 52.8139, 2.68283, 24.0778)
+pixel_size = 0.0005
+text = "3
+   1
+      8"
+font_size = 487
+outline_size = 3
+
+[node name="Room19" type="Label3D" parent="Details"]
+transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 48.8471, 2.68283, 29.1881)
+pixel_size = 0.0005
+text = "3
+   1
+      9"
+font_size = 487
+outline_size = 3
+
+[node name="Room20" type="Label3D" parent="Details"]
+transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 41.2802, 2.68283, 29.1881)
+pixel_size = 0.0005
+text = "3
+   2
+      0"
+font_size = 487
+outline_size = 3
+
+[node name="Room21" type="Label3D" parent="Details"]
+transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 37.156, 2.68283, 29.1881)
+pixel_size = 0.0005
+text = "3
+   2
+      1"
+font_size = 487
+outline_size = 3
+
+[node name="Room22" type="Label3D" parent="Details"]
+transform = Transform3D(3.0598e-07, 0, -1, 0, 1, 0, 1, 0, 3.0598e-07, 30.8501, 2.68283, 36.1152)
+pixel_size = 0.0005
+text = "3
+   2
+      2"
+font_size = 487
+outline_size = 3
+
+[node name="Room23" type="Label3D" parent="Details"]
+transform = Transform3D(3.0598e-07, 0, -1, 0, 1, 0, 1, 0, 3.0598e-07, 30.8501, 2.68283, 43.4387)
+pixel_size = 0.0005
+text = "3
+   2
+      3"
+font_size = 487
+outline_size = 3
+
+[node name="Room24" type="Label3D" parent="Details"]
+transform = Transform3D(3.0598e-07, 0, -1, 0, 1, 0, 1, 0, 3.0598e-07, 30.8501, 2.68283, 51.0788)
+pixel_size = 0.0005
+text = "3
+   2
+      4"
+font_size = 487
+outline_size = 3
+
+[node name="Room25" type="Label3D" parent="Details"]
+transform = Transform3D(3.0598e-07, 0, -1, 0, 1, 0, 1, 0, 3.0598e-07, 30.8501, 2.68283, 58.3599)
+pixel_size = 0.0005
+text = "3
+   2
+      5"
+font_size = 487
+outline_size = 3
+
+[node name="Room26" type="Label3D" parent="Details"]
+transform = Transform3D(-3.93403e-07, 0, 1, 0, 1, 0, -1, 0, -3.93403e-07, 25.7465, 2.68283, 51.8613)
+pixel_size = 0.0005
+text = "3
+   2
+      6"
+font_size = 487
+outline_size = 3
+
+[node name="Room27" type="Label3D" parent="Details"]
+transform = Transform3D(-3.93403e-07, 0, 1, 0, 1, 0, -1, 0, -3.93403e-07, 25.7465, 2.68283, 44.4272)
+pixel_size = 0.0005
+text = "3
+   2
+      7"
+font_size = 487
+outline_size = 3
+
+[node name="Room28" type="Label3D" parent="Details"]
+transform = Transform3D(-3.93403e-07, 0, 1, 0, 1, 0, -1, 0, -3.93403e-07, 25.7465, 2.68283, 37.1214)
+pixel_size = 0.0005
+text = "3
+   2
+      8"
+font_size = 487
+outline_size = 3
+
+[node name="Room29" type="Label3D" parent="Details"]
+transform = Transform3D(-3.93403e-07, 0, 1, 0, 1, 0, -1, 0, -3.93403e-07, 25.7465, 2.68283, 29.7437)
+pixel_size = 0.0005
+text = "3
+   2
+      9"
+font_size = 487
+outline_size = 3
+
+[node name="Room30" type="Label3D" parent="Details"]
+transform = Transform3D(-1, 0, -4.37114e-07, 0, 1, 0, 4.37114e-07, 0, -1, 11.3309, 2.68283, 29.1892)
+pixel_size = 0.0005
+text = "3
+   3
+      0"
+font_size = 487
+outline_size = 3
+
+[node name="Room31" type="Label3D" parent="Details"]
+transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, 2.54737, 2.68283, 36.09)
+pixel_size = 0.0005
+text = "3
+   3
+      1"
+font_size = 487
+outline_size = 3
+
+[node name="Room32" type="Label3D" parent="Details"]
+transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, 2.54737, 2.68283, 43.6803)
+pixel_size = 0.0005
+text = "3
+   3
+      2"
+font_size = 487
+outline_size = 3
+
+[node name="Room33" type="Label3D" parent="Details"]
+transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, 2.54737, 2.68283, 51.023)
+pixel_size = 0.0005
+text = "3
+   3
+      3"
+font_size = 487
+outline_size = 3
+
+[node name="Room34" type="Label3D" parent="Details"]
+transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, 2.54737, 2.68283, 58.3752)
+pixel_size = 0.0005
+text = "3
+   3
+      4"
+font_size = 487
+outline_size = 3
+
+[node name="Room35" type="Label3D" parent="Details"]
+transform = Transform3D(-3.93403e-07, 0, 1, 0, 1, 0, -1, 0, -3.93403e-07, -2.54816, 2.68283, 54.8825)
+pixel_size = 0.0005
+text = "3
+   3
+      5"
+font_size = 487
+outline_size = 3
+
+[node name="Room36" type="Label3D" parent="Details"]
+transform = Transform3D(-3.93403e-07, 0, 1, 0, 1, 0, -1, 0, -3.93403e-07, -2.54816, 2.68283, 46.7399)
+pixel_size = 0.0005
+text = "3
+   3
+      6"
+font_size = 487
+outline_size = 3
+
+[node name="Room37" type="Label3D" parent="Details"]
+transform = Transform3D(-3.93403e-07, 0, 1, 0, 1, 0, -1, 0, -3.93403e-07, -2.54816, 2.68283, 38.8399)
+pixel_size = 0.0005
+text = "3
+   3
+      7"
+font_size = 487
+outline_size = 3
+
+[node name="Room38" type="Label3D" parent="Details"]
+transform = Transform3D(-3.93403e-07, 0, 1, 0, 1, 0, -1, 0, -3.93403e-07, -2.54816, 2.68283, 30.7632)
+pixel_size = 0.0005
+text = "3
+   3
+      8"
+font_size = 487
+outline_size = 3
+
+[node name="Room39" type="Label3D" parent="Details"]
+transform = Transform3D(-3.93403e-07, 0, 1, 0, 1, 0, -1, 0, -3.93403e-07, -2.54816, 2.68283, 22.7326)
+pixel_size = 0.0005
+text = "3
+   3
+      9"
+font_size = 487
+outline_size = 3
+
+[node name="Room40" type="Label3D" parent="Details"]
+transform = Transform3D(-3.93403e-07, 0, 1, 0, 1, 0, -1, 0, -3.93403e-07, -2.54816, 2.68283, 14.6084)
+pixel_size = 0.0005
+text = "3
+   4
+      0"
+font_size = 487
+outline_size = 3
+
+[node name="Room41" type="Label3D" parent="Details"]
+transform = Transform3D(-3.93403e-07, 0, 1, 0, 1, 0, -1, 0, -3.93403e-07, -2.54816, 2.68283, 6.82248)
+pixel_size = 0.0005
+text = "3
+   4
+      1"
+font_size = 487
+outline_size = 3
+
+[node name="Room42" type="Label3D" parent="Details"]
+transform = Transform3D(-1, 0, -3.8743e-07, 0, 1, 0, 3.8743e-07, 0, -1, -16.4674, 2.68283, 6.03773)
+pixel_size = 0.0005
+text = "3
+   4
+      2"
+font_size = 487
+outline_size = 3
+
+[node name="Room43" type="Label3D" parent="Details"]
+transform = Transform3D(-1, 0, -3.8743e-07, 0, 1, 0, 3.8743e-07, 0, -1, -24.0525, 2.68283, 6.03773)
+pixel_size = 0.0005
+text = "3
+   4
+      3"
+font_size = 487
+outline_size = 3
+
+[node name="Room44" type="Label3D" parent="Details"]
+transform = Transform3D(-1, 0, -3.8743e-07, 0, 1, 0, 3.8743e-07, 0, -1, -31.6981, 2.68283, 6.03773)
+pixel_size = 0.0005
+text = "3
+   4
+      4"
+font_size = 487
+outline_size = 3
+
+[node name="Room45" type="Label3D" parent="Details"]
+transform = Transform3D(-1, 0, -3.8743e-07, 0, 1, 0, 3.8743e-07, 0, -1, -39.1994, 2.68283, 6.03773)
+pixel_size = 0.0005
+text = "3
+   4
+      5"
+font_size = 487
+outline_size = 3
+
+[node name="Room46" type="Label3D" parent="Details"]
+transform = Transform3D(-1, 0, -3.8743e-07, 0, 1, 0, 3.8743e-07, 0, -1, -46.4235, 2.68283, 6.03773)
+pixel_size = 0.0005
+text = "3
+   4
+      6"
+font_size = 487
+outline_size = 3
+
+[node name="Room47" type="Label3D" parent="Details"]
+transform = Transform3D(-1, 0, -3.8743e-07, 0, 1, 0, 3.8743e-07, 0, -1, -53.0258, 2.68283, 6.03773)
+pixel_size = 0.0005
+text = "3
+   4
+      7"
+font_size = 487
+outline_size = 3
+
+[node name="Room48" type="Label3D" parent="Details"]
+transform = Transform3D(1, 0, 3.00007e-07, 0, 1, 0, -3.00007e-07, 0, 1, -46.3652, 2.68283, 0.92038)
+pixel_size = 0.0005
+text = "3
+   4
+      8"
+font_size = 487
+outline_size = 3
+
+[node name="Room49" type="Label3D" parent="Details"]
+transform = Transform3D(1, 0, 3.00007e-07, 0, 1, 0, -3.00007e-07, 0, 1, -39.4048, 2.68283, 0.92038)
+pixel_size = 0.0005
+text = "3
+   4
+      9"
+font_size = 487
+outline_size = 3
+
+[node name="Room50" type="Label3D" parent="Details"]
+transform = Transform3D(-3.43719e-07, 0, 1, 0, 1, 0, -1, 0, -3.43719e-07, -31.2878, 2.68283, -5.97844)
+pixel_size = 0.0005
+text = "3
+   5
+      0"
+font_size = 487
+outline_size = 3
+
+[node name="Room51" type="Label3D" parent="Details"]
+transform = Transform3D(-3.43719e-07, 0, 1, 0, 1, 0, -1, 0, -3.43719e-07, -31.2878, 2.68283, -13.6396)
+pixel_size = 0.0005
+text = "3
+   5
+      1"
+font_size = 487
+outline_size = 3
+
+[node name="Room52" type="Label3D" parent="Details"]
+transform = Transform3D(-3.43719e-07, 0, 1, 0, 1, 0, -1, 0, -3.43719e-07, -31.2878, 2.68283, -20.7198)
+pixel_size = 0.0005
+text = "3
+   5
+      2"
+font_size = 487
+outline_size = 3
+
+[node name="Room53" type="Label3D" parent="Details"]
+transform = Transform3D(-3.43719e-07, 0, 1, 0, 1, 0, -1, 0, -3.43719e-07, -31.2878, 2.68283, -28.1317)
+pixel_size = 0.0005
+text = "3
+   5
+      3"
+font_size = 487
+outline_size = 3
+
+[node name="Room54" type="Label3D" parent="Details"]
+transform = Transform3D(-1, 0, -3.8743e-07, 0, 1, 0, 3.8743e-07, 0, -1, -45.1903, 2.68283, -28.8474)
+pixel_size = 0.0005
+text = "3
+   5
+      4"
+font_size = 487
+outline_size = 3
+
+[node name="Room55" type="Label3D" parent="Details"]
+transform = Transform3D(-1, 0, -3.8743e-07, 0, 1, 0, 3.8743e-07, 0, -1, -52.9138, 2.68283, -28.8474)
+pixel_size = 0.0005
+text = "3
+   5
+      5"
+font_size = 487
+outline_size = 3
+
+[node name="Room56" type="Label3D" parent="Details"]
+transform = Transform3D(1, 0, 3.00007e-07, 0, 1, 0, -3.00007e-07, 0, 1, -48.9155, 2.68283, -33.9421)
+pixel_size = 0.0005
+text = "3
+   5
+      6"
+font_size = 487
+outline_size = 3
+
+[node name="Room57" type="Label3D" parent="Details"]
+transform = Transform3D(1, 0, 3.00007e-07, 0, 1, 0, -3.00007e-07, 0, 1, -41.1313, 2.68283, -33.9421)
+pixel_size = 0.0005
+text = "3
+   5
+      7"
+font_size = 487
+outline_size = 3
+
+[node name="Room58" type="Label3D" parent="Details"]
+transform = Transform3D(1, 0, 3.00007e-07, 0, 1, 0, -3.00007e-07, 0, 1, -33.7664, 2.68283, -33.9421)
+pixel_size = 0.0005
+text = "3
+   5
+      8"
+font_size = 487
+outline_size = 3
+
+[node name="Room59" type="Label3D" parent="Details"]
+transform = Transform3D(1, 0, 3.00007e-07, 0, 1, 0, -3.00007e-07, 0, 1, -27.184, 2.68283, -45.4295)
+pixel_size = 0.0005
+text = "3
+   5
+      9"
+font_size = 487
+outline_size = 3
+
+[node name="Room60" type="Label3D" parent="Details"]
+transform = Transform3D(1, 0, 3.00007e-07, 0, 1, 0, -3.00007e-07, 0, 1, -18.5844, 2.68283, -33.9345)
+pixel_size = 0.0005
+text = "3
+   6
+      0"
+font_size = 487
+outline_size = 3
+
+[node name="Room61" type="Label3D" parent="Details"]
+transform = Transform3D(1, 0, 3.00007e-07, 0, 1, 0, -3.00007e-07, 0, 1, -10.5812, 2.68283, -33.9345)
+pixel_size = 0.0005
+text = "3
+   6
+      1"
+font_size = 487
+outline_size = 3
+
+[node name="Room62" type="Label3D" parent="Details"]
+transform = Transform3D(-3.43719e-07, 0, 1, 0, 1, 0, -1, 0, -3.43719e-07, -2.55541, 2.68283, -41.0947)
+pixel_size = 0.0005
+text = "3
+   6
+      2"
+font_size = 487
+outline_size = 3
+
+[node name="Room63" type="Label3D" parent="Details"]
+transform = Transform3D(-3.43719e-07, 0, 1, 0, 1, 0, -1, 0, -3.43719e-07, -2.55541, 2.68283, -20.5886)
+pixel_size = 0.0005
+text = "3
+   6
+      3"
+font_size = 487
+outline_size = 3
+
+[node name="Room64" type="Label3D" parent="Details"]
+transform = Transform3D(-3.43719e-07, 0, 1, 0, 1, 0, -1, 0, -3.43719e-07, -2.55541, 2.68283, -12.9162)
+pixel_size = 0.0005
+text = "3
+   6
+      4"
+font_size = 487
+outline_size = 3
+
+[node name="Room65" type="Label3D" parent="Details"]
+transform = Transform3D(1, 0, 3.00007e-07, 0, 1, 0, -3.00007e-07, 0, 1, -3.18811, 2.68283, 0.942799)
+pixel_size = 0.0005
+text = "3
+   6
+      5"
+font_size = 487
+outline_size = 3
+
+[node name="Room66" type="Label3D" parent="Details"]
+transform = Transform3D(1, 0, 3.00007e-07, 0, 1, 0, -3.00007e-07, 0, 1, -10.9711, 2.68283, 0.942799)
+pixel_size = 0.0005
+text = "3
+   6
+      6"
+font_size = 487
+outline_size = 3
+
+[node name="Room67" type="Label3D" parent="Details"]
+transform = Transform3D(1, 0, 3.00007e-07, 0, 1, 0, -3.00007e-07, 0, 1, -18.6723, 2.68283, 0.942799)
+pixel_size = 0.0005
+text = "3
+   6
+     7"
+font_size = 487
+outline_size = 3
+
+[node name="Room68" type="Label3D" parent="Details"]
+transform = Transform3D(2.56296e-07, 0, -1, 0, 1, 0, 1, 0, 2.56296e-07, -26.1905, 2.68283, -7.04539)
+pixel_size = 0.0005
+text = "3
+   6
+     8"
+font_size = 487
+outline_size = 3
+
+[node name="Room69" type="Label3D" parent="Details"]
+transform = Transform3D(2.56296e-07, 0, -1, 0, 1, 0, 1, 0, 2.56296e-07, -26.1905, 2.68283, -14.4538)
+pixel_size = 0.0005
+text = "3
+   6
+     9"
+font_size = 487
+outline_size = 3
+
+[node name="Room70" type="Label3D" parent="Details"]
+transform = Transform3D(2.56296e-07, 0, -1, 0, 1, 0, 1, 0, 2.56296e-07, -26.1905, 2.68283, -21.8587)
+pixel_size = 0.0005
+text = "3
+   7
+     0"
+font_size = 487
+outline_size = 3
+
+[node name="Room71" type="Label3D" parent="Details"]
+transform = Transform3D(-1, 0, -2.12585e-07, 0, 1, 0, 2.12585e-07, 0, -1, -18.3238, 2.68283, -28.8337)
+pixel_size = 0.0005
+text = "3
+   7
+     1"
+font_size = 487
+outline_size = 3
+
+[node name="Room72" type="Label3D" parent="Details"]
+transform = Transform3D(-1, 0, -2.12585e-07, 0, 1, 0, 2.12585e-07, 0, -1, -10.4877, 2.68283, -28.8337)
+pixel_size = 0.0005
+text = "3
+   7
+     2"
+font_size = 487
+outline_size = 3
+
+[node name="Room73" type="Label3D" parent="Details"]
+transform = Transform3D(-1, 0, -2.12585e-07, 0, 1, 0, 2.12585e-07, 0, -1, 11.1993, 2.68283, -7.57574)
+pixel_size = 0.0005
+text = "3
+   7
+     3"
+font_size = 487
+outline_size = 3
+
+[node name="Room74" type="Label3D" parent="Details"]
+transform = Transform3D(-1.68873e-07, 0, 1, 0, 1, 0, -1, 0, -1.68873e-07, 25.7404, 2.68283, -6.9851)
+pixel_size = 0.0005
+text = "3
+   7
+     4"
+font_size = 487
+outline_size = 3
+
+[node name="Room75" type="Label3D" parent="Details"]
+transform = Transform3D(-1.68873e-07, 0, 1, 0, 1, 0, -1, 0, -1.68873e-07, 25.7404, 2.68283, 0.88266)
+pixel_size = 0.0005
+text = "3
+   7
+     5"
+font_size = 487
+outline_size = 3
+
+[node name="Room76" type="Label3D" parent="Details"]
+transform = Transform3D(-1.68873e-07, 0, 1, 0, 1, 0, -1, 0, -1.68873e-07, 25.7404, 2.68283, 9.01918)
+pixel_size = 0.0005
+text = "3
+   7
+     6"
+font_size = 487
+outline_size = 3
+
+[node name="Room77" type="Label3D" parent="Details"]
+transform = Transform3D(-1.68873e-07, 0, 1, 0, 1, 0, -1, 0, -1.68873e-07, 25.7404, 2.68283, 17.1345)
+pixel_size = 0.0005
+text = "3
+   7
+     7"
+font_size = 487
+outline_size = 3
+
+[node name="Room78" type="Label3D" parent="Details"]
+transform = Transform3D(1, 0, 1.25162e-07, 0, 1, 0, -1.25162e-07, 0, 1, 17.4328, 2.68283, 24.0884)
+pixel_size = 0.0005
+text = "3
+   7
+     8"
+font_size = 487
+outline_size = 3
+
+[node name="Room79" type="Label3D" parent="Details"]
+transform = Transform3D(8.14504e-08, 0, -1, 0, 1, 0, 1, 0, 8.14504e-08, 2.55986, 2.68283, 23.3821)
+pixel_size = 0.0005
+text = "3
+   7
+     9"
+font_size = 487
+outline_size = 3
+
+[node name="Room80" type="Label3D" parent="Details"]
+transform = Transform3D(8.14504e-08, 0, -1, 0, 1, 0, 1, 0, 8.14504e-08, 2.55986, 2.68283, 15.5665)
+pixel_size = 0.0005
+text = "3
+   8
+     0"
+font_size = 487
+outline_size = 3
+
+[node name="Room81" type="Label3D" parent="Details"]
+transform = Transform3D(8.14504e-08, 0, -1, 0, 1, 0, 1, 0, 8.14504e-08, 2.55986, 2.68283, 7.41079)
+pixel_size = 0.0005
+text = "3
+   8
+     1"
+font_size = 487
+outline_size = 3
+
+[node name="Room82" type="Label3D" parent="Details"]
+transform = Transform3D(8.14504e-08, 0, -1, 0, 1, 0, 1, 0, 8.14504e-08, 2.55986, 2.68283, -0.777623)
+pixel_size = 0.0005
+text = "3
+   8
+     2"
+font_size = 487
+outline_size = 3
+
+[node name="Pause" parent="." instance=ExtResource("3_6xk6e")]
