@@ -34,7 +34,18 @@ var rotation_target_head : float
 
 # Used when bobing head
 @onready var head_start_pos : Vector3 = $Head.position
+<<<<<<< Updated upstream
 @onready var Ray: RayCast3D = $Head/Look
+=======
+@onready var ray: RayCast3D = $Head/Look
+@onready var audio_player = $FootSteps
+
+#Footsteps to pick from
+const FootstepA = preload("res://assets/audio/General/SFX - Footstep 1.wav")
+const FootstepB = preload("res://assets/audio/General/SFX - Footstep 2.wav")
+const FootstepC = preload("res://assets/audio/General/SFX - Footstep 3.wav")
+const FootstepD = preload("res://assets/audio/General/SFX - Footstep 4.wav")
+>>>>>>> Stashed changes
 
 # Current player tick, used in head bob calculation
 var tick = 0
@@ -65,6 +76,17 @@ func _unhandled_input(event):
 	if Engine.is_editor_hint():
 		return
 		
+	if event is InputEventMouseButton and event.pressed:
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			var collided = ray.get_collider()
+			
+			if collided:
+				print("Raycast collided with " + collided.get_class())
+				if collided is Door:
+					collided._toggle_door()
+					collided._toggle_camera_focus()
+				
+			
 	if event is InputEventMouseMotion && Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		set_rotation_target(event.relative)
 
@@ -110,3 +132,12 @@ func reset_head_bob(delta):
 	if $Head.position == head_start_pos:
 		pass
 	$Head.position = lerp($Head.position, head_start_pos, 2 * (1/HEAD_BOB_FREQUENCY) * delta)
+<<<<<<< Updated upstream
+=======
+
+func movement_check():
+	print("Checking")
+	if moving:
+		var stepsound = choose([FootstepA, FootstepB, FootstepC, FootstepD])
+		audio_player.set_stream(stepsound) ; audio_player.pitch_scale = randf_range(0.7, 1.3) ; audio_player.play()
+>>>>>>> Stashed changes
