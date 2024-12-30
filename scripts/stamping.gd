@@ -13,6 +13,16 @@ var isSitting = true
 var active_player
 
 func _input(event):
+	if event is InputEventKey and next:
+		if event.keycode == KEY_ENTER:
+			gamemanager.load_level(gamemanager.apartment)
+		else:
+			if dialogue < len(dialogues) - 1:
+				next = false
+				dialogue += 1
+				display_dialogue(dialogues[dialogue], dialogue_speed)
+			else:
+				gamemanager.load_level(gamemanager.apartment)
 	
 	if Input.is_action_just_pressed("Interact"):
 		if isSitting:
