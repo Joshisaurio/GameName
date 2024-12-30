@@ -1,10 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cdbr0ky4d6pof"]
+[gd_scene load_steps=9 format=3 uid="uid://cdbr0ky4d6pof"]
 
 [ext_resource type="Texture2D" uid="uid://de7p7ycehj63i" path="res://Textures/TempTextures/Pixel 32x32/9.png" id="1_fdorb"]
-[ext_resource type="PackedScene" uid="uid://nwc5bj77d8ja" path="res://scenes/countdown.tscn" id="2_7nb11"]
 [ext_resource type="PackedScene" uid="uid://6d27ul2h641w" path="res://Manage/player.tscn" id="2_mmqls"]
 [ext_resource type="PackedScene" uid="uid://dgvjlrsae8iq7" path="res://scenes/door.tscn" id="3_a8o4k"]
-[ext_resource type="Script" path="res://scripts/game_manager.gd" id="4_lbvbt"]
 
 [sub_resource type="Environment" id="Environment_6phuy"]
 
@@ -27,8 +25,6 @@ albedo_color = Color(0, 0, 0, 1)
 
 [node name="Player" parent="." instance=ExtResource("2_mmqls")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.63939, -50.6548)
-
-[node name="Countdown" parent="Player" instance=ExtResource("2_7nb11")]
 
 [node name="CollisionMap" type="Node" parent="."]
 
@@ -1820,35 +1816,5 @@ outline_size = 3
 
 [node name="Doors" type="Node" parent="."]
 
-[node name="Door_1" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+[node name="StaticBody3D" parent="Doors" instance=ExtResource("3_a8o4k")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2.61801, -0.00474501, -11.2439)
-
-[node name="Door_2" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2.61801, -0.00474501, -18.8229)
-
-[node name="Door_3" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2.61801, -0.00474501, -39.3365)
-
-[node name="Door_7" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
-transform = Transform3D(-1, 0, -8.74226e-08, 0, 1, 0, 8.74226e-08, 0, -1, -12.2739, -0.00474501, -33.9789)
-
-[node name="Door_9" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
-transform = Transform3D(1, 0, -1.63425e-13, 0, 1, 0, 1.63425e-13, 0, 1, -8.83172, -0.00474501, -28.8121)
-
-[node name="Door_10" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
-transform = Transform3D(1, 0, -1.63425e-13, 0, 1, 0, 1.63425e-13, 0, 1, -16.5778, -0.00474501, -28.8121)
-
-[node name="Door_8" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
-transform = Transform3D(-1, 0, -8.74226e-08, 0, 1, 0, 8.74226e-08, 0, -1, -20.3326, -0.00474501, -33.9789)
-
-[node name="Door_4" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
-transform = Transform3D(-4.37112e-08, 0, 1, 0, 1, 0, -1, 0, -4.37112e-08, 2.57987, -0.00474501, -37.244)
-
-[node name="Door_5" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
-transform = Transform3D(-4.37112e-08, 0, 1, 0, 1, 0, -1, 0, -4.37112e-08, 2.57987, -0.00474501, -29.6094)
-
-[node name="Door_6" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
-transform = Transform3D(-4.37112e-08, 0, 1, 0, 1, 0, -1, 0, -4.37112e-08, 2.57987, -0.00474501, -22.1415)
-
-[node name="GameManager" type="Node" parent="."]
-script = ExtResource("4_lbvbt")

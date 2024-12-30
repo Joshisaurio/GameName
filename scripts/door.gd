@@ -26,6 +26,7 @@ var last_names = [
 signal door_interaction_requested(door_node)
 
 var current_minigame
+var delivery_active: bool = false # Is a delivery active on this door?
 var open: bool = false
 
 @export_group("Tenant Info")
@@ -38,13 +39,16 @@ var open: bool = false
 
 @onready var door_panel: MeshInstance3D = $Panel
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var goto_position: Node3D = $GotoPosition
+@onready var goto_position: Vector3 = $GotoPosition.position
 @onready var current_camera = get_viewport().get_camera_3d()
 
 func _ready():
-	_generate_tenant_name()
+	pass
 	
 func clicked():
+	if !delivery_active or tenant_name == "":
+		print("There is no tenant in this room!")
+		return
 	door_interaction_requested.emit(self)
 	
 func _toggle_door_state():
@@ -58,21 +62,11 @@ func _toggle_door_state():
 func _toggle_camera_focus():
 	var camera = get_viewport().get_camera_3d()
 	
-func _generate_tenant_name() -> void:
-	var first = first_names[randi() % first_names.size()]
-	var last = " " + last_names[randi() % last_names.size()]
-	
-	var middle = ""
-	var middle_name_count = randi() % max_middle_names
-	for i in range(middle_name_count):
-		middle += " " + middle_names[randi() % middle_names.size()]
-	
-	tenant_name = first + middle + last
-	
 func _start_minigame():
 	_end_current_minigame()
 		
 	current_minigame = minigame.instantiate()
+	current_minigame.prompt = tenant_name
 	get_tree().root.add_child(current_minigame)
 	
 func _end_current_minigame():

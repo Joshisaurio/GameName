@@ -34,6 +34,7 @@ var rotation_target_head : float
 
 # Used when bobing head
 @onready var head_start_pos : Vector3 = $Head.position
+@onready var head: Node3D = $Head
 @onready var ray: RayCast3D = $Head/Look
 @onready var audio_player = $FootSteps
 
@@ -99,11 +100,11 @@ func rotate_player(delta):
 		# Shperical lerp between player rotation and target
 		quaternion = quaternion.slerp(Quaternion(Vector3.UP, rotation_target_player), KEY_BIND_MOUSE_ACCELERATION * delta)
 		# Same again for head
-		$Head.quaternion = $Head.quaternion.slerp(Quaternion(Vector3.RIGHT, rotation_target_head), KEY_BIND_MOUSE_ACCELERATION * delta)
+		head.quaternion = head.quaternion.slerp(Quaternion(Vector3.RIGHT, rotation_target_head), KEY_BIND_MOUSE_ACCELERATION * delta)
 	else:
 		# If mouse accel is turned off, simply set to target
 		quaternion = Quaternion(Vector3.UP, rotation_target_player)
-		$Head.quaternion = Quaternion(Vector3.RIGHT, rotation_target_head)
+		head.quaternion = Quaternion(Vector3.RIGHT, rotation_target_head)
 	
 func move_player(delta):
 	speed = SPEED
@@ -125,13 +126,13 @@ func head_bob_motion():
 	var pos = Vector3.ZERO
 	pos.y += sin(tick * HEAD_BOB_FREQUENCY) * HEAD_BOB_INTENSITY
 	pos.x += cos(tick * HEAD_BOB_FREQUENCY / 2) * HEAD_BOB_INTENSITY * 2
-	$Head.position += pos
+	head.position += pos
 
 func reset_head_bob(delta):
 	# Lerp back to the staring position
-	if $Head.position == head_start_pos:
+	if head.position == head_start_pos:
 		pass
-	$Head.position = lerp($Head.position, head_start_pos, 2 * (1/HEAD_BOB_FREQUENCY) * delta)
+	head.position = lerp(head.position, head_start_pos, 2 * (1/HEAD_BOB_FREQUENCY) * delta)
 
 func movement_check():
 	if moving:

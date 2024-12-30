@@ -1,28 +1,5 @@
 extends Control
 
-var first_names = [
-	"James", "Mary", "John", "Patricia", "Robert", "Jennifer", "Michael", "Linda",
-	"William", "Elizabeth", "David", "Barbara", "Richard", "Susan", "Joseph", "Jessica",
-	"Thomas", "Sarah", "Charles", "Karen", "Emma", "Liam", "Olivia", "Noah",
-	"Ava", "Isabella", "Sophia", "Mia", "Charlotte", "Amelia", "Harper", "Evelyn"
-]
-
-var middle_names = [
-	"Mae", "Rose", "Grace", "Ann", "Marie", "Lynn", "Lee", "Jean",
-	"Ray", "James", "John", "William", "Alan", "Peter", "Scott", "Dean",
-	"Jane", "May", "Beth", "Anne", "Dawn", "Elle", "Faith", "Hope",
-	"Jay", "Cole", "Blake", "Reid", "Kent", "Chase", "Luke", "Ross",
-	"Joy", "Kate", "Ruth", "Sage", "Skye", "Paige", "Claire", "Jade",
-	"Kyle", "Tate", "Finn", "Jack", "Grant", "Pierce", "Troy", "Quinn"
-]
-
-var last_names = [
-	"Smith", "Johnson", "Williams", "Brown", "Jones", "Garcia", "Miller", "Davis",
-	"Rodriguez", "Martinez", "Hernandez", "Lopez", "Gonzalez", "Wilson", "Anderson", "Thomas",
-	"Taylor", "Moore", "Jackson", "Martin", "Lee", "Thompson", "White", "Harris",
-	"Clark", "Lewis", "Robinson", "Walker", "Hall", "Young", "King", "Wright"
-]
-
 @export var max_middle_names: int = 3
 @export var maxtime: int = 7
 
@@ -38,7 +15,6 @@ var time: float = 0
 @onready var tenant_label: RichTextLabel = $RichTextLabel
 
 func _ready() -> void:
-	prompt = _generate_name()
 	$ProgressBar.max_value = maxtime
 	_update_text()
 
@@ -74,11 +50,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			print("success " + str(correct))
 			
 			if current_letter_index >= prompt.length():
-				current_letter_index = 0
 				print(correct)
 				print(failures)
 				_update_score()
-				prompt = _generate_name()
 		else:
 			failures += 1
 			print("failure " + str(failures))
@@ -97,17 +71,6 @@ func _update_score():
 	correct = 0
 	failures = 0
 	time = 0
-
-func _generate_name() -> String:
-	var first = first_names[randi() % first_names.size()]
-	var last = " " + last_names[randi() % last_names.size()]
-	
-	var middle = ""
-	var middle_name_count = randi() % max_middle_names
-	for i in range(middle_name_count):
-		middle += " " + middle_names[randi() % middle_names.size()]
-	
-	return first + middle + last
 	
 func _update_text() -> void:
 	if current_letter_index <= 0:
