@@ -4,7 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://cix3w21uo7use" path="res://assets/audio/Ambience/SFX - Fluorescent Light.wav" id="2_5mjnv"]
 [ext_resource type="Texture2D" uid="uid://d31enr2l8beft" path="res://Textures/TempTextures/Wood Planks/Planks_Albedo.png" id="3_3vxm0"]
 [ext_resource type="Texture2D" uid="uid://gwmh5hctqh1g" path="res://Textures/TempTextures/Wood Planks/Planks_AO.png" id="4_4prnw"]
-[ext_resource type="PackedScene" uid="uid://cumnita3y3x5e" path="res://scenes/stamping.tscn" id="5_8kp3t"]
+[ext_resource type="PackedScene" path="res://scenes/stamping.tscn" id="5_8kp3t"]
 [ext_resource type="PackedScene" uid="uid://bhkk8d63777sk" path="res://scenes/intro.tscn" id="5_hddd8"]
 [ext_resource type="Texture2D" uid="uid://b4yqbyfs1e6gn" path="res://Textures/TempTextures/Wood Planks/Planks_Height.png" id="5_tm8s7"]
 [ext_resource type="Texture2D" uid="uid://dt1lnxl5h5b3h" path="res://Textures/TempTextures/Wood Planks/Planks_Normal.png" id="6_6mc2w"]
