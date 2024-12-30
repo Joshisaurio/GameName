@@ -1,11 +1,9 @@
-[gd_scene load_steps=23 format=4 uid="uid://cumnita3y3x5e"]
+[gd_scene load_steps=9 format=4 uid="uid://bk0cr2wbg71ey"]
 
-[ext_resource type="Script" path="res://scripts/stamping.gd" id="1_iqntg"]
-[ext_resource type="Texture2D" uid="uid://c48te6oks4h2s" path="res://Textures/Model Textures/Desk/YouAreOut(SP)_UVGrid_BaseColor.1001.png" id="2_tgls6"]
-[ext_resource type="Texture2D" uid="uid://clh7ewm31gvvq" path="res://Textures/Model Textures/Desk/YouAreOut(SP)_UVGrid_Metallic.1001.png" id="3_xcxrf"]
-[ext_resource type="Texture2D" uid="uid://dky4rken4ntf3" path="res://Textures/Model Textures/Desk/YouAreOut(SP)_UVGrid_Normal.1001.png" id="4_53mpr"]
-[ext_resource type="Texture2D" uid="uid://cq35oac4h1cag" path="res://Textures/Model Textures/Desk/YouAreOut(SP)_UVGrid_Roughness.1001.png" id="5_n710n"]
-[ext_resource type="Shader" path="res://scripts/Shaders/PixelDither.gdshader" id="8_sxxmg"]
+[ext_resource type="Texture2D" uid="uid://c48te6oks4h2s" path="res://Textures/Model Textures/Desk/YouAreOut(SP)_UVGrid_BaseColor.1001.png" id="1_edy7w"]
+[ext_resource type="Texture2D" uid="uid://clh7ewm31gvvq" path="res://Textures/Model Textures/Desk/YouAreOut(SP)_UVGrid_Metallic.1001.png" id="2_7gpj3"]
+[ext_resource type="Texture2D" uid="uid://dky4rken4ntf3" path="res://Textures/Model Textures/Desk/YouAreOut(SP)_UVGrid_Normal.1001.png" id="3_dlbt2"]
+[ext_resource type="Texture2D" uid="uid://cq35oac4h1cag" path="res://Textures/Model Textures/Desk/YouAreOut(SP)_UVGrid_Roughness.1001.png" id="4_dspyx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pd3h6"]
 resource_name = "UVGrid"
@@ -49,260 +47,19 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_fjfpn")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_20g6s"]
-albedo_texture = ExtResource("2_tgls6")
+albedo_texture = ExtResource("1_edy7w")
 metallic_specular = 0.15
-metallic_texture = ExtResource("3_xcxrf")
+metallic_texture = ExtResource("2_7gpj3")
 roughness = 0.34
-roughness_texture = ExtResource("5_n710n")
+roughness_texture = ExtResource("4_dspyx")
 normal_enabled = true
 normal_scale = 2.8
-normal_texture = ExtResource("4_53mpr")
+normal_texture = ExtResource("3_dlbt2")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_5ypl8"]
-size = Vector3(1.85529, 1.35361, 1.66252)
+[node name="Desk" type="Node3D"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3leqx"]
-render_priority = 0
-shader = ExtResource("8_sxxmg")
-shader_parameter/enable_fog = true
-shader_parameter/fog_color = null
-shader_parameter/noise_color = null
-shader_parameter/fog_distance = 100.0
-shader_parameter/fog_fade_range = 50.0
-shader_parameter/enable_noise = true
-shader_parameter/noise_time_fac = 4.0
-shader_parameter/enable_color_limitation = true
-shader_parameter/color_levels = 32
-shader_parameter/enable_dithering = true
-shader_parameter/dither_strength = 0.3
-shader_parameter/pixel_size = 8
-
-[sub_resource type="QuadMesh" id="QuadMesh_taeuy"]
-material = SubResource("ShaderMaterial_3leqx")
-size = Vector2(2, 2)
-
-[sub_resource type="Animation" id="Animation_g34lr"]
-resource_name = "Camera"
-length = 3.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5, 3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(-1.41655, 2.56875, 4.76837e-07), Vector3(-1.41655, 2.54251, 4.76837e-07), Vector3(-1.41655, 2.56875, 4.76837e-07)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.5, 3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(-0.887343, -1.5708, 5.36739e-08), Vector3(-0.926124, -1.5708, 5.64941e-08), Vector3(-0.887343, -1.5708, 5.36739e-08)]
-}
-
-[sub_resource type="Animation" id="Animation_4vcvb"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-1.41655, 2.56875, 4.76837e-07)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.887343, -1.5708, 5.36739e-08)]
-}
-
-[sub_resource type="Animation" id="Animation_ipju7"]
-resource_name = "Exit_Stamp"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(-1.41655, 2.56875, 4.76837e-07), Vector3(-1.85469, 2.8067, 0.158818), Vector3(-2.76229, 2.61718, 0.69783)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(-0.887343, -1.5708, 5.36739e-08), Vector3(-0.349415, -1.5708, -1.92034e-06), Vector3(0, -1.57022, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_qw7sb"]
-resource_name = "Enter_Stamp"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(-2.76229, 2.61718, 0.69783), Vector3(-1.85469, 2.8067, 0.158818), Vector3(-1.41655, 2.56875, 4.76837e-07)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, -1.57022, 0), Vector3(-0.349415, -1.5708, -1.92034e-06), Vector3(-0.887343, -1.5708, 5.36739e-08)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_o77eu"]
-_data = {
-"Camera": SubResource("Animation_g34lr"),
-"Enter_Stamp": SubResource("Animation_qw7sb"),
-"Exit_Stamp": SubResource("Animation_ipju7"),
-"RESET": SubResource("Animation_4vcvb")
-}
-
-[sub_resource type="Animation" id="Animation_q1deu"]
-resource_name = "Page_In"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PaperOrigin:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-0.923547, 1.82297, 2.77713), Vector3(-0.923547, 1.82297, -0.0265827)]
-}
-
-[sub_resource type="Animation" id="Animation_dgarf"]
-resource_name = "Page_Out"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PaperOrigin:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-0.923547, 1.82297, -0.0265827), Vector3(-0.923547, 1.82297, -2.8342)]
-}
-
-[sub_resource type="Animation" id="Animation_qt7qb"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PaperOrigin:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.923547, 1.82297, 1.06934)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_2aihm"]
-_data = {
-"Page_In": SubResource("Animation_q1deu"),
-"Page_Out": SubResource("Animation_dgarf"),
-"RESET": SubResource("Animation_qt7qb")
-}
-
-[node name="Stamping" type="Node3D"]
-script = ExtResource("1_iqntg")
-
-[node name="Lighting" type="Node3D" parent="."]
-
-[node name="SpotLight3D" type="SpotLight3D" parent="Lighting"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5.78201, 0)
-light_energy = 3.139
-spot_range = 7.497
-spot_attenuation = -1.17
-spot_angle = 31.037
-
-[node name="Table" type="Node3D" parent="."]
-
-[node name="TableMesh" type="MeshInstance3D" parent="Table"]
-transform = Transform3D(-4.37114e-06, 100, 1.19209e-05, 0, -1.19209e-05, 100, 100, 4.37114e-06, 5.21079e-13, -1.43875, 1.77968, 0)
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, 0.0146869, 0.407518, 0.432141)
 mesh = SubResource("ArrayMesh_u2grh")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_20g6s")
-
-[node name="Area3D" type="Area3D" parent="Table" groups=["Interactable"]]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Table/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.16841, 2.02101, -0.116993)
-shape = SubResource("BoxShape3D_5ypl8")
-
-[node name="PaperOrigin" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.923547, 1.82297, 1.06934)
-gizmo_extents = 0.05
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-3.57837e-06, 0.775397, -0.631474, 3.38937e-08, 0.631474, 0.775397, 1, 2.75325e-06, -2.28593e-06, -1.41655, 2.56875, 4.76837e-07)
-
-[node name="StampingFilter" type="MeshInstance3D" parent="Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.02875e-05, 0.0561032, -0.134057)
-mesh = SubResource("QuadMesh_taeuy")
-
-[node name="CamAnim" type="AnimationPlayer" parent="Camera3D"]
-libraries = {
-"": SubResource("AnimationLibrary_o77eu")
-}
-
-[node name="GeneralAnim" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_2aihm")
-}
-
-[node name="Dialogue" type="AudioStreamPlayer" parent="."]
-max_polyphony = 25
-
-[connection signal="animation_finished" from="Camera3D/CamAnim" to="." method="CamAnim_Finished"]

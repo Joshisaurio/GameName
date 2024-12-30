@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://b85pwm2y0ga2i"
-path="res://.godot/imported/ARJULIAN.ttf-7ffa037d442fa50ae3db5617f83ecbb3.fontdata"
+path="res://.godot/imported/ARJULIAN.ttf-608c8936781bd6b700f4986addd1c55f.fontdata"
 
 [deps]
 
-source_file="res://ARJULIAN.ttf"
-dest_files=["res://.godot/imported/ARJULIAN.ttf-7ffa037d442fa50ae3db5617f83ecbb3.fontdata"]
+source_file="res://Fonts/ARJULIAN.ttf"
+dest_files=["res://.godot/imported/ARJULIAN.ttf-608c8936781bd6b700f4986addd1c55f.fontdata"]
 
 [params]
 

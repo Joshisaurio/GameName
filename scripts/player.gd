@@ -48,6 +48,7 @@ var tick = 0
 var moving := false
 
 func _ready():
+	$Head.find_child("Camera3D").make_current()
 	if Engine.is_editor_hint():
 		return
 
@@ -127,7 +128,15 @@ func reset_head_bob(delta):
 	$Head.position = lerp($Head.position, head_start_pos, 2 * (1/HEAD_BOB_FREQUENCY) * delta)
 
 func movement_check():
-	print("Checking")
 	if moving:
 		var stepsound = choose([FootstepA, FootstepB, FootstepC, FootstepD])
 		AudioPlayer.set_stream(stepsound) ; AudioPlayer.pitch_scale = randf_range(0.7, 1.3) ; AudioPlayer.play()
+
+func raycast_check():
+	if Ray.is_colliding():
+		var obj = Ray.get_collider()
+		if obj.is_in_group("Interact"):
+			print("You can interact with this object")
+			$UI/Dot.visible = true
+	else:
+		print("Cant see nothing")

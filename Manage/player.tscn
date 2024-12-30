@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://6d27ul2h641w"]
+[gd_scene load_steps=7 format=3 uid="uid://6d27ul2h641w"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_p2d7i"]
 [ext_resource type="PackedScene" uid="uid://di16lr7iqjtmr" path="res://Manage/head.tscn" id="2_n4tw0"]
+[ext_resource type="PackedScene" uid="uid://bh8k2ngnfj0b1" path="res://scenes/pause.tscn" id="3_lvgfo"]
+[ext_resource type="Texture2D" uid="uid://c4rcu4mcbssxh" path="res://Textures/UI/Dot.png" id="4_gh4pa"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ne0jo"]
 
@@ -11,6 +13,7 @@
 script = ExtResource("1_p2d7i")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("CapsuleMesh_ne0jo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -22,6 +25,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.770399, 0)
 [node name="Look" type="RayCast3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 target_position = Vector3(0, -5, 0)
+collide_with_areas = true
+collide_with_bodies = false
 
 [node name="FootSteps" type="AudioStreamPlayer3D" parent="."]
 
@@ -29,4 +34,37 @@ target_position = Vector3(0, -5, 0)
 wait_time = 0.3
 autostart = true
 
+[node name="CheckRay" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[node name="Pause" parent="." instance=ExtResource("3_lvgfo")]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Dot" type="TextureRect" parent="UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_gh4pa")
+expand_mode = 1
+
 [connection signal="timeout" from="CheckTimer" to="." method="movement_check"]
+[connection signal="timeout" from="CheckRay" to="." method="raycast_check"]

@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://scripts/paper.gd" id="2_ikl7i"]
 [ext_resource type="Texture2D" uid="uid://cstl3m7c6sc1j" path="res://Textures/Logo/black-avatar-generic-person-symbol-profile-picture-isolated-white-background-black-avatar-generic-person-symbol-profile-picture-346347472.webp" id="3_y1ahw"]
 [ext_resource type="Texture2D" uid="uid://dp7svs0yo6vpk" path="res://Textures/Logo/Evicted.png" id="5_pq7xy"]
-[ext_resource type="FontFile" uid="uid://ddv4kvejsa0fy" path="res://ACaslonPro-Regular.otf" id="5_yfv72"]
-[ext_resource type="FontFile" uid="uid://bsdr6h5mdig3a" path="res://LoftygoalsRegular-9Y5Xy.otf" id="7_li616"]
+[ext_resource type="FontFile" uid="uid://ddv4kvejsa0fy" path="res://Fonts/ACaslonPro-Regular.otf" id="5_yfv72"]
+[ext_resource type="FontFile" uid="uid://bsdr6h5mdig3a" path="res://Fonts/LoftygoalsRegular-9Y5Xy.otf" id="7_li616"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_er1wj"]
 viewport_path = NodePath("SubViewport")
