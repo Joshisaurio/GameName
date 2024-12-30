@@ -34,3 +34,4 @@ func CamAnim_Finished(anim_name):
 			active_player.global_position.x = camera.global_position.x
 			active_player.global_position.z = camera.global_position.z
 			active_player.global_position.y = 1.5
+			

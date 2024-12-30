@@ -37,6 +37,9 @@ var current_page := 1 # 1 is title, 2 is settings, 3 is credits
 
 func _ready():
 	$Camera3D/CamAnim.play("Camera")
+	
+	if OS.has_feature("web"):
+		$FolderMenu/Front/Quitlbl.hide()
 
 func _process(_delta):
 	
