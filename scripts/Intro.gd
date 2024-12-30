@@ -34,6 +34,9 @@ func choose(sounds):
 
 func _input(event):
 	if event is InputEventKey and next:
+		if event.keycode == KEY_ENTER:
+			UIAnim.play("IntroAnim")
+			$Fader/Dialogue.visible = false
 		if dialogue < len(dialogues) - 1:
 			next = false
 			dialogue += 1

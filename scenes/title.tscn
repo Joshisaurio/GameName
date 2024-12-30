@@ -700,7 +700,7 @@ transform = Transform3D(1, 0, -1.25766e-12, 0, 1, 4.28546e-14, 1.42109e-14, -1.4
 shape = SubResource("BoxShape3D_b7gc5")
 
 [node name="Paper" type="MeshInstance3D" parent="FolderMenu"]
-transform = Transform3D(-0.401225, 0, 0.0148786, 0, 0.000773191, 0, -0.0166494, 0, -0.358553, -0.85245, 1.82148, -0.0593742)
+transform = Transform3D(-0.401225, 0, 0.0148787, 0, 0.000773191, 0, -0.0166494, 0, -0.358553, -0.85245, 1.82148, -0.0593742)
 mesh = SubResource("ArrayMesh_i07gh")
 skeleton = NodePath("")
 
