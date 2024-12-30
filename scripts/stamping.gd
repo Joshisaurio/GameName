@@ -24,12 +24,15 @@ func _ready():
 
 func _input(event):
 	if event is InputEventKey and next:
-		if dialogue < len(dialogues) - 1:
-			next = false
-			dialogue += 1
-			display_dialogue(dialogues[dialogue], dialogue_speed)
-		else:
+		if event.keycode == KEY_ENTER:
 			gamemanager.load_level(gamemanager.apartment)
+		else:
+			if dialogue < len(dialogues) - 1:
+				next = false
+				dialogue += 1
+				display_dialogue(dialogues[dialogue], dialogue_speed)
+			else:
+				gamemanager.load_level(gamemanager.apartment)
 	
 
 func display_dialogue(text: String, speed: float):

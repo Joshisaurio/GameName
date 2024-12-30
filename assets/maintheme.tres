@@ -3,5 +3,7 @@
 [ext_resource type="FontFile" uid="uid://bvbm4u6y1bvfr" path="res://AdobeGurmukhi-Bold.otf" id="1_m8w5t"]
 
 [resource]
+Button/font_sizes/font_size = 18
+Button/fonts/font = ExtResource("1_m8w5t")
 Label/font_sizes/font_size = 32
 Label/fonts/font = ExtResource("1_m8w5t")

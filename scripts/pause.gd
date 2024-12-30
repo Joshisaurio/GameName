@@ -13,6 +13,12 @@ func _process(delta):
 		
 	visible = get_tree().paused
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE if get_tree().paused else Input.MOUSE_MODE_CAPTURED)
+	
+	for i in $Buttons.get_children():
+		if i.is_hovered():
+			i.scale = i.scale.lerp(Vector2(1.1, 1.1), 0.5)
+		else:
+			i.scale = i.scale.lerp(Vector2(1.0, 1.0), 0.5)
 		
 func _on_resume_pressed():
 	get_tree().paused = false

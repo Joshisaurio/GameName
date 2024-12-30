@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bj7nht67yf5v8"]
 
-[ext_resource type="Script" path="res://scenes/pause.gd" id="1_cx1nu"]
+[ext_resource type="Script" path="res://scripts/pause.gd" id="1_cx1nu"]
 [ext_resource type="Theme" uid="uid://bre6n751ipump" path="res://assets/maintheme.tres" id="2_yacyt"]
 [ext_resource type="AudioStream" uid="uid://vmrlyhdxfyg2" path="res://assets/audio/UI/SFX - UI Hover.wav" id="3_85bfo"]
 [ext_resource type="AudioStream" uid="uid://dqvxrnfjbxjs1" path="res://assets/audio/UI/SFX - UI Select (click).wav" id="4_hl6lv"]
@@ -24,7 +24,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture1D_aui6l")
-metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="."]
 process_mode = 3
@@ -43,47 +42,51 @@ theme = ExtResource("2_yacyt")
 text = "[ PAUSED ]"
 horizontal_alignment = 1
 vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="Buttons" type="Control" parent="."]
 layout_mode = 3
-anchor_left = 0.527344
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 0.472656
+anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -129.0
-offset_top = -178.0
+offset_top = -68.0
 offset_right = 129.0
-offset_bottom = 178.0
+offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_use_anchors_ = true
 
 [node name="Resume" type="Button" parent="Buttons"]
 layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -68.0
-offset_bottom = -37.0
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.121
+anchor_right = 0.5
+anchor_bottom = 0.121
+offset_left = -129.0
+offset_top = -15.488
+offset_right = 129.0
+offset_bottom = 15.512
 grow_horizontal = 2
-grow_vertical = 2
+pivot_offset = Vector2(129, 15.5)
 theme = ExtResource("2_yacyt")
 text = "Resume"
 icon_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="Settings" type="Button" parent="Buttons"]
 layout_mode = 1
-anchors_preset = 14
+anchors_preset = -1
+anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = -129.0
 offset_top = -15.5
+offset_right = 129.0
 offset_bottom = 15.5
-grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(129, 15.5)
 theme = ExtResource("2_yacyt")
 text = "Settings
 "
@@ -91,17 +94,20 @@ metadata/_edit_use_anchors_ = true
 
 [node name="BackToMenu" type="Button" parent="Buttons"]
 layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = 37.0
-offset_bottom = 68.0
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.879
+anchor_right = 0.5
+anchor_bottom = 0.879
+offset_left = -129.0
+offset_top = -15.512
+offset_right = 129.0
+offset_bottom = 15.488
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
+pivot_offset = Vector2(129, 15.5)
 theme = ExtResource("2_yacyt")
 text = "Back to menu"
-metadata/_edit_use_anchors_ = true
 
 [node name="Hover" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_85bfo")
