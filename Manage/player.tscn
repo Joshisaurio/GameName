@@ -11,6 +11,7 @@
 script = ExtResource("1_p2d7i")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+cast_shadow = 0
 mesh = SubResource("CapsuleMesh_ne0jo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

@@ -23,7 +23,8 @@ var last_names = [
 	"Clark", "Lewis", "Robinson", "Walker", "Hall", "Young", "King", "Wright"
 ]
 
-signal door_interaction_requested(door_node)
+signal door_interaction_begin(door_node)
+signal door_interaction_end(door_node)
 
 var current_minigame
 var delivery_active: bool = false # Is a delivery active on this door?
@@ -49,13 +50,14 @@ func clicked():
 	if !delivery_active or tenant_name == "":
 		print("There is no tenant in this room!")
 		return
-	door_interaction_requested.emit(self)
+	door_interaction_begin.emit(self)
 	
 func _toggle_door_state():
 	if open:
 		_end_current_minigame()
 	else:
 		_start_minigame()
+		animation_player.play("open_door")
 		
 	open = !open
 		
@@ -68,7 +70,13 @@ func _start_minigame():
 	current_minigame = minigame.instantiate()
 	current_minigame.prompt = tenant_name
 	get_tree().root.add_child(current_minigame)
+	current_minigame.minigame_completed.connect(_minigame_completed, CONNECT_ONE_SHOT)
 	
 func _end_current_minigame():
 	if current_minigame != null:
 		current_minigame.queue_free()
+
+func _minigame_completed():
+	_end_current_minigame()
+	door_interaction_end.emit(self)
+	animation_player.play("close_door")

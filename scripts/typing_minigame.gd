@@ -3,6 +3,7 @@ extends Control
 @export var max_middle_names: int = 3
 @export var maxtime: int = 7
 
+var game_started: bool = false # Has the player began typing?
 var prompt: String = ""
 var player_input: String = ""
 var current_letter_index: int = 0
@@ -14,12 +15,15 @@ var time: float = 0
 
 @onready var tenant_label: RichTextLabel = $RichTextLabel
 
+signal minigame_completed
+
 func _ready() -> void:
 	$ProgressBar.max_value = maxtime
 	_update_text()
 
 func _process(delta):
-	time += delta
+	if game_started:
+		time += delta
 	$ProgressBar.value = float(maxtime)-time
 	
 	if correct != 0 and failures !=0:
@@ -37,6 +41,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if event.keycode < KEY_A or event.keycode > KEY_Z:
 			return
 		
+		game_started = true
 		var key_typed = OS.get_keycode_string(event.keycode).to_lower()	
 		var next_key = prompt.substr(current_letter_index, 1).to_lower()
 	
@@ -53,6 +58,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				print(correct)
 				print(failures)
 				_update_score()
+				minigame_completed.emit()
 		else:
 			failures += 1
 			print("failure " + str(failures))

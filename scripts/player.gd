@@ -81,7 +81,8 @@ func _unhandled_input(event):
 			if collided:
 				print("Raycast collided with " + collided.get_class())
 				if collided is Door:
-					collided.door_interaction_requested.connect(_door_interaction, CONNECT_ONE_SHOT)
+					collided.door_interaction_begin.connect(_door_interaction_begin, CONNECT_ONE_SHOT)
+					collided.door_interaction_end.connect(_door_interaction_end, CONNECT_ONE_SHOT)
 					collided.clicked()
 					
 			
@@ -142,17 +143,21 @@ func movement_check():
 		audio_player.pitch_scale = randf_range(0.7, 1.3) 
 		audio_player.play()
 
-func _door_interaction(door: Door) -> void:
-	if !door.open:
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE # Temporary
-		MOVEMENT_ENABLED = false
-		HEAD_BOB_ENABLED = false
-		moving = false
-	else:
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED # Temporary
-		MOVEMENT_ENABLED = true
-		HEAD_BOB_ENABLED = true
-		
+func _freeze() -> void:
+	MOVEMENT_ENABLED = false
+	HEAD_BOB_ENABLED = false
+	moving = false
+	
+func _unfreeze() -> void:
+	MOVEMENT_ENABLED = true
+	HEAD_BOB_ENABLED = true
+	
+func _door_interaction_begin(door: Door) -> void:
+	_freeze()
+	door._toggle_door_state()
+	
+func _door_interaction_end(door: Door) -> void:
+	_unfreeze()
 	door._toggle_door_state()
 		
 	

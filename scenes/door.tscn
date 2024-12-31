@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://dgvjlrsae8iq7"]
+[gd_scene load_steps=21 format=4 uid="uid://dgvjlrsae8iq7"]
 
 [ext_resource type="Script" path="res://scripts/door.gd" id="1_3lhjc"]
 
@@ -137,6 +137,60 @@ shadow_mesh = SubResource("ArrayMesh_jwddf")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_88gl4"]
 albedo_color = Color(0.239757, 0.166119, 0, 1)
 
+[sub_resource type="Animation" id="Animation_ibaxl"]
+resource_name = "open_door"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:quaternion")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.166667, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Quaternion(0, 0, 0, 1), Quaternion(0, -0.107338, 0, 0.994223), Quaternion(0, 0.880589, 0, -0.473881), Quaternion(0, -0.836764, 0, 0.547563)]
+}
+
+[sub_resource type="Animation" id="Animation_wefow"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:quaternion")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Quaternion(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_26ua3"]
+resource_name = "close_door"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:quaternion")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.1, 0.1001, 0.1002, 0.133333, 0.266667, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Quaternion(0, -0.836764, 0, 0.547563), Quaternion(0, 0.949517, 0, -0.313716), Quaternion(0, 0.960912, 0, -0.276853), Quaternion(0, 0.949517, 0, -0.313716), Quaternion(0, 0.983367, 0, -0.181627), Quaternion(0, 0.899951, 0, -0.43599), Quaternion(0, -0.175329, 0, 0.98451), Quaternion(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_teikc"]
+_data = {
+"RESET": SubResource("Animation_wefow"),
+"close_door": SubResource("Animation_26ua3"),
+"open_door": SubResource("Animation_ibaxl")
+}
+
 [node name="Door" type="StaticBody3D"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 script = ExtResource("1_3lhjc")
@@ -174,3 +228,8 @@ surface_material_override/0 = SubResource("StandardMaterial3D_88gl4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.147579, 2, -2)
 
 [node name="Sounds" type="Node" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_teikc")
+}
