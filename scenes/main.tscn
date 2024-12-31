@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_nuewp"]
 [ext_resource type="PackedScene" uid="uid://dk1cjy61duy5b" path="res://scenes/typing_minigame.tscn" id="2_i6cdk"]
-[ext_resource type="PackedScene" uid="uid://ufsrh5wnvvtl" path="res://scenes/proto_type_map.tscn" id="3_a5giv"]
+[ext_resource type="PackedScene" uid="uid://corx55jlcs8e5" path="res://scenes/proto_type_map.tscn" id="3_a5giv"]
 [ext_resource type="Script" path="res://scripts/countdown.gd" id="4_7q2lk"]
 
 [node name="Main" type="Node3D"]

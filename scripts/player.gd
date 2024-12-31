@@ -73,6 +73,14 @@ func _physics_process(delta):
 		if velocity: # If the player is moving, bob their head
 			head_bob_motion()
 		reset_head_bob(delta)
+		
+	update_other_ui($UI/Dot.visible)
+		
+func update_other_ui(interact):
+	if interact:
+		$OtherUI/Interact.modulate.a = lerp($OtherUI/Interact.modulate.a, float(1), 0.5)
+	else:
+		$OtherUI/Interact.modulate.a = lerp($OtherUI/Interact.modulate.a, float(0), 0.5)
 
 func _unhandled_input(event):
 	if Engine.is_editor_hint():
