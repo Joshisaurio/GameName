@@ -31,7 +31,7 @@ const DELIVERY_CAP: int = 50 # Maximum amount of doors to deliver to
 var cycle: int = 1
 var middle_name_cap: int = 3 # Increases by 1 every cycle
 var delivery_doors: Array[Node] = [] 
-@onready var doors: Array[Node] = get_tree().get_nodes_in_group("doors")
+@onready var doors: Array[Node] = get_tree().get_nodes_in_group("Occupied Door")
 
 func _ready() -> void:
 	print("Game manager has been loaded.")

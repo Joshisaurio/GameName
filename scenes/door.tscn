@@ -138,22 +138,6 @@ shadow_mesh = SubResource("ArrayMesh_jwddf")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_88gl4"]
 albedo_color = Color(0.239757, 0.166119, 0, 1)
 
-[sub_resource type="Animation" id="Animation_ibaxl"]
-resource_name = "open_door"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Panel:quaternion")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.166667, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Quaternion(0, 0, 0, 1), Quaternion(0, -0.107338, 0, 0.994223), Quaternion(0, 0.880589, 0, -0.473881), Quaternion(0, -0.836764, 0, 0.547563)]
-}
-
 [sub_resource type="Animation" id="Animation_wefow"]
 length = 0.001
 tracks/0/type = "value"
@@ -183,6 +167,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Quaternion(0, -0.836764, 0, 0.547563), Quaternion(0, 0.949517, 0, -0.313716), Quaternion(0, 0.960912, 0, -0.276853), Quaternion(0, 0.949517, 0, -0.313716), Quaternion(0, 0.983367, 0, -0.181627), Quaternion(0, 0.899951, 0, -0.43599), Quaternion(0, -0.175329, 0, 0.98451), Quaternion(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ibaxl"]
+resource_name = "open_door"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:quaternion")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.166667, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Quaternion(0, 0, 0, 1), Quaternion(0, -0.107338, 0, 0.994223), Quaternion(0, 0.880589, 0, -0.473881), Quaternion(0, -0.836764, 0, 0.547563)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_teikc"]
@@ -247,6 +247,6 @@ libraries = {
 }
 
 [node name="placeholder_void" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.992, 0, 0, 0, 3.307, 0, 0, 0, 2.12083, -0.182368, 1.67314, 1.15647)
+transform = Transform3D(2.34891, 0, 0, 0, 3.307, 0, 0, 0, 2.12083, -0.182368, 1.67314, 1.15647)
 cast_shadow = 0
 mesh = SubResource("BoxMesh_7xo7k")

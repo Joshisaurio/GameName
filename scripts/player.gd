@@ -83,6 +83,8 @@ func _unhandled_input(event):
 	if Engine.is_editor_hint():
 		return
 		
+	# Switch to this instead once E stops teleporting you back to the desk :p
+	# if Input.is_action_just_pressed("interact"):
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			var collided = ray.get_collider()
