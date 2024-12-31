@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://scripts/paper.gd" id="2_ikl7i"]
 [ext_resource type="Texture2D" uid="uid://cstl3m7c6sc1j" path="res://Textures/Logo/black-avatar-generic-person-symbol-profile-picture-isolated-white-background-black-avatar-generic-person-symbol-profile-picture-346347472.webp" id="3_y1ahw"]
 [ext_resource type="Texture2D" uid="uid://dp7svs0yo6vpk" path="res://Textures/Logo/Evicted.png" id="5_pq7xy"]
-[ext_resource type="FontFile" uid="uid://ddv4kvejsa0fy" path="res://ACaslonPro-Regular.otf" id="5_yfv72"]
-[ext_resource type="FontFile" uid="uid://bsdr6h5mdig3a" path="res://LoftygoalsRegular-9Y5Xy.otf" id="7_li616"]
+[ext_resource type="FontFile" uid="uid://ddv4kvejsa0fy" path="res://Fonts/ACaslonPro-Regular.otf" id="5_yfv72"]
+[ext_resource type="FontFile" uid="uid://bsdr6h5mdig3a" path="res://Fonts/LoftygoalsRegular-9Y5Xy.otf" id="7_li616"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_er1wj"]
 viewport_path = NodePath("SubViewport")
@@ -52,7 +52,7 @@ cache/0/46/0/underline_thickness = 0.0
 cache/0/46/0/scale = 1.0
 
 [node name="Paper" type="MeshInstance3D"]
-transform = Transform3D(3.73162e-08, 0, 0.352031, -2.48775e-08, -1, 4.03572e-15, 0.284565, -8.74228e-08, -4.61633e-08, 0, 0, 0)
+transform = Transform3D(1.80135e-08, 0, 0.169935, -1.2009e-08, -0.482726, 1.94815e-15, 0.137367, -4.22013e-08, -2.22842e-08, 0, 0, 0)
 mesh = SubResource("PlaneMesh_yvk1a")
 script = ExtResource("2_ikl7i")
 

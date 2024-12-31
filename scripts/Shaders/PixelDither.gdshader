@@ -6,7 +6,7 @@ render_mode cull_disabled, unshaded;
 uniform sampler2D depth_texture : source_color, hint_depth_texture;
 uniform sampler2D screen_texture : source_color, hint_screen_texture, repeat_disable, filter_linear_mipmap;
 
-uniform bool enable_fog = true; 
+uniform bool enable_fog = true;
 uniform vec3 fog_color : source_color;
 uniform vec3 noise_color : source_color;
 uniform float fog_distance : hint_range(1, 6000) = 100;
@@ -16,7 +16,7 @@ uniform float noise_time_fac : hint_range(0.1, 10) = 4;
 uniform bool enable_color_limitation = true;
 uniform int color_levels : hint_range(2, 256) = 32;
 uniform bool enable_dithering = true;
-uniform float dither_strength : hint_range(0.0, 1.0) = 0.3; 
+uniform float dither_strength : hint_range(0.0, 1.0) = 0.3;
 uniform int pixel_size = 4;
 
 float hashOld12(vec2 p){
@@ -59,19 +59,19 @@ void fragment(){
 	vec3 ndc = vec3(screen_coords, depth);
 	float x = float(int(FRAGCOORD.x) % pixel_size);
 	float y = float(int(FRAGCOORD.y) % pixel_size);
-	
+
 	x = FRAGCOORD.x + floor(float(pixel_size) / 2.0) - x;
 	y = FRAGCOORD.y + floor(float(pixel_size) / 2.0) - y;
-	
+
 	vec4 view = INV_PROJECTION_MATRIX * vec4(ndc, 1.0);
 	view.xyz /= view.w;
-	
+
 	float linear_depth = -view.z;
-	
+
 	float depth_mask_inv = clamp((linear_depth - (fog_distance - fog_fade_range)) / fog_fade_range, 0.0, 1.0);
-	
+
 	vec3 final_color = screen_color;
-	
+
 	if (enable_noise){
 		vec3 twocolornoise = color_mix(fog_color, noise_color, hashOld12(screen_coords));
 		final_color = color_mix(twocolornoise, final_color, depth_mask_inv);

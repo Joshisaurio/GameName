@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://ddv4kvejsa0fy"
-path="res://.godot/imported/ACaslonPro-Regular.otf-7bf27c2e4fac680c1a262beb1301bd80.fontdata"
+uid="uid://bsdr6h5mdig3a"
+path="res://.godot/imported/LoftygoalsRegular-9Y5Xy.otf-1ea2b4162a74e0df0e5b254ef360e170.fontdata"
 
 [deps]
 
-source_file="res://ACaslonPro-Regular.otf"
-dest_files=["res://.godot/imported/ACaslonPro-Regular.otf-7bf27c2e4fac680c1a262beb1301bd80.fontdata"]
+source_file="res://Fonts/LoftygoalsRegular-9Y5Xy.otf"
+dest_files=["res://.godot/imported/LoftygoalsRegular-9Y5Xy.otf-1ea2b4162a74e0df0e5b254ef360e170.fontdata"]
 
 [params]
 

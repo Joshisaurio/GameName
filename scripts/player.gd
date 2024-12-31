@@ -49,6 +49,7 @@ var tick = 0
 var moving := false
 
 func _ready():
+	$Head.find_child("Camera3D").make_current()
 	if Engine.is_editor_hint():
 		return
 
@@ -69,6 +70,14 @@ func _physics_process(delta):
 		if velocity: # If the player is moving, bob their head
 			head_bob_motion()
 		reset_head_bob(delta)
+		
+	update_other_ui($UI/Dot.visible)
+		
+func update_other_ui(interact):
+	if interact:
+		$OtherUI/Interact.modulate.a = lerp($OtherUI/Interact.modulate.a, float(1), 0.5)
+	else:
+		$OtherUI/Interact.modulate.a = lerp($OtherUI/Interact.modulate.a, float(0), 0.5)
 
 func _unhandled_input(event):
 	if Engine.is_editor_hint():
@@ -159,5 +168,12 @@ func _door_interaction_begin(door: Door) -> void:
 func _door_interaction_end(door: Door) -> void:
 	_unfreeze()
 	door._toggle_door_state()
-		
-	
+
+func raycast_check():
+	if Ray.is_colliding():
+		var obj = Ray.get_collider()
+		if obj.is_in_group("Interactable"):
+			print("You can interact with this object")
+			$UI/Dot.visible = true
+	else:
+		$UI/Dot.visible = false

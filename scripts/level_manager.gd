@@ -6,6 +6,9 @@ extends Node
 
 var current_scene
 
+@export var player_name := ""
+@export var default_name := "Landlord"
+
 func _ready():
 	load_level(title_scene)
 
