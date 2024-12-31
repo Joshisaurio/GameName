@@ -84,7 +84,7 @@ func _unhandled_input(event):
 		return
 		
 	# Switch to this instead once E stops teleporting you back to the desk :p
-	# if Input.is_action_just_pressed("interact"):
+	# C
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			var collided = ray.get_collider()
@@ -96,9 +96,12 @@ func _unhandled_input(event):
 					collided.door_interaction_end.connect(_door_interaction_end, CONNECT_ONE_SHOT)
 					collided.clicked()
 					
-			
+				if collided is Stamp:
+					collided.enter_desk()
+		
 	if event is InputEventMouseMotion && Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		set_rotation_target(event.relative)
+	
 
 func set_rotation_target(mouse_motion : Vector2):
 	rotation_target_player += -mouse_motion.x * KEY_BIND_MOUSE_SENSITIVITY # Add player target to the mouse -x input
@@ -175,7 +178,6 @@ func raycast_check():
 	if ray.is_colliding():
 		var obj = ray.get_collider()
 		if obj.is_in_group("Interactable"):
-			print("You can interact with this object")
 			$UI/Dot.visible = true
 	else:
 		$UI/Dot.visible = false

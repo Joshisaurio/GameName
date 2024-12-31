@@ -1,42 +1,42 @@
-[gd_scene load_steps=25 format=3 uid="uid://omfiu17weixe"]
+[gd_scene load_steps=24 format=3 uid="uid://omfiu17weixe"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_e5w8m"]
 [ext_resource type="AudioStream" uid="uid://cix3w21uo7use" path="res://assets/audio/Ambience/SFX - Fluorescent Light.wav" id="2_5mjnv"]
-[ext_resource type="Texture2D" uid="uid://d31enr2l8beft" path="res://Textures/TempTextures/Wood Planks/Planks_Albedo.png" id="3_3vxm0"]
+[ext_resource type="Texture2D" uid="uid://cmn0vk2djqjyk" path="res://Textures/TempTextures/Wood Planks/image.png" id="3_dcee1"]
 [ext_resource type="Texture2D" uid="uid://gwmh5hctqh1g" path="res://Textures/TempTextures/Wood Planks/Planks_AO.png" id="4_4prnw"]
 [ext_resource type="PackedScene" uid="uid://cumnita3y3x5e" path="res://scenes/stamping.tscn" id="5_8kp3t"]
-[ext_resource type="PackedScene" path="res://scenes/intro.tscn" id="5_hddd8"]
+[ext_resource type="PackedScene" uid="uid://bhkk8d63777sk" path="res://scenes/intro.tscn" id="5_hddd8"]
 [ext_resource type="Texture2D" uid="uid://b4yqbyfs1e6gn" path="res://Textures/TempTextures/Wood Planks/Planks_Height.png" id="5_tm8s7"]
-[ext_resource type="Texture2D" uid="uid://dt1lnxl5h5b3h" path="res://Textures/TempTextures/Wood Planks/Planks_Normal.png" id="6_6mc2w"]
+[ext_resource type="Texture2D" uid="uid://dletiynfoj8gy" path="res://Textures/TempTextures/Wood Planks/image (3).png" id="6_8rk1i"]
 [ext_resource type="Texture2D" uid="uid://bi661l2uyhc23" path="res://Textures/TempTextures/Wood Planks/Planks_Rough.png" id="7_f4c44"]
-[ext_resource type="Texture2D" uid="uid://b023ua1ok05em" path="res://Textures/Asset 631.png" id="8_mcwg1"]
 [ext_resource type="Texture2D" uid="uid://0e4kop5vr6m7" path="res://Textures/sponge.JPG" id="8_p75b8"]
+[ext_resource type="Texture2D" uid="uid://borkh0l1d7lqs" path="res://Textures/image (4).png" id="11_dpn1q"]
 [ext_resource type="PackedScene" uid="uid://dgvjlrsae8iq7" path="res://scenes/door.tscn" id="12_tngw7"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="12_vuyu0"]
 
-[sub_resource type="Environment" id="Environment_6phuy"]
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jesxm"]
-albedo_color = Color(0.472846, 0.385525, 0.171227, 1)
-albedo_texture = ExtResource("3_3vxm0")
-metallic_specular = 0.43
+albedo_color = Color(0.419027, 0.362195, 0.197436, 1)
+albedo_texture = ExtResource("3_dcee1")
+metallic_specular = 0.0
 roughness_texture = ExtResource("7_f4c44")
 normal_enabled = true
-normal_scale = 12.51
-normal_texture = ExtResource("6_6mc2w")
+normal_scale = 10.94
+normal_texture = ExtResource("6_8rk1i")
 ao_enabled = true
 ao_texture = ExtResource("4_4prnw")
-heightmap_enabled = true
 heightmap_texture = ExtResource("5_tm8s7")
-uv1_scale = Vector3(0.305, 0.305, 0.305)
+uv1_scale = Vector3(0.307, 0.307, 0.307)
+uv1_offset = Vector3(2.37, 0.14, -0.285)
 uv1_triplanar = true
+uv1_triplanar_sharpness = 0.63728
 uv1_world_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lxs55"]
 albedo_color = Color(0.136826, 0.136826, 0.136826, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ymnjw"]
-albedo_color = Color(0.187176, 0.187176, 0.187176, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5uj48"]
+albedo_color = Color(0.215902, 0.215902, 0.215902, 1)
+metallic_specular = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3jd2y"]
 albedo_color = Color(0, 0, 0, 1)
@@ -51,7 +51,7 @@ material = SubResource("StandardMaterial3D_if3yo")
 transparency = 2
 alpha_scissor_threshold = 0.016
 alpha_antialiasing_mode = 0
-albedo_texture = ExtResource("8_mcwg1")
+albedo_texture = ExtResource("11_dpn1q")
 backlight_enabled = true
 uv1_scale = Vector3(0.077, 0.117, 0.08)
 uv1_offset = Vector3(0.007, 0.007, 0)
@@ -72,95 +72,57 @@ script = ExtResource("1_e5w8m")
 
 [node name="Environment" type="Node" parent="."]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
-environment = SubResource("Environment_6phuy")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment/WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, -0.0656295, 0.997844, 0, -0.997844, -0.0656295, 0, 0, 0)
-
 [node name="Ambience" type="AudioStreamPlayer" parent="Environment"]
 stream = ExtResource("2_5mjnv")
 volume_db = -14.79
 autoplay = true
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -22.1958, 0)
+
 [node name="Lights" type="Node" parent="."]
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.130009, 4.85803, 3.43935)
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.204175, 4.01036, -19.0234)
 light_energy = 16.0
-shadow_enabled = true
-spot_range = 9.33784
-spot_attenuation = 1.14
-spot_angle = 74.873
+omni_range = 282.196
+omni_attenuation = 0.595
 
-[node name="SpotLight3D3" type="SpotLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.130009, 4.85803, 25.7753)
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.204175, 4.01036, 40.2147)
 light_energy = 16.0
-shadow_enabled = true
-spot_range = 9.33784
-spot_attenuation = 1.14
-spot_angle = 74.873
+omni_range = 282.196
+omni_attenuation = 0.595
 
-[node name="SpotLight3D4" type="SpotLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.130009, 4.85803, -10.1465)
+[node name="OmniLight3D3" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.1428, 4.01035, 26.2095)
 light_energy = 16.0
-shadow_enabled = true
-spot_range = 9.33784
-spot_attenuation = 1.14
-spot_angle = 74.873
+omni_range = 282.196
+omni_attenuation = 0.595
 
-[node name="SpotLight3D5" type="SpotLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.130009, 4.85803, -30.8292)
+[node name="OmniLight3D4" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.3359, 4.01035, -10.6239)
 light_energy = 16.0
-shadow_enabled = true
-spot_range = 9.33784
-spot_attenuation = 1.14
-spot_angle = 74.873
+omni_range = 282.196
+omni_attenuation = 0.595
 
-[node name="SpotLight3D10" type="SpotLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.130009, 4.85803, -51.7734)
+[node name="OmniLight3D5" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.3756, 4.01035, 1.41527)
 light_energy = 16.0
-shadow_enabled = true
-spot_range = 9.33784
-spot_attenuation = 1.14
-spot_angle = 74.873
+omni_range = 282.196
+omni_attenuation = 0.595
 
-[node name="SpotLight3D6" type="SpotLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -28.0269, 4.85803, -30.8292)
+[node name="OmniLight3D6" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.8085, 4.01036, -31.7364)
 light_energy = 16.0
-shadow_enabled = true
-spot_range = 9.33784
-spot_attenuation = 1.14
-spot_angle = 74.873
-
-[node name="SpotLight3D7" type="SpotLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -28.0269, 4.85803, 3.49466)
-light_energy = 16.0
-shadow_enabled = true
-spot_range = 9.33784
-spot_attenuation = 1.14
-spot_angle = 74.873
-
-[node name="SpotLight3D8" type="SpotLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 28.427, 4.85803, -9.26217)
-light_energy = 16.0
-shadow_enabled = true
-spot_range = 9.33784
-spot_attenuation = 1.14
-spot_angle = 74.873
-
-[node name="SpotLight3D9" type="SpotLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 28.427, 4.85803, 26.6079)
-light_energy = 16.0
-shadow_enabled = true
-spot_range = 9.33784
-spot_attenuation = 1.14
-spot_angle = 74.873
+omni_range = 282.196
+omni_attenuation = 0.595
 
 [node name="Build" type="Node" parent="."]
 
 [node name="Floor" type="CSGBox3D" parent="Build"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.391724, 0, 1.96701)
+use_collision = true
 size = Vector3(109.136, 0.133789, 116.851)
 material = SubResource("StandardMaterial3D_jesxm")
 
@@ -172,7 +134,7 @@ material = SubResource("StandardMaterial3D_lxs55")
 
 [node name="CentralWall" type="CSGBox3D" parent="Build"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00396156, 2.14395, 0.473261)
-material_override = SubResource("StandardMaterial3D_ymnjw")
+material_override = SubResource("StandardMaterial3D_5uj48")
 use_collision = true
 size = Vector3(111.481, 5.25372, 119.334)
 
@@ -223,8 +185,53 @@ size = Vector3(1.95605, 3.20135, 0.233276)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.428, 0.788774, 11.4868)
+size = Vector3(31.234, 4.7789, 22.8249)
+material = SubResource("StandardMaterial3D_3jd2y")
+
+[node name="R5" type="CSGBox3D" parent="Build/CentralWall/RoomCutout"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.428, 0.788774, 40.9073)
+size = Vector3(31.234, 4.7789, 25.0659)
+material = SubResource("StandardMaterial3D_3jd2y")
+
+[node name="R6" type="CSGBox3D" parent="Build/CentralWall/RoomCutout"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8048, 0.788774, -17.0063)
+size = Vector3(29.4296, 4.7789, 23.3199)
+material = SubResource("StandardMaterial3D_3jd2y")
+
+[node name="R7" type="CSGBox3D" parent="Build/CentralWall/RoomCutout"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8048, 0.788774, -46.4838)
+size = Vector3(29.4296, 4.7789, 24.6212)
+material = SubResource("StandardMaterial3D_3jd2y")
+
+[node name="R8" type="CSGBox3D" parent="Build/CentralWall/RoomCutout"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.4916, 0.788774, -46.4838)
+size = Vector3(11.1044, 4.7789, 24.6212)
+material = SubResource("StandardMaterial3D_3jd2y")
+
+[node name="R9" type="CSGBox3D" parent="Build/CentralWall/RoomCutout"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.9934, 0.788774, -31.0361)
+size = Vector3(11.1044, 4.7789, 18.8984)
+material = SubResource("StandardMaterial3D_3jd2y")
+
+[node name="R10" type="CSGBox3D" parent="Build/CentralWall/RoomCutout"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.409, 0.788774, -16.948)
+size = Vector3(11.1044, 4.7789, 23.1046)
+material = SubResource("StandardMaterial3D_3jd2y")
+
+[node name="R11" type="CSGBox3D" parent="Build/CentralWall/RoomCutout"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.5344, 0.788774, -32.2526)
+size = Vector3(54.3243, 4.7789, 53.6945)
+material = SubResource("StandardMaterial3D_3jd2y")
+
+[node name="R3" type="CSGBox3D" parent="Build/CentralWall/RoomCutout"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.5481, 0.788774, 11.4868)
+size = Vector3(32.019, 4.7789, 22.8249)
+material = SubResource("StandardMaterial3D_3jd2y")
+
+[node name="R4" type="CSGBox3D" parent="Build/CentralWall/RoomCutout"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.1556, 0.788774, 40.7986)
+size = Vector3(31.234, 4.7789, 24.871)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="RoomCutout54" type="CSGBox3D" parent="Build/CentralWall"]
@@ -233,20 +240,10 @@ operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
 material = SubResource("StandardMaterial3D_3jd2y")
 
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout54"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
-material = SubResource("StandardMaterial3D_3jd2y")
-
 [node name="RoomCutout55" type="CSGBox3D" parent="Build/CentralWall"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.6698, -0.463687, -29.88)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
-material = SubResource("StandardMaterial3D_3jd2y")
-
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout55"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="RoomCutout56" type="CSGBox3D" parent="Build/CentralWall"]
@@ -256,8 +253,8 @@ size = Vector3(1.95605, 3.20135, 0.233276)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout56"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.53476, 0.788774, 25.7886)
+size = Vector3(29.392, 4.7789, 51.3492)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="RoomCutout83" type="CSGBox3D" parent="Build/CentralWall"]
@@ -272,20 +269,10 @@ operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
 material = SubResource("StandardMaterial3D_3jd2y")
 
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout57"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
-material = SubResource("StandardMaterial3D_3jd2y")
-
 [node name="RoomCutout2" type="CSGBox3D" parent="Build/CentralWall"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.6698, -0.463687, 5.46457)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
-material = SubResource("StandardMaterial3D_3jd2y")
-
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="RoomCutout3" type="CSGBox3D" parent="Build/CentralWall"]
@@ -294,20 +281,10 @@ operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
 material = SubResource("StandardMaterial3D_3jd2y")
 
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
-material = SubResource("StandardMaterial3D_3jd2y")
-
 [node name="RoomCutout4" type="CSGBox3D" parent="Build/CentralWall"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.6698, -0.463687, 21.4445)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
-material = SubResource("StandardMaterial3D_3jd2y")
-
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="RoomCutout63" type="CSGBox3D" parent="Build/CentralWall"]
@@ -316,20 +293,10 @@ operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
 material = SubResource("StandardMaterial3D_3jd2y")
 
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout63"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
-material = SubResource("StandardMaterial3D_3jd2y")
-
 [node name="RoomCutout64" type="CSGBox3D" parent="Build/CentralWall"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -26.1051, -0.463687, -16.3717)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
-material = SubResource("StandardMaterial3D_3jd2y")
-
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout64"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="RoomCutout65" type="CSGBox3D" parent="Build/CentralWall"]
@@ -338,20 +305,10 @@ operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
 material = SubResource("StandardMaterial3D_3jd2y")
 
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout65"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
-material = SubResource("StandardMaterial3D_3jd2y")
-
 [node name="RoomCutout13" type="CSGBox3D" parent="Build/CentralWall"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 25.6345, -0.463687, 18.1675)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
-material = SubResource("StandardMaterial3D_3jd2y")
-
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout13"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="RoomCutout26" type="CSGBox3D" parent="Build/CentralWall"]
@@ -360,20 +317,10 @@ operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
 material = SubResource("StandardMaterial3D_3jd2y")
 
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout26"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
-material = SubResource("StandardMaterial3D_3jd2y")
-
 [node name="RoomCutout27" type="CSGBox3D" parent="Build/CentralWall"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 43.4941, -0.463687, 23.4859)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
-material = SubResource("StandardMaterial3D_3jd2y")
-
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout27"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="RoomCutout28" type="CSGBox3D" parent="Build/CentralWall"]
@@ -382,20 +329,10 @@ operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
 material = SubResource("StandardMaterial3D_3jd2y")
 
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout28"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
-material = SubResource("StandardMaterial3D_3jd2y")
-
 [node name="RoomCutout29" type="CSGBox3D" parent="Build/CentralWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.3261, -0.463687, 28.8092)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
-material = SubResource("StandardMaterial3D_3jd2y")
-
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout29"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="RoomCutout30" type="CSGBox3D" parent="Build/CentralWall"]
@@ -404,20 +341,10 @@ operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
 material = SubResource("StandardMaterial3D_3jd2y")
 
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout30"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
-material = SubResource("StandardMaterial3D_3jd2y")
-
 [node name="RoomCutout31" type="CSGBox3D" parent="Build/CentralWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.6517, -0.463687, 28.8092)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
-material = SubResource("StandardMaterial3D_3jd2y")
-
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout31"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.386368, 0.788774, 3.39301)
-size = Vector3(4.2377, 4.7789, 6.55808)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="RoomCutout68" type="CSGBox3D" parent="Build/CentralWall"]
@@ -426,20 +353,10 @@ operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
 material = SubResource("StandardMaterial3D_3jd2y")
 
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout68"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.386368, 0.788774, 3.39301)
-size = Vector3(4.2377, 4.7789, 6.55808)
-material = SubResource("StandardMaterial3D_3jd2y")
-
 [node name="RoomCutout14" type="CSGBox3D" parent="Build/CentralWall"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 25.6345, -0.463687, 10.0511)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
-material = SubResource("StandardMaterial3D_3jd2y")
-
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout14"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="RoomCutout15" type="CSGBox3D" parent="Build/CentralWall"]
@@ -448,20 +365,10 @@ operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
 material = SubResource("StandardMaterial3D_3jd2y")
 
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout15"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
-material = SubResource("StandardMaterial3D_3jd2y")
-
 [node name="RoomCutout36" type="CSGBox3D" parent="Build/CentralWall"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 25.6345, -0.463687, 30.6668)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
-material = SubResource("StandardMaterial3D_3jd2y")
-
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout36"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="RoomCutout37" type="CSGBox3D" parent="Build/CentralWall"]
@@ -470,20 +377,10 @@ operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
 material = SubResource("StandardMaterial3D_3jd2y")
 
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout37"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
-material = SubResource("StandardMaterial3D_3jd2y")
-
 [node name="RoomCutout38" type="CSGBox3D" parent="Build/CentralWall"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 25.6345, -0.463687, 45.4249)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
-material = SubResource("StandardMaterial3D_3jd2y")
-
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout38"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="RoomCutout39" type="CSGBox3D" parent="Build/CentralWall"]
@@ -492,20 +389,10 @@ operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
 material = SubResource("StandardMaterial3D_3jd2y")
 
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout39"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
-material = SubResource("StandardMaterial3D_3jd2y")
-
 [node name="RoomCutout16" type="CSGBox3D" parent="Build/CentralWall"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 25.6345, -0.463687, -5.92882)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
-material = SubResource("StandardMaterial3D_3jd2y")
-
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout16"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="RoomCutout40" type="CSGBox3D" parent="Build/CentralWall"]
@@ -514,20 +401,10 @@ operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
 material = SubResource("StandardMaterial3D_3jd2y")
 
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout40"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
-material = SubResource("StandardMaterial3D_3jd2y")
-
 [node name="RoomCutout41" type="CSGBox3D" parent="Build/CentralWall"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.63055, -0.463687, 23.8252)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
-material = SubResource("StandardMaterial3D_3jd2y")
-
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout41"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="RoomCutout42" type="CSGBox3D" parent="Build/CentralWall"]
@@ -536,20 +413,10 @@ operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
 material = SubResource("StandardMaterial3D_3jd2y")
 
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout42"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
-material = SubResource("StandardMaterial3D_3jd2y")
-
 [node name="RoomCutout43" type="CSGBox3D" parent="Build/CentralWall"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.63055, -0.463687, 7.84534)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
-material = SubResource("StandardMaterial3D_3jd2y")
-
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout43"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="RoomCutout45" type="CSGBox3D" parent="Build/CentralWall"]
@@ -558,20 +425,10 @@ operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
 material = SubResource("StandardMaterial3D_3jd2y")
 
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout45"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.67617, 0.788774, 3.39301)
-size = Vector3(5.41542, 4.7789, 6.55808)
-material = SubResource("StandardMaterial3D_3jd2y")
-
 [node name="RoomCutout46" type="CSGBox3D" parent="Build/CentralWall"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.63055, -0.463687, 47.7729)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
-material = SubResource("StandardMaterial3D_3jd2y")
-
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout46"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="RoomCutout47" type="CSGBox3D" parent="Build/CentralWall"]
@@ -580,20 +437,10 @@ operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
 material = SubResource("StandardMaterial3D_3jd2y")
 
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout47"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
-material = SubResource("StandardMaterial3D_3jd2y")
-
 [node name="RoomCutout17" type="CSGBox3D" parent="Build/CentralWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.7514, -0.463687, -7.93484)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
-material = SubResource("StandardMaterial3D_3jd2y")
-
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout17"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="RoomCutout69" type="CSGBox3D" parent="Build/CentralWall"]
@@ -602,20 +449,10 @@ operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
 material = SubResource("StandardMaterial3D_3jd2y")
 
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout69"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
-material = SubResource("StandardMaterial3D_3jd2y")
-
 [node name="RoomCutout70" type="CSGBox3D" parent="Build/CentralWall"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.67703, -0.463687, -19.4757)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
-material = SubResource("StandardMaterial3D_3jd2y")
-
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout70"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="RoomCutout71" type="CSGBox3D" parent="Build/CentralWall"]
@@ -624,20 +461,10 @@ operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
 material = SubResource("StandardMaterial3D_3jd2y")
 
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout71"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
-material = SubResource("StandardMaterial3D_3jd2y")
-
 [node name="RoomCutout72" type="CSGBox3D" parent="Build/CentralWall"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -31.3987, -0.463687, -27.1979)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
-material = SubResource("StandardMaterial3D_3jd2y")
-
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout72"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="RoomCutout73" type="CSGBox3D" parent="Build/CentralWall"]
@@ -646,20 +473,10 @@ operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
 material = SubResource("StandardMaterial3D_3jd2y")
 
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout73"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
-material = SubResource("StandardMaterial3D_3jd2y")
-
 [node name="RoomCutout74" type="CSGBox3D" parent="Build/CentralWall"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -31.3987, -0.463687, -12.591)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
-material = SubResource("StandardMaterial3D_3jd2y")
-
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout74"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="RoomCutout48" type="CSGBox3D" parent="Build/CentralWall"]
@@ -668,20 +485,10 @@ operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
 material = SubResource("StandardMaterial3D_3jd2y")
 
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout48"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
-material = SubResource("StandardMaterial3D_3jd2y")
-
 [node name="RoomCutout49" type="CSGBox3D" parent="Build/CentralWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.4608, -0.463687, 5.65772)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
-material = SubResource("StandardMaterial3D_3jd2y")
-
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout49"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="RoomCutout50" type="CSGBox3D" parent="Build/CentralWall"]
@@ -690,20 +497,10 @@ operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
 material = SubResource("StandardMaterial3D_3jd2y")
 
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout50"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
-material = SubResource("StandardMaterial3D_3jd2y")
-
 [node name="RoomCutout51" type="CSGBox3D" parent="Build/CentralWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.5753, -0.463687, 5.65772)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
-material = SubResource("StandardMaterial3D_3jd2y")
-
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout51"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="RoomCutout52" type="CSGBox3D" parent="Build/CentralWall"]
@@ -712,20 +509,10 @@ operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
 material = SubResource("StandardMaterial3D_3jd2y")
 
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout52"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
-material = SubResource("StandardMaterial3D_3jd2y")
-
 [node name="RoomCutout53" type="CSGBox3D" parent="Build/CentralWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.7952, -0.463687, 5.65772)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
-material = SubResource("StandardMaterial3D_3jd2y")
-
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout53"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.53786, 0.788774, 3.39301)
-size = Vector3(6.53018, 4.7789, 6.55808)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="RoomCutout75" type="CSGBox3D" parent="Build/CentralWall"]
@@ -734,20 +521,10 @@ operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
 material = SubResource("StandardMaterial3D_3jd2y")
 
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout75"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
-material = SubResource("StandardMaterial3D_3jd2y")
-
 [node name="RoomCutout76" type="CSGBox3D" parent="Build/CentralWall"]
 transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, -41.0018, -0.463687, 0.346212)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
-material = SubResource("StandardMaterial3D_3jd2y")
-
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout76"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.53786, 0.788774, 3.39301)
-size = Vector3(6.53018, 4.7789, 6.55808)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="RoomCutout44" type="CSGBox3D" parent="Build/CentralWall"]
@@ -756,20 +533,10 @@ operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
 material = SubResource("StandardMaterial3D_3jd2y")
 
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout44"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
-material = SubResource("StandardMaterial3D_3jd2y")
-
 [node name="RoomCutout18" type="CSGBox3D" parent="Build/CentralWall"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 8.03637, -0.463687, -13.2544)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
-material = SubResource("StandardMaterial3D_3jd2y")
-
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout18"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="RoomCutout61" type="CSGBox3D" parent="Build/CentralWall"]
@@ -778,20 +545,10 @@ operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
 material = SubResource("StandardMaterial3D_3jd2y")
 
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout61"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
-material = SubResource("StandardMaterial3D_3jd2y")
-
 [node name="RoomCutout66" type="CSGBox3D" parent="Build/CentralWall"]
 transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -16.7654, -0.463687, -29.2299)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
-material = SubResource("StandardMaterial3D_3jd2y")
-
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout66"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="RoomCutout67" type="CSGBox3D" parent="Build/CentralWall"]
@@ -800,20 +557,10 @@ operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
 material = SubResource("StandardMaterial3D_3jd2y")
 
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout67"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
-material = SubResource("StandardMaterial3D_3jd2y")
-
 [node name="RoomCutout77" type="CSGBox3D" parent="Build/CentralWall"]
 transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -51.4387, -0.463687, -29.1902)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
-material = SubResource("StandardMaterial3D_3jd2y")
-
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout77"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="RoomCutout78" type="CSGBox3D" parent="Build/CentralWall"]
@@ -822,20 +569,10 @@ operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
 material = SubResource("StandardMaterial3D_3jd2y")
 
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout78"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
-material = SubResource("StandardMaterial3D_3jd2y")
-
 [node name="RoomCutout79" type="CSGBox3D" parent="Build/CentralWall"]
 transform = Transform3D(-1, 0, 2.83122e-07, 0, 1, 0, -2.83122e-07, 0, -1, -42.637, -0.463687, -34.5266)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
-material = SubResource("StandardMaterial3D_3jd2y")
-
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout79"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="RoomCutout81" type="CSGBox3D" parent="Build/CentralWall"]
@@ -844,20 +581,10 @@ operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
 material = SubResource("StandardMaterial3D_3jd2y")
 
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout81"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
-material = SubResource("StandardMaterial3D_3jd2y")
-
 [node name="RoomCutout82" type="CSGBox3D" parent="Build/CentralWall"]
 transform = Transform3D(-1, 0, 2.83122e-07, 0, 1, 0, -2.83122e-07, 0, -1, -28.7826, -0.463685, -46.0433)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
-material = SubResource("StandardMaterial3D_3jd2y")
-
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout82"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="RoomCutout80" type="CSGBox3D" parent="Build/CentralWall"]
@@ -866,20 +593,10 @@ operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
 material = SubResource("StandardMaterial3D_3jd2y")
 
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout80"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
-material = SubResource("StandardMaterial3D_3jd2y")
-
 [node name="RoomCutout62" type="CSGBox3D" parent="Build/CentralWall"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -20.1735, -0.463687, -34.5219)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
-material = SubResource("StandardMaterial3D_3jd2y")
-
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout62"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="RoomCutout58" type="CSGBox3D" parent="Build/CentralWall"]
@@ -888,20 +605,10 @@ operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
 material = SubResource("StandardMaterial3D_3jd2y")
 
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout58"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
-material = SubResource("StandardMaterial3D_3jd2y")
-
 [node name="RoomCutout59" type="CSGBox3D" parent="Build/CentralWall"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -12.5093, -0.463687, 0.364411)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
-material = SubResource("StandardMaterial3D_3jd2y")
-
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout59"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="RoomCutout60" type="CSGBox3D" parent="Build/CentralWall"]
@@ -910,20 +617,10 @@ operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
 material = SubResource("StandardMaterial3D_3jd2y")
 
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout60"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
-material = SubResource("StandardMaterial3D_3jd2y")
-
 [node name="RoomCutout19" type="CSGBox3D" parent="Build/CentralWall"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 15.7364, -0.463687, -13.2544)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
-material = SubResource("StandardMaterial3D_3jd2y")
-
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout19"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="RoomCutout20" type="CSGBox3D" parent="Build/CentralWall"]
@@ -932,20 +629,10 @@ operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
 material = SubResource("StandardMaterial3D_3jd2y")
 
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout20"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
-material = SubResource("StandardMaterial3D_3jd2y")
-
 [node name="RoomCutout21" type="CSGBox3D" parent="Build/CentralWall"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 31.0305, -0.463687, -13.2544)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
-material = SubResource("StandardMaterial3D_3jd2y")
-
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout21"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="RoomCutout22" type="CSGBox3D" parent="Build/CentralWall"]
@@ -954,20 +641,10 @@ operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
 material = SubResource("StandardMaterial3D_3jd2y")
 
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout22"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
-material = SubResource("StandardMaterial3D_3jd2y")
-
 [node name="RoomCutout23" type="CSGBox3D" parent="Build/CentralWall"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 46.4692, -0.463687, -13.2544)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
-material = SubResource("StandardMaterial3D_3jd2y")
-
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout23"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="RoomCutout24" type="CSGBox3D" parent="Build/CentralWall"]
@@ -976,20 +653,10 @@ operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
 material = SubResource("StandardMaterial3D_3jd2y")
 
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout24"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
-material = SubResource("StandardMaterial3D_3jd2y")
-
 [node name="RoomCutout25" type="CSGBox3D" parent="Build/CentralWall"]
 transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 47.4645, -0.463687, -7.94581)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
-material = SubResource("StandardMaterial3D_3jd2y")
-
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout25"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="RoomCutout9" type="CSGBox3D" parent="Build/CentralWall"]
@@ -998,20 +665,10 @@ operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
 material = SubResource("StandardMaterial3D_3jd2y")
 
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout9"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
-material = SubResource("StandardMaterial3D_3jd2y")
-
 [node name="RoomCutout33" type="CSGBox3D" parent="Build/CentralWall"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 30.9607, -0.463687, 41.508)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
-material = SubResource("StandardMaterial3D_3jd2y")
-
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout33"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="RoomCutout34" type="CSGBox3D" parent="Build/CentralWall"]
@@ -1020,20 +677,10 @@ operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
 material = SubResource("StandardMaterial3D_3jd2y")
 
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout34"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
-material = SubResource("StandardMaterial3D_3jd2y")
-
 [node name="RoomCutout35" type="CSGBox3D" parent="Build/CentralWall"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 30.9607, -0.463687, 56.4662)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
-material = SubResource("StandardMaterial3D_3jd2y")
-
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout35"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="RoomCutout32" type="CSGBox3D" parent="Build/CentralWall"]
@@ -1042,20 +689,10 @@ operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
 material = SubResource("StandardMaterial3D_3jd2y")
 
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout32"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 2.46541)
-size = Vector3(6.88849, 4.7789, 4.70287)
-material = SubResource("StandardMaterial3D_3jd2y")
-
 [node name="RoomCutout10" type="CSGBox3D" parent="Build/CentralWall"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 30.9607, -0.463687, 13.5216)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
-material = SubResource("StandardMaterial3D_3jd2y")
-
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout10"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="RoomCutout11" type="CSGBox3D" parent="Build/CentralWall"]
@@ -1064,20 +701,10 @@ operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
 material = SubResource("StandardMaterial3D_3jd2y")
 
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout11"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
-material = SubResource("StandardMaterial3D_3jd2y")
-
 [node name="RoomCutout12" type="CSGBox3D" parent="Build/CentralWall"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 30.9607, -0.463687, -2.43574)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
-material = SubResource("StandardMaterial3D_3jd2y")
-
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout12"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="RoomCutout5" type="CSGBox3D" parent="Build/CentralWall"]
@@ -1086,20 +713,10 @@ operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
 material = SubResource("StandardMaterial3D_3jd2y")
 
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
-material = SubResource("StandardMaterial3D_3jd2y")
-
 [node name="RoomCutout6" type="CSGBox3D" parent="Build/CentralWall"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.6698, -0.463687, 41.7032)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
-material = SubResource("StandardMaterial3D_3jd2y")
-
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="RoomCutout7" type="CSGBox3D" parent="Build/CentralWall"]
@@ -1108,20 +725,10 @@ operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
 material = SubResource("StandardMaterial3D_3jd2y")
 
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout7"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
-material = SubResource("StandardMaterial3D_3jd2y")
-
 [node name="RoomCutout8" type="CSGBox3D" parent="Build/CentralWall"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.6698, -0.463687, 56.4283)
 operation = 2
 size = Vector3(1.95605, 3.20135, 0.233276)
-material = SubResource("StandardMaterial3D_3jd2y")
-
-[node name="R2" type="CSGBox3D" parent="Build/CentralWall/RoomCutout8"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
-size = Vector3(6.88849, 4.7789, 6.55808)
 material = SubResource("StandardMaterial3D_3jd2y")
 
 [node name="???" type="MeshInstance3D" parent="Build/CentralWall"]
@@ -1892,5 +1499,242 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.5346
 
 [node name="Door3" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.5346, 0, -22.1594)
+
+[node name="Door4" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7.86623, 0, -12.6531)
+
+[node name="Door5" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 15.5404, 0, -12.6531)
+
+[node name="Door6" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 23.2067, 0, -12.6531)
+
+[node name="Door7" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 30.857, 0, -12.6531)
+
+[node name="Door8" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 38.5435, 0, -12.6531)
+
+[node name="Door9" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 46.2824, 0, -12.6531)
+
+[node name="Door10" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 50.6423, 0, -12.6531)
+
+[node name="Door11" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 47.65, 0, -7.593)
+
+[node name="Door12" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 40.2191, 0, -7.593)
+
+[node name="Door13" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 30.8203, 0, -2.14566)
+
+[node name="Door14" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 30.8203, 0, 5.82235)
+
+[node name="Door15" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 30.8203, 0, 13.7982)
+
+[node name="Door16" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 30.8203, 0, 21.9054)
+
+[node name="Door17" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 43.3235, 0, 24.1363)
+
+[node name="Door18" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 51.1052, 0, 24.1363)
+
+[node name="Door19" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(1, 0, 3.49691e-07, 0, 1, 0, -3.49691e-07, 0, 1, 50.5241, 0, 29.2277)
+
+[node name="Door20" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(1, 0, 3.49691e-07, 0, 1, 0, -3.49691e-07, 0, 1, 42.9188, 0, 29.2277)
+
+[node name="Door21" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(1, 0, 3.49691e-07, 0, 1, 0, -3.49691e-07, 0, 1, 38.849, 0, 29.2277)
+
+[node name="Door22" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(-3.93403e-07, 0, 1, 0, 1, 0, -1, 0, -3.93403e-07, 30.7757, 0, 34.4095)
+
+[node name="Door23" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(-3.93403e-07, 0, 1, 0, 1, 0, -1, 0, -3.93403e-07, 30.7757, 0, 41.8055)
+
+[node name="Door24" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(-3.93403e-07, 0, 1, 0, 1, 0, -1, 0, -3.93403e-07, 30.7757, 0, 49.3995)
+
+[node name="Door25" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(-3.93403e-07, 0, 1, 0, 1, 0, -1, 0, -3.93403e-07, 30.7757, 0, 56.754)
+
+[node name="Door26" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, 25.7786, -4.76837e-07, 53.547)
+
+[node name="Door27" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, 25.7786, -4.76837e-07, 46.1107)
+
+[node name="Door28" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, 25.7786, -4.76837e-07, 38.7742)
+
+[node name="Door29" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, 25.7786, -4.76837e-07, 31.3251)
+
+[node name="Door30" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(1, 0, 5.24537e-07, 0, 1, 0, -5.24537e-07, 0, 1, 12.9441, -4.76837e-07, 29.1343)
+
+[node name="Door31" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(-5.68248e-07, 0, 1, 0, 1, 0, -1, 0, -5.68248e-07, 2.51276, -9.53674e-07, 34.4661)
+
+[node name="Door32" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(-5.68248e-07, 0, 1, 0, 1, 0, -1, 0, -5.68248e-07, 2.51276, -9.53674e-07, 41.9773)
+
+[node name="Door33" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(-5.68248e-07, 0, 1, 0, 1, 0, -1, 0, -5.68248e-07, 2.51276, -9.53674e-07, 49.3621)
+
+[node name="Door34" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(-5.68248e-07, 0, 1, 0, 1, 0, -1, 0, -5.68248e-07, 2.51276, -9.53674e-07, 56.6949)
+
+[node name="Door35" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, -2.53479, -9.53674e-07, 56.5355)
+
+[node name="Door36" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, -2.53479, -9.53674e-07, 48.4313)
+
+[node name="Door37" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, -2.53479, -9.53674e-07, 40.5604)
+
+[node name="Door38" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, -2.53479, -9.53674e-07, 32.6024)
+
+[node name="Door39" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, -2.53479, -9.53674e-07, 24.4823)
+
+[node name="Door40" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, -2.53479, -9.53674e-07, 16.3783)
+
+[node name="Door41" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, -2.53479, -9.53674e-07, 8.53127)
+
+[node name="Door42" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(1, 0, 5.24537e-07, 0, 1, 0, -5.24537e-07, 0, 1, -14.7765, -9.53674e-07, 5.98098)
+
+[node name="Door43" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(1, 0, 5.24537e-07, 0, 1, 0, -5.24537e-07, 0, 1, -22.2641, -9.53674e-07, 5.98098)
+
+[node name="Door44" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(1, 0, 5.24537e-07, 0, 1, 0, -5.24537e-07, 0, 1, -29.8816, -9.53674e-07, 5.98098)
+
+[node name="Door45" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(1, 0, 5.24537e-07, 0, 1, 0, -5.24537e-07, 0, 1, -37.3739, -9.53674e-07, 5.98098)
+
+[node name="Door46" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(1, 0, 5.24537e-07, 0, 1, 0, -5.24537e-07, 0, 1, -44.7768, -9.53674e-07, 5.98098)
+
+[node name="Door47" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(1, 0, 5.24537e-07, 0, 1, 0, -5.24537e-07, 0, 1, -51.6139, -9.53674e-07, 5.98098)
+
+[node name="Door48" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(-1, 0, -4.37114e-07, 0, 1, 0, 4.37114e-07, 0, -1, -47.9885, -9.53674e-07, 0.953127)
+
+[node name="Door49" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(-1, 0, -4.37114e-07, 0, 1, 0, 4.37114e-07, 0, -1, -41.1611, -9.53674e-07, 0.953127)
+
+[node name="Door50" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, -31.2325, -4.76837e-07, -4.34303)
+
+[node name="Door51" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, -31.2325, -4.76837e-07, -11.9551)
+
+[node name="Door52" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, -31.2325, -4.76837e-07, -18.9343)
+
+[node name="Door53" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, -31.2325, -4.76837e-07, -26.5429)
+
+[node name="Door54" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(1, 0, 5.24537e-07, 0, 1, 0, -5.24537e-07, 0, 1, -43.4855, -4.76837e-07, -28.892)
+
+[node name="Door55" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(1, 0, 5.24537e-07, 0, 1, 0, -5.24537e-07, 0, 1, -51.2676, -4.76837e-07, -28.892)
+
+[node name="Door56" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(-1, 0, -4.37114e-07, 0, 1, 0, 4.37114e-07, 0, -1, -50.5832, -4.76837e-07, -33.883)
+
+[node name="Door57" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(-1, 0, -4.37114e-07, 0, 1, 0, 4.37114e-07, 0, -1, -42.8194, -4.76837e-07, -33.883)
+
+[node name="Door58" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(-1, 0, -4.37114e-07, 0, 1, 0, 4.37114e-07, 0, -1, -35.4475, -4.76837e-07, -33.883)
+
+[node name="Door59" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(-1, 0, -4.37114e-07, 0, 1, 0, 4.37114e-07, 0, -1, -28.9574, -4.76837e-07, -45.3973)
+
+[node name="Door60" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(-1, 0, -4.37114e-07, 0, 1, 0, 4.37114e-07, 0, -1, -20.3529, -4.76837e-07, -33.8869)
+
+[node name="Door61" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(-1, 0, -4.37114e-07, 0, 1, 0, 4.37114e-07, 0, -1, -12.3067, -4.76837e-07, -33.8869)
+
+[node name="Door62" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, -2.49205, -4.76837e-07, -39.3581)
+
+[node name="Door63" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, -2.49205, -4.76837e-07, -18.7996)
+
+[node name="Door64" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, -2.49205, -4.76837e-07, -11.2184)
+
+[node name="Door65" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(-1, 0, -4.37114e-07, 0, 1, 0, 4.37114e-07, 0, -1, -4.8227, -4.76837e-07, 0.983395)
+
+[node name="Door66" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(-1, 0, -4.37114e-07, 0, 1, 0, 4.37114e-07, 0, -1, -12.6746, -4.76837e-07, 0.983395)
+
+[node name="Door67" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(-1, 0, -4.37114e-07, 0, 1, 0, 4.37114e-07, 0, -1, -20.4685, -4.76837e-07, 0.983395)
+
+[node name="Door68" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(-3.93403e-07, 0, 1, 0, 1, 0, -1, 0, -3.93403e-07, -26.2285, -4.76837e-07, -8.69926)
+
+[node name="Door69" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(-3.93403e-07, 0, 1, 0, 1, 0, -1, 0, -3.93403e-07, -26.2285, -4.76837e-07, -16.0717)
+
+[node name="Door70" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(-3.93403e-07, 0, 1, 0, 1, 0, -1, 0, -3.93403e-07, -26.2285, -4.76837e-07, -23.4804)
+
+[node name="Door71" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(1, 0, 3.49691e-07, 0, 1, 0, -3.49691e-07, 0, 1, -16.5769, -9.53674e-07, -28.8975)
+
+[node name="Door72" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(1, 0, 3.49691e-07, 0, 1, 0, -3.49691e-07, 0, 1, -8.81123, -9.53674e-07, -28.8975)
+
+[node name="Door73" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(1, 0, 3.49691e-07, 0, 1, 0, -3.49691e-07, 0, 1, 12.9467, -9.53674e-07, -7.62304)
+
+[node name="Door74" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(3.0598e-07, 0, -1, 0, 1, 0, 1, 0, 3.0598e-07, 25.827, -9.53674e-07, -5.26015)
+
+[node name="Door75" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(3.0598e-07, 0, -1, 0, 1, 0, 1, 0, 3.0598e-07, 25.827, -9.53674e-07, 2.58224)
+
+[node name="Door76" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(3.0598e-07, 0, -1, 0, 1, 0, 1, 0, 3.0598e-07, 25.827, -9.53674e-07, 10.6951)
+
+[node name="Door77" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(3.0598e-07, 0, -1, 0, 1, 0, 1, 0, 3.0598e-07, 25.827, -9.53674e-07, 18.8056)
+
+[node name="Door78" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 15.752, -9.53674e-07, 24.1478)
+
+[node name="Door79" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 2.49922, -9.53674e-07, 21.7289)
+
+[node name="Door80" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 2.49922, -9.53674e-07, 13.8597)
+
+[node name="Door81" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 2.49922, -9.53674e-07, 5.75002)
+
+[node name="Door82" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 2.49922, -9.53674e-07, -2.37396)
 
 [connection signal="finished" from="Environment/Ambience" to="." method="Replay_Ambience"]

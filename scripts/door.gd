@@ -38,28 +38,42 @@ var open: bool = false
 @export var max_middle_names: int = 3
 @export var minigame = preload("res://scenes/typing_minigame.tscn")
 
-@onready var door_panel: MeshInstance3D = $Panel
+@onready var room_a = preload("res://Manage/room_a.tscn")
+@onready var room_b = preload("res://Manage/room_b.tscn")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var goto_position: Vector3 = $GotoPosition.position
 @onready var current_camera: Camera3D = get_viewport().get_camera_3d()
-@onready var audio_open_door: AudioStreamPlayer = $Sounds/OpenDoor
+@onready var audio_open_door: AudioStreamPlayer = $Sounds/Door
+@onready var room_position = $RoomPoint
+
+var room
+const DOOR_SLAM = preload("res://assets/audio/General/Door_Slam.mp3")
+const DOOR_OPEN = preload("res://assets/audio/General/Door_open.mp3")
 
 func _ready():
 	pass
-	
+
+func choose(list):
+	list.shuffle()
+	return list.front()
+
 func clicked():
 	if !delivery_active or tenant_name == "":
 		print("There is no tenant in this room!")
 		return
+	audio_open_door.set_stream(DOOR_OPEN) ; audio_open_door.play()
 	door_interaction_begin.emit(self)
-	audio_open_door.play()
 	
 func _toggle_door_state():
 	if open:
 		_end_current_minigame()
 	else:
-		_start_minigame()
 		animation_player.play("open_door")
+		room = choose([room_a, room_b]).instantiate()
+		room_position.add_child(room)
+		await get_tree().create_timer(2)
+		_start_minigame()
+		
 		
 	open = !open
 		
@@ -76,9 +90,15 @@ func _start_minigame():
 	
 func _end_current_minigame():
 	if current_minigame != null:
+		audio_open_door.set_stream(DOOR_SLAM) ; audio_open_door.play()
 		current_minigame.queue_free()
 
 func _minigame_completed():
 	_end_current_minigame()
 	door_interaction_end.emit(self)
 	animation_player.play("close_door")
+
+
+func remove_room(anim_name):
+	if anim_name == "close_door":
+		room_position.get_child(0).queue_free()

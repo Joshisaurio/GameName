@@ -1,10 +1,10 @@
 [gd_scene load_steps=23 format=4 uid="uid://cumnita3y3x5e"]
 
 [ext_resource type="Script" path="res://scripts/stamping.gd" id="1_iqntg"]
-[ext_resource type="Texture2D" uid="uid://c48te6oks4h2s" path="res://Textures/Model Textures/Desk/YouAreOut(SP)_UVGrid_BaseColor.1001.png" id="2_tgls6"]
+[ext_resource type="Texture2D" uid="uid://b2npyd673nrmx" path="res://Textures/Model Textures/Desk/Albedo_Desk_Pixel.png" id="2_pym78"]
 [ext_resource type="Texture2D" uid="uid://clh7ewm31gvvq" path="res://Textures/Model Textures/Desk/YouAreOut(SP)_UVGrid_Metallic.1001.png" id="3_xcxrf"]
-[ext_resource type="Texture2D" uid="uid://dky4rken4ntf3" path="res://Textures/Model Textures/Desk/YouAreOut(SP)_UVGrid_Normal.1001.png" id="4_53mpr"]
-[ext_resource type="Texture2D" uid="uid://cq35oac4h1cag" path="res://Textures/Model Textures/Desk/YouAreOut(SP)_UVGrid_Roughness.1001.png" id="5_n710n"]
+[ext_resource type="Texture2D" uid="uid://chfjibbqopj78" path="res://Textures/Model Textures/Desk/Normal_Desk_Pixel.png" id="4_7obsd"]
+[ext_resource type="Texture2D" uid="uid://dgr1coxuf3s7c" path="res://Textures/Model Textures/Desk/Roughness_Desk_Pixel.png" id="5_f2n1p"]
 [ext_resource type="Shader" path="res://scripts/Shaders/PixelDither.gdshader" id="8_sxxmg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pd3h6"]
@@ -49,17 +49,14 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_fjfpn")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_20g6s"]
-albedo_texture = ExtResource("2_tgls6")
-metallic_specular = 0.15
+albedo_color = Color(0.568973, 0.568973, 0.568973, 1)
+albedo_texture = ExtResource("2_pym78")
+metallic_specular = 0.08
 metallic_texture = ExtResource("3_xcxrf")
-roughness = 0.65
-roughness_texture = ExtResource("5_n710n")
+roughness_texture = ExtResource("5_f2n1p")
 normal_enabled = true
-normal_scale = 1.75
-normal_texture = ExtResource("4_53mpr")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_5ypl8"]
-size = Vector3(1.85529, 1.35361, 1.66252)
+normal_scale = -7.63
+normal_texture = ExtResource("4_7obsd")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3leqx"]
 render_priority = 0
@@ -255,17 +252,11 @@ _data = {
 "RESET": SubResource("Animation_qt7qb")
 }
 
-[node name="Stamping" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_prui7"]
+size = Vector3(1, 1.1882, 1.71521)
+
+[node name="Stamping" type="StaticBody3D" groups=["Interactable"]]
 script = ExtResource("1_iqntg")
-
-[node name="Lighting" type="Node3D" parent="."]
-
-[node name="SpotLight3D" type="SpotLight3D" parent="Lighting"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5.78201, 0)
-light_energy = 3.139
-spot_range = 7.497
-spot_attenuation = -1.17
-spot_angle = 31.037
 
 [node name="Table" type="Node3D" parent="."]
 
@@ -275,21 +266,17 @@ mesh = SubResource("ArrayMesh_u2grh")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_20g6s")
 
-[node name="Area3D" type="Area3D" parent="Table" groups=["Interactable"]]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Table/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.16841, 2.02101, -0.116993)
-shape = SubResource("BoxShape3D_5ypl8")
-
 [node name="PaperOrigin" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.923547, 1.82297, 1.06934)
 gizmo_extents = 0.05
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-3.57837e-06, 0.775397, -0.631474, 3.38937e-08, 0.631474, 0.775397, 1, 2.75325e-06, -2.28593e-06, -1.41655, 2.56875, 4.76837e-07)
+current = true
 
 [node name="StampingFilter" type="MeshInstance3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.02875e-05, 0.0561032, -0.134057)
+visible = false
 mesh = SubResource("QuadMesh_taeuy")
 
 [node name="CamAnim" type="AnimationPlayer" parent="Camera3D"]
@@ -304,5 +291,9 @@ libraries = {
 
 [node name="Dialogue" type="AudioStreamPlayer" parent="."]
 max_polyphony = 25
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.859205, 2.03997, -0.0643921)
+shape = SubResource("BoxShape3D_prui7")
 
 [connection signal="animation_finished" from="Camera3D/CamAnim" to="." method="CamAnim_Finished"]

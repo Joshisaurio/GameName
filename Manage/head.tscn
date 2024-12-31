@@ -7,17 +7,17 @@
 render_priority = 0
 shader = ExtResource("1_2uxsy")
 shader_parameter/enable_fog = true
-shader_parameter/fog_color = null
+shader_parameter/fog_color = Color(0, 0, 0, 1)
 shader_parameter/noise_color = null
 shader_parameter/fog_distance = 100.0
 shader_parameter/fog_fade_range = 50.0
 shader_parameter/enable_noise = true
 shader_parameter/noise_time_fac = 4.0
 shader_parameter/enable_color_limitation = true
-shader_parameter/color_levels = 32
+shader_parameter/color_levels = 65
 shader_parameter/enable_dithering = true
-shader_parameter/dither_strength = 0.3
-shader_parameter/pixel_size = 4
+shader_parameter/dither_strength = 0.465
+shader_parameter/pixel_size = 8
 
 [sub_resource type="QuadMesh" id="QuadMesh_c5ll7"]
 material = SubResource("ShaderMaterial_il5kj")

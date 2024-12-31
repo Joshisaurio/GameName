@@ -1,4 +1,5 @@
 extends Node3D
+class_name Stamp
 
 @onready var Canim = $Camera3D/CamAnim
 @onready var player = preload("res://Manage/player.tscn")
@@ -43,6 +44,9 @@ var last_names = [
 	"Clark", "Lewis", "Robinson", "Walker", "Hall", "Young", "King", "Wright"
 ]
 
+func _ready():
+	filter.visible = true
+
 func _input(event):
 	if Input.is_action_just_pressed("right"):
 		if isSitting and not pageExists:
@@ -69,12 +73,14 @@ func _input(event):
 	if Input.is_action_just_pressed("Interact"):
 		if isSitting:
 			Canim.play("Exit_Stamp")
-		else:
-			isSitting = true
-			camera.make_current()
-			filter.visible = true
-			Canim.play("Enter_Stamp")
-			active_player.queue_free()
+
+func enter_desk():
+	isSitting = true
+	Canim.play("Enter_Stamp")
+	camera.make_current()
+	filter.visible = true
+	Canim.play("Enter_Stamp")
+	active_player.queue_free()
 
 func create_eviction():
 	_generate_name()

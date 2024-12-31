@@ -28,6 +28,14 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 
 target_position = Vector3(0, -5, 0)
 collide_with_areas = true
 
+[node name="OmniLight3D" type="OmniLight3D" parent="Head"]
+visible = false
+light_color = Color(1, 1, 0.952941, 1)
+light_energy = 16.0
+distance_fade_enabled = true
+omni_range = 4096.0
+omni_attenuation = 0.205
+
 [node name="Hand" type="Marker3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0.91108, 0.41223, 3.98246e-08, -0.41223, 0.91108, -1.80191e-08, 0.0207993, 0.516955, -0.33127)
 
