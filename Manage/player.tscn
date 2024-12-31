@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://6d27ul2h641w"]
+[gd_scene load_steps=8 format=3 uid="uid://6d27ul2h641w"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_p2d7i"]
 [ext_resource type="PackedScene" uid="uid://di16lr7iqjtmr" path="res://Manage/head.tscn" id="2_n4tw0"]
 [ext_resource type="PackedScene" uid="uid://bh8k2ngnfj0b1" path="res://scenes/pause.tscn" id="3_lvgfo"]
 [ext_resource type="Texture2D" uid="uid://c4rcu4mcbssxh" path="res://Textures/UI/Dot.png" id="4_gh4pa"]
+[ext_resource type="Texture2D" uid="uid://bylkjbi6mrmrv" path="res://Textures/UI/Interact.png" id="5_g3owc"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ne0jo"]
 
@@ -42,6 +43,7 @@ wait_time = 0.1
 autostart = true
 
 [node name="Pause" parent="." instance=ExtResource("3_lvgfo")]
+visible = false
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -68,6 +70,22 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_gh4pa")
 expand_mode = 1
+
+[node name="OtherUI" type="CanvasLayer" parent="."]
+
+[node name="Interact" type="TextureRect" parent="OtherUI"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = -120.0
+offset_right = 130.0
+offset_bottom = -20.0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(50, 50)
+texture = ExtResource("5_g3owc")
 
 [connection signal="timeout" from="CheckTimer" to="." method="movement_check"]
 [connection signal="timeout" from="CheckRay" to="." method="raycast_check"]

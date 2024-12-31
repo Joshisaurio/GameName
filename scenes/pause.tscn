@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bh8k2ngnfj0b1"]
+[gd_scene load_steps=11 format=3 uid="uid://bh8k2ngnfj0b1"]
 
 [ext_resource type="Script" path="res://scripts/pause.gd" id="1_cx1nu"]
 [ext_resource type="Theme" uid="uid://bre6n751ipump" path="res://assets/maintheme.tres" id="2_yacyt"]
@@ -13,8 +13,6 @@ colors = PackedColorArray(0, 0, 0, 0.588235)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_aui6l"]
 gradient = SubResource("Gradient_8i3bt")
 width = 1
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t20mn"]
 
 [sub_resource type="Animation" id="Animation_y8sgr"]
 resource_name = "Paused"
@@ -112,9 +110,6 @@ offset_bottom = 15.512
 grow_horizontal = 2
 pivot_offset = Vector2(129, 15.5)
 theme = ExtResource("2_yacyt")
-theme_override_fonts/font = ExtResource("3_e265c")
-theme_override_font_sizes/font_size = 26
-theme_override_styles/focus = SubResource("StyleBoxEmpty_t20mn")
 text = "Resume"
 flat = true
 icon_alignment = 1
@@ -134,8 +129,6 @@ grow_vertical = 2
 pivot_offset = Vector2(129, 15.5)
 theme = ExtResource("2_yacyt")
 theme_override_fonts/font = ExtResource("3_e265c")
-theme_override_font_sizes/font_size = 26
-theme_override_styles/focus = SubResource("StyleBoxEmpty_t20mn")
 text = "Settings
 "
 flat = true
@@ -156,9 +149,6 @@ grow_horizontal = 2
 grow_vertical = 0
 pivot_offset = Vector2(129, 15.5)
 theme = ExtResource("2_yacyt")
-theme_override_fonts/font = ExtResource("3_e265c")
-theme_override_font_sizes/font_size = 26
-theme_override_styles/focus = SubResource("StyleBoxEmpty_t20mn")
 text = "Back to menu"
 flat = true
 metadata/_edit_use_anchors_ = true
