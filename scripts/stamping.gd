@@ -16,6 +16,7 @@ class_name Stamp
 var isSitting = true
 var canStamp = false
 var pageExists = false
+var canRemove = false
 var active_player
 var tenant_name
 var tenant_eviction
@@ -44,8 +45,18 @@ var last_names = [
 	"Clark", "Lewis", "Robinson", "Walker", "Hall", "Young", "King", "Wright"
 ]
 
+var stage = 0
+
+var stages = [
+	"( Press [D] to grab a paper )",
+	"( [Click] to stamp )",
+	"( Press [A] to remove the paper)",
+	"( Press [E] to exit )"
+]
+
 func _ready():
 	filter.visible = true
+	$Guide.visible = true
 
 func _input(event):
 	if Input.is_action_just_pressed("right"):
@@ -58,21 +69,33 @@ func _input(event):
 			tenant_eviction.tenant_room = randi_range(301, 382)
 			origin.add_child(tenant_eviction)
 			$GeneralAnim.play("Page_In")
-			
+			stage += 1
+	
 	if Input.is_action_just_pressed("Click"):
 		if canStamp:
 			tenant_eviction.isStamped = true
 			canStamp = false
-			await get_tree().create_timer(0.3).timeout
+			canRemove = true
+			stage += 1
+	
+	if Input.is_action_just_pressed("left"):
+		if canRemove:
 			$GeneralAnim.play("Page_Out")
+			stage += 1
 			await get_tree().create_timer(0.3).timeout
 			Apartment.new_tenant(tenant_name)
 			pageExists = false
+			canRemove = false
 			$PaperOrigin.get_child(0).queue_free()
-			
+		
 	if Input.is_action_just_pressed("Interact"):
 		if isSitting:
 			Canim.play("Exit_Stamp")
+			
+	if stage < len(stages) - 1:
+		$Guide/Guide.text = stages[stage]
+	else:
+		$Guide/Guide.hide()
 
 func enter_desk():
 	isSitting = true

@@ -15,7 +15,6 @@ run/main_scene="res://Manage/gamemanager.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 boot_splash/bg_color=Color(0.988235, 0.827451, 0, 1)
 boot_splash/image="res://Textures/Logo/Loading.png"
-boot_splash/fullsize=false
 config/icon="res://assets/images/icon.svg"
 
 [debug]

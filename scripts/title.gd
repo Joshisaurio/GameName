@@ -210,7 +210,8 @@ func _on_credit_area_mouse_exited():
 
 
 func Set_Name(new_text):
-	
+	if new_text == "":
+		new_text = "Landlord"
 	gamemanager.player_name = new_text
 	$Build/MeshInstance3D4/Playername.text = new_text
 	$SetName.visible = false

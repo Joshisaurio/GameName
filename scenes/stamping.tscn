@@ -1,10 +1,11 @@
-[gd_scene load_steps=23 format=4 uid="uid://cumnita3y3x5e"]
+[gd_scene load_steps=24 format=4 uid="uid://cumnita3y3x5e"]
 
 [ext_resource type="Script" path="res://scripts/stamping.gd" id="1_iqntg"]
 [ext_resource type="Texture2D" uid="uid://b2npyd673nrmx" path="res://Textures/Model Textures/Desk/Albedo_Desk_Pixel.png" id="2_pym78"]
 [ext_resource type="Texture2D" uid="uid://clh7ewm31gvvq" path="res://Textures/Model Textures/Desk/YouAreOut(SP)_UVGrid_Metallic.1001.png" id="3_xcxrf"]
 [ext_resource type="Texture2D" uid="uid://chfjibbqopj78" path="res://Textures/Model Textures/Desk/Normal_Desk_Pixel.png" id="4_7obsd"]
 [ext_resource type="Texture2D" uid="uid://dgr1coxuf3s7c" path="res://Textures/Model Textures/Desk/Roughness_Desk_Pixel.png" id="5_f2n1p"]
+[ext_resource type="Theme" uid="uid://bre6n751ipump" path="res://assets/maintheme.tres" id="7_1ptb6"]
 [ext_resource type="Shader" path="res://scripts/Shaders/PixelDither.gdshader" id="8_sxxmg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pd3h6"]
@@ -295,5 +296,27 @@ max_polyphony = 25
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.859205, 2.03997, -0.0643921)
 shape = SubResource("BoxShape3D_prui7")
+
+[node name="Guide" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Guide" type="Label" parent="Guide"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -97.5
+offset_top = -38.0
+offset_right = 97.5
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(153.5, 16)
+theme = ExtResource("7_1ptb6")
+text = "( Press D to grab a paper)"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="animation_finished" from="Camera3D/CamAnim" to="." method="CamAnim_Finished"]

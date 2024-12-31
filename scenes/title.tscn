@@ -633,7 +633,7 @@ font = ExtResource("9_6v78o")
 outline_size = 0
 horizontal_alignment = 0
 
-[node name="PlayArea" type="Area3D" parent="FolderMenu/Front/Playlbl"]
+[node name="PlayArea" type="Area3D" parent="FolderMenu/Front/Playlbl" groups=["ButtonAreas"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FolderMenu/Front/Playlbl/PlayArea"]
 transform = Transform3D(1, 1.63913e-07, 6.39488e-14, 7.45058e-09, 1, 1.34648e-12, 1.18305e-12, -2.44604e-12, 1, 0.058136, -8.9407e-08, 0)
@@ -661,7 +661,7 @@ font = ExtResource("9_6v78o")
 outline_size = 0
 horizontal_alignment = 0
 
-[node name="SettingsArea" type="Area3D" parent="FolderMenu/Front/Settingslbl"]
+[node name="SettingsArea" type="Area3D" parent="FolderMenu/Front/Settingslbl" groups=["ButtonAreas"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FolderMenu/Front/Settingslbl/SettingsArea"]
 transform = Transform3D(1, 0, -1.34293e-12, 0, 1, 4.61853e-14, 1.42109e-14, -1.5099e-12, 1, 0.107483, 0.00112912, 0)
@@ -677,7 +677,7 @@ font = ExtResource("9_6v78o")
 outline_size = 0
 horizontal_alignment = 0
 
-[node name="CreditArea" type="Area3D" parent="FolderMenu/Front/Creditlbl"]
+[node name="CreditArea" type="Area3D" parent="FolderMenu/Front/Creditlbl" groups=["ButtonAreas"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FolderMenu/Front/Creditlbl/CreditArea"]
 transform = Transform3D(1, 0, -1.34293e-12, 0, 1, 4.61853e-14, 1.42109e-14, -1.5099e-12, 1, 0.107483, 0.00112912, 0)
@@ -693,7 +693,7 @@ font = ExtResource("9_6v78o")
 outline_size = 0
 horizontal_alignment = 0
 
-[node name="QuitArea" type="Area3D" parent="FolderMenu/Front/Quitlbl"]
+[node name="QuitArea" type="Area3D" parent="FolderMenu/Front/Quitlbl" groups=["ButtonAreas"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FolderMenu/Front/Quitlbl/QuitArea"]
 transform = Transform3D(1, 0, -1.25766e-12, 0, 1, 4.28546e-14, 1.42109e-14, -1.40687e-12, 1, 0.0543824, -5.96046e-08, 0)
@@ -725,7 +725,7 @@ font = ExtResource("8_rprnk")
 outline_size = 0
 horizontal_alignment = 0
 
-[node name="AudioArea" type="Area3D" parent="FolderMenu/Paper/Audio"]
+[node name="AudioArea" type="Area3D" parent="FolderMenu/Paper/Audio" groups=["ButtonAreas"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FolderMenu/Paper/Audio/AudioArea"]
 transform = Transform3D(1, -9.31288e-09, -7.21174e-13, 9.31288e-09, 1, 6.89265e-13, 7.21174e-13, -6.89265e-13, 1, 0.134827, 0, 0)
@@ -741,7 +741,7 @@ font = ExtResource("8_rprnk")
 outline_size = 0
 horizontal_alignment = 0
 
-[node name="MusicArea" type="Area3D" parent="FolderMenu/Paper/Music"]
+[node name="MusicArea" type="Area3D" parent="FolderMenu/Paper/Music" groups=["ButtonAreas"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FolderMenu/Paper/Music/MusicArea"]
 transform = Transform3D(1, 0, 0, 0, 1, -1.16573e-15, 0, 1.16573e-15, 1, 0.131287, 0.0027771, 0)
@@ -757,7 +757,7 @@ font = ExtResource("8_rprnk")
 outline_size = 0
 horizontal_alignment = 0
 
-[node name="ScreenArea" type="Area3D" parent="FolderMenu/Paper/Screen"]
+[node name="ScreenArea" type="Area3D" parent="FolderMenu/Paper/Screen" groups=["ButtonAreas"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FolderMenu/Paper/Screen/ScreenArea"]
 transform = Transform3D(1, 0, 0, 0, 1, -1.16574e-15, 0, 1.16574e-15, 1, 0.244934, -0.00109851, 0)
@@ -773,7 +773,7 @@ font = ExtResource("8_rprnk")
 outline_size = 0
 horizontal_alignment = 0
 
-[node name="DataArea" type="Area3D" parent="FolderMenu/Paper/Data"]
+[node name="DataArea" type="Area3D" parent="FolderMenu/Paper/Data" groups=["ButtonAreas"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FolderMenu/Paper/Data/DataArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.84575e-15, 0, 1.6247e-12, 1, 0.125733, 0.00088495, 0)
@@ -789,7 +789,7 @@ font = ExtResource("8_rprnk")
 outline_size = 0
 horizontal_alignment = 0
 
-[node name="Area3D" type="Area3D" parent="FolderMenu/Paper/Main"]
+[node name="Area3D" type="Area3D" parent="FolderMenu/Paper/Main" groups=["ButtonAreas"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FolderMenu/Paper/Main/Area3D"]
 transform = Transform3D(1, 0, -2.06057e-13, 4.65661e-10, 1, 1.72098e-13, 4.54747e-11, 0, 1, 0.0767213, 3.57628e-07, -0.227219)
@@ -885,7 +885,7 @@ font_size = 22
 outline_size = 0
 horizontal_alignment = 0
 
-[node name="returncredArea" type="Area3D" parent="FolderMenu/Paper/ReturnCred"]
+[node name="returncredArea" type="Area3D" parent="FolderMenu/Paper/ReturnCred" groups=["ButtonAreas"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FolderMenu/Paper/ReturnCred/returncredArea"]
 transform = Transform3D(0.999999, 0, 1.1191e-12, 1.20606e-07, 1, 5.50948e-15, 7.10543e-14, 5.82867e-15, 1, 0.0544434, 0.000213623, 0)
