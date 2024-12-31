@@ -170,8 +170,8 @@ func _door_interaction_end(door: Door) -> void:
 	door._toggle_door_state()
 
 func raycast_check():
-	if Ray.is_colliding():
-		var obj = Ray.get_collider()
+	if ray.is_colliding():
+		var obj = ray.get_collider()
 		if obj.is_in_group("Interactable"):
 			print("You can interact with this object")
 			$UI/Dot.visible = true
