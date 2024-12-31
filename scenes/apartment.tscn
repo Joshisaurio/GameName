@@ -1,16 +1,67 @@
-[gd_scene load_steps=23 format=3 uid="uid://cdbr0ky4d6pof"]
+[gd_scene load_steps=177 format=3 uid="uid://cdbr0ky4d6pof"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_e5w8m"]
 [ext_resource type="AudioStream" uid="uid://cix3w21uo7use" path="res://assets/audio/Ambience/SFX - Fluorescent Light.wav" id="2_5mjnv"]
 [ext_resource type="Texture2D" uid="uid://d31enr2l8beft" path="res://Textures/TempTextures/Wood Planks/Planks_Albedo.png" id="3_3vxm0"]
 [ext_resource type="Texture2D" uid="uid://gwmh5hctqh1g" path="res://Textures/TempTextures/Wood Planks/Planks_AO.png" id="4_4prnw"]
-[ext_resource type="PackedScene" uid="uid://d3vkw2ho5rpbs" path="res://scenes/stamping.tscn" id="5_8kp3t"]
-[ext_resource type="PackedScene" uid="uid://bhkk8d63777sk" path="res://scenes/intro.tscn" id="5_hddd8"]
+[ext_resource type="PackedScene" uid="uid://cumnita3y3x5e" path="res://scenes/stamping.tscn" id="5_8kp3t"]
+[ext_resource type="PackedScene" path="res://scenes/intro.tscn" id="5_hddd8"]
 [ext_resource type="Texture2D" uid="uid://b4yqbyfs1e6gn" path="res://Textures/TempTextures/Wood Planks/Planks_Height.png" id="5_tm8s7"]
 [ext_resource type="Texture2D" uid="uid://dt1lnxl5h5b3h" path="res://Textures/TempTextures/Wood Planks/Planks_Normal.png" id="6_6mc2w"]
 [ext_resource type="Texture2D" uid="uid://bi661l2uyhc23" path="res://Textures/TempTextures/Wood Planks/Planks_Rough.png" id="7_f4c44"]
-[ext_resource type="Texture2D" uid="uid://b023ua1ok05em" path="res://Textures/Asset 631.png" id="8_mcwg1"]
 [ext_resource type="Texture2D" uid="uid://0e4kop5vr6m7" path="res://Textures/sponge.JPG" id="8_p75b8"]
+[ext_resource type="Texture2D" uid="uid://bnd7qyrwncs5u" path="res://assets/roomnames/Asset 722.png" id="9_l28x4"]
+[ext_resource type="Texture2D" uid="uid://b4sngcbommtlp" path="res://assets/roomnames/Asset 721.png" id="10_uuokl"]
+[ext_resource type="Texture2D" uid="uid://briga8k4vpr5d" path="res://assets/roomnames/Asset 720.png" id="11_bwsqi"]
+[ext_resource type="Texture2D" uid="uid://stbqnmle5apf" path="res://assets/roomnames/Asset 719.png" id="12_cur0m"]
+[ext_resource type="Texture2D" uid="uid://qoe7koswcspe" path="res://assets/roomnames/Asset 718.png" id="13_06vnn"]
+[ext_resource type="Texture2D" uid="uid://cpmmlanxihd0t" path="res://assets/roomnames/Asset 717.png" id="14_xiqy2"]
+[ext_resource type="Texture2D" uid="uid://cwbr7apm1j6qu" path="res://assets/roomnames/Asset 716.png" id="15_xjgef"]
+[ext_resource type="Texture2D" uid="uid://vurco552orh" path="res://assets/roomnames/Asset 715.png" id="16_ab1gq"]
+[ext_resource type="Texture2D" uid="uid://by1npne1re86d" path="res://assets/roomnames/Asset 713.png" id="17_7utsl"]
+[ext_resource type="Texture2D" uid="uid://crtv14lirjjnb" path="res://assets/roomnames/Asset 712.png" id="18_k8f8w"]
+[ext_resource type="Texture2D" uid="uid://13jghkir20wx" path="res://assets/roomnames/Asset 711.png" id="19_p0uhs"]
+[ext_resource type="Texture2D" uid="uid://dhusdjj76vbt4" path="res://assets/roomnames/Asset 703.png" id="20_vcowk"]
+[ext_resource type="Texture2D" uid="uid://b48crr87necaq" path="res://assets/roomnames/Asset 724.png" id="21_2odvm"]
+[ext_resource type="Texture2D" uid="uid://caahtru15gfk1" path="res://assets/roomnames/Asset 725.png" id="22_j4mda"]
+[ext_resource type="Texture2D" uid="uid://b77si5lpqdrq4" path="res://assets/roomnames/Asset 709.png" id="23_53d6q"]
+[ext_resource type="Texture2D" uid="uid://c0pllmg65rng1" path="res://assets/roomnames/Asset 708.png" id="24_0ds06"]
+[ext_resource type="Texture2D" uid="uid://xfj7gcoycw1i" path="res://assets/roomnames/Asset 707.png" id="25_g64xr"]
+[ext_resource type="Texture2D" uid="uid://b3w1sqdcatdsu" path="res://assets/roomnames/Asset 706.png" id="26_ro1b0"]
+[ext_resource type="Texture2D" uid="uid://cwta0ijp5i4" path="res://assets/roomnames/Asset 705.png" id="27_nh7tv"]
+[ext_resource type="Texture2D" uid="uid://g2me36il217j" path="res://assets/roomnames/Asset 702.png" id="28_sjfcv"]
+[ext_resource type="Texture2D" uid="uid://bt3u65idi8oeg" path="res://assets/roomnames/Asset 701.png" id="29_ahlqc"]
+[ext_resource type="Texture2D" uid="uid://b32np5d4erdiq" path="res://assets/roomnames/Asset 699.png" id="30_3a43o"]
+[ext_resource type="Texture2D" uid="uid://c6ptmydiab84x" path="res://assets/roomnames/Asset 698.png" id="31_seb3g"]
+[ext_resource type="Texture2D" uid="uid://yvh4aw8kik3d" path="res://assets/roomnames/Asset 697.png" id="32_k7w23"]
+[ext_resource type="Texture2D" uid="uid://bwso4y0qe85x5" path="res://assets/roomnames/Asset 696.png" id="33_8irg6"]
+[ext_resource type="Texture2D" uid="uid://ng3uwc0vry34" path="res://assets/roomnames/Asset 695.png" id="34_2fqdq"]
+[ext_resource type="Texture2D" uid="uid://dsvypoftndfkb" path="res://assets/roomnames/Asset 694.png" id="35_in8jn"]
+[ext_resource type="Texture2D" uid="uid://dvuwxkuv5eou2" path="res://assets/roomnames/Asset 693.png" id="36_jelxc"]
+[ext_resource type="Texture2D" uid="uid://cqtret3w0p18i" path="res://assets/roomnames/Asset 692.png" id="37_ojw30"]
+[ext_resource type="Texture2D" uid="uid://dlgaq840fufvo" path="res://assets/roomnames/Asset 691.png" id="38_ppxd6"]
+[ext_resource type="Texture2D" uid="uid://dqcw7e8jvs1vh" path="res://assets/roomnames/Asset 690.png" id="39_1ef51"]
+[ext_resource type="Texture2D" uid="uid://drl1he8u0hhk1" path="res://assets/roomnames/Asset 689.png" id="40_arxdj"]
+[ext_resource type="Texture2D" uid="uid://s4i06mni307b" path="res://assets/roomnames/Asset 688.png" id="41_bkvtf"]
+[ext_resource type="Texture2D" uid="uid://cxu8lpwx2vs42" path="res://assets/roomnames/Asset 687.png" id="42_ipp7i"]
+[ext_resource type="Texture2D" uid="uid://dnp0vch2ryo35" path="res://assets/roomnames/Asset 686.png" id="43_dddkn"]
+[ext_resource type="Texture2D" uid="uid://epxj5ysmo46p" path="res://assets/roomnames/Asset 685.png" id="44_n1a83"]
+[ext_resource type="Texture2D" uid="uid://ctvbv81c8drne" path="res://assets/roomnames/Asset 684.png" id="45_ga27a"]
+[ext_resource type="Texture2D" uid="uid://dt48gpcbdk6et" path="res://assets/roomnames/Asset 683.png" id="46_hb6lb"]
+[ext_resource type="Texture2D" uid="uid://citkegxds3k2p" path="res://assets/roomnames/Asset 682.png" id="47_x1ikr"]
+[ext_resource type="Texture2D" uid="uid://dd8l2t3fdb1fl" path="res://assets/roomnames/Asset 680.png" id="48_1um5l"]
+[ext_resource type="Texture2D" uid="uid://c1d7cq5s4tfy3" path="res://assets/roomnames/Asset 646.png" id="49_npn6i"]
+[ext_resource type="Texture2D" uid="uid://bm5k7wbs6u7wg" path="res://assets/roomnames/Asset 645.png" id="50_ywirg"]
+[ext_resource type="Texture2D" uid="uid://drpoctvkvndmr" path="res://assets/roomnames/Asset 643.png" id="51_jod2t"]
+[ext_resource type="Texture2D" uid="uid://cf5w6tcu0eglf" path="res://assets/roomnames/Asset 642.png" id="52_78x31"]
+[ext_resource type="Texture2D" uid="uid://degjf8u4rxtcr" path="res://assets/roomnames/Asset 641.png" id="53_vabg7"]
+[ext_resource type="Texture2D" uid="uid://cxnjmigkhlxlg" path="res://assets/roomnames/Asset 640.png" id="54_y425e"]
+[ext_resource type="Texture2D" uid="uid://c2x270lh0grtn" path="res://assets/roomnames/Asset 639.png" id="55_1607f"]
+[ext_resource type="Texture2D" uid="uid://dya51uig0qbn0" path="res://assets/roomnames/Asset 638.png" id="56_ci0te"]
+[ext_resource type="Texture2D" uid="uid://b5cwsfew6ae63" path="res://assets/roomnames/Asset 659.png" id="57_vsxyr"]
+[ext_resource type="Texture2D" uid="uid://dhtpwnpyu2344" path="res://assets/roomnames/Asset 658.png" id="58_ndioy"]
+[ext_resource type="Texture2D" uid="uid://dbnhag1ythj33" path="res://assets/roomnames/Asset 657.png" id="59_df136"]
+[ext_resource type="Texture2D" uid="uid://ddbpcu3knjfx7" path="res://assets/roomnames/Asset 731.png" id="60_glcv5"]
 
 [sub_resource type="Environment" id="Environment_6phuy"]
 
@@ -45,23 +96,538 @@ albedo_texture = ExtResource("8_p75b8")
 [sub_resource type="QuadMesh" id="QuadMesh_itkbl"]
 material = SubResource("StandardMaterial3D_if3yo")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_le75j"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gjhrc"]
 transparency = 2
-alpha_scissor_threshold = 0.016
+alpha_scissor_threshold = 0.405
 alpha_antialiasing_mode = 0
-albedo_texture = ExtResource("8_mcwg1")
-backlight_enabled = true
-uv1_scale = Vector3(0.077, 0.117, 0.08)
-uv1_offset = Vector3(0.007, 0.007, 0)
+albedo_texture = ExtResource("9_l28x4")
 
-[sub_resource type="QuadMesh" id="QuadMesh_h135k"]
-material = SubResource("StandardMaterial3D_le75j")
+[sub_resource type="QuadMesh" id="QuadMesh_h53r3"]
+material = SubResource("StandardMaterial3D_gjhrc")
+size = Vector2(0.305, 0.605)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ft33u"]
-albedo_color = Color(0.329412, 0.113725, 0.0392157, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5yyki"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("10_uuokl")
 
-[sub_resource type="BoxMesh" id="BoxMesh_2ymd4"]
-material = SubResource("StandardMaterial3D_ft33u")
+[sub_resource type="QuadMesh" id="QuadMesh_a8p6r"]
+material = SubResource("StandardMaterial3D_5yyki")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13tjx"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("11_bwsqi")
+
+[sub_resource type="QuadMesh" id="QuadMesh_8psba"]
+material = SubResource("StandardMaterial3D_13tjx")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_07pdj"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("12_cur0m")
+
+[sub_resource type="QuadMesh" id="QuadMesh_x3ilq"]
+material = SubResource("StandardMaterial3D_07pdj")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qj3ow"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("13_06vnn")
+
+[sub_resource type="QuadMesh" id="QuadMesh_x4b5m"]
+material = SubResource("StandardMaterial3D_qj3ow")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t7t4a"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("14_xiqy2")
+
+[sub_resource type="QuadMesh" id="QuadMesh_dw7xc"]
+material = SubResource("StandardMaterial3D_t7t4a")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bkx3d"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("15_xjgef")
+
+[sub_resource type="QuadMesh" id="QuadMesh_map5p"]
+material = SubResource("StandardMaterial3D_bkx3d")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kcjpf"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("16_ab1gq")
+
+[sub_resource type="QuadMesh" id="QuadMesh_yic73"]
+material = SubResource("StandardMaterial3D_kcjpf")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4bhs2"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("17_7utsl")
+
+[sub_resource type="QuadMesh" id="QuadMesh_sxsr8"]
+material = SubResource("StandardMaterial3D_4bhs2")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8sdlx"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("18_k8f8w")
+
+[sub_resource type="QuadMesh" id="QuadMesh_gm3hm"]
+material = SubResource("StandardMaterial3D_8sdlx")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sk77r"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("19_p0uhs")
+
+[sub_resource type="QuadMesh" id="QuadMesh_3de8m"]
+material = SubResource("StandardMaterial3D_sk77r")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_srlmy"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("20_vcowk")
+
+[sub_resource type="QuadMesh" id="QuadMesh_4amn5"]
+material = SubResource("StandardMaterial3D_srlmy")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mh0im"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("21_2odvm")
+
+[sub_resource type="QuadMesh" id="QuadMesh_v8hmk"]
+material = SubResource("StandardMaterial3D_mh0im")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gne2r"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("22_j4mda")
+
+[sub_resource type="QuadMesh" id="QuadMesh_s0i52"]
+material = SubResource("StandardMaterial3D_gne2r")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_07s4h"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("23_53d6q")
+
+[sub_resource type="QuadMesh" id="QuadMesh_qy7p4"]
+material = SubResource("StandardMaterial3D_07s4h")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6qhsg"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("24_0ds06")
+
+[sub_resource type="QuadMesh" id="QuadMesh_aonlb"]
+material = SubResource("StandardMaterial3D_6qhsg")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xveh8"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("25_g64xr")
+
+[sub_resource type="QuadMesh" id="QuadMesh_man4w"]
+material = SubResource("StandardMaterial3D_xveh8")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xhrlb"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("26_ro1b0")
+
+[sub_resource type="QuadMesh" id="QuadMesh_8brry"]
+material = SubResource("StandardMaterial3D_xhrlb")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rlvwo"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("27_nh7tv")
+
+[sub_resource type="QuadMesh" id="QuadMesh_c0dna"]
+material = SubResource("StandardMaterial3D_rlvwo")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_50nos"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("28_sjfcv")
+
+[sub_resource type="QuadMesh" id="QuadMesh_qqlpi"]
+material = SubResource("StandardMaterial3D_50nos")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ujnnh"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("29_ahlqc")
+
+[sub_resource type="QuadMesh" id="QuadMesh_y1idv"]
+material = SubResource("StandardMaterial3D_ujnnh")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qh4t5"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("30_3a43o")
+
+[sub_resource type="QuadMesh" id="QuadMesh_v7ue1"]
+material = SubResource("StandardMaterial3D_qh4t5")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xcfwy"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("31_seb3g")
+
+[sub_resource type="QuadMesh" id="QuadMesh_0qlam"]
+material = SubResource("StandardMaterial3D_xcfwy")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_83ke7"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("32_k7w23")
+
+[sub_resource type="QuadMesh" id="QuadMesh_yupkj"]
+material = SubResource("StandardMaterial3D_83ke7")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r1733"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("33_8irg6")
+
+[sub_resource type="QuadMesh" id="QuadMesh_8dfn3"]
+material = SubResource("StandardMaterial3D_r1733")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mxaws"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("34_2fqdq")
+
+[sub_resource type="QuadMesh" id="QuadMesh_6brl3"]
+material = SubResource("StandardMaterial3D_mxaws")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_faanp"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("35_in8jn")
+
+[sub_resource type="QuadMesh" id="QuadMesh_6pswi"]
+material = SubResource("StandardMaterial3D_faanp")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7kfr5"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("36_jelxc")
+
+[sub_resource type="QuadMesh" id="QuadMesh_46hs8"]
+material = SubResource("StandardMaterial3D_7kfr5")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ms5xe"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("37_ojw30")
+
+[sub_resource type="QuadMesh" id="QuadMesh_pcnk8"]
+material = SubResource("StandardMaterial3D_ms5xe")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_afxhv"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("38_ppxd6")
+
+[sub_resource type="QuadMesh" id="QuadMesh_ofr0u"]
+material = SubResource("StandardMaterial3D_afxhv")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kys06"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("39_1ef51")
+
+[sub_resource type="QuadMesh" id="QuadMesh_f3f0i"]
+material = SubResource("StandardMaterial3D_kys06")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m00ls"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("40_arxdj")
+
+[sub_resource type="QuadMesh" id="QuadMesh_sset4"]
+material = SubResource("StandardMaterial3D_m00ls")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2nvqp"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("41_bkvtf")
+
+[sub_resource type="QuadMesh" id="QuadMesh_2tsse"]
+material = SubResource("StandardMaterial3D_2nvqp")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g066f"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("42_ipp7i")
+
+[sub_resource type="QuadMesh" id="QuadMesh_yvky3"]
+material = SubResource("StandardMaterial3D_g066f")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ufv2l"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("43_dddkn")
+
+[sub_resource type="QuadMesh" id="QuadMesh_3nkgj"]
+material = SubResource("StandardMaterial3D_ufv2l")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_utf87"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("44_n1a83")
+
+[sub_resource type="QuadMesh" id="QuadMesh_cnwvd"]
+material = SubResource("StandardMaterial3D_utf87")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b2s6i"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("45_ga27a")
+
+[sub_resource type="QuadMesh" id="QuadMesh_gdk7m"]
+material = SubResource("StandardMaterial3D_b2s6i")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v3aef"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("46_hb6lb")
+
+[sub_resource type="QuadMesh" id="QuadMesh_o550o"]
+material = SubResource("StandardMaterial3D_v3aef")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l1gmr"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("47_x1ikr")
+
+[sub_resource type="QuadMesh" id="QuadMesh_qhqfe"]
+material = SubResource("StandardMaterial3D_l1gmr")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_11ki3"]
+load_path = "res://.godot/imported/Asset 681.png-37eea719f7f55d25a0f5727ecd958f1f.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uchv5"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = SubResource("CompressedTexture2D_11ki3")
+
+[sub_resource type="QuadMesh" id="QuadMesh_jhjhq"]
+material = SubResource("StandardMaterial3D_uchv5")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ebht"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("48_1um5l")
+
+[sub_resource type="QuadMesh" id="QuadMesh_udmvx"]
+material = SubResource("StandardMaterial3D_2ebht")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ivg86"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("49_npn6i")
+
+[sub_resource type="QuadMesh" id="QuadMesh_1pvih"]
+material = SubResource("StandardMaterial3D_ivg86")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ej1lo"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("50_ywirg")
+
+[sub_resource type="QuadMesh" id="QuadMesh_64m0x"]
+material = SubResource("StandardMaterial3D_ej1lo")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eaxq7"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("51_jod2t")
+
+[sub_resource type="QuadMesh" id="QuadMesh_ra6iv"]
+material = SubResource("StandardMaterial3D_eaxq7")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c5udi"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("52_78x31")
+
+[sub_resource type="QuadMesh" id="QuadMesh_clahh"]
+material = SubResource("StandardMaterial3D_c5udi")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hpfba"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("53_vabg7")
+
+[sub_resource type="QuadMesh" id="QuadMesh_rolnk"]
+material = SubResource("StandardMaterial3D_hpfba")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2fft6"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("54_y425e")
+
+[sub_resource type="QuadMesh" id="QuadMesh_jqm2a"]
+material = SubResource("StandardMaterial3D_2fft6")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4lbqe"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("55_1607f")
+
+[sub_resource type="QuadMesh" id="QuadMesh_o1yc7"]
+material = SubResource("StandardMaterial3D_4lbqe")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oeqdc"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("56_ci0te")
+
+[sub_resource type="QuadMesh" id="QuadMesh_3tyju"]
+material = SubResource("StandardMaterial3D_oeqdc")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u8r60"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("57_vsxyr")
+
+[sub_resource type="QuadMesh" id="QuadMesh_wwrbp"]
+material = SubResource("StandardMaterial3D_u8r60")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mvqk8"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("58_ndioy")
+
+[sub_resource type="QuadMesh" id="QuadMesh_3uiey"]
+material = SubResource("StandardMaterial3D_mvqk8")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wc7qo"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("59_df136")
+
+[sub_resource type="QuadMesh" id="QuadMesh_dftkk"]
+material = SubResource("StandardMaterial3D_wc7qo")
+size = Vector2(0.305, 0.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_udugq"]
+transparency = 2
+alpha_scissor_threshold = 0.405
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("60_glcv5")
+
+[sub_resource type="QuadMesh" id="QuadMesh_i4pig"]
+material = SubResource("StandardMaterial3D_udugq")
+size = Vector2(0.305, 0.605)
 
 [node name="Apartment" type="Node3D"]
 script = ExtResource("1_e5w8m")
@@ -1132,742 +1698,221 @@ font_size = 12
 
 [node name="Details" type="Node" parent="."]
 
-[node name="Room2" type="Label3D" parent="Details"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.44059, 2.68283, -27.9541)
-pixel_size = 0.0005
-text = "3
-   0
-       2"
-font_size = 487
-outline_size = 3
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Details/Room2"]
-transform = Transform3D(0.43873, 0, 0, 0, 0.91944, 0, 0, 0, 0.885397, -7.4157, 0, -0.0992467)
-mesh = SubResource("QuadMesh_h135k")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Details/Room2/MeshInstance3D"]
-transform = Transform3D(0.870022, 0, -6.66134e-16, 0, 0.97548, 0, -1.24345e-14, 0, 0.0190301, 0, 0, -0.0111487)
-mesh = SubResource("BoxMesh_2ymd4")
-
-[node name="Room3" type="Label3D" parent="Details"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.44059, 2.68283, -20.4269)
-pixel_size = 0.0005
-text = "3
-   0
-       3"
-font_size = 487
-outline_size = 3
-
-[node name="Room4" type="Label3D" parent="Details"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.56948, 2.68283, -12.6756)
-pixel_size = 0.0005
-text = "3
-   0
-       4"
-font_size = 487
-outline_size = 3
-
-[node name="Room5" type="Label3D" parent="Details"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.2863, 2.68283, -12.6756)
-pixel_size = 0.0005
-text = "3
-   0
-       5"
-font_size = 487
-outline_size = 3
-
-[node name="Room6" type="Label3D" parent="Details"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.9069, 2.68283, -12.6756)
-pixel_size = 0.0005
-text = "3
-   0
-       6"
-font_size = 487
-outline_size = 3
-
-[node name="Room7" type="Label3D" parent="Details"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.5205, 2.68283, -12.6756)
-pixel_size = 0.0005
-text = "3
-   0
-       7"
-font_size = 487
-outline_size = 3
-
-[node name="Room8" type="Label3D" parent="Details"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.2259, 2.68283, -12.6756)
-pixel_size = 0.0005
-text = "3
-   0
-       8"
-font_size = 487
-outline_size = 3
-
-[node name="Room9" type="Label3D" parent="Details"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.8943, 2.68283, -12.6756)
-pixel_size = 0.0005
-text = "3
-   0
-      9"
-font_size = 487
-outline_size = 3
-
-[node name="Room10" type="Label3D" parent="Details"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.2279, 2.68283, -12.6756)
-pixel_size = 0.0005
-text = "3
-   1
-      0"
-font_size = 487
-outline_size = 3
-
-[node name="Room11" type="Label3D" parent="Details"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 45.9752, 2.68283, -7.5944)
-pixel_size = 0.0005
-text = "3
-   1
-      1"
-font_size = 487
-outline_size = 3
-
-[node name="Room12" type="Label3D" parent="Details"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 38.5319, 2.68283, -7.5944)
-pixel_size = 0.0005
-text = "3
-   1
-      2"
-font_size = 487
-outline_size = 3
-
-[node name="Room13" type="Label3D" parent="Details"]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 30.8546, 2.68283, -0.554942)
-pixel_size = 0.0005
-text = "3
-   1
-      3"
-font_size = 487
-outline_size = 3
-
-[node name="Room14" type="Label3D" parent="Details"]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 30.8546, 2.68283, 7.46002)
-pixel_size = 0.0005
-text = "3
-   1
-      4"
-font_size = 487
-outline_size = 3
-
-[node name="Room15" type="Label3D" parent="Details"]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 30.8546, 2.68283, 15.429)
-pixel_size = 0.0005
-text = "3
-   1
-      5"
-font_size = 487
-outline_size = 3
-
-[node name="Room16" type="Label3D" parent="Details"]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 30.8546, 2.68283, 23.5785)
-pixel_size = 0.0005
-text = "3
-   1
-      6"
-font_size = 487
-outline_size = 3
-
-[node name="Room17" type="Label3D" parent="Details"]
-transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 44.9315, 2.68283, 24.0778)
-pixel_size = 0.0005
-text = "3
-   1
-      7"
-font_size = 487
-outline_size = 3
-
-[node name="Room18" type="Label3D" parent="Details"]
-transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 52.8139, 2.68283, 24.0778)
-pixel_size = 0.0005
-text = "3
-   1
-      8"
-font_size = 487
-outline_size = 3
-
-[node name="Room19" type="Label3D" parent="Details"]
-transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 48.8471, 2.68283, 29.1881)
-pixel_size = 0.0005
-text = "3
-   1
-      9"
-font_size = 487
-outline_size = 3
-
-[node name="Room20" type="Label3D" parent="Details"]
-transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 41.2802, 2.68283, 29.1881)
-pixel_size = 0.0005
-text = "3
-   2
-      0"
-font_size = 487
-outline_size = 3
-
-[node name="Room21" type="Label3D" parent="Details"]
-transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 37.156, 2.68283, 29.1881)
-pixel_size = 0.0005
-text = "3
-   2
-      1"
-font_size = 487
-outline_size = 3
-
-[node name="Room22" type="Label3D" parent="Details"]
-transform = Transform3D(3.0598e-07, 0, -1, 0, 1, 0, 1, 0, 3.0598e-07, 30.8501, 2.68283, 36.1152)
-pixel_size = 0.0005
-text = "3
-   2
-      2"
-font_size = 487
-outline_size = 3
-
-[node name="Room23" type="Label3D" parent="Details"]
-transform = Transform3D(3.0598e-07, 0, -1, 0, 1, 0, 1, 0, 3.0598e-07, 30.8501, 2.68283, 43.4387)
-pixel_size = 0.0005
-text = "3
-   2
-      3"
-font_size = 487
-outline_size = 3
-
-[node name="Room24" type="Label3D" parent="Details"]
-transform = Transform3D(3.0598e-07, 0, -1, 0, 1, 0, 1, 0, 3.0598e-07, 30.8501, 2.68283, 51.0788)
-pixel_size = 0.0005
-text = "3
-   2
-      4"
-font_size = 487
-outline_size = 3
-
-[node name="Room25" type="Label3D" parent="Details"]
-transform = Transform3D(3.0598e-07, 0, -1, 0, 1, 0, 1, 0, 3.0598e-07, 30.8501, 2.68283, 58.3599)
-pixel_size = 0.0005
-text = "3
-   2
-      5"
-font_size = 487
-outline_size = 3
-
-[node name="Room26" type="Label3D" parent="Details"]
-transform = Transform3D(-3.93403e-07, 0, 1, 0, 1, 0, -1, 0, -3.93403e-07, 25.7465, 2.68283, 51.8613)
-pixel_size = 0.0005
-text = "3
-   2
-      6"
-font_size = 487
-outline_size = 3
-
-[node name="Room27" type="Label3D" parent="Details"]
-transform = Transform3D(-3.93403e-07, 0, 1, 0, 1, 0, -1, 0, -3.93403e-07, 25.7465, 2.68283, 44.4272)
-pixel_size = 0.0005
-text = "3
-   2
-      7"
-font_size = 487
-outline_size = 3
-
-[node name="Room28" type="Label3D" parent="Details"]
-transform = Transform3D(-3.93403e-07, 0, 1, 0, 1, 0, -1, 0, -3.93403e-07, 25.7465, 2.68283, 37.1214)
-pixel_size = 0.0005
-text = "3
-   2
-      8"
-font_size = 487
-outline_size = 3
-
-[node name="Room29" type="Label3D" parent="Details"]
-transform = Transform3D(-3.93403e-07, 0, 1, 0, 1, 0, -1, 0, -3.93403e-07, 25.7465, 2.68283, 29.7437)
-pixel_size = 0.0005
-text = "3
-   2
-      9"
-font_size = 487
-outline_size = 3
-
-[node name="Room30" type="Label3D" parent="Details"]
-transform = Transform3D(-1, 0, -4.37114e-07, 0, 1, 0, 4.37114e-07, 0, -1, 11.3309, 2.68283, 29.1892)
-pixel_size = 0.0005
-text = "3
-   3
-      0"
-font_size = 487
-outline_size = 3
-
-[node name="Room31" type="Label3D" parent="Details"]
-transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, 2.54737, 2.68283, 36.09)
-pixel_size = 0.0005
-text = "3
-   3
-      1"
-font_size = 487
-outline_size = 3
-
-[node name="Room32" type="Label3D" parent="Details"]
-transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, 2.54737, 2.68283, 43.6803)
-pixel_size = 0.0005
-text = "3
-   3
-      2"
-font_size = 487
-outline_size = 3
-
-[node name="Room33" type="Label3D" parent="Details"]
-transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, 2.54737, 2.68283, 51.023)
-pixel_size = 0.0005
-text = "3
-   3
-      3"
-font_size = 487
-outline_size = 3
-
-[node name="Room34" type="Label3D" parent="Details"]
-transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, 2.54737, 2.68283, 58.3752)
-pixel_size = 0.0005
-text = "3
-   3
-      4"
-font_size = 487
-outline_size = 3
-
-[node name="Room35" type="Label3D" parent="Details"]
-transform = Transform3D(-3.93403e-07, 0, 1, 0, 1, 0, -1, 0, -3.93403e-07, -2.54816, 2.68283, 54.8825)
-pixel_size = 0.0005
-text = "3
-   3
-      5"
-font_size = 487
-outline_size = 3
-
-[node name="Room36" type="Label3D" parent="Details"]
-transform = Transform3D(-3.93403e-07, 0, 1, 0, 1, 0, -1, 0, -3.93403e-07, -2.54816, 2.68283, 46.7399)
-pixel_size = 0.0005
-text = "3
-   3
-      6"
-font_size = 487
-outline_size = 3
-
-[node name="Room37" type="Label3D" parent="Details"]
-transform = Transform3D(-3.93403e-07, 0, 1, 0, 1, 0, -1, 0, -3.93403e-07, -2.54816, 2.68283, 38.8399)
-pixel_size = 0.0005
-text = "3
-   3
-      7"
-font_size = 487
-outline_size = 3
-
-[node name="Room38" type="Label3D" parent="Details"]
-transform = Transform3D(-3.93403e-07, 0, 1, 0, 1, 0, -1, 0, -3.93403e-07, -2.54816, 2.68283, 30.7632)
-pixel_size = 0.0005
-text = "3
-   3
-      8"
-font_size = 487
-outline_size = 3
-
-[node name="Room39" type="Label3D" parent="Details"]
-transform = Transform3D(-3.93403e-07, 0, 1, 0, 1, 0, -1, 0, -3.93403e-07, -2.54816, 2.68283, 22.7326)
-pixel_size = 0.0005
-text = "3
-   3
-      9"
-font_size = 487
-outline_size = 3
-
-[node name="Room40" type="Label3D" parent="Details"]
-transform = Transform3D(-3.93403e-07, 0, 1, 0, 1, 0, -1, 0, -3.93403e-07, -2.54816, 2.68283, 14.6084)
-pixel_size = 0.0005
-text = "3
-   4
-      0"
-font_size = 487
-outline_size = 3
-
-[node name="Room41" type="Label3D" parent="Details"]
-transform = Transform3D(-3.93403e-07, 0, 1, 0, 1, 0, -1, 0, -3.93403e-07, -2.54816, 2.68283, 6.82248)
-pixel_size = 0.0005
-text = "3
-   4
-      1"
-font_size = 487
-outline_size = 3
-
-[node name="Room42" type="Label3D" parent="Details"]
-transform = Transform3D(-1, 0, -3.8743e-07, 0, 1, 0, 3.8743e-07, 0, -1, -16.4674, 2.68283, 6.03773)
-pixel_size = 0.0005
-text = "3
-   4
-      2"
-font_size = 487
-outline_size = 3
-
-[node name="Room43" type="Label3D" parent="Details"]
-transform = Transform3D(-1, 0, -3.8743e-07, 0, 1, 0, 3.8743e-07, 0, -1, -24.0525, 2.68283, 6.03773)
-pixel_size = 0.0005
-text = "3
-   4
-      3"
-font_size = 487
-outline_size = 3
-
-[node name="Room44" type="Label3D" parent="Details"]
-transform = Transform3D(-1, 0, -3.8743e-07, 0, 1, 0, 3.8743e-07, 0, -1, -31.6981, 2.68283, 6.03773)
-pixel_size = 0.0005
-text = "3
-   4
-      4"
-font_size = 487
-outline_size = 3
-
-[node name="Room45" type="Label3D" parent="Details"]
-transform = Transform3D(-1, 0, -3.8743e-07, 0, 1, 0, 3.8743e-07, 0, -1, -39.1994, 2.68283, 6.03773)
-pixel_size = 0.0005
-text = "3
-   4
-      5"
-font_size = 487
-outline_size = 3
-
-[node name="Room46" type="Label3D" parent="Details"]
-transform = Transform3D(-1, 0, -3.8743e-07, 0, 1, 0, 3.8743e-07, 0, -1, -46.4235, 2.68283, 6.03773)
-pixel_size = 0.0005
-text = "3
-   4
-      6"
-font_size = 487
-outline_size = 3
-
-[node name="Room47" type="Label3D" parent="Details"]
-transform = Transform3D(-1, 0, -3.8743e-07, 0, 1, 0, 3.8743e-07, 0, -1, -53.0258, 2.68283, 6.03773)
-pixel_size = 0.0005
-text = "3
-   4
-      7"
-font_size = 487
-outline_size = 3
-
-[node name="Room48" type="Label3D" parent="Details"]
-transform = Transform3D(1, 0, 3.00007e-07, 0, 1, 0, -3.00007e-07, 0, 1, -46.3652, 2.68283, 0.92038)
-pixel_size = 0.0005
-text = "3
-   4
-      8"
-font_size = 487
-outline_size = 3
-
-[node name="Room49" type="Label3D" parent="Details"]
-transform = Transform3D(1, 0, 3.00007e-07, 0, 1, 0, -3.00007e-07, 0, 1, -39.4048, 2.68283, 0.92038)
-pixel_size = 0.0005
-text = "3
-   4
-      9"
-font_size = 487
-outline_size = 3
-
-[node name="Room50" type="Label3D" parent="Details"]
-transform = Transform3D(-3.43719e-07, 0, 1, 0, 1, 0, -1, 0, -3.43719e-07, -31.2878, 2.68283, -5.97844)
-pixel_size = 0.0005
-text = "3
-   5
-      0"
-font_size = 487
-outline_size = 3
-
-[node name="Room51" type="Label3D" parent="Details"]
-transform = Transform3D(-3.43719e-07, 0, 1, 0, 1, 0, -1, 0, -3.43719e-07, -31.2878, 2.68283, -13.6396)
-pixel_size = 0.0005
-text = "3
-   5
-      1"
-font_size = 487
-outline_size = 3
-
-[node name="Room52" type="Label3D" parent="Details"]
-transform = Transform3D(-3.43719e-07, 0, 1, 0, 1, 0, -1, 0, -3.43719e-07, -31.2878, 2.68283, -20.7198)
-pixel_size = 0.0005
-text = "3
-   5
-      2"
-font_size = 487
-outline_size = 3
-
-[node name="Room53" type="Label3D" parent="Details"]
-transform = Transform3D(-3.43719e-07, 0, 1, 0, 1, 0, -1, 0, -3.43719e-07, -31.2878, 2.68283, -28.1317)
-pixel_size = 0.0005
-text = "3
-   5
-      3"
-font_size = 487
-outline_size = 3
-
-[node name="Room54" type="Label3D" parent="Details"]
-transform = Transform3D(-1, 0, -3.8743e-07, 0, 1, 0, 3.8743e-07, 0, -1, -45.1903, 2.68283, -28.8474)
-pixel_size = 0.0005
-text = "3
-   5
-      4"
-font_size = 487
-outline_size = 3
-
-[node name="Room55" type="Label3D" parent="Details"]
-transform = Transform3D(-1, 0, -3.8743e-07, 0, 1, 0, 3.8743e-07, 0, -1, -52.9138, 2.68283, -28.8474)
-pixel_size = 0.0005
-text = "3
-   5
-      5"
-font_size = 487
-outline_size = 3
-
-[node name="Room56" type="Label3D" parent="Details"]
-transform = Transform3D(1, 0, 3.00007e-07, 0, 1, 0, -3.00007e-07, 0, 1, -48.9155, 2.68283, -33.9421)
-pixel_size = 0.0005
-text = "3
-   5
-      6"
-font_size = 487
-outline_size = 3
-
-[node name="Room57" type="Label3D" parent="Details"]
-transform = Transform3D(1, 0, 3.00007e-07, 0, 1, 0, -3.00007e-07, 0, 1, -41.1313, 2.68283, -33.9421)
-pixel_size = 0.0005
-text = "3
-   5
-      7"
-font_size = 487
-outline_size = 3
-
-[node name="Room58" type="Label3D" parent="Details"]
-transform = Transform3D(1, 0, 3.00007e-07, 0, 1, 0, -3.00007e-07, 0, 1, -33.7664, 2.68283, -33.9421)
-pixel_size = 0.0005
-text = "3
-   5
-      8"
-font_size = 487
-outline_size = 3
-
-[node name="Room59" type="Label3D" parent="Details"]
-transform = Transform3D(1, 0, 3.00007e-07, 0, 1, 0, -3.00007e-07, 0, 1, -27.184, 2.68283, -45.4295)
-pixel_size = 0.0005
-text = "3
-   5
-      9"
-font_size = 487
-outline_size = 3
-
-[node name="Room60" type="Label3D" parent="Details"]
-transform = Transform3D(1, 0, 3.00007e-07, 0, 1, 0, -3.00007e-07, 0, 1, -18.5844, 2.68283, -33.9345)
-pixel_size = 0.0005
-text = "3
-   6
-      0"
-font_size = 487
-outline_size = 3
-
-[node name="Room61" type="Label3D" parent="Details"]
-transform = Transform3D(1, 0, 3.00007e-07, 0, 1, 0, -3.00007e-07, 0, 1, -10.5812, 2.68283, -33.9345)
-pixel_size = 0.0005
-text = "3
-   6
-      1"
-font_size = 487
-outline_size = 3
-
-[node name="Room62" type="Label3D" parent="Details"]
-transform = Transform3D(-3.43719e-07, 0, 1, 0, 1, 0, -1, 0, -3.43719e-07, -2.55541, 2.68283, -41.0947)
-pixel_size = 0.0005
-text = "3
-   6
-      2"
-font_size = 487
-outline_size = 3
-
-[node name="Room63" type="Label3D" parent="Details"]
-transform = Transform3D(-3.43719e-07, 0, 1, 0, 1, 0, -1, 0, -3.43719e-07, -2.55541, 2.68283, -20.5886)
-pixel_size = 0.0005
-text = "3
-   6
-      3"
-font_size = 487
-outline_size = 3
-
-[node name="Room64" type="Label3D" parent="Details"]
-transform = Transform3D(-3.43719e-07, 0, 1, 0, 1, 0, -1, 0, -3.43719e-07, -2.55541, 2.68283, -12.9162)
-pixel_size = 0.0005
-text = "3
-   6
-      4"
-font_size = 487
-outline_size = 3
-
-[node name="Room65" type="Label3D" parent="Details"]
-transform = Transform3D(1, 0, 3.00007e-07, 0, 1, 0, -3.00007e-07, 0, 1, -3.18811, 2.68283, 0.942799)
-pixel_size = 0.0005
-text = "3
-   6
-      5"
-font_size = 487
-outline_size = 3
-
-[node name="Room66" type="Label3D" parent="Details"]
-transform = Transform3D(1, 0, 3.00007e-07, 0, 1, 0, -3.00007e-07, 0, 1, -10.9711, 2.68283, 0.942799)
-pixel_size = 0.0005
-text = "3
-   6
-      6"
-font_size = 487
-outline_size = 3
-
-[node name="Room67" type="Label3D" parent="Details"]
-transform = Transform3D(1, 0, 3.00007e-07, 0, 1, 0, -3.00007e-07, 0, 1, -18.6723, 2.68283, 0.942799)
-pixel_size = 0.0005
-text = "3
-   6
-     7"
-font_size = 487
-outline_size = 3
-
-[node name="Room68" type="Label3D" parent="Details"]
-transform = Transform3D(2.56296e-07, 0, -1, 0, 1, 0, 1, 0, 2.56296e-07, -26.1905, 2.68283, -7.04539)
-pixel_size = 0.0005
-text = "3
-   6
-     8"
-font_size = 487
-outline_size = 3
-
-[node name="Room69" type="Label3D" parent="Details"]
-transform = Transform3D(2.56296e-07, 0, -1, 0, 1, 0, 1, 0, 2.56296e-07, -26.1905, 2.68283, -14.4538)
-pixel_size = 0.0005
-text = "3
-   6
-     9"
-font_size = 487
-outline_size = 3
-
-[node name="Room70" type="Label3D" parent="Details"]
-transform = Transform3D(2.56296e-07, 0, -1, 0, 1, 0, 1, 0, 2.56296e-07, -26.1905, 2.68283, -21.8587)
-pixel_size = 0.0005
-text = "3
-   7
-     0"
-font_size = 487
-outline_size = 3
-
-[node name="Room71" type="Label3D" parent="Details"]
-transform = Transform3D(-1, 0, -2.12585e-07, 0, 1, 0, 2.12585e-07, 0, -1, -18.3238, 2.68283, -28.8337)
-pixel_size = 0.0005
-text = "3
-   7
-     1"
-font_size = 487
-outline_size = 3
-
-[node name="Room72" type="Label3D" parent="Details"]
-transform = Transform3D(-1, 0, -2.12585e-07, 0, 1, 0, 2.12585e-07, 0, -1, -10.4877, 2.68283, -28.8337)
-pixel_size = 0.0005
-text = "3
-   7
-     2"
-font_size = 487
-outline_size = 3
-
-[node name="Room73" type="Label3D" parent="Details"]
-transform = Transform3D(-1, 0, -2.12585e-07, 0, 1, 0, 2.12585e-07, 0, -1, 11.1993, 2.68283, -7.57574)
-pixel_size = 0.0005
-text = "3
-   7
-     3"
-font_size = 487
-outline_size = 3
-
-[node name="Room74" type="Label3D" parent="Details"]
-transform = Transform3D(-1.68873e-07, 0, 1, 0, 1, 0, -1, 0, -1.68873e-07, 25.7404, 2.68283, -6.9851)
-pixel_size = 0.0005
-text = "3
-   7
-     4"
-font_size = 487
-outline_size = 3
-
-[node name="Room75" type="Label3D" parent="Details"]
-transform = Transform3D(-1.68873e-07, 0, 1, 0, 1, 0, -1, 0, -1.68873e-07, 25.7404, 2.68283, 0.88266)
-pixel_size = 0.0005
-text = "3
-   7
-     5"
-font_size = 487
-outline_size = 3
-
-[node name="Room76" type="Label3D" parent="Details"]
-transform = Transform3D(-1.68873e-07, 0, 1, 0, 1, 0, -1, 0, -1.68873e-07, 25.7404, 2.68283, 9.01918)
-pixel_size = 0.0005
-text = "3
-   7
-     6"
-font_size = 487
-outline_size = 3
-
-[node name="Room77" type="Label3D" parent="Details"]
-transform = Transform3D(-1.68873e-07, 0, 1, 0, 1, 0, -1, 0, -1.68873e-07, 25.7404, 2.68283, 17.1345)
-pixel_size = 0.0005
-text = "3
-   7
-     7"
-font_size = 487
-outline_size = 3
-
-[node name="Room78" type="Label3D" parent="Details"]
-transform = Transform3D(1, 0, 1.25162e-07, 0, 1, 0, -1.25162e-07, 0, 1, 17.4328, 2.68283, 24.0884)
-pixel_size = 0.0005
-text = "3
-   7
-     8"
-font_size = 487
-outline_size = 3
-
-[node name="Room79" type="Label3D" parent="Details"]
-transform = Transform3D(8.14504e-08, 0, -1, 0, 1, 0, 1, 0, 8.14504e-08, 2.55986, 2.68283, 23.3821)
-pixel_size = 0.0005
-text = "3
-   7
-     9"
-font_size = 487
-outline_size = 3
-
-[node name="Room80" type="Label3D" parent="Details"]
-transform = Transform3D(8.14504e-08, 0, -1, 0, 1, 0, 1, 0, 8.14504e-08, 2.55986, 2.68283, 15.5665)
-pixel_size = 0.0005
-text = "3
-   8
-     0"
-font_size = 487
-outline_size = 3
-
-[node name="Room81" type="Label3D" parent="Details"]
-transform = Transform3D(8.14504e-08, 0, -1, 0, 1, 0, 1, 0, 8.14504e-08, 2.55986, 2.68283, 7.41079)
-pixel_size = 0.0005
-text = "3
-   8
-     1"
-font_size = 487
-outline_size = 3
-
-[node name="Room82" type="Label3D" parent="Details"]
-transform = Transform3D(8.14504e-08, 0, -1, 0, 1, 0, 1, 0, 8.14504e-08, 2.55986, 2.68283, -0.777623)
-pixel_size = 0.0005
-text = "3
-   8
-     2"
-font_size = 487
-outline_size = 3
+[node name="A301" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.56211, 2.91221, -35.8651)
+mesh = SubResource("QuadMesh_h53r3")
+
+[node name="A302" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.56211, 2.91221, -28.2898)
+mesh = SubResource("QuadMesh_a8p6r")
+
+[node name="A303" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.56211, 2.91221, -23.097)
+mesh = SubResource("QuadMesh_8psba")
+
+[node name="A304" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.56211, 2.91221, -3.39244)
+mesh = SubResource("QuadMesh_x3ilq")
+
+[node name="A305" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.56211, 2.91221, 7.06371)
+mesh = SubResource("QuadMesh_x4b5m")
+
+[node name="A306" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.56211, 2.91221, 15.1669)
+mesh = SubResource("QuadMesh_dw7xc")
+
+[node name="A307" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.56211, 2.91221, 20.7904)
+mesh = SubResource("QuadMesh_map5p")
+
+[node name="A308" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.56211, 2.91221, 33.4687)
+mesh = SubResource("QuadMesh_yic73")
+
+[node name="A309" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.56211, 2.91221, 43.2892)
+mesh = SubResource("QuadMesh_sxsr8")
+
+[node name="A310" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.56211, 2.91221, 48.3964)
+mesh = SubResource("QuadMesh_gm3hm")
+
+[node name="A311" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.56211, 2.91221, 55.7697)
+mesh = SubResource("QuadMesh_3de8m")
+
+[node name="A312" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.55355, 2.91221, 57.5424)
+mesh = SubResource("QuadMesh_4amn5")
+
+[node name="A313" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.55355, 2.91221, 49.3809)
+mesh = SubResource("QuadMesh_v8hmk")
+
+[node name="A314" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.55355, 2.91221, 41.4891)
+mesh = SubResource("QuadMesh_s0i52")
+
+[node name="A315" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.55355, 2.91221, 33.5378)
+mesh = SubResource("QuadMesh_qy7p4")
+
+[node name="A316" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.55355, 2.91221, 25.4178)
+mesh = SubResource("QuadMesh_aonlb")
+
+[node name="A317" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.55355, 2.91221, 17.3249)
+mesh = SubResource("QuadMesh_man4w")
+
+[node name="A318" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.55355, 2.91221, 9.43588)
+mesh = SubResource("QuadMesh_8brry")
+
+[node name="A319" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.55355, 2.91221, -12.5682)
+mesh = SubResource("QuadMesh_c0dna")
+
+[node name="A320" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.55355, 2.91221, -20.1654)
+mesh = SubResource("QuadMesh_qqlpi")
+
+[node name="A321" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.55355, 2.91221, -38.4128)
+mesh = SubResource("QuadMesh_y1idv")
+
+[node name="B322" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.14666, 2.91221, -12.6681)
+mesh = SubResource("QuadMesh_v7ue1")
+
+[node name="B323" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5519, 2.91221, -12.6681)
+mesh = SubResource("QuadMesh_0qlam")
+
+[node name="B324" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.2817, 2.91221, -12.6681)
+mesh = SubResource("QuadMesh_yupkj")
+
+[node name="B325" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.891, 2.91221, -12.6681)
+mesh = SubResource("QuadMesh_8dfn3")
+
+[node name="B326" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.6052, 2.91221, -12.6681)
+mesh = SubResource("QuadMesh_6brl3")
+
+[node name="B327" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.5857, 2.91221, -12.6681)
+mesh = SubResource("QuadMesh_6pswi")
+
+[node name="B328" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.6594, 2.91221, -12.6681)
+mesh = SubResource("QuadMesh_46hs8")
+
+[node name="B329" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 48.6259, 2.91221, -7.58015)
+mesh = SubResource("QuadMesh_pcnk8")
+
+[node name="B330" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 41.175, 2.91221, -7.58015)
+mesh = SubResource("QuadMesh_ofr0u")
+
+[node name="B331" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 30.8375, 2.91221, -3.17809)
+mesh = SubResource("QuadMesh_f3f0i")
+
+[node name="B332" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 30.8375, 2.91221, 7.13742)
+mesh = SubResource("QuadMesh_sset4")
+
+[node name="B333" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 30.8375, 2.91221, 12.8535)
+mesh = SubResource("QuadMesh_2tsse")
+
+[node name="B334" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 30.8375, 2.91221, 23.2325)
+mesh = SubResource("QuadMesh_yvky3")
+
+[node name="B335" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.6763, 2.91221, 24.0807)
+mesh = SubResource("QuadMesh_3nkgj")
+
+[node name="B336" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.1593, 2.91221, 24.0807)
+mesh = SubResource("QuadMesh_cnwvd")
+
+[node name="B337" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 49.1714, 2.91221, 29.1584)
+mesh = SubResource("QuadMesh_gdk7m")
+
+[node name="B338" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 41.5584, 2.91221, 29.1584)
+mesh = SubResource("QuadMesh_o550o")
+
+[node name="B339" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 39.772, 2.91221, 29.1584)
+mesh = SubResource("QuadMesh_qhqfe")
+
+[node name="B340" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 30.8528, 2.91221, 33.4148)
+mesh = SubResource("QuadMesh_jhjhq")
+
+[node name="B341" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 30.8528, 2.91221, 43.1461)
+mesh = SubResource("QuadMesh_udmvx")
+
+[node name="B342" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 30.8528, 2.91221, 48.4428)
+mesh = SubResource("QuadMesh_1pvih")
+
+[node name="B343" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 30.8528, 2.91221, 55.7772)
+mesh = SubResource("QuadMesh_64m0x")
+
+[node name="B344" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 25.7609, 2.91221, 54.476)
+mesh = SubResource("QuadMesh_ra6iv")
+
+[node name="B345" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 25.7609, 2.91221, 44.7803)
+mesh = SubResource("QuadMesh_ra6iv")
+
+[node name="B346" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 25.7609, 2.91221, 39.7059)
+mesh = SubResource("QuadMesh_clahh")
+
+[node name="B347" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 25.7609, 2.91221, 32.2771)
+mesh = SubResource("QuadMesh_rolnk")
+
+[node name="B348" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 25.7609, 2.91221, 19.7737)
+mesh = SubResource("QuadMesh_jqm2a")
+
+[node name="B349" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 25.7609, 2.91221, 11.663)
+mesh = SubResource("QuadMesh_o1yc7")
+
+[node name="B350" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 25.7609, 2.91221, 3.54681)
+mesh = SubResource("QuadMesh_3tyju")
+
+[node name="B381" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 25.7609, 2.91221, -4.3284)
+mesh = SubResource("QuadMesh_wwrbp")
+
+[node name="B382" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13.895, 2.91221, -7.5784)
+mesh = SubResource("QuadMesh_3uiey")
+
+[node name="B383" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 14.7661, 2.91221, 24.0882)
+mesh = SubResource("QuadMesh_dftkk")
+
+[node name="B384" type="MeshInstance3D" parent="Details"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13.9162, 2.91221, 29.181)
+mesh = SubResource("QuadMesh_i4pig")
 
 [node name="Core" type="Node" parent="."]
 
