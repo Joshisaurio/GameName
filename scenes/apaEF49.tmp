@@ -1,36 +1,16 @@
-[gd_scene load_steps=25 format=3 uid="uid://omfiu17weixe"]
+[gd_scene load_steps=9 format=3 uid="uid://cdbr0ky4d6pof"]
 
-[ext_resource type="Script" path="res://scripts/game.gd" id="1_e5w8m"]
-[ext_resource type="AudioStream" uid="uid://cix3w21uo7use" path="res://assets/audio/Ambience/SFX - Fluorescent Light.wav" id="2_5mjnv"]
-[ext_resource type="Texture2D" uid="uid://d31enr2l8beft" path="res://Textures/TempTextures/Wood Planks/Planks_Albedo.png" id="3_3vxm0"]
-[ext_resource type="Texture2D" uid="uid://gwmh5hctqh1g" path="res://Textures/TempTextures/Wood Planks/Planks_AO.png" id="4_4prnw"]
-[ext_resource type="PackedScene" uid="uid://cumnita3y3x5e" path="res://scenes/stamping.tscn" id="5_8kp3t"]
-[ext_resource type="PackedScene" path="res://scenes/intro.tscn" id="5_hddd8"]
-[ext_resource type="Texture2D" uid="uid://b4yqbyfs1e6gn" path="res://Textures/TempTextures/Wood Planks/Planks_Height.png" id="5_tm8s7"]
-[ext_resource type="Texture2D" uid="uid://dt1lnxl5h5b3h" path="res://Textures/TempTextures/Wood Planks/Planks_Normal.png" id="6_6mc2w"]
-[ext_resource type="Texture2D" uid="uid://bi661l2uyhc23" path="res://Textures/TempTextures/Wood Planks/Planks_Rough.png" id="7_f4c44"]
-[ext_resource type="Texture2D" uid="uid://b023ua1ok05em" path="res://Textures/Asset 631.png" id="8_mcwg1"]
-[ext_resource type="Texture2D" uid="uid://0e4kop5vr6m7" path="res://Textures/sponge.JPG" id="8_p75b8"]
-[ext_resource type="PackedScene" uid="uid://dgvjlrsae8iq7" path="res://scenes/door.tscn" id="12_tngw7"]
-[ext_resource type="Script" path="res://scripts/game_manager.gd" id="12_vuyu0"]
+[ext_resource type="Texture2D" uid="uid://de7p7ycehj63i" path="res://Textures/TempTextures/Pixel 32x32/9.png" id="1_fdorb"]
+[ext_resource type="PackedScene" uid="uid://6d27ul2h641w" path="res://Manage/player.tscn" id="2_mmqls"]
+[ext_resource type="PackedScene" uid="uid://dgvjlrsae8iq7" path="res://scenes/door.tscn" id="3_a8o4k"]
 
 [sub_resource type="Environment" id="Environment_6phuy"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jesxm"]
-albedo_color = Color(0.472846, 0.385525, 0.171227, 1)
-albedo_texture = ExtResource("3_3vxm0")
-metallic_specular = 0.43
-roughness_texture = ExtResource("7_f4c44")
-normal_enabled = true
-normal_scale = 12.51
-normal_texture = ExtResource("6_6mc2w")
-ao_enabled = true
-ao_texture = ExtResource("4_4prnw")
-heightmap_enabled = true
-heightmap_texture = ExtResource("5_tm8s7")
-uv1_scale = Vector3(0.305, 0.305, 0.305)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5bkkc"]
+albedo_color = Color(0.662452, 0.662452, 0.662452, 1)
+albedo_texture = ExtResource("1_fdorb")
+uv1_scale = Vector3(0.905, 0.905, 0.905)
 uv1_triplanar = true
-uv1_world_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lxs55"]
 albedo_color = Color(0.136826, 0.136826, 0.136826, 1)
@@ -41,32 +21,10 @@ albedo_color = Color(0.187176, 0.187176, 0.187176, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3jd2y"]
 albedo_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_if3yo"]
-albedo_texture = ExtResource("8_p75b8")
-
-[sub_resource type="QuadMesh" id="QuadMesh_itkbl"]
-material = SubResource("StandardMaterial3D_if3yo")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_le75j"]
-transparency = 2
-alpha_scissor_threshold = 0.016
-alpha_antialiasing_mode = 0
-albedo_texture = ExtResource("8_mcwg1")
-backlight_enabled = true
-uv1_scale = Vector3(0.077, 0.117, 0.08)
-uv1_offset = Vector3(0.007, 0.007, 0)
-
-[sub_resource type="QuadMesh" id="QuadMesh_h135k"]
-material = SubResource("StandardMaterial3D_le75j")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ft33u"]
-albedo_color = Color(0.329412, 0.113725, 0.0392157, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_2ymd4"]
-material = SubResource("StandardMaterial3D_ft33u")
-
 [node name="Apartment" type="Node3D"]
-script = ExtResource("1_e5w8m")
+
+[node name="Player" parent="." instance=ExtResource("2_mmqls")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.63939, -50.6548)
 
 [node name="CollisionMap" type="Node" parent="."]
 
@@ -77,11 +35,6 @@ environment = SubResource("Environment_6phuy")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment/WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, -0.0656295, 0.997844, 0, -0.997844, -0.0656295, 0, 0, 0)
-
-[node name="Ambience" type="AudioStreamPlayer" parent="Environment"]
-stream = ExtResource("2_5mjnv")
-volume_db = -14.79
-autoplay = true
 
 [node name="Lights" type="Node" parent="."]
 
@@ -111,14 +64,6 @@ spot_angle = 74.873
 
 [node name="SpotLight3D5" type="SpotLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.130009, 4.85803, -30.8292)
-light_energy = 16.0
-shadow_enabled = true
-spot_range = 9.33784
-spot_attenuation = 1.14
-spot_angle = 74.873
-
-[node name="SpotLight3D10" type="SpotLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.130009, 4.85803, -51.7734)
 light_energy = 16.0
 shadow_enabled = true
 spot_range = 9.33784
@@ -160,15 +105,20 @@ spot_angle = 74.873
 [node name="Build" type="Node" parent="."]
 
 [node name="Floor" type="CSGBox3D" parent="Build"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.391724, 0, 1.96701)
-size = Vector3(109.136, 0.133789, 116.851)
-material = SubResource("StandardMaterial3D_jesxm")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.391724, 0, 6.32855)
+size = Vector3(109.136, 0.133789, 108.128)
+material = SubResource("StandardMaterial3D_5bkkc")
 
 [node name="Ceiling" type="CSGBox3D" parent="Build"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14444, 4.74788, 1.0117)
 visible = false
 size = Vector3(112.25, 0.133789, 121.153)
 material = SubResource("StandardMaterial3D_lxs55")
+
+[node name="OfficeFloor" type="CSGBox3D" parent="Build"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -52.069)
+size = Vector3(16.928, 0.133789, 8.66797)
+material = SubResource("StandardMaterial3D_5bkkc")
 
 [node name="CentralWall" type="CSGBox3D" parent="Build"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00396156, 2.14395, 0.473261)
@@ -1124,16 +1074,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71701, 0.788774, 3.39301)
 size = Vector3(6.88849, 4.7789, 6.55808)
 material = SubResource("StandardMaterial3D_3jd2y")
 
-[node name="???" type="MeshInstance3D" parent="Build/CentralWall"]
-transform = Transform3D(0.975487, 0, 0, 0, 1.4789, 0, 0, 0, 0.975487, -3.21809, 0.318583, 53.861)
-mesh = SubResource("QuadMesh_itkbl")
-
-[node name="Label3D" type="Label3D" parent="Build/CentralWall/???"]
-transform = Transform3D(0.644296, 0, 0, 0, 0.644296, 0, 0, 0, 0.644296, -0.00510526, 0.387087, 0.00344849)
-text = "Don't play landlord game at 3AM"
-font_size = 12
-
 [node name="Details" type="Node" parent="."]
+
+[node name="Room" type="Label3D" parent="Details"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.44059, 2.68283, -35.5272)
+pixel_size = 0.0005
+text = "3
+   0
+       1"
+font_size = 487
+outline_size = 3
 
 [node name="Room2" type="Label3D" parent="Details"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.44059, 2.68283, -27.9541)
@@ -1143,14 +1093,6 @@ text = "3
        2"
 font_size = 487
 outline_size = 3
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Details/Room2"]
-transform = Transform3D(0.43873, 0, 0, 0, 0.91944, 0, 0, 0, 0.885397, -7.4157, 0, -0.0992467)
-mesh = SubResource("QuadMesh_h135k")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Details/Room2/MeshInstance3D"]
-transform = Transform3D(0.870022, 0, -6.66134e-16, 0, 0.97548, 0, -1.24345e-14, 0, 0.0190301, 0, 0, -0.0111487)
-mesh = SubResource("BoxMesh_2ymd4")
 
 [node name="Room3" type="Label3D" parent="Details"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.44059, 2.68283, -20.4269)
@@ -1872,25 +1814,7 @@ text = "3
 font_size = 487
 outline_size = 3
 
-[node name="Core" type="Node" parent="."]
-
-[node name="Stamping" parent="Core" instance=ExtResource("5_8kp3t")]
-transform = Transform3D(-7.81378e-08, 0, 1.78758, 0, 1.78758, 0, -1.78758, 0, -7.81378e-08, -4.72791, -2.39003, -56.832)
-
-[node name="Intro" parent="Core" instance=ExtResource("5_hddd8")]
-
-[node name="GameManager" type="Node" parent="Core"]
-script = ExtResource("12_vuyu0")
-
 [node name="Doors" type="Node" parent="."]
 
-[node name="Door" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.5346, 0, -37.1959)
-
-[node name="Door2" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.5346, 0, -29.5976)
-
-[node name="Door3" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("12_tngw7")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.5346, 0, -22.1594)
-
-[connection signal="finished" from="Environment/Ambience" to="." method="Replay_Ambience"]
+[node name="StaticBody3D" parent="Doors" instance=ExtResource("3_a8o4k")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2.61801, -0.00474501, -11.2439)

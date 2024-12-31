@@ -1,29 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://wqowkdaccyal"]
+[gd_scene load_steps=2 format=3 uid="uid://wqowkdaccyal"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_nuewp"]
-[ext_resource type="PackedScene" uid="uid://dk1cjy61duy5b" path="res://scenes/typing_minigame.tscn" id="2_i6cdk"]
-[ext_resource type="PackedScene" uid="uid://corx55jlcs8e5" path="res://scenes/proto_type_map.tscn" id="3_a5giv"]
-[ext_resource type="Script" path="res://scripts/countdown.gd" id="4_7q2lk"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_nuewp")
-
-[node name="TypingMinigame" parent="." instance=ExtResource("2_i6cdk")]
-
-[node name="ProtoTypeMap" parent="." instance=ExtResource("3_a5giv")]
-
-[node name="Countdown" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("4_7q2lk")
-
-[node name="Timer" type="Timer" parent="Countdown"]
-
-[node name="Placeholder" type="Label" parent="Countdown"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
-[connection signal="timeout" from="Countdown/Timer" to="Countdown" method="_on_timer_timeout"]
