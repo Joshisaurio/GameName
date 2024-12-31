@@ -41,7 +41,8 @@ var open: bool = false
 @onready var door_panel: MeshInstance3D = $Panel
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var goto_position: Vector3 = $GotoPosition.position
-@onready var current_camera = get_viewport().get_camera_3d()
+@onready var current_camera: Camera3D = get_viewport().get_camera_3d()
+@onready var audio_open_door: AudioStreamPlayer = $Sounds/OpenDoor
 
 func _ready():
 	pass
@@ -51,6 +52,7 @@ func clicked():
 		print("There is no tenant in this room!")
 		return
 	door_interaction_begin.emit(self)
+	audio_open_door.play()
 	
 func _toggle_door_state():
 	if open:

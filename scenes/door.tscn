@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=4 uid="uid://dgvjlrsae8iq7"]
+[gd_scene load_steps=24 format=4 uid="uid://dgvjlrsae8iq7"]
 
 [ext_resource type="Script" path="res://scripts/door.gd" id="1_3lhjc"]
+[ext_resource type="AudioStream" uid="uid://dqvxrnfjbxjs1" path="res://assets/audio/UI/SFX - UI Select (click).wav" id="2_mwu23"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l8t7x"]
 size = Vector3(2, 3.2, 0.2)
@@ -191,6 +192,14 @@ _data = {
 "open_door": SubResource("Animation_ibaxl")
 }
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5gqjr"]
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+disable_receive_shadows = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_7xo7k"]
+material = SubResource("StandardMaterial3D_5gqjr")
+
 [node name="Door" type="StaticBody3D"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 script = ExtResource("1_3lhjc")
@@ -200,7 +209,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.184704, 1.56679, -1.61473e
 shape = SubResource("BoxShape3D_l8t7x")
 
 [node name="Panel" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.85392, 0, 0, 0, 1.43188, 0, 0, 0, 1, 0.646909, 0.0163638, 0.0474461)
+transform = Transform3D(1.85392, 0, 0, 0, 1.53773, 0, 0, 0, 1, 0.646909, 0.0163638, 0.0474461)
 rotation_edit_mode = 1
 mesh = SubResource("ArrayMesh_q6407")
 skeleton = NodePath("")
@@ -219,7 +228,7 @@ skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_dw8gi")
 
 [node name="Frame" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.79367, 0, -7.10543e-15, 0, 1.35846, 0, -2.84217e-14, 0, 1, -0.183784, -0.00203614, -1.60669e-08)
+transform = Transform3D(1.79367, 0, -7.10543e-15, 0, 1.45756, 0, -2.84217e-14, 0, 1, -0.183784, -0.00203614, -1.60669e-08)
 mesh = SubResource("ArrayMesh_db3v2")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_88gl4")
@@ -229,7 +238,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.147579, 2, -2)
 
 [node name="Sounds" type="Node" parent="."]
 
+[node name="OpenDoor" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("2_mwu23")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_teikc")
 }
+
+[node name="placeholder_void" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.992, 0, 0, 0, 3.307, 0, 0, 0, 2.12083, -0.182368, 1.67314, 1.15647)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_7xo7k")

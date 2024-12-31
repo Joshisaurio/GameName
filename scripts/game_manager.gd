@@ -1,5 +1,7 @@
 extends Node
 
+const STARTING_DELIVERY_COUNT: int = 50 # Temporary, used for debug purposes
+
 var first_names = [
 	"James", "Mary", "John", "Patricia", "Robert", "Jennifer", "Michael", "Linda",
 	"William", "Elizabeth", "David", "Barbara", "Richard", "Susan", "Joseph", "Jessica",
@@ -23,7 +25,8 @@ var last_names = [
 	"Clark", "Lewis", "Robinson", "Walker", "Hall", "Young", "King", "Wright"
 ]
 
-const DELIVERY_CAP: int = 9 # Maximum amount of doors to deliver to
+const DELIVERY_CAP: int = 50 # Maximum amount of doors to deliver to
+							# This is normally 8 but has been increased for debug purposes
 
 var cycle: int = 1
 var middle_name_cap: int = 3 # Increases by 1 every cycle
@@ -36,7 +39,7 @@ func _ready() -> void:
 	_debug()
 
 func _start_cycle() -> void:
-	var num_deliveries: int = 2 + (2 * cycle)
+	var num_deliveries: int = STARTING_DELIVERY_COUNT + (2 * cycle)
 	var tenant_names: Array[String] = _generate_names(num_deliveries)
 	doors.shuffle()
 

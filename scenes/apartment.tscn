@@ -1823,6 +1823,42 @@ outline_size = 3
 [node name="Door_1" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2.61801, -0.00474501, -11.2439)
 
+[node name="Door_28" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2.57174, -0.00474501, 8.53127)
+
+[node name="Door_29" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2.57174, -0.00474501, 16.3544)
+
+[node name="Door_30" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2.57174, -0.00474501, 24.4893)
+
+[node name="Door_31" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2.57174, -0.00474501, 32.6062)
+
+[node name="Door_32" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2.57174, -0.00474501, 40.5508)
+
+[node name="Door_33" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2.57174, -0.00474501, 48.4262)
+
+[node name="Door_34" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2.57174, -0.00474501, 56.5215)
+
+[node name="Door_36" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 25.7887, -0.00474501, 31.3316)
+
+[node name="Door_37" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 25.7887, -0.00474501, 38.677)
+
+[node name="Door_38" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 25.7887, -0.00474501, 46.0725)
+
+[node name="Door_39" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 25.7887, -0.00474501, 53.5306)
+
+[node name="Door_35" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(1, 0, 1.74845e-07, 0, 1, 0, -1.74845e-07, 0, 1, 12.9472, -0.00474501, 29.1573)
+
 [node name="Door_2" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2.61801, -0.00474501, -18.8229)
 
@@ -1838,14 +1874,191 @@ transform = Transform3D(1, 0, -1.63425e-13, 0, 1, 0, 1.63425e-13, 0, 1, -8.83172
 [node name="Door_10" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
 transform = Transform3D(1, 0, -1.63425e-13, 0, 1, 0, 1.63425e-13, 0, 1, -16.5778, -0.00474501, -28.8121)
 
+[node name="Door_15" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(1, 0, -1.63425e-13, 0, 1, 0, 1.63425e-13, 0, 1, -43.4991, -0.00474501, -28.8121)
+
+[node name="Door_16" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(1, 0, -1.63425e-13, 0, 1, 0, 1.63425e-13, 0, 1, -51.2842, -0.00474501, -28.8121)
+
 [node name="Door_8" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
 transform = Transform3D(-1, 0, -8.74226e-08, 0, 1, 0, 8.74226e-08, 0, -1, -20.3326, -0.00474501, -33.9789)
+
+[node name="Door_12" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(-1, 0, -8.74226e-08, 0, 1, 0, 8.74226e-08, 0, -1, -35.4379, -0.00474501, -33.9789)
+
+[node name="Door_13" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(-1, 0, -8.74226e-08, 0, 1, 0, 8.74226e-08, 0, -1, -42.7996, -0.00474501, -33.9789)
+
+[node name="Door_14" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(-1, 0, -8.74226e-08, 0, 1, 0, 8.74226e-08, 0, -1, -50.5871, -0.00474501, -33.9789)
+
+[node name="Door_11" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(-1, 0, -8.74226e-08, 0, 1, 0, 8.74226e-08, 0, -1, -28.9618, -0.00474501, -45.5432)
 
 [node name="Door_4" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
 transform = Transform3D(-4.37112e-08, 0, 1, 0, 1, 0, -1, 0, -4.37112e-08, 2.57987, -0.00474501, -37.244)
 
 [node name="Door_5" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
 transform = Transform3D(-4.37112e-08, 0, 1, 0, 1, 0, -1, 0, -4.37112e-08, 2.57987, -0.00474501, -29.6094)
+
+[node name="Door_17" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(-4.37112e-08, 0, 1, 0, 1, 0, -1, 0, -4.37112e-08, -26.2061, -0.00474501, -23.493)
+
+[node name="Door_18" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(-4.37112e-08, 0, 1, 0, 1, 0, -1, 0, -4.37112e-08, -26.2061, -0.00474501, -16.0687)
+
+[node name="Door_19" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(-4.37112e-08, 0, 1, 0, 1, 0, -1, 0, -4.37112e-08, -26.2061, -0.00474501, -8.65377)
+
+[node name="Door_20" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(-4.37112e-08, 0, 1, 0, 1, 0, -1, 0, -4.37112e-08, 2.60461, -0.00474501, -2.35075)
+
+[node name="Door_62" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(-1, 0, -8.74226e-08, 0, 1, 0, 8.74226e-08, 0, -1, -4.78263, -0.00474501, 0.992012)
+
+[node name="Door_63" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(-1, 0, -8.74226e-08, 0, 1, 0, 8.74226e-08, 0, -1, -12.7159, -0.00474501, 0.992012)
+
+[node name="Door_64" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(-1, 0, -8.74226e-08, 0, 1, 0, 8.74226e-08, 0, -1, -20.4745, -0.00474501, 0.992012)
+
+[node name="Door_65" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(-1, 0, -8.74226e-08, 0, 1, 0, 8.74226e-08, 0, -1, -41.1573, -0.00474501, 0.992012)
+
+[node name="Door_66" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(-1, 0, -8.74226e-08, 0, 1, 0, 8.74226e-08, 0, -1, -47.9898, -0.00474501, 0.992012)
+
+[node name="Door_67" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(1, 0, -1.63425e-13, 0, 1, 0, 1.63425e-13, 0, 1, -51.632, -0.00474501, 6.03815)
+
+[node name="Door_68" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(1, 0, -1.63425e-13, 0, 1, 0, 1.63425e-13, 0, 1, -44.817, -0.00474501, 6.03815)
+
+[node name="Door_69" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(1, 0, -1.63425e-13, 0, 1, 0, 1.63425e-13, 0, 1, -37.3904, -0.00474501, 6.03815)
+
+[node name="Door_70" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(1, 0, -1.63425e-13, 0, 1, 0, 1.63425e-13, 0, 1, -29.8879, -0.00474501, 6.03815)
+
+[node name="Door_73" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(-4.37116e-08, 0, -1, 0, 1, 0, 1, 0, -4.37116e-08, -31.2183, -0.00474501, -4.32461)
+
+[node name="Door_74" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(-4.37116e-08, 0, -1, 0, 1, 0, 1, 0, -4.37116e-08, -31.2183, -0.00474501, -11.9616)
+
+[node name="Door_75" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(-4.37116e-08, 0, -1, 0, 1, 0, 1, 0, -4.37116e-08, -31.2183, -0.00474501, -18.9455)
+
+[node name="Door_76" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(-4.37116e-08, 0, -1, 0, 1, 0, 1, 0, -4.37116e-08, -31.2183, -0.00474501, -26.4966)
+
+[node name="Door_71" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(1, 0, -1.63425e-13, 0, 1, 0, 1.63425e-13, 0, 1, -22.2803, -0.00474501, 6.03815)
+
+[node name="Door_72" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(1, 0, -1.63425e-13, 0, 1, 0, 1.63425e-13, 0, 1, -14.7747, -0.00474501, 6.03815)
+
+[node name="Door_21" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(-4.37112e-08, 0, 1, 0, 1, 0, -1, 0, -4.37112e-08, 2.60461, -0.00474501, 5.75377)
+
+[node name="Door_22" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(-4.37112e-08, 0, 1, 0, 1, 0, -1, 0, -4.37112e-08, 2.60461, -0.00474501, 13.857)
+
+[node name="Door_23" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(-4.37112e-08, 0, 1, 0, 1, 0, -1, 0, -4.37112e-08, 2.60461, -0.00474501, 21.7407)
+
+[node name="Door_24" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(-4.37112e-08, 0, 1, 0, 1, 0, -1, 0, -4.37112e-08, 2.60461, -0.00474501, 34.4567)
+
+[node name="Door_25" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(-4.37112e-08, 0, 1, 0, 1, 0, -1, 0, -4.37112e-08, 2.60461, -0.00474501, 41.9692)
+
+[node name="Door_26" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(-4.37112e-08, 0, 1, 0, 1, 0, -1, 0, -4.37112e-08, 2.60461, -0.00474501, 49.3724)
+
+[node name="Door_27" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(-4.37112e-08, 0, 1, 0, 1, 0, -1, 0, -4.37112e-08, 2.60461, -0.00474501, 56.7325)
+
+[node name="Door_40" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(-4.37112e-08, 0, 1, 0, 1, 0, -1, 0, -4.37112e-08, 30.8516, -0.00474501, 34.44)
+
+[node name="Door_77" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(1, 0, -1.63425e-13, 0, 1, 0, 1.63425e-13, 0, 1, 38.8223, -0.00474501, 29.1209)
+
+[node name="Door_78" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(1, 0, -1.63425e-13, 0, 1, 0, 1.63425e-13, 0, 1, 42.8943, -0.00474501, 29.1209)
+
+[node name="Door_79" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(1, 0, -1.63425e-13, 0, 1, 0, 1.63425e-13, 0, 1, 50.4907, -0.00474501, 29.1209)
+
+[node name="Door_80" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(-1, 0, 8.74229e-08, 0, 1, 0, -8.74229e-08, 0, -1, 51.1076, -0.00474501, 24.1143)
+
+[node name="Door_81" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(-1, 0, 8.74229e-08, 0, 1, 0, -8.74229e-08, 0, -1, 43.3416, -0.00474501, 24.1143)
+
+[node name="Door_41" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(-4.37112e-08, 0, 1, 0, 1, 0, -1, 0, -4.37112e-08, 30.8516, -0.00474501, 41.8051)
+
+[node name="Door_42" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(-4.37112e-08, 0, 1, 0, 1, 0, -1, 0, -4.37112e-08, 30.8516, -0.00474501, 49.3998)
+
+[node name="Door_43" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(-4.37112e-08, 0, 1, 0, 1, 0, -1, 0, -4.37112e-08, 30.8516, -0.00474501, 56.7607)
+
+[node name="Door_44" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(-4.37112e-08, 0, 1, 0, 1, 0, -1, 0, -4.37112e-08, 30.8516, -0.00474501, 21.8722)
+
+[node name="Door_45" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(-4.37112e-08, 0, 1, 0, 1, 0, -1, 0, -4.37112e-08, 30.8516, -0.00474501, 13.8262)
+
+[node name="Door_46" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(-4.37112e-08, 0, 1, 0, 1, 0, -1, 0, -4.37112e-08, 30.8516, -0.00474501, 5.85951)
+
+[node name="Door_47" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(-4.37112e-08, 0, 1, 0, 1, 0, -1, 0, -4.37112e-08, 30.8516, -0.00474501, -2.13482)
+
+[node name="Door_48" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 25.7374, -0.00474501, -5.26331)
+
+[node name="Door_49" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 25.7374, -0.00474501, 2.60054)
+
+[node name="Door_50" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 25.7374, -0.00474501, 10.7052)
+
+[node name="Door_51" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 25.7374, -0.00474501, 18.806)
+
+[node name="Door_52" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(1, 0, 1.74845e-07, 0, 1, 0, -1.74845e-07, 0, 1, 12.9225, -0.00474501, -7.57361)
+
+[node name="Door_53" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 7.89127, -0.00474501, -12.6537)
+
+[node name="Door_54" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 15.5808, -0.00474501, -12.6537)
+
+[node name="Door_55" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 23.1918, -0.00474501, -12.6537)
+
+[node name="Door_56" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 30.8409, -0.00474501, -12.6537)
+
+[node name="Door_57" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 38.5471, -0.00474501, -12.6537)
+
+[node name="Door_58" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 46.3137, -0.00474501, -12.6537)
+
+[node name="Door_59" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 50.612, -0.00474501, -12.6537)
+
+[node name="Door_60" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(1, 0, 1.74845e-07, 0, 1, 0, -1.74845e-07, 0, 1, 47.6428, -0.00474501, -7.61365)
+
+[node name="Door_61" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
+transform = Transform3D(1, 0, 1.74845e-07, 0, 1, 0, -1.74845e-07, 0, 1, 40.2159, -0.00474501, -7.61365)
 
 [node name="Door_6" parent="Doors" groups=["doors"] instance=ExtResource("3_a8o4k")]
 transform = Transform3D(-4.37112e-08, 0, 1, 0, 1, 0, -1, 0, -4.37112e-08, 2.57987, -0.00474501, -22.1415)
