@@ -1,5 +1,7 @@
 extends Control
 
+signal countdown
+
 var _current_time: String = ""
 @export_category("Settings")
 @export var starting_time: int = 50
@@ -7,7 +9,8 @@ var _current_time: String = ""
 @onready var timer: Timer = $Timer
 
 func _ready():
-	timer.start(starting_time)
+	countdown.connect(_start)
+	hide()
 	
 func _process(delta: float) -> void:
 	if timer.is_stopped():
@@ -26,3 +29,8 @@ func _update_display() -> void:
 func _on_timer_timeout() -> void:
 	timer.stop()
 	print("Ran out of time. Game over!")
+	
+func _start():
+	$Timer.start(starting_time)
+	show()
+	print("Seconds earned:" + str(starting_time))

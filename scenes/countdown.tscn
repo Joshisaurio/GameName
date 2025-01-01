@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://nwc5bj77d8ja"]
+[gd_scene load_steps=3 format=3 uid="uid://nwc5bj77d8ja"]
 
 [ext_resource type="Script" path="res://scripts/countdown.gd" id="1_ous3t"]
+[ext_resource type="Theme" uid="uid://bre6n751ipump" path="res://assets/maintheme.tres" id="2_yutcg"]
 
-[node name="Countdown" type="Control"]
+[node name="Countdown" type="Control" groups=["countdown"]]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -13,7 +14,11 @@ script = ExtResource("1_ous3t")
 
 [node name="Placeholder" type="Label" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 95.0
+offset_bottom = 62.0
+theme = ExtResource("2_yutcg")
+text = "00:00"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

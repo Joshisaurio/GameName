@@ -106,3 +106,4 @@ libraries = {
 [node name="Audio" type="AudioStreamPlayer" parent="."]
 
 [connection signal="animation_finished" from="UIAnim" to="." method="Intro_finished"]
+[connection signal="animation_started" from="UIAnim" to="." method="_on_ui_anim_animation_started"]

@@ -29,6 +29,8 @@ window/size/viewport_height=768
 [global_group]
 
 gamemanager=""
+countdown=""
+stamping=""
 
 [input]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://cumnita3y3x5e"]
+[gd_scene load_steps=25 format=4 uid="uid://cumnita3y3x5e"]
 
 [ext_resource type="Script" path="res://scripts/stamping.gd" id="1_iqntg"]
 [ext_resource type="Texture2D" uid="uid://b2npyd673nrmx" path="res://Textures/Model Textures/Desk/Albedo_Desk_Pixel.png" id="2_pym78"]
@@ -256,7 +256,10 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_prui7"]
 size = Vector3(1, 1.1882, 1.71521)
 
-[node name="Stamping" type="StaticBody3D" groups=["Interactable"]]
+[sub_resource type="LabelSettings" id="LabelSettings_qdyd7"]
+font_size = 30
+
+[node name="Stamping" type="StaticBody3D" groups=["Interactable", "stamping"]]
 script = ExtResource("1_iqntg")
 
 [node name="Table" type="Node3D" parent="."]
@@ -296,6 +299,31 @@ max_polyphony = 25
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.859205, 2.03997, -0.0643921)
 shape = SubResource("BoxShape3D_prui7")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="time_earned" type="Label" parent="UI"]
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 267.0
+offset_bottom = 83.0
+theme = ExtResource("7_1ptb6")
+text = "Time earned: 0s"
+label_settings = SubResource("LabelSettings_qdyd7")
+
+[node name="time_left" type="ProgressBar" parent="UI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -288.0
+offset_top = 50.0
+offset_right = -50.0
+offset_bottom = 77.0
+grow_horizontal = 0
+theme = ExtResource("7_1ptb6")
+max_value = 30.0
+value = 15.0
+show_percentage = false
 
 [node name="Guide" type="CanvasLayer" parent="."]
 visible = false

@@ -13,6 +13,7 @@ class_name Stamp
 @onready var Gamemanager = get_tree().root.get_child(0)
 
 @export var max_middle_names: int = 3
+@export var max_time:int = 30
 var isSitting = true
 var canStamp = false
 var pageExists = false
@@ -21,6 +22,8 @@ var active_player
 var tenant_name
 var tenant_eviction
 var tenant_first_name
+
+var available_time = 0
 
 var first_names = [
 	"James", "Mary", "John", "Patricia", "Robert", "Jennifer", "Michael", "Linda",
@@ -54,48 +57,76 @@ var stages = [
 	"( Press [E] to exit )"
 ]
 
+var time_left = 30
+
+var begun = false
+
 func _ready():
+	$UI/time_earned.visible = false
+	$UI/time_left.visible = false
+
+func _begin():
 	filter.visible = true
 	$Guide.visible = true
+	$UI/time_earned.visible = true
+	$UI/time_left.visible = true
+	$UI/time_left.max_value = max_time
+	begun = true
+
+func _process(delta):
+	if begun and isSitting:
+		$UI.visible = true
+		time_left -= delta
+		$UI/time_left.value = time_left
+	else:
+		$UI.visible = false
 
 func _input(event):
-	if Input.is_action_just_pressed("right"):
-		if isSitting and not pageExists:
-			create_eviction()
-			pageExists = true
-			canStamp = true
-			tenant_eviction = paper.instantiate()
-			tenant_eviction.tenant_name = tenant_first_name
-			tenant_eviction.tenant_room = randi_range(301, 382)
-			origin.add_child(tenant_eviction)
-			$GeneralAnim.play("Page_In")
-			stage += 1
-	
-	if Input.is_action_just_pressed("Click"):
-		if canStamp:
-			tenant_eviction.isStamped = true
-			canStamp = false
-			canRemove = true
-			stage += 1
-	
-	if Input.is_action_just_pressed("left"):
-		if canRemove:
-			$GeneralAnim.play("Page_Out")
-			stage += 1
-			await get_tree().create_timer(0.3).timeout
-			Apartment.new_tenant(tenant_name)
-			pageExists = false
-			canRemove = false
-			$PaperOrigin.get_child(0).queue_free()
-		
-	if Input.is_action_just_pressed("Interact"):
-		if isSitting:
-			Canim.play("Exit_Stamp")
+	if begun:
+		if time_left > 0:
+			if Input.is_action_just_pressed("right"):
+				if isSitting and not pageExists:
+					create_eviction()
+					pageExists = true
+					canStamp = true
+					tenant_eviction = paper.instantiate()
+					tenant_eviction.tenant_name = tenant_first_name
+					tenant_eviction.tenant_room = randi_range(301, 382)
+					origin.add_child(tenant_eviction)
+					$GeneralAnim.play("Page_In")
+					stage += 1
+					available_time += 3
+					$UI/time_earned.text = "Time earned:" + str(available_time) + "s"
 			
-	if stage < len(stages) - 1:
-		$Guide/Guide.text = stages[stage]
-	else:
-		$Guide/Guide.hide()
+			if Input.is_action_just_pressed("Click"):
+				if canStamp:
+					if tenant_eviction != null:
+						tenant_eviction.isStamped = true
+						canStamp = false
+						canRemove = true
+						stage += 1
+			
+			if Input.is_action_just_pressed("left"):
+				if canRemove:
+					$GeneralAnim.play("Page_Out")
+					stage += 1
+					await get_tree().create_timer(0.3).timeout
+					Apartment.new_tenant(tenant_name)
+					pageExists = false
+					canRemove = false
+					$PaperOrigin.get_child(0).queue_free()
+			
+		if Input.is_action_just_pressed("Interact"):
+			if isSitting:
+				Canim.play("Exit_Stamp")
+				get_tree().get_first_node_in_group("countdown").starting_time += available_time
+				available_time = 0
+				get_tree().get_first_node_in_group("countdown").countdown.emit()
+				
+		if stage < len(stages) - 1:
+			$Guide/Guide.text = stages[stage]
+		else:
+			$Guide/Guide.hide()
 
 func enter_desk():
 	isSitting = true

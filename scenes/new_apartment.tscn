@@ -129,7 +129,6 @@ material = SubResource("StandardMaterial3D_jesxm")
 
 [node name="Ceiling" type="CSGBox3D" parent="Build"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14444, 4.74788, 1.0117)
-visible = false
 size = Vector3(112.25, 0.133789, 121.153)
 material = SubResource("StandardMaterial3D_lxs55")
 

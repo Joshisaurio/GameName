@@ -36,6 +36,7 @@ func _input(event):
 	if event is InputEventKey and next:
 		if event.keycode == KEY_ENTER:
 			UIAnim.play("IntroAnim")
+			get_tree().get_first_node_in_group("stamping")._begin()
 			$Fader/Dialogue.visible = false
 		if dialogue < len(dialogues) - 1:
 			next = false
@@ -43,6 +44,7 @@ func _input(event):
 			display_dialogue(dialogues[dialogue], dialogue_speed)
 		else:
 			UIAnim.play("IntroAnim")
+			get_tree().get_first_node_in_group("stamping")._begin()
 	
 
 func display_dialogue(text: String, speed: float):
@@ -62,3 +64,4 @@ func display_dialogue(text: String, speed: float):
 
 func Intro_finished(_anim_name):
 	self.queue_free()
+	
