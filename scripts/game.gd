@@ -10,5 +10,7 @@ func new_tenant(name: String):
 	tenants.append(name)
 	print(tenants)
 
+#print save
+
 func Replay_Ambience():
 	$Environment/Ambience.play()
