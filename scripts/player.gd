@@ -21,6 +21,7 @@ class_name Player; extends CharacterBody3D
 
 @export_category("Key Binds")
 @export_subgroup("Mouse")
+@export var INTERACTION_ENABLED := true
 @export var MOUSE_ACCELERATION_ENABLED := true
 @export var KEY_BIND_MOUSE_SENSITIVITY := 0.005
 @export var KEY_BIND_MOUSE_ACCELERATION := 50
@@ -29,8 +30,8 @@ var speed: float = SPEED
 var accel = ACCELERATION
 
 # Used when lerping rotation to reduce stuttering when moving the mouse
-var rotation_target_player : float
-var rotation_target_head : float
+var rotation_target_player: float
+var rotation_target_head: float
 
 # Used when bobing head
 @onready var head_start_pos : Vector3 = $Head.position
@@ -83,26 +84,23 @@ func _unhandled_input(event):
 	if Engine.is_editor_hint():
 		return
 		
-	# Switch to this instead once E stops teleporting you back to the desk :p
-	# C
-	if event is InputEventMouseButton and event.pressed:
-		if event.button_index == MOUSE_BUTTON_LEFT:
-			var collided = ray.get_collider()
+	if Input.is_action_just_pressed("Interact") and INTERACTION_ENABLED:
+		var collided = ray.get_collider()
 			
-			if collided:
-				print("Raycast collided with " + collided.get_class())
-				if collided is Door:
-					collided.door_interaction_begin.connect(_door_interaction_begin, CONNECT_ONE_SHOT)
-					collided.door_interaction_end.connect(_door_interaction_end, CONNECT_ONE_SHOT)
-					collided.clicked()
-					
-				if collided is Stamp:
-					collided.enter_desk()
+		if collided:
+			print("Raycast collided with " + collided.get_class())
+			
+			if collided is Door:
+				collided.door_interaction_begin.connect(_door_interaction_begin, CONNECT_ONE_SHOT)
+				collided.door_interaction_end.connect(_door_interaction_end, CONNECT_ONE_SHOT)
+				collided.clicked()
+				
+			if collided is Stamp:
+				collided.enter_desk()
 		
 	if event is InputEventMouseMotion && Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		set_rotation_target(event.relative)
 	
-
 func set_rotation_target(mouse_motion : Vector2):
 	rotation_target_player += -mouse_motion.x * KEY_BIND_MOUSE_SENSITIVITY # Add player target to the mouse -x input
 	rotation_target_head += -mouse_motion.y * KEY_BIND_MOUSE_SENSITIVITY # Add head target to the mouse -y input
@@ -168,10 +166,12 @@ func _unfreeze() -> void:
 	
 func _door_interaction_begin(door: Door) -> void:
 	_freeze()
+	INTERACTION_ENABLED = false
 	door._toggle_door_state()
 	
 func _door_interaction_end(door: Door) -> void:
 	_unfreeze()
+	INTERACTION_ENABLED = true
 	door._toggle_door_state()
 
 func raycast_check():

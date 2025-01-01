@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_gf6gf"]
 [ext_resource type="AudioStream" uid="uid://cix3w21uo7use" path="res://assets/audio/Ambience/SFX - Fluorescent Light.wav" id="2_p3de2"]
-[ext_resource type="Texture2D" uid="uid://cmn0vk2djqjyk" path="res://Textures/TempTextures/Wood Planks/image.png" id="3_c6sig"]
+[ext_resource type="Texture2D" uid="uid://bppuc03otlr34" path="res://Textures/wood.png" id="3_sqh4b"]
 [ext_resource type="Texture2D" uid="uid://gwmh5hctqh1g" path="res://Textures/TempTextures/Wood Planks/Planks_AO.png" id="4_03bcw"]
 [ext_resource type="Texture2D" uid="uid://b4yqbyfs1e6gn" path="res://Textures/TempTextures/Wood Planks/Planks_Height.png" id="5_7v0dj"]
 [ext_resource type="Texture2D" uid="uid://dletiynfoj8gy" path="res://Textures/TempTextures/Wood Planks/image (3).png" id="6_5x4sn"]
@@ -17,7 +17,7 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jesxm"]
 albedo_color = Color(0.419027, 0.362195, 0.197436, 1)
-albedo_texture = ExtResource("3_c6sig")
+albedo_texture = ExtResource("3_sqh4b")
 metallic_specular = 0.0
 roughness_texture = ExtResource("7_uy1rf")
 normal_enabled = true
@@ -129,6 +129,7 @@ material = SubResource("StandardMaterial3D_jesxm")
 
 [node name="Ceiling" type="CSGBox3D" parent="Build"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14444, 4.74788, 1.0117)
+visible = false
 size = Vector3(112.25, 0.133789, 121.153)
 material = SubResource("StandardMaterial3D_lxs55")
 
