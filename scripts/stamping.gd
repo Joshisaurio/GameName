@@ -78,8 +78,10 @@ func _process(delta):
 		$UI.visible = true
 		time_left -= delta
 		$UI/time_left.value = time_left
+		$UI/time_earned.text = "Time earned:" + str(available_time) + "s"
 	else:
 		$UI.visible = false
+	
 
 func _input(event):
 	if begun:
@@ -96,7 +98,10 @@ func _input(event):
 					$GeneralAnim.play("Page_In")
 					stage += 1
 					available_time += 3
-					$UI/time_earned.text = "Time earned:" + str(available_time) + "s"
+					
+					$Paper.play()
+				else:
+					available_time -= 1
 			
 			if Input.is_action_just_pressed("Click"):
 				if canStamp:
@@ -105,6 +110,9 @@ func _input(event):
 						canStamp = false
 						canRemove = true
 						stage += 1
+						$Stamp.play()
+				else:
+					available_time -=1
 			
 			if Input.is_action_just_pressed("left"):
 				if canRemove:
@@ -115,6 +123,9 @@ func _input(event):
 					pageExists = false
 					canRemove = false
 					$PaperOrigin.get_child(0).queue_free()
+					#$Paper.play()
+				else:
+					available_time -= 1
 			
 		if Input.is_action_just_pressed("Interact"):
 			if isSitting:
