@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=4 uid="uid://bk0cr2wbg71ey"]
 
-[ext_resource type="Texture2D" uid="uid://c48te6oks4h2s" path="res://Textures/Model Textures/Desk/YouAreOut(SP)_UVGrid_BaseColor.1001.png" id="1_edy7w"]
+[ext_resource type="Texture2D" uid="uid://b2npyd673nrmx" path="res://Textures/Model Textures/Desk/Albedo_Desk_Pixel.png" id="1_782fb"]
 [ext_resource type="Texture2D" uid="uid://clh7ewm31gvvq" path="res://Textures/Model Textures/Desk/YouAreOut(SP)_UVGrid_Metallic.1001.png" id="2_7gpj3"]
-[ext_resource type="Texture2D" uid="uid://dky4rken4ntf3" path="res://Textures/Model Textures/Desk/YouAreOut(SP)_UVGrid_Normal.1001.png" id="3_dlbt2"]
-[ext_resource type="Texture2D" uid="uid://cq35oac4h1cag" path="res://Textures/Model Textures/Desk/YouAreOut(SP)_UVGrid_Roughness.1001.png" id="4_dspyx"]
+[ext_resource type="Texture2D" uid="uid://chfjibbqopj78" path="res://Textures/Model Textures/Desk/Normal_Desk_Pixel.png" id="3_ay8a2"]
+[ext_resource type="Texture2D" uid="uid://dgr1coxuf3s7c" path="res://Textures/Model Textures/Desk/Roughness_Desk_Pixel.png" id="4_ay8fv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pd3h6"]
 resource_name = "UVGrid"
@@ -47,14 +47,15 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_fjfpn")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_20g6s"]
-albedo_texture = ExtResource("1_edy7w")
+albedo_texture = ExtResource("1_782fb")
 metallic_specular = 0.15
 metallic_texture = ExtResource("2_7gpj3")
-roughness = 0.34
-roughness_texture = ExtResource("4_dspyx")
+roughness = 0.81
+roughness_texture = ExtResource("4_ay8fv")
 normal_enabled = true
-normal_scale = 2.8
-normal_texture = ExtResource("3_dlbt2")
+normal_scale = 10.35
+normal_texture = ExtResource("3_ay8a2")
+proximity_fade_distance = 0.01
 
 [node name="Desk" type="Node3D"]
 

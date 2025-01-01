@@ -1,0 +1,112 @@
+[gd_scene load_steps=15 format=3 uid="uid://bosj2u34r4jj4"]
+
+[ext_resource type="Texture2D" uid="uid://cstl3m7c6sc1j" path="res://Textures/Logo/black-avatar-generic-person-symbol-profile-picture-isolated-white-background-black-avatar-generic-person-symbol-profile-picture-346347472.webp" id="1_m1aaq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4thkw"]
+albedo_color = Color(0.28516, 0.1839, 0.0817852, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_m07g8"]
+material = SubResource("StandardMaterial3D_4thkw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ed857"]
+albedo_color = Color(0.178106, 0.0512708, 0.0158874, 1)
+metallic_specular = 0.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_bqrjq"]
+material = SubResource("StandardMaterial3D_ed857")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pnrvg"]
+albedo_color = Color(0.356584, 0.283956, 0.155115, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7p6mj"]
+albedo_texture = ExtResource("1_m1aaq")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ivo53"]
+albedo_color = Color(0.356584, 0.283956, 0.155115, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pmrol"]
+material = SubResource("StandardMaterial3D_ivo53")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_owcb8"]
+albedo_color = Color(0.0253638, 0.0253638, 0.0253638, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xbklf"]
+albedo_color = Color(1.05166e-05, 0.613015, 0.151178, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yralu"]
+albedo_color = Color(0.0253638, 0.0253638, 0.0253638, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fswek"]
+albedo_color = Color(0.356203, 0.272188, 0.156197, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eli3s"]
+albedo_color = Color(0.267125, 0.220147, 0.128051, 1)
+
+[node name="Room_A" type="Node3D"]
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.4, 0, 0, 0, 1, 0, 0, 0, 3.28962, 0, 0, 0)
+mesh = SubResource("PlaneMesh_m07g8")
+
+[node name="Floor2" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.99749, 0, 0, 0, 1, 0, 0, 0, 1.77854, 0, 0.0347946, 0.719743)
+mesh = SubResource("PlaneMesh_bqrjq")
+
+[node name="Walls" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.79776, 0)
+flip_faces = true
+size = Vector3(6.80078, 5.60425, 6.55249)
+
+[node name="Decor" type="Node3D" parent="."]
+
+[node name="Table?" type="CSGBox3D" parent="Decor"]
+transform = Transform3D(2.8295, 0, 0, 0, 1.61048, 0, 0, 0, 1.60336, 0.425784, 0.761342, -2.39592)
+material = SubResource("StandardMaterial3D_pnrvg")
+
+[node name="img" type="CSGBox3D" parent="Decor"]
+transform = Transform3D(1.508, 0, 0, 0, 2.20325, 0, 0, 0, 0.0313017, 2.43843, 3.09016, -3.26984)
+material = SubResource("StandardMaterial3D_pnrvg")
+
+[node name="img2" type="CSGBox3D" parent="Decor/img"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+size = Vector3(0.892578, 0.929688, 1)
+material = SubResource("StandardMaterial3D_7p6mj")
+
+[node name="Chair?" type="MeshInstance3D" parent="Decor"]
+transform = Transform3D(1.12291, 0, -0.173224, 0, 0.967431, 0, 0.161114, 0, 1.20731, 2.68169, 0.496155, -2.32145)
+mesh = SubResource("BoxMesh_pmrol")
+skeleton = NodePath("../..")
+
+[node name="Thing" type="CSGCylinder3D" parent="Decor"]
+transform = Transform3D(0.512141, 0, 0, 0, 0.232371, 0, 0, 0, 0.512141, 0.436228, 1.79542, -2.36381)
+sides = 53
+material = SubResource("StandardMaterial3D_owcb8")
+
+[node name="Thing2" type="CSGCylinder3D" parent="Decor/Thing"]
+transform = Transform3D(0.578919, 0, 0, 0, 0.886298, 0, 0, 0, 0.578919, 0, 1.77104, 0)
+material = SubResource("StandardMaterial3D_xbklf")
+
+[node name="Thing3" type="CSGCylinder3D" parent="Decor/Thing"]
+transform = Transform3D(0.921674, 0, 0, 0, 0.921673, 0, 0, 0, 0.921674, 0, 0.964108, 0)
+operation = 2
+height = 0.0956755
+sides = 53
+material = SubResource("StandardMaterial3D_yralu")
+
+[node name="Thing4" type="CSGCylinder3D" parent="Decor/Thing"]
+transform = Transform3D(0.921674, 0, 0, 0, 0.921673, 0, 0, 0, 0.921674, 0, 0.956499, 0)
+height = 0.0956755
+sides = 53
+material = SubResource("StandardMaterial3D_fswek")
+
+[node name="FalseDoor" type="CSGBox3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -2.25587, 1.60736, -3.33114)
+size = Vector3(1.95605, 3.20135, 0.233276)
+material = SubResource("StandardMaterial3D_eli3s")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 6.69369, 0)
+light_energy = 36.675
+shadow_enabled = true
+spot_range = 9.09595
+spot_angle = 65.2904

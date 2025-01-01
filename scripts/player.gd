@@ -34,8 +34,9 @@ var rotation_target_head : float
 
 # Used when bobing head
 @onready var head_start_pos : Vector3 = $Head.position
-@onready var Ray: RayCast3D = $Head/Look
-@onready var AudioPlayer = $FootSteps
+@onready var head: Node3D = $Head
+@onready var ray: RayCast3D = $Head/Look
+@onready var audio_player = $FootSteps
 
 #Footsteps to pick from
 const FootstepA = preload("res://assets/audio/General/SFX - Footstep 1.wav")
@@ -54,11 +55,6 @@ func _ready():
 
 	if CAPTURE_MOUSE_ON_START:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-
-func choose(options):
-	options.shuffle()
-	return options.front()
-
 
 func _physics_process(delta):
 	if Engine.is_editor_hint():
@@ -87,8 +83,25 @@ func _unhandled_input(event):
 	if Engine.is_editor_hint():
 		return
 		
+	# Switch to this instead once E stops teleporting you back to the desk :p
+	# C
+	if event is InputEventMouseButton and event.pressed:
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			var collided = ray.get_collider()
+			
+			if collided:
+				print("Raycast collided with " + collided.get_class())
+				if collided is Door:
+					collided.door_interaction_begin.connect(_door_interaction_begin, CONNECT_ONE_SHOT)
+					collided.door_interaction_end.connect(_door_interaction_end, CONNECT_ONE_SHOT)
+					collided.clicked()
+					
+				if collided is Stamp:
+					collided.enter_desk()
+		
 	if event is InputEventMouseMotion && Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		set_rotation_target(event.relative)
+	
 
 func set_rotation_target(mouse_motion : Vector2):
 	rotation_target_player += -mouse_motion.x * KEY_BIND_MOUSE_SENSITIVITY # Add player target to the mouse -x input
@@ -102,11 +115,11 @@ func rotate_player(delta):
 		# Shperical lerp between player rotation and target
 		quaternion = quaternion.slerp(Quaternion(Vector3.UP, rotation_target_player), KEY_BIND_MOUSE_ACCELERATION * delta)
 		# Same again for head
-		$Head.quaternion = $Head.quaternion.slerp(Quaternion(Vector3.RIGHT, rotation_target_head), KEY_BIND_MOUSE_ACCELERATION * delta)
+		head.quaternion = head.quaternion.slerp(Quaternion(Vector3.RIGHT, rotation_target_head), KEY_BIND_MOUSE_ACCELERATION * delta)
 	else:
 		# If mouse accel is turned off, simply set to target
 		quaternion = Quaternion(Vector3.UP, rotation_target_player)
-		$Head.quaternion = Quaternion(Vector3.RIGHT, rotation_target_head)
+		head.quaternion = Quaternion(Vector3.RIGHT, rotation_target_head)
 	
 func move_player(delta):
 	speed = SPEED
@@ -128,24 +141,43 @@ func head_bob_motion():
 	var pos = Vector3.ZERO
 	pos.y += sin(tick * HEAD_BOB_FREQUENCY) * HEAD_BOB_INTENSITY
 	pos.x += cos(tick * HEAD_BOB_FREQUENCY / 2) * HEAD_BOB_INTENSITY * 2
-	$Head.position += pos
+	head.position += pos
 
 func reset_head_bob(delta):
 	# Lerp back to the staring position
-	if $Head.position == head_start_pos:
+	if head.position == head_start_pos:
 		pass
-	$Head.position = lerp($Head.position, head_start_pos, 2 * (1/HEAD_BOB_FREQUENCY) * delta)
+	head.position = lerp(head.position, head_start_pos, 2 * (1/HEAD_BOB_FREQUENCY) * delta)
 
 func movement_check():
 	if moving:
-		var stepsound = choose([FootstepA, FootstepB, FootstepC, FootstepD])
-		AudioPlayer.set_stream(stepsound) ; AudioPlayer.pitch_scale = randf_range(0.7, 1.3) ; AudioPlayer.play()
+		var footstep_sound = [FootstepA, FootstepB, FootstepC, FootstepD].pick_random()
+		
+		audio_player.set_stream(footstep_sound)
+		audio_player.pitch_scale = randf_range(0.7, 1.3) 
+		audio_player.play()
+
+func _freeze() -> void:
+	MOVEMENT_ENABLED = false
+	HEAD_BOB_ENABLED = false
+	moving = false
+	
+func _unfreeze() -> void:
+	MOVEMENT_ENABLED = true
+	HEAD_BOB_ENABLED = true
+	
+func _door_interaction_begin(door: Door) -> void:
+	_freeze()
+	door._toggle_door_state()
+	
+func _door_interaction_end(door: Door) -> void:
+	_unfreeze()
+	door._toggle_door_state()
 
 func raycast_check():
-	if Ray.is_colliding():
-		var obj = Ray.get_collider()
+	if ray.is_colliding():
+		var obj = ray.get_collider()
 		if obj.is_in_group("Interactable"):
-			print("You can interact with this object")
 			$UI/Dot.visible = true
 	else:
 		$UI/Dot.visible = false

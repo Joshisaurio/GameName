@@ -4,26 +4,30 @@
 
 [node name="TypingMinigame" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 328.0
-offset_bottom = 90.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -164.0
+offset_top = -45.0
+offset_right = 164.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_bhoa0")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_right = 949.0
+offset_right = 673.0
 offset_bottom = 180.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
 bbcode_enabled = true
 shortcut_keys_enabled = false
 meta_underlined = false
 hint_underlined = false
-
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_top = 39.0
-offset_right = 45.0
-offset_bottom = 70.0
-text = "start"
+text_direction = 1
 
 [node name="Score" type="Label" parent="."]
 layout_mode = 0
@@ -52,10 +56,10 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 144.0
-offset_top = -13.5
-offset_right = 144.0
-offset_bottom = 13.5
+offset_left = -1.0
+offset_top = -12.0
+offset_right = -1.0
+offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 2
 value = 5.0
@@ -73,5 +77,3 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

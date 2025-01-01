@@ -1,0 +1,145 @@
+[gd_scene load_steps=21 format=3 uid="uid://4regadr4gwjf"]
+
+[ext_resource type="Texture2D" uid="uid://cstl3m7c6sc1j" path="res://Textures/Logo/black-avatar-generic-person-symbol-profile-picture-isolated-white-background-black-avatar-generic-person-symbol-profile-picture-346347472.webp" id="1_4u3mm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4thkw"]
+albedo_color = Color(0.28516, 0.1839, 0.0817852, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_m07g8"]
+material = SubResource("StandardMaterial3D_4thkw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wkk5w"]
+albedo_color = Color(0.554772, 0.518664, 0.434207, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pnrvg"]
+albedo_color = Color(0.356584, 0.283956, 0.155115, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7p6mj"]
+albedo_texture = ExtResource("1_4u3mm")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ivo53"]
+albedo_color = Color(0.356584, 0.283956, 0.155115, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pmrol"]
+material = SubResource("StandardMaterial3D_ivo53")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_owcb8"]
+albedo_color = Color(0.0253638, 0.0253638, 0.0253638, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xbklf"]
+albedo_color = Color(1.05166e-05, 0.613015, 0.151178, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yralu"]
+albedo_color = Color(0.0253638, 0.0253638, 0.0253638, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fswek"]
+albedo_color = Color(0.356203, 0.272188, 0.156197, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3xv66"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_htdum"]
+albedo_color = Color(0.597176, 0.597176, 0.597176, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rlqqk"]
+material = SubResource("StandardMaterial3D_htdum")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_s3fmx"]
+frequency = 0.0473
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_re4cs"]
+seamless = true
+seamless_blend_skirt = 0.146
+noise = SubResource("FastNoiseLite_s3fmx")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ck6u"]
+albedo_color = Color(0.109804, 0.0745098, 0.0745098, 1)
+metallic_specular = 0.03
+roughness = 0.7
+roughness_texture = SubResource("NoiseTexture2D_re4cs")
+uv1_scale = Vector3(1.278, 1.278, 1.278)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5inl7"]
+material = SubResource("StandardMaterial3D_0ck6u")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2p3at"]
+albedo_color = Color(0.267125, 0.220147, 0.128051, 1)
+
+[node name="Room_B" type="Node3D"]
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.4, 0, 0, 0, 1, 0, 0, 0, 3.28962, 0, 0, 0)
+mesh = SubResource("PlaneMesh_m07g8")
+
+[node name="Walls" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.79776, 0)
+flip_faces = true
+size = Vector3(6.80078, 5.60425, 6.55249)
+material = SubResource("StandardMaterial3D_wkk5w")
+
+[node name="Decor" type="Node3D" parent="."]
+
+[node name="Table?" type="CSGBox3D" parent="Decor"]
+transform = Transform3D(-1.23681e-07, 0, 1.60336, 0, 1.61048, 0, -2.8295, 0, -7.00851e-08, -2.56298, 0.761342, 1.81538)
+material = SubResource("StandardMaterial3D_pnrvg")
+
+[node name="img" type="CSGBox3D" parent="Decor"]
+transform = Transform3D(1.508, 0, 0, 0, 2.20325, 0, 0, 0, 0.0313017, -2.26368, 3.09016, -3.26984)
+material = SubResource("StandardMaterial3D_pnrvg")
+
+[node name="img2" type="CSGBox3D" parent="Decor/img"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+size = Vector3(0.892578, 0.929688, 1)
+material = SubResource("StandardMaterial3D_7p6mj")
+
+[node name="Chair?" type="MeshInstance3D" parent="Decor"]
+transform = Transform3D(-0.564237, 0, 1.05811, 0, 0.967431, 0, -0.984138, 0, -0.606646, -2.48852, 0.496155, -0.609973)
+mesh = SubResource("BoxMesh_pmrol")
+skeleton = NodePath("../..")
+
+[node name="NotaCactusOkMaybeACactus" type="CSGCylinder3D" parent="Decor"]
+transform = Transform3D(-2.23864e-08, 0, 0.512141, 0, 0.232371, 0, -0.512141, 0, -2.23864e-08, -2.89432, 1.79542, 2.73124)
+sides = 53
+material = SubResource("StandardMaterial3D_owcb8")
+
+[node name="Thing2" type="CSGCylinder3D" parent="Decor/NotaCactusOkMaybeACactus"]
+transform = Transform3D(0.578919, 0, 0, 0, 0.886298, 0, 0, 0, 0.578919, 0, 1.77104, 0)
+material = SubResource("StandardMaterial3D_xbklf")
+
+[node name="Thing3" type="CSGCylinder3D" parent="Decor/NotaCactusOkMaybeACactus"]
+transform = Transform3D(0.921674, 0, 0, 0, 0.921673, 0, 0, 0, 0.921674, 0, 0.964108, 0)
+operation = 2
+height = 0.0956755
+sides = 53
+material = SubResource("StandardMaterial3D_yralu")
+
+[node name="Thing4" type="CSGCylinder3D" parent="Decor/NotaCactusOkMaybeACactus"]
+transform = Transform3D(0.921674, 0, 0, 0, 0.921673, 0, 0, 0, 0.921674, 0, 0.956499, 0)
+height = 0.0956755
+sides = 53
+material = SubResource("StandardMaterial3D_fswek")
+
+[node name="Bed" type="MeshInstance3D" parent="Decor"]
+transform = Transform3D(2.34041, 0, 0, 0, 1.15552, 0, 0, 0, 4.33274, 2.21726, 0.400127, -1.12832)
+mesh = SubResource("BoxMesh_3xv66")
+
+[node name="Bed2" type="MeshInstance3D" parent="Decor/Bed"]
+transform = Transform3D(0.966981, 0, 0, 0, 0.232961, -0.076928, 0, 0.00712382, 0.178932, 0, 0.468211, -0.385527)
+mesh = SubResource("BoxMesh_rlqqk")
+skeleton = NodePath("../..")
+
+[node name="Cover" type="MeshInstance3D" parent="Decor/Bed"]
+transform = Transform3D(1.00393, 0, 0, 0, 0.904203, 0, 0, 0, 0.767713, 0, 0.0670099, 0.147527)
+mesh = SubResource("BoxMesh_5inl7")
+skeleton = NodePath("../..")
+
+[node name="FalseDoor" type="CSGBox3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.224373, 1.60736, -3.3818)
+size = Vector3(1.95605, 3.20135, 0.233276)
+material = SubResource("StandardMaterial3D_2p3at")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 6.49144, 0)
+light_energy = 36.675
+shadow_enabled = true
+spot_range = 9.09595
+spot_angle = 65.2904

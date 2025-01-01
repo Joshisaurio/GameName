@@ -38,6 +38,10 @@ var current_page := 1 # 1 is title, 2 is settings, 3 is credits
 func _ready():
 	$Camera3D/CamAnim.play("Camera")
 	
+	if gamemanager.player_name != "":
+		$SetName.visible = false
+		$SetName/BG/Enternamelbl.text = gamemanager.player_name
+	
 	if OS.has_feature("web"):
 		$FolderMenu/Front/Quitlbl.hide()
 
@@ -203,3 +207,10 @@ func _on_credit_area_mouse_entered():
 
 func _on_credit_area_mouse_exited():
 	credit.modulate = normal_color
+
+
+func Set_Name(new_text):
+	
+	gamemanager.player_name = new_text
+	$Build/MeshInstance3D4/Playername.text = new_text
+	$SetName.visible = false
