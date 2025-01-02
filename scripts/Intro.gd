@@ -69,8 +69,8 @@ func _proceed():
 func _display_dialogue(text: String = "", speed: float = 1):
 	dialogue.text = "" # Clear old dialogue just in case it gets stuck
 	
-	for char in text:
-		dialogue.text += char
+	for chart in text:
+		dialogue.text += chart
 		var sound = [SFX_TYPING_1, SFX_TYPING_2, SFX_TYPING_3, SFX_TYPING_4, SFX_TYPING_5].pick_random()
 		audio.set_stream(sound)
 		audio.play()

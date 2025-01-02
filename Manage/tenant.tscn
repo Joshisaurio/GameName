@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cb6pvvkenqhc1"]
+[gd_scene load_steps=5 format=3 uid="uid://octvoramk8bb"]
 
 [ext_resource type="Texture2D" uid="uid://dlmhb8u3sq8eg" path="res://Textures/Tenants/tenant1_default.png" id="1_f2qww"]
 [ext_resource type="Script" path="res://scripts/tenant.gd" id="2_8aqgb"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://cw5dlkf4mmv12"]
+[gd_scene load_steps=16 format=4 uid="uid://dd2owgnjsyssn"]
 
 [ext_resource type="Script" path="res://scripts/office_door.gd" id="1_qk5xf"]
 [ext_resource type="Texture2D" uid="uid://d3000fcg2mjcw" path="res://Models/door and frame_0.png" id="2_r6hfx"]

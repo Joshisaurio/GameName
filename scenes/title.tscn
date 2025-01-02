@@ -18,19 +18,14 @@
 [ext_resource type="Texture2D" uid="uid://btot1ato8p7my" path="res://Models/Walkman/WalkMan(Normal).png" id="21_jlbp4"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_oyqf0"]
-load_path = "res://.godot/imported/Planks_Albedo.png-2220ade2a1b1916036119f144bcec024.s3tc.ctex"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_je558"]
-load_path = "res://.godot/imported/Planks_AO.png-3e6b8a9f0cf3c657c354dd8bfb14ef32.s3tc.ctex"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_o5wjx"]
-load_path = "res://.godot/imported/Planks_Height.png-d7275daf612fa6476d32e1db013f2c91.s3tc.ctex"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_73p3k"]
-load_path = "res://.godot/imported/Planks_Normal.png-d5683ffa130f2b5d6069b0905e353b5e.s3tc.ctex"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vs88t"]
-load_path = "res://.godot/imported/Planks_Rough.png-61147ab965796594a2666146021b5928.s3tc.ctex"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hcodw"]
 albedo_color = Color(0.472846, 0.385525, 0.171227, 1)
@@ -932,6 +927,17 @@ modulate = Color(0, 0, 0, 1)
 text = "Settings
 "
 font = ExtResource("8_rprnk")
+outline_size = 0
+horizontal_alignment = 0
+
+[node name="Settingslbl2" type="Label3D" parent="FolderMenu/Paper"]
+transform = Transform3D(0.0209787, -5.21233, -2.28937e-07, 8.94565e-07, -8.98508e-07, 20.5606, -5.97599, 0.0973302, 3.00979e-07, -0.604, 13.572, -0.487)
+pixel_size = 0.0015
+render_priority = 1
+modulate = Color(0, 0, 0, 1)
+text = "(Settings unavailable)"
+font = ExtResource("8_rprnk")
+font_size = 12
 outline_size = 0
 horizontal_alignment = 0
 

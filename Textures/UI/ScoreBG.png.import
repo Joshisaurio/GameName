@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://da05n87vnw3y5"
-path="res://.godot/imported/2.png-e15a569dbc825a9864ca024be96eeab6.ctex"
+path="res://.godot/imported/ScoreBG.png-7599ede714a3e4a479304e09cc7c734c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/TempTextures/Pixel 32x32/2.png"
-dest_files=["res://.godot/imported/2.png-e15a569dbc825a9864ca024be96eeab6.ctex"]
+source_file="res://Textures/UI/ScoreBG.png"
+dest_files=["res://.godot/imported/ScoreBG.png-7599ede714a3e4a479304e09cc7c734c.ctex"]
 
 [params]
 

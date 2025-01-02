@@ -139,11 +139,11 @@ func music_clicked(_camera, event, _event_position, _normal, _shape_idx):
 				Music = 100
 		$FolderMenu/Music.set_volume_db(Music)
 
-func audio_clicked(_camera, event, _event_position, _normal, _shape_idx):
+func audio_clicked(_camera, _event, _event_position, _normal, _shape_idx):
 	pass # Replace with function body.
 
 
-func screen_clicked(_camera, event, _event_position, _normal, _shape_idx):
+func screen_clicked(_camera, _event, _event_position, _normal, _shape_idx):
 	
 	match WindowType:
 		1:
@@ -157,7 +157,7 @@ func screen_clicked(_camera, event, _event_position, _normal, _shape_idx):
 			WindowType = 1
 
 
-func data_clicked(_camera, event, _event_position, _normal, _shape_idx):
+func data_clicked(_camera, _event, _event_position, _normal, _shape_idx):
 	pass # Replace with function body.
 
 
