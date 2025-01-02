@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://7px6n4ygej2f"]
+[gd_scene load_steps=2 format=3 uid="uid://cmxwqpwqyguep"]
 
 [sub_resource type="VideoStreamTheora" id="VideoStreamTheora_7i7rc"]
 file = "res://assets/Media/video.ogg"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://cumnita3y3x5e"]
+[gd_scene load_steps=29 format=4 uid="uid://cumnita3y3x5e"]
 
 [ext_resource type="Script" path="res://scripts/stamping.gd" id="1_iqntg"]
 [ext_resource type="Texture2D" uid="uid://b2npyd673nrmx" path="res://Textures/Model Textures/Desk/Albedo_Desk_Pixel.png" id="2_pym78"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://chfjibbqopj78" path="res://Textures/Model Textures/Desk/Normal_Desk_Pixel.png" id="4_7obsd"]
 [ext_resource type="Texture2D" uid="uid://dgr1coxuf3s7c" path="res://Textures/Model Textures/Desk/Roughness_Desk_Pixel.png" id="5_f2n1p"]
 [ext_resource type="Theme" uid="uid://bre6n751ipump" path="res://assets/maintheme.tres" id="7_1ptb6"]
+[ext_resource type="FontFile" uid="uid://dh3d18trravwr" path="res://Fonts/e1234.regular.ttf" id="8_1peu4"]
+[ext_resource type="FontFile" uid="uid://b85pwm2y0ga2i" path="res://Fonts/ARJULIAN.ttf" id="8_4cr22"]
 [ext_resource type="Shader" path="res://scripts/Shaders/PixelDither.gdshader" id="8_sxxmg"]
 [ext_resource type="AudioStream" uid="uid://do3kg4qufm5n0" path="res://assets/audio/SFX/Stamping/Stamp.wav" id="8_x03e2"]
 [ext_resource type="AudioStream" uid="uid://ca18die51r234" path="res://assets/audio/SFX/Stamping/Paper.wav" id="9_pnwrj"]
@@ -305,27 +307,50 @@ shape = SubResource("BoxShape3D_prui7")
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="time_earned" type="Label" parent="UI"]
-offset_left = 50.0
+offset_left = 72.0
 offset_top = 50.0
-offset_right = 267.0
+offset_right = 289.0
 offset_bottom = 83.0
 theme = ExtResource("7_1ptb6")
-text = "Time earned: 0s"
+theme_override_fonts/font = ExtResource("8_1peu4")
+text = "00:00"
+label_settings = SubResource("LabelSettings_qdyd7")
+
+[node name="plus" type="Label" parent="UI"]
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 75.0
+offset_bottom = 83.0
+theme = ExtResource("7_1ptb6")
+text = "+"
 label_settings = SubResource("LabelSettings_qdyd7")
 
 [node name="time_left" type="ProgressBar" parent="UI"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -288.0
-offset_top = 50.0
-offset_right = -50.0
-offset_bottom = 77.0
-grow_horizontal = 0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -119.0
+offset_top = 317.0
+offset_right = 119.0
+offset_bottom = 344.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("7_1ptb6")
 max_value = 30.0
 value = 15.0
 show_percentage = false
+
+[node name="evictions_filed" type="Label" parent="UI"]
+offset_left = 487.0
+offset_top = 655.0
+offset_right = 541.0
+offset_bottom = 690.0
+theme = ExtResource("7_1ptb6")
+theme_override_fonts/font = ExtResource("8_4cr22")
+text = "0/8"
+label_settings = SubResource("LabelSettings_qdyd7")
 
 [node name="Guide" type="CanvasLayer" parent="."]
 visible = false
