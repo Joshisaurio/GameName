@@ -1,0 +1,94 @@
+[gd_scene load_steps=9 format=3 uid="uid://ckk5drc2hfcvc"]
+
+[ext_resource type="Texture2D" uid="uid://dw6j5um316g6t" path="res://Textures/UI/Game Over.png" id="1_smm8a"]
+[ext_resource type="Texture2D" uid="uid://cqplc3rc6cn74" path="res://Textures/UI/Retry.png" id="2_otsr0"]
+[ext_resource type="Texture2D" uid="uid://dox47cswer4lt" path="res://Textures/UI/Quit.png" id="3_670ip"]
+[ext_resource type="Texture2D" uid="uid://c8cfibj5ghg27" path="res://Textures/UI/ScoreBG.png" id="4_ykbto"]
+[ext_resource type="Theme" uid="uid://bre6n751ipump" path="res://assets/maintheme.tres" id="5_m23hk"]
+
+[sub_resource type="Gradient" id="Gradient_q8di5"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.937255, 0.709804, 0.462745, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wbj8w"]
+gradient = SubResource("Gradient_q8di5")
+
+[sub_resource type="LabelSettings" id="LabelSettings_5qb5g"]
+font_size = 40
+font_color = Color(0.435294, 0.301961, 0.231373, 1)
+
+[node name="GameOver" type="CanvasLayer"]
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_wbj8w")
+
+[node name="Title" type="TextureRect" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 50.0
+offset_bottom = 546.0
+grow_horizontal = 2
+texture = ExtResource("1_smm8a")
+stretch_mode = 5
+
+[node name="Retry" type="TextureButton" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -335.0
+offset_top = -198.0
+offset_right = -50.0
+offset_bottom = -77.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("2_otsr0")
+
+[node name="Quit" type="TextureButton" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 60.0
+offset_top = -190.0
+offset_right = 345.0
+offset_bottom = -69.0
+grow_vertical = 0
+texture_normal = ExtResource("3_670ip")
+
+[node name="Score" type="TextureRect" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -133.5
+offset_top = -233.0
+offset_right = 133.5
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("4_ykbto")
+
+[node name="Label" type="Label" parent="Score"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.5
+offset_top = -49.5
+offset_right = 63.5
+offset_bottom = -9.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_m23hk")
+text = "12,345"
+label_settings = SubResource("LabelSettings_5qb5g")
+horizontal_alignment = 1

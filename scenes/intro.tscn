@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bhkk8d63777sk"]
+[gd_scene load_steps=6 format=3 uid="uid://bhkk8d63777sk"]
 
 [ext_resource type="Script" path="res://scripts/Intro.gd" id="1_0tyje"]
+[ext_resource type="Theme" uid="uid://bre6n751ipump" path="res://assets/maintheme.tres" id="2_w8guw"]
 
 [sub_resource type="Animation" id="Animation_pldjm"]
 resource_name = "IntroAnim"
@@ -94,6 +95,7 @@ offset_right = 20.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_w8guw")
 theme_override_font_sizes/font_size = 26
 text = "[Insert a cutscene or something here]"
 horizontal_alignment = 1
