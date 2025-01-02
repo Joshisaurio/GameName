@@ -150,7 +150,6 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="Dot" type="TextureRect" parent="UI"]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -165,6 +164,26 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_gh4pa")
 expand_mode = 1
+
+[node name="Occupied" type="Label" parent="UI/Dot"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = 24.0
+offset_right = 530.0
+offset_bottom = 129.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.237723, 0.237723)
+theme_override_font_sizes/font_size = 76
+text = "Room Occupied!"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="EvictedIcon" type="TextureButton" parent="UI"]
 visible = false
