@@ -1,12 +1,8 @@
-[gd_scene load_steps=30 format=3 uid="uid://ctlkqmucfttnq"]
+[gd_scene load_steps=30 format=3 uid="uid://djld5qk1srtgf"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_gf6gf"]
 [ext_resource type="AudioStream" uid="uid://cix3w21uo7use" path="res://assets/audio/Ambience/SFX - Fluorescent Light.wav" id="2_p3de2"]
 [ext_resource type="Texture2D" uid="uid://bppuc03otlr34" path="res://Textures/wood.png" id="3_sqh4b"]
-[ext_resource type="Texture2D" uid="uid://gwmh5hctqh1g" path="res://Textures/TempTextures/Wood Planks/Planks_AO.png" id="4_03bcw"]
-[ext_resource type="Texture2D" uid="uid://b4yqbyfs1e6gn" path="res://Textures/TempTextures/Wood Planks/Planks_Height.png" id="5_7v0dj"]
-[ext_resource type="Texture2D" uid="uid://dletiynfoj8gy" path="res://Textures/TempTextures/Wood Planks/image (3).png" id="6_5x4sn"]
-[ext_resource type="Texture2D" uid="uid://bi661l2uyhc23" path="res://Textures/TempTextures/Wood Planks/Planks_Rough.png" id="7_uy1rf"]
 [ext_resource type="Texture2D" uid="uid://b2y3reefxhffu" path="res://Textures/48x84.png" id="8_hwm3x"]
 [ext_resource type="Texture2D" uid="uid://0e4kop5vr6m7" path="res://Textures/sponge.JPG" id="8_i2sob"]
 [ext_resource type="Texture2D" uid="uid://borkh0l1d7lqs" path="res://Textures/image (4).png" id="9_m5wrf"]
@@ -15,23 +11,35 @@
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="12_o6k8c"]
 [ext_resource type="PackedScene" uid="uid://nwc5bj77d8ja" path="res://scenes/countdown.tscn" id="13_d2o7h"]
 [ext_resource type="PackedScene" uid="uid://dgvjlrsae8iq7" path="res://scenes/door.tscn" id="14_0cn22"]
-[ext_resource type="PackedScene" path="res://Manage/RandomAudio.tscn" id="16_4alpb"]
+[ext_resource type="PackedScene" uid="uid://baf8serx6ejna" path="res://Manage/RandomAudio.tscn" id="16_4alpb"]
 [ext_resource type="PackedScene" uid="uid://cw5dlkf4mmv12" path="res://scenes/office_door.tscn" id="17_c8tsd"]
 
 [sub_resource type="Environment" id="Environment_brnmx"]
 background_energy_multiplier = 2.46
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_je558"]
+load_path = "res://.godot/imported/Planks_AO.png-3e6b8a9f0cf3c657c354dd8bfb14ef32.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_o5wjx"]
+load_path = "res://.godot/imported/Planks_Height.png-d7275daf612fa6476d32e1db013f2c91.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_iqujq"]
+load_path = "res://.godot/imported/image (3).png-5205fe1ce6973c094564445b41f75453.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vs88t"]
+load_path = "res://.godot/imported/Planks_Rough.png-61147ab965796594a2666146021b5928.s3tc.ctex"
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jesxm"]
 albedo_color = Color(0.419027, 0.362195, 0.197436, 1)
 albedo_texture = ExtResource("3_sqh4b")
 metallic_specular = 0.0
-roughness_texture = ExtResource("7_uy1rf")
+roughness_texture = SubResource("CompressedTexture2D_vs88t")
 normal_enabled = true
 normal_scale = 10.94
-normal_texture = ExtResource("6_5x4sn")
+normal_texture = SubResource("CompressedTexture2D_iqujq")
 ao_enabled = true
-ao_texture = ExtResource("4_03bcw")
-heightmap_texture = ExtResource("5_7v0dj")
+ao_texture = SubResource("CompressedTexture2D_je558")
+heightmap_texture = SubResource("CompressedTexture2D_o5wjx")
 uv1_scale = Vector3(0.307, 0.307, 0.307)
 uv1_offset = Vector3(2.37, 0.14, -0.285)
 uv1_triplanar = true

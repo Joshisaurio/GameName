@@ -3,7 +3,6 @@ extends Node
 @export var intro = preload("res://Manage/intro_video.tscn")
 @export var title_scene = preload("res://scenes/title.tscn")
 @export var stamping = preload("res://scenes/stamping.tscn")
-@export var apartment = preload("res://scenes/new_apartment.tscn")
 
 var current_scene
 

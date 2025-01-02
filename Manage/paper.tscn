@@ -22,6 +22,7 @@ material = SubResource("ShaderMaterial_sbkjg")
 flip_faces = true
 
 [sub_resource type="FontFile" id="FontFile_1uoqg"]
+style_name = ""
 subpixel_positioning = 0
 msdf_pixel_range = 14
 msdf_size = 128
@@ -37,6 +38,7 @@ cache/0/46/0/underline_thickness = 0.0
 cache/0/46/0/scale = 1.0
 
 [sub_resource type="FontFile" id="FontFile_nlfl4"]
+style_name = ""
 subpixel_positioning = 0
 msdf_pixel_range = 14
 msdf_size = 128

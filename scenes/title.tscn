@@ -1,11 +1,6 @@
 [gd_scene load_steps=76 format=4 uid="uid://b61hq34ttdij5"]
 
 [ext_resource type="Script" path="res://scripts/title.gd" id="1_25y5n"]
-[ext_resource type="Texture2D" uid="uid://d31enr2l8beft" path="res://Textures/TempTextures/Wood Planks/Planks_Albedo.png" id="1_ji2vu"]
-[ext_resource type="Texture2D" uid="uid://gwmh5hctqh1g" path="res://Textures/TempTextures/Wood Planks/Planks_AO.png" id="2_blpp0"]
-[ext_resource type="Texture2D" uid="uid://b4yqbyfs1e6gn" path="res://Textures/TempTextures/Wood Planks/Planks_Height.png" id="3_3vp0y"]
-[ext_resource type="Texture2D" uid="uid://dt1lnxl5h5b3h" path="res://Textures/TempTextures/Wood Planks/Planks_Normal.png" id="4_suw1b"]
-[ext_resource type="Texture2D" uid="uid://bi661l2uyhc23" path="res://Textures/TempTextures/Wood Planks/Planks_Rough.png" id="5_sry3t"]
 [ext_resource type="Shader" path="res://scripts/Shaders/PixelDither.gdshader" id="6_mrb2e"]
 [ext_resource type="Texture2D" uid="uid://pnl4o5e0dhlj" path="res://Textures/Logo/youreOutLogo.png" id="7_i031p"]
 [ext_resource type="FontFile" uid="uid://b85pwm2y0ga2i" path="res://Fonts/ARJULIAN.ttf" id="8_rprnk"]
@@ -22,18 +17,33 @@
 [ext_resource type="Texture2D" uid="uid://dlviuebi2qhoe" path="res://Models/Walkman/WalkMan(Diffuse).png" id="20_jeod6"]
 [ext_resource type="Texture2D" uid="uid://btot1ato8p7my" path="res://Models/Walkman/WalkMan(Normal).png" id="21_jlbp4"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_oyqf0"]
+load_path = "res://.godot/imported/Planks_Albedo.png-2220ade2a1b1916036119f144bcec024.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_je558"]
+load_path = "res://.godot/imported/Planks_AO.png-3e6b8a9f0cf3c657c354dd8bfb14ef32.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_o5wjx"]
+load_path = "res://.godot/imported/Planks_Height.png-d7275daf612fa6476d32e1db013f2c91.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_73p3k"]
+load_path = "res://.godot/imported/Planks_Normal.png-d5683ffa130f2b5d6069b0905e353b5e.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vs88t"]
+load_path = "res://.godot/imported/Planks_Rough.png-61147ab965796594a2666146021b5928.s3tc.ctex"
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hcodw"]
 albedo_color = Color(0.472846, 0.385525, 0.171227, 1)
-albedo_texture = ExtResource("1_ji2vu")
+albedo_texture = SubResource("CompressedTexture2D_oyqf0")
 metallic_specular = 0.43
-roughness_texture = ExtResource("5_sry3t")
+roughness_texture = SubResource("CompressedTexture2D_vs88t")
 normal_enabled = true
 normal_scale = 12.51
-normal_texture = ExtResource("4_suw1b")
+normal_texture = SubResource("CompressedTexture2D_73p3k")
 ao_enabled = true
-ao_texture = ExtResource("2_blpp0")
+ao_texture = SubResource("CompressedTexture2D_je558")
 heightmap_enabled = true
-heightmap_texture = ExtResource("3_3vp0y")
+heightmap_texture = SubResource("CompressedTexture2D_o5wjx")
 uv1_scale = Vector3(0.305, 0.305, 0.305)
 uv1_triplanar = true
 
