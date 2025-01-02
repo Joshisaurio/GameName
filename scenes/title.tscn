@@ -930,6 +930,17 @@ font = ExtResource("8_rprnk")
 outline_size = 0
 horizontal_alignment = 0
 
+[node name="Settingslbl2" type="Label3D" parent="FolderMenu/Paper"]
+transform = Transform3D(0.0209787, -5.21233, -2.28937e-07, 8.94565e-07, -8.98508e-07, 20.5606, -5.97599, 0.0973302, 3.00979e-07, -0.604, 13.572, -0.487)
+pixel_size = 0.0015
+render_priority = 1
+modulate = Color(0, 0, 0, 1)
+text = "(Settings unavailable)"
+font = ExtResource("8_rprnk")
+font_size = 12
+outline_size = 0
+horizontal_alignment = 0
+
 [node name="Audio" type="Label3D" parent="FolderMenu/Paper"]
 transform = Transform3D(0.0130864, -3.25143, -1.4281e-07, 5.58027e-07, -5.60486e-07, 12.8257, -3.7278, 0.0607142, 1.87749e-07, -0.262312, 13.5715, -0.0784259)
 pixel_size = 0.0015

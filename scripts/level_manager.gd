@@ -12,7 +12,7 @@ var current_scene
 
 func _ready():
 	#load_level(intro)
-	load_level(title_scene)
+	load_level(intro)
 
 func load_level(level: PackedScene): #Takes preloaded scenes and swaps them with the current one.
 	if current_scene != null:
