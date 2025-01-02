@@ -1,9 +1,11 @@
 class_name Door; extends StaticBody3D
 
+const FLOAT_DURATION = 2
 const TENANT_THEME_NEUTRAL = preload("res://assets/audio/Music/tenant_theme_1_(neutral).wav")
 const TENANT_THEME_SAD = preload("res://assets/audio/Music/tenant_theme_2_(sad).wav")
 const TENANT_THEME_HIPHOP = preload("res://assets/audio/Music/tenant_theme_3_(hiphop).wav")
 
+@onready var gamestate_manager: Node = get_node("/root/Gamemanager/New_Apartment/Core/GameManager")
 const TENANT = preload("res://Manage/tenant.tscn")
 
 signal door_interaction_begin(door_node)
@@ -23,6 +25,7 @@ var open: bool = false
 @export var minigame = preload("res://scenes/typing_minigame.tscn")
 
 @onready var room_position = $RoomPoint
+@onready var score_label = $Frame/Score
 @onready var room_a = preload("res://Manage/room_a.tscn")
 @onready var room_b = preload("res://Manage/room_b.tscn")
 @onready var room_c = preload("res://Manage/room_c.tscn")
@@ -36,17 +39,23 @@ var open: bool = false
 var room
 const DOOR_SLAM = preload("res://assets/audio/SFX/Door/Door Close.wav")
 const DOOR_OPEN = preload("res://assets/audio/SFX/Door/Door Open.wav")
+const DOORKNOB = preload("res://assets/audio/SFX/Door/doorknob.wav")
 
 func _ready():
 	$Frame/DoorHingePoint/Label3D.text = address
-	pass
+	score_label.hide()
 
 
 
 func interacted():
 	if !delivery_active or tenant_name == "":
+		audio_door.set_stream(DOORKNOB)
+		audio_door.play()
 		print("There is no tenant in this room!")
+		audio_door.set_stream(DOORKNOB)
+		audio_door.play()
 		return
+		
 	audio_door.set_stream(DOOR_OPEN)
 	audio_door.play()
 	door_interaction_begin.emit(self)
@@ -86,12 +95,28 @@ func _end_current_minigame():
 		tenant_name = ""
 		current_minigame.queue_free()
 
-func _minigame_completed():
+func _minigame_completed(new_score):
+	gamestate_manager.add_score(new_score)
 	_end_current_minigame()
 	door_interaction_end.emit(self)
 	animation_player.play("close_door")
+	_display_score(new_score)
 	audio_music.stop()
-
+	
+func _display_score(score):
+	score_label.text = "+" + str(score)
+	score_label.show()
+	var start_pos = score_label.position
+	var end_pos = start_pos + Vector3(0, 2, 0)
+	var tween = create_tween()
+	tween.set_parallel(true)
+	
+	tween.tween_property(score_label, "modulate:a", 1.0, 0.6)
+	tween.chain().tween_property(score_label, "modulate:a", 0.0, 1)
+	tween.tween_property(score_label, "position", end_pos, FLOAT_DURATION).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	await tween.finished
+	
+	score_label.queue_free()
 
 func remove_room(anim_name):
 	if anim_name == "close_door":

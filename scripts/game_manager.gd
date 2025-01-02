@@ -35,4 +35,8 @@ func remove_tenant(address) -> void:
 			
 	print("No address ", address, " found.")
 	return
+	
+func add_score(new_score) -> void:
+	score += int(new_score)
+	print("Total Score: " + str(score))
 			

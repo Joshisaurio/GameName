@@ -5,6 +5,7 @@ extends MeshInstance3D
 
 @onready var namelbl = $SubViewport/Central/PaperBG/Namelbl
 @onready var roomlbl = $SubViewport/Central/PaperBG/TenantInfo/Roomlbl
+@onready var signaturelbl = $SubViewport/Central/PaperBG/Line/SigName
 var tenant_room
 var tenant_name
 
@@ -17,3 +18,8 @@ func _process(_delta):
 		$SubViewport/Central/PaperBG/Stamp.visible = false
 	else:
 		$SubViewport/Central/PaperBG/Stamp.visible = true
+	
+	if not isSigned:
+		signaturelbl.visible = false
+	else:
+		signaturelbl.visible = true
