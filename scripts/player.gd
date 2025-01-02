@@ -6,6 +6,9 @@ const FootstepB = preload("res://assets/audio/General/SFX - Footstep 2.wav")
 const FootstepC = preload("res://assets/audio/General/SFX - Footstep 3.wav")
 const FootstepD = preload("res://assets/audio/General/SFX - Footstep 4.wav")
 
+const EVICT_1 = preload("res://assets/audio/UI/Evict1.wav")
+const EVICT_2 = preload("res://assets/audio/UI/Evict2.wav")
+
 @export_category("Mouse Capture")
 @export var CAPTURE_MOUSE_ON_START := true
 
@@ -211,6 +214,9 @@ func _door_interaction_end(door: Door) -> void:
 	_unfreeze()
 	INTERACTION_ENABLED = true
 	door._toggle_door_state()
+	$UI/EvictedIcon.visible = true
+	var audio = [EVICT_1, EVICT_2].pick_random()
+	$UI/EvictAudio.set_stream(audio) ; $UI/EvictAudio.play()
 	$UI/UIAnim.play("Evicted")
 
 func raycast_check():
