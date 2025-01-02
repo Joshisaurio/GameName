@@ -1,0 +1,223 @@
+[gd_scene load_steps=25 format=3 uid="uid://bwqtbsrln02nh"]
+
+[ext_resource type="Texture2D" uid="uid://cstl3m7c6sc1j" path="res://Textures/Logo/black-avatar-generic-person-symbol-profile-picture-isolated-white-background-black-avatar-generic-person-symbol-profile-picture-346347472.webp" id="1_357dg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4thkw"]
+albedo_color = Color(0.28516, 0.1839, 0.0817852, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_m07g8"]
+material = SubResource("StandardMaterial3D_4thkw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wkk5w"]
+albedo_color = Color(0.554772, 0.518664, 0.434207, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2p3at"]
+albedo_color = Color(0.267125, 0.220147, 0.128051, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pnrvg"]
+albedo_color = Color(0.356584, 0.283956, 0.155115, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7p6mj"]
+albedo_texture = ExtResource("1_357dg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ivo53"]
+albedo_color = Color(0.356584, 0.283956, 0.155115, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pmrol"]
+material = SubResource("StandardMaterial3D_ivo53")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kjry5"]
+albedo_color = Color(0.350766, 0.330075, 0.342091, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_go7ti"]
+material = SubResource("StandardMaterial3D_kjry5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vbfg1"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_m5y3h"]
+material = SubResource("StandardMaterial3D_vbfg1")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_owcb8"]
+albedo_color = Color(0.0253638, 0.0253638, 0.0253638, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xbklf"]
+albedo_color = Color(1.05166e-05, 0.613015, 0.151178, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yralu"]
+albedo_color = Color(0.0253638, 0.0253638, 0.0253638, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fswek"]
+albedo_color = Color(0.356203, 0.272188, 0.156197, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3xv66"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_htdum"]
+albedo_color = Color(0.597176, 0.597176, 0.597176, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rlqqk"]
+material = SubResource("StandardMaterial3D_htdum")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_s3fmx"]
+frequency = 0.0473
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_re4cs"]
+seamless = true
+seamless_blend_skirt = 0.146
+noise = SubResource("FastNoiseLite_s3fmx")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ck6u"]
+albedo_color = Color(0.109804, 0.0745098, 0.0745098, 1)
+metallic_specular = 0.03
+roughness = 0.7
+roughness_texture = SubResource("NoiseTexture2D_re4cs")
+uv1_scale = Vector3(1.278, 1.278, 1.278)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5inl7"]
+material = SubResource("StandardMaterial3D_0ck6u")
+
+[node name="Room_D" type="Node3D"]
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.4, 0, 0, 0, 1, 0, 0, 0, 6.87531, 0, 0, -3.58014)
+mesh = SubResource("PlaneMesh_m07g8")
+
+[node name="Walls" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.79776, 0)
+flip_faces = true
+size = Vector3(6.80078, 5.60425, 6.55249)
+material = SubResource("StandardMaterial3D_wkk5w")
+
+[node name="FalseDoor2" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.224373, -0.37593, -3.3818)
+operation = 2
+size = Vector3(4.60156, 4.83029, 0.246033)
+material = SubResource("StandardMaterial3D_2p3at")
+
+[node name="Walls2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.79776, -6.54849)
+flip_faces = true
+size = Vector3(6.80078, 5.60425, 6.55249)
+material = SubResource("StandardMaterial3D_wkk5w")
+
+[node name="Decor" type="Node3D" parent="."]
+
+[node name="Table?" type="CSGBox3D" parent="Decor"]
+transform = Transform3D(-2.17259, 0, -1.02719, 0, 1.61048, 0, 1.81271, 0, -1.23112, -0.344423, 0.761342, -4.06686)
+size = Vector3(0.995117, 1, 1)
+material = SubResource("StandardMaterial3D_pnrvg")
+
+[node name="Table?2" type="CSGBox3D" parent="Decor/Table?"]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, -1.42109e-14, 0, 1, 0, -0.0964355, 0)
+operation = 2
+size = Vector3(0.789307, 0.841309, 1.04004)
+material = SubResource("StandardMaterial3D_pnrvg")
+
+[node name="Table?3" type="CSGBox3D" parent="Decor/Table?"]
+transform = Transform3D(1, 0, 3.19744e-14, 0, 1, 0, -2.44427e-12, 0, 1, 0, -0.0964355, 0)
+operation = 2
+size = Vector3(1.07031, 0.841309, 0.689453)
+material = SubResource("StandardMaterial3D_pnrvg")
+
+[node name="img" type="CSGBox3D" parent="Decor"]
+transform = Transform3D(-6.59168e-08, 0, 0.0313017, 0, 2.20325, 0, -1.508, 0, -1.36824e-09, -3.38677, 3.09016, -1.27225)
+material = SubResource("StandardMaterial3D_pnrvg")
+
+[node name="img2" type="CSGBox3D" parent="Decor/img"]
+size = Vector3(0.892578, 0.929688, 1)
+material = SubResource("StandardMaterial3D_7p6mj")
+
+[node name="img2" type="CSGBox3D" parent="Decor"]
+transform = Transform3D(0.562165, -0.138522, 0.00607852, 1.01732e-15, 0.71629, 0.00329473, -0.41869, -0.185991, 0.0081615, -1.73649, 1.35782, -1.59007)
+material = SubResource("StandardMaterial3D_pnrvg")
+
+[node name="img2" type="CSGBox3D" parent="Decor/img2"]
+size = Vector3(0.892578, 0.929688, 1)
+material = SubResource("StandardMaterial3D_7p6mj")
+
+[node name="Chair?" type="MeshInstance3D" parent="Decor"]
+transform = Transform3D(-0.355125, 0, 1.15837, 0, 0.967431, 0, -1.07739, 0, -0.381816, -1.97708, 0.496155, -1.74825)
+mesh = SubResource("BoxMesh_pmrol")
+skeleton = NodePath("../..")
+
+[node name="Freidge" type="MeshInstance3D" parent="Decor"]
+transform = Transform3D(1.56285, 0, 0.0109767, 0, 3.22719, 0, -0.0166667, 0, 1.0294, 1.14709, 1.62677, -2.98949)
+mesh = SubResource("BoxMesh_go7ti")
+skeleton = NodePath("../..")
+
+[node name="Drawer" type="MeshInstance3D" parent="Decor"]
+transform = Transform3D(-0.489284, 0, 1.68556, 0, 1.21461, 0, -1.17341, 0, -0.702836, -0.659034, 2.19414, -3.87991)
+mesh = SubResource("BoxMesh_pmrol")
+skeleton = NodePath("../..")
+
+[node name="Drawer2" type="MeshInstance3D" parent="Decor/Drawer"]
+transform = Transform3D(0.0640523, 0, -5.58794e-09, 0, 0.425269, 0, -5.82077e-11, 0, 0.883132, -0.508171, -0.262038, 0.00535978)
+mesh = SubResource("BoxMesh_pmrol")
+skeleton = NodePath("../../..")
+
+[node name="Drawer4" type="MeshInstance3D" parent="Decor/Drawer/Drawer2"]
+transform = Transform3D(0.710903, 0, -2.23517e-08, 0, 0.134283, 0, -5.82077e-11, 0, 0.172496, -0.506752, 1.07375, 0.000387624)
+mesh = SubResource("BoxMesh_m5y3h")
+skeleton = NodePath("../../../..")
+
+[node name="Drawer3" type="MeshInstance3D" parent="Decor/Drawer"]
+transform = Transform3D(0.0640523, 0, -7.45058e-09, 0, 0.425269, 0, -5.82077e-11, 0, 0.883132, -0.508171, 0.194594, 0.00535978)
+mesh = SubResource("BoxMesh_pmrol")
+skeleton = NodePath("../../..")
+
+[node name="Drawer5" type="MeshInstance3D" parent="Decor/Drawer/Drawer3"]
+transform = Transform3D(0.710902, 0, -1.86265e-08, 0, 0.134283, 0, 0, 0, 0.172496, -0.506752, -1.02621, 0.000387624)
+mesh = SubResource("BoxMesh_m5y3h")
+skeleton = NodePath("../../../..")
+
+[node name="NotaCactusOkMaybeACactus" type="CSGCylinder3D" parent="Decor"]
+transform = Transform3D(-2.23864e-08, 0, 0.512141, 0, 0.232371, 0, -0.512141, 0, -2.23864e-08, 1.59058, 3.47138, -2.90256)
+sides = 53
+material = SubResource("StandardMaterial3D_owcb8")
+
+[node name="Thing2" type="CSGCylinder3D" parent="Decor/NotaCactusOkMaybeACactus"]
+transform = Transform3D(0.578919, 0, 0, 0, 0.886298, 0, 0, 0, 0.578919, 0, 1.77104, 0)
+material = SubResource("StandardMaterial3D_xbklf")
+
+[node name="Thing3" type="CSGCylinder3D" parent="Decor/NotaCactusOkMaybeACactus"]
+transform = Transform3D(0.921674, 0, 0, 0, 0.921673, 0, 0, 0, 0.921674, 0, 0.964108, 0)
+operation = 2
+height = 0.0956755
+sides = 53
+material = SubResource("StandardMaterial3D_yralu")
+
+[node name="Thing4" type="CSGCylinder3D" parent="Decor/NotaCactusOkMaybeACactus"]
+transform = Transform3D(0.921674, 0, 0, 0, 0.921673, 0, 0, 0, 0.921674, 0, 0.956499, 0)
+height = 0.0956755
+sides = 53
+material = SubResource("StandardMaterial3D_fswek")
+
+[node name="Bed" type="MeshInstance3D" parent="Decor"]
+transform = Transform3D(2.34041, 0, 0, 0, 1.15552, 0, 0, 0, 4.33274, -2.19404, 0.400127, -7.75536)
+mesh = SubResource("BoxMesh_3xv66")
+
+[node name="Bed2" type="MeshInstance3D" parent="Decor/Bed"]
+transform = Transform3D(0.966981, 0, 0, 0, 0.232961, -0.076928, 0, 0.00712382, 0.178932, 0, 0.468211, -0.385527)
+mesh = SubResource("BoxMesh_rlqqk")
+skeleton = NodePath("../..")
+
+[node name="Cover" type="MeshInstance3D" parent="Decor/Bed"]
+transform = Transform3D(1.00393, 0, 0, 0, 0.904203, 0, 0, 0, 0.767713, 0, 0.0670099, 0.147527)
+mesh = SubResource("BoxMesh_5inl7")
+skeleton = NodePath("../..")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 6.49144, 0)
+light_energy = 36.675
+shadow_enabled = true
+spot_range = 9.09595
+spot_angle = 65.2904
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 6.18895, -7.20411)
+light_color = Color(1, 0.229536, 0.174185, 1)
+light_energy = 16.0
+light_bake_mode = 1
+shadow_enabled = true
+spot_range = 177.947
+spot_angle = 67.09
