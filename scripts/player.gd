@@ -15,7 +15,7 @@ const EVICT_2 = preload("res://assets/audio/UI/Evict2.wav")
 @export_category("Movement")
 @export_subgroup("Settings")
 @export var MOVEMENT_ENABLED: bool = true
-@export var SPEED := 5
+@export var SPEED := 6
 @export var ACCELERATION := 50.0
 
 @export_subgroup("Head Bob")
@@ -217,6 +217,8 @@ func _door_interaction_end(door: Door) -> void:
 	_unfreeze()
 	INTERACTION_ENABLED = true
 	door._toggle_door_state()
+	gamestate_manager.remove_tenant(door.address)
+	
 	$UI/EvictedIcon.visible = true
 	var audio = [EVICT_1, EVICT_2].pick_random()
 	$UI/EvictAudio.set_stream(audio) ; $UI/EvictAudio.play()
