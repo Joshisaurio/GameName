@@ -142,13 +142,6 @@ _data = {
 "open_door": SubResource("Animation_ibaxl")
 }
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mjm2a"]
-uv1_triplanar = true
-billboard_mode = 2
-
-[sub_resource type="QuadMesh" id="QuadMesh_fpvar"]
-material = SubResource("StandardMaterial3D_mjm2a")
-
 [node name="Door" type="StaticBody3D"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 script = ExtResource("1_3lhjc")
@@ -206,9 +199,5 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -3.380
 
 [node name="TenantPoint" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155927, 0, 1.75076)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="TenantPoint"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.46969, 0)
-mesh = SubResource("QuadMesh_fpvar")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="remove_room"]

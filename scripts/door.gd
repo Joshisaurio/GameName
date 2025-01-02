@@ -6,11 +6,13 @@ const TENANT_THEME_SAD = preload("res://assets/audio/Music/tenant_theme_2_(sad).
 const TENANT_THEME_HIPHOP = preload("res://assets/audio/Music/tenant_theme_3_(hiphop).wav")
 
 @onready var gamestate_manager: Node = get_node("/root/Gamemanager/New_Apartment/Core/GameManager")
+const TENANT = preload("res://Manage/tenant.tscn")
 
 signal door_interaction_begin(door_node)
 signal door_interaction_end(door_node)
 
 var current_minigame
+var time_bonus = 15 # How much extra time each door gives on completion
 var delivery_active: bool = false # Is a delivery active on this door?
 var open: bool = false
 
@@ -32,6 +34,7 @@ var open: bool = false
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var audio_door: AudioStreamPlayer = $Sounds/Door
 @onready var audio_music: AudioStreamPlayer = $Sounds/Music
+@onready var TPoint = $TenantPoint
 
 var room
 const DOOR_SLAM = preload("res://assets/audio/SFX/Door/Door Close.wav")
@@ -58,6 +61,8 @@ func _toggle_door_state():
 		_end_current_minigame()
 	else:
 		var music = [TENANT_THEME_NEUTRAL, TENANT_THEME_SAD, TENANT_THEME_HIPHOP].pick_random()
+		var tenant = TENANT.instantiate()
+		TPoint.add_child(tenant)
 		animation_player.play("open_door")
 		audio_music.set_stream(music)
 		audio_music.play()
@@ -81,6 +86,7 @@ func _end_current_minigame():
 	if current_minigame != null:
 		audio_door.set_stream(DOOR_SLAM)
 		audio_door.play()
+		TPoint.get_child(0).queue_free()
 		delivery_active = false
 		tenant_name = ""
 		current_minigame.queue_free()
