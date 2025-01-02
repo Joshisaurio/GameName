@@ -23,14 +23,14 @@ func add_tenant(tenant: String, address: int) -> void:
 			door.delivery_active = true
 			door.tenant_name = tenant
 			
-func remove_tenant(address: int) -> void:
+func remove_tenant(address) -> void:
 	if delivery_doors.size() == 0:
 		return
 		
 	for i in delivery_doors.size():
 		var door = delivery_doors[i]
 		if door.address.contains(str(address)):
-			door.remove_at(i)
+			delivery_doors.remove_at(i)
 			return
 			
 	print("No address ", address, " found.")
