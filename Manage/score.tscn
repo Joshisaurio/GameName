@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://gmy4pbctuq1j"]
+
+[ext_resource type="FontFile" uid="uid://bvbm4u6y1bvfr" path="res://Fonts/AdobeGurmukhi-Bold.otf" id="1_p4sp5"]
+
+[node name="Score" type="Label3D"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.020981, 0.875258, -0.197811)
+pixel_size = 0.01
+render_priority = 1
+text = "+2000
+"
+font = ExtResource("1_p4sp5")
+font_size = 40
+outline_size = 20

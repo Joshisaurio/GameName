@@ -4,6 +4,7 @@ const FLOAT_DURATION = 2
 const TENANT_THEME_NEUTRAL = preload("res://assets/audio/Music/tenant_theme_1_(neutral).wav")
 const TENANT_THEME_SAD = preload("res://assets/audio/Music/tenant_theme_2_(sad).wav")
 const TENANT_THEME_HIPHOP = preload("res://assets/audio/Music/tenant_theme_3_(hiphop).wav")
+const TENANT_THEME_ANGRY = preload("res://assets/audio/Tenant Voices/Tenant Theme Angry.wav")
 
 @onready var gamestate_manager: Node = get_node("/root/Gamemanager/New_Apartment/Core/GameManager")
 const TENANT = preload("res://Manage/tenant.tscn")
@@ -25,11 +26,11 @@ var open: bool = false
 @export var minigame = preload("res://scenes/typing_minigame.tscn")
 
 @onready var room_position = $RoomPoint
-@onready var score_label = $Frame/Score
 @onready var room_a = preload("res://Manage/room_a.tscn")
 @onready var room_b = preload("res://Manage/room_b.tscn")
 @onready var room_c = preload("res://Manage/room_c.tscn")
 @onready var room_d = preload("res://Manage/room_d.tscn")
+@onready var scoreshow = preload("res://Manage/score.tscn")
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var audio_door: AudioStreamPlayer = $Sounds/Door
@@ -37,13 +38,13 @@ var open: bool = false
 @onready var TPoint = $TenantPoint
 
 var room
+var score_label
 const DOOR_SLAM = preload("res://assets/audio/SFX/Door/Door Close.wav")
 const DOOR_OPEN = preload("res://assets/audio/SFX/Door/Door Open.wav")
 const DOORKNOB = preload("res://assets/audio/SFX/Door/doorknob.wav")
 
 func _ready():
 	$Frame/DoorHingePoint/Label3D.text = address
-	score_label.hide()
 
 
 
@@ -64,7 +65,7 @@ func _toggle_door_state():
 	if open:
 		_end_current_minigame()
 	else:
-		var music = [TENANT_THEME_NEUTRAL, TENANT_THEME_SAD, TENANT_THEME_HIPHOP].pick_random()
+		var music = [TENANT_THEME_NEUTRAL, TENANT_THEME_SAD, TENANT_THEME_HIPHOP, TENANT_THEME_ANGRY].pick_random()
 		var tenant = TENANT.instantiate()
 		TPoint.add_child(tenant)
 		animation_player.play("open_door")
@@ -104,8 +105,9 @@ func _minigame_completed(new_score):
 	audio_music.stop()
 	
 func _display_score(score):
-	score_label.text = "+" + str(score)
-	score_label.show()
+	
+	score_label = scoreshow.instantiate() ;$Frame.add_child(score_label)
+	score_label.text = "+" + str(score) #Keeps recieving error after around second or third round of stamping papers.
 	var start_pos = score_label.position
 	var end_pos = start_pos + Vector3(0, 2, 0)
 	var tween = create_tween()

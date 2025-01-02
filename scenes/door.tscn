@@ -1,8 +1,8 @@
 [gd_scene load_steps=16 format=4 uid="uid://dgvjlrsae8iq7"]
 
 [ext_resource type="Script" path="res://scripts/door.gd" id="1_3lhjc"]
-[ext_resource type="FontFile" uid="uid://bvbm4u6y1bvfr" path="res://Fonts/AdobeGurmukhi-Bold.otf" id="3_40w8p"]
 [ext_resource type="Texture2D" uid="uid://d3000fcg2mjcw" path="res://Models/door and frame_0.png" id="3_516aq"]
+[ext_resource type="AudioStream" uid="uid://dcn3hkj1rpr2l" path="res://assets/audio/Tenant Voices/Tenant Theme Angry.wav" id="4_eoq6e"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l8t7x"]
 size = Vector3(2, 3.2, 0.2)
@@ -173,21 +173,15 @@ text = "A123
 font_size = 10
 outline_size = 4
 
-[node name="Score" type="Label3D" parent="Frame"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.020981, 0.875258, -0.197811)
-pixel_size = 0.01
-render_priority = 1
-text = "+2000
-"
-font = ExtResource("3_40w8p")
-font_size = 40
-outline_size = 20
-
 [node name="Sounds" type="Node" parent="."]
 
 [node name="Door" type="AudioStreamPlayer" parent="Sounds"]
+bus = &"Game"
 
 [node name="Music" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("4_eoq6e")
+volume_db = -20.072
+bus = &"Music"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -199,13 +193,5 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -3.380
 
 [node name="TenantPoint" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155927, 0, 1.75076)
-
-[node name="OccupyLight" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 2.97885e-08, 5.23161e-09, -2.97885e-08, 0.940157, 0.340741, 5.23161e-09, -0.340741, 0.940157, -1.05545e-07, 0.0980768, 1.2073)
-visible = false
-light_energy = 5.221
-shadow_enabled = true
-spot_attenuation = -3.05
-spot_angle = 46.2665
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="remove_room"]
