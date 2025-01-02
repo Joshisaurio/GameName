@@ -46,8 +46,8 @@ var open: bool = false
 @onready var audio_open_door: AudioStreamPlayer = $Sounds/Door
 
 var room
-const DOOR_SLAM = preload("res://assets/audio/General/Door_Slam.mp3")
-const DOOR_OPEN = preload("res://assets/audio/General/Door_open.mp3")
+const DOOR_SLAM = preload("res://assets/audio/SFX/Door/Door Close.wav")
+const DOOR_OPEN = preload("res://assets/audio/SFX/Door/Door Open.wav")
 
 func _ready():
 	pass

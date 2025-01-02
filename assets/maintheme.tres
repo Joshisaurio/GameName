@@ -1,9 +1,21 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://bre6n751ipump"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://bre6n751ipump"]
 
 [ext_resource type="FontFile" uid="uid://bvbm4u6y1bvfr" path="res://Fonts/AdobeGurmukhi-Bold.otf" id="1_m8w5t"]
 [ext_resource type="FontFile" uid="uid://ddv4kvejsa0fy" path="res://Fonts/ACaslonPro-Regular.otf" id="1_ycfos"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nk3sf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ygm5g"]
+bg_color = Color(0.290196, 0.188235, 0.207843, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.909804, 0.533333, 0.180392, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_323jt"]
 bg_color = Color(0.290196, 0.188235, 0.207843, 1)
@@ -30,6 +42,9 @@ Button/fonts/font = ExtResource("1_ycfos")
 Button/styles/normal = SubResource("StyleBoxEmpty_nk3sf")
 Label/font_sizes/font_size = 32
 Label/fonts/font = ExtResource("1_m8w5t")
+LineEdit/font_sizes/font_size = 20
+LineEdit/fonts/font = ExtResource("1_ycfos")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_ygm5g")
 ProgressBar/font_sizes/font_size = 20
 ProgressBar/fonts/font = ExtResource("1_m8w5t")
 ProgressBar/styles/background = SubResource("StyleBoxFlat_323jt")

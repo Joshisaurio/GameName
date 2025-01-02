@@ -4,7 +4,7 @@ signal countdown
 
 var _current_time: String = ""
 @export_category("Settings")
-@export var starting_time: int = 50
+@export var starting_time: int = 0
 @onready var label: Label = $Placeholder
 @onready var timer: Timer = $Timer
 
@@ -15,6 +15,14 @@ func _ready():
 func _process(delta: float) -> void:
 	if timer.is_stopped():
 		return
+		
+	if get_tree().get_first_node_in_group("stamping").isSitting or get_tree().get_first_node_in_group("stamping").Canim.is_playing():
+		timer.paused = true
+		label.modulate.a = lerp(label.modulate.a, 0.0, 0.2)
+	else:
+		timer.paused = false
+		label.modulate.a = lerp(label.modulate.a, 1.0, 0.2)
+	
 	_update_time()
 	_update_display()
 	

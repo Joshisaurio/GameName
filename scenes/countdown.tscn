@@ -14,6 +14,7 @@ script = ExtResource("1_ous3t")
 [node name="Timer" type="Timer" parent="."]
 
 [node name="Placeholder" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = 29.0
 offset_top = 24.0

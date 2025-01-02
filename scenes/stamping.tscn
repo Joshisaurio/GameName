@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://cumnita3y3x5e"]
+[gd_scene load_steps=27 format=4 uid="uid://cumnita3y3x5e"]
 
 [ext_resource type="Script" path="res://scripts/stamping.gd" id="1_iqntg"]
 [ext_resource type="Texture2D" uid="uid://b2npyd673nrmx" path="res://Textures/Model Textures/Desk/Albedo_Desk_Pixel.png" id="2_pym78"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://dgr1coxuf3s7c" path="res://Textures/Model Textures/Desk/Roughness_Desk_Pixel.png" id="5_f2n1p"]
 [ext_resource type="Theme" uid="uid://bre6n751ipump" path="res://assets/maintheme.tres" id="7_1ptb6"]
 [ext_resource type="Shader" path="res://scripts/Shaders/PixelDither.gdshader" id="8_sxxmg"]
+[ext_resource type="AudioStream" uid="uid://do3kg4qufm5n0" path="res://assets/audio/SFX/Stamping/Stamp.wav" id="8_x03e2"]
+[ext_resource type="AudioStream" uid="uid://ca18die51r234" path="res://assets/audio/SFX/Stamping/Paper.wav" id="9_pnwrj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pd3h6"]
 resource_name = "UVGrid"
@@ -346,5 +348,11 @@ theme = ExtResource("7_1ptb6")
 text = "( Press D to grab a paper)"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Stamp" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_x03e2")
+
+[node name="Paper" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_pnwrj")
 
 [connection signal="animation_finished" from="Camera3D/CamAnim" to="." method="CamAnim_Finished"]

@@ -62,27 +62,30 @@ var time_left = 30
 var begun = false
 
 func _ready():
-	$UI/time_earned.visible = false
-	$UI/time_left.visible = false
+	$UI/time_earned.visible = true
+	$UI/time_left.visible = true
+	$UI/time_earned.modulate.a = 0
+	$UI/time_left.modulate.a = 0
 
 func _begin():
 	filter.visible = true
 	$Guide.visible = true
-	$UI/time_earned.visible = true
-	$UI/time_left.visible = true
 	$UI/time_left.max_value = max_time
 	begun = true
 
 func _process(delta):
-	if begun and isSitting:
-		$UI.visible = true
+	if begun and isSitting and not Canim.is_playing():
+		for i in $UI.get_children():
+			i.modulate.a = lerp(i.modulate.a, 1.0, 0.2)
 		time_left -= delta
 		$UI/time_left.value = time_left
+		$UI/time_earned.text = "Time earned:" + str(available_time) + "s"
 	else:
-		$UI.visible = false
-
+		for i in $UI.get_children():
+			i.modulate.a = lerp(i.modulate.a, 0.0, 0.2)
+	
 func _input(event):
-	if begun:
+	if begun and isSitting and not Canim.is_playing():
 		if time_left > 0:
 			if Input.is_action_just_pressed("right"):
 				if isSitting and not pageExists:
@@ -96,7 +99,10 @@ func _input(event):
 					$GeneralAnim.play("Page_In")
 					stage += 1
 					available_time += 3
-					$UI/time_earned.text = "Time earned:" + str(available_time) + "s"
+					
+					$Paper.play()
+				else:
+					available_time -= 1
 			
 			if Input.is_action_just_pressed("Click"):
 				if canStamp:
@@ -105,6 +111,9 @@ func _input(event):
 						canStamp = false
 						canRemove = true
 						stage += 1
+						$Stamp.play()
+				else:
+					available_time -=1
 			
 			if Input.is_action_just_pressed("left"):
 				if canRemove:
@@ -115,13 +124,13 @@ func _input(event):
 					pageExists = false
 					canRemove = false
 					$PaperOrigin.get_child(0).queue_free()
+					#$Paper.play()
+				else:
+					available_time -= 1
 			
 		if Input.is_action_just_pressed("Interact"):
 			if isSitting:
 				Canim.play("Exit_Stamp")
-				get_tree().get_first_node_in_group("countdown").starting_time += available_time
-				available_time = 0
-				get_tree().get_first_node_in_group("countdown").countdown.emit()
 				
 		if stage < len(stages) - 1:
 			$Guide/Guide.text = stages[stage]
@@ -162,4 +171,7 @@ func CamAnim_Finished(anim_name):
 			active_player.global_position.x = camera.global_position.x
 			active_player.global_position.z = camera.global_position.z
 			active_player.global_position.y = 1.5
+			get_tree().get_first_node_in_group("countdown").starting_time += available_time
+			available_time = 0
+			get_tree().get_first_node_in_group("countdown").countdown.emit()
 			

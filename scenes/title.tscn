@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=4 uid="uid://b0c1cjw0ww7k4"]
+[gd_scene load_steps=55 format=4 uid="uid://b0c1cjw0ww7k4"]
 
 [ext_resource type="Script" path="res://scripts/title.gd" id="1_25y5n"]
 [ext_resource type="Texture2D" uid="uid://d31enr2l8beft" path="res://Textures/TempTextures/Wood Planks/Planks_Albedo.png" id="1_ji2vu"]
@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://vmrlyhdxfyg2" path="res://assets/audio/UI/SFX - UI Hover.wav" id="11_dnt25"]
 [ext_resource type="AudioStream" uid="uid://dqvxrnfjbxjs1" path="res://assets/audio/UI/SFX - UI Select (click).wav" id="12_8y5xm"]
 [ext_resource type="AudioStream" uid="uid://damabg4scgx8" path="res://assets/music/Paper Work song.wav" id="13_3b3jb"]
+[ext_resource type="Theme" uid="uid://bre6n751ipump" path="res://assets/maintheme.tres" id="15_7x3h2"]
 [ext_resource type="PackedScene" uid="uid://bk0cr2wbg71ey" path="res://Prepped Models/desk.tscn" id="15_11m7v"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hcodw"]
@@ -1016,6 +1017,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme = ExtResource("15_7x3h2")
 
 [node name="UIAnim" type="AnimationPlayer" parent="2DUI"]
 libraries = {
@@ -1042,6 +1044,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("15_7x3h2")
 
 [node name="BG" type="ColorRect" parent="SetName"]
 layout_mode = 1
@@ -1062,7 +1065,7 @@ anchor_bottom = 0.5
 offset_left = -22.0
 offset_top = -20.0
 offset_right = 188.0
-offset_bottom = 20.0
+offset_bottom = 21.0
 grow_horizontal = 2
 grow_vertical = 2
 placeholder_text = "Landlord"
