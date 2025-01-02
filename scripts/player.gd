@@ -236,8 +236,10 @@ func raycast_check():
 		
 func _show_tab_hint():
 	$OtherUI.visible = true
-	await get_tree().create_timer(1).timeout
-	$OtherUI/Tab.modulate.a = lerp($OtherUI/Interact.modulate.a, float(1), 0.5)
-	await get_tree().create_timer(1).timeout
-	$OtherUI/Tab.modulate.a = lerp($OtherUI/Interact.modulate.a, float(0), 0.5)
+	await get_tree().create_timer(2).timeout
+	var tween = create_tween()
+	tween.tween_property($OtherUI/Tab, "modulate:a", 1.0, 2.0)
+	tween.tween_interval(2.0)
+	tween.tween_property($OtherUI/Tab, "modulate:a", 0.0, 2.0)
+	await tween.finished
 	$OtherUI.visible = false
