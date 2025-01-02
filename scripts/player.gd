@@ -211,6 +211,7 @@ func _door_interaction_end(door: Door) -> void:
 	_unfreeze()
 	INTERACTION_ENABLED = true
 	door._toggle_door_state()
+	$UI/UIAnim.play("Evicted")
 
 func raycast_check():
 	if ray.is_colliding():

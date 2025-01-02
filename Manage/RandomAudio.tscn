@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://baf8serx6ejna"]
+
+[ext_resource type="Script" path="res://scripts/audio_origin.gd" id="1_s8mih"]
+
+[node name="AudioOrigin" type="Marker3D"]
+script = ExtResource("1_s8mih")
+
+[node name="RanAud" type="AudioStreamPlayer3D" parent="."]
+volume_db = -18.005
+
+[node name="ChangeSound" type="Timer" parent="."]
+wait_time = 45.0
+autostart = true
+
+[connection signal="timeout" from="ChangeSound" to="." method="change_audio"]
