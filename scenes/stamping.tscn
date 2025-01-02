@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://cumnita3y3x5e"]
+[gd_scene load_steps=51 format=4 uid="uid://cumnita3y3x5e"]
 
 [ext_resource type="Script" path="res://scripts/stamping.gd" id="1_iqntg"]
 [ext_resource type="Texture2D" uid="uid://c48te6oks4h2s" path="res://Textures/Model Textures/Desk/YouAreOut(SP)_UVGrid_BaseColor.1001.png" id="2_4leee"]

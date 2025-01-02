@@ -95,7 +95,6 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 26
-text = "[Insert a cutscene or something here]"
 horizontal_alignment = 1
 
 [node name="Cont" type="Label" parent="Fader"]
@@ -111,7 +110,7 @@ offset_right = 144.0
 offset_bottom = -37.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "[Press Space to Continue]"
+text = "[Press Anything to Continue]"
 horizontal_alignment = 1
 vertical_alignment = 1
 
