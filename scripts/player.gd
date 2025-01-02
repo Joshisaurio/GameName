@@ -33,6 +33,8 @@ var accel = ACCELERATION
 var rotation_target_player: float
 var rotation_target_head: float
 
+var checking_list: bool = false # Is the player currently checking their list?
+
 # Used when bobing head
 @onready var head_start_pos : Vector3 = $Head.position
 @onready var head: Node3D = $Head
@@ -72,6 +74,9 @@ func _physics_process(delta):
 			head_bob_motion()
 		reset_head_bob(delta)
 		
+	if Input.is_action_just_pressed("check_list"):
+		_check_list(delta)
+		
 	update_other_ui($UI/Dot.visible)
 		
 func update_other_ui(interact):
@@ -84,7 +89,10 @@ func _unhandled_input(event):
 	if Engine.is_editor_hint():
 		return
 		
-	if Input.is_action_just_pressed("Interact") and INTERACTION_ENABLED:
+	if !INTERACTION_ENABLED:
+		return
+		
+	if Input.is_action_just_pressed("Interact"):
 		var collided = ray.get_collider()
 			
 		if collided:
@@ -93,7 +101,7 @@ func _unhandled_input(event):
 			if collided is Door:
 				collided.door_interaction_begin.connect(_door_interaction_begin, CONNECT_ONE_SHOT)
 				collided.door_interaction_end.connect(_door_interaction_end, CONNECT_ONE_SHOT)
-				collided.clicked()
+				collided.interacted()
 				
 			if collided is Stamp:
 				collided.enter_desk()
@@ -154,6 +162,18 @@ func movement_check():
 		audio_player.set_stream(footstep_sound)
 		audio_player.pitch_scale = randf_range(0.7, 1.3) 
 		audio_player.play()
+		
+func _check_list(delta):
+	pass
+#	if !checking_list:
+#		head.rotation.x = lerp(head.rotation.x, deg_to_rad(-45), delta * 10)
+#		_freeze()
+#	else:
+#		head.rotation.x = lerp(head.rotation.x, deg_to_rad(45), delta * 10)
+#		_unfreeze()
+#		
+#	checking_list = !checking_list
+		
 
 func _freeze() -> void:
 	MOVEMENT_ENABLED = false

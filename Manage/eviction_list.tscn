@@ -1,0 +1,118 @@
+[gd_scene load_steps=7 format=3 uid="uid://dkiwduevatf04"]
+
+[ext_resource type="Shader" path="res://scripts/Shaders/Apply2D.gdshader" id="1_4doq0"]
+[ext_resource type="Script" path="res://scripts/paper.gd" id="2_ieduk"]
+[ext_resource type="FontFile" uid="uid://dqsiw3h0mw4f" path="res://Fonts/veteran-typewriter.regular.ttf" id="5_k7c0a"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_er1wj"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sbkjg"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_4doq0")
+shader_parameter/screen_texture = SubResource("ViewportTexture_er1wj")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_yvk1a"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_sbkjg")
+flip_faces = true
+
+[node name="EvictionList" type="MeshInstance3D"]
+transform = Transform3D(1.80135e-08, 0, 0.169935, -1.2009e-08, -0.482726, 1.94815e-15, 0.137367, -4.22013e-08, -2.22842e-08, 0, 0, 0)
+mesh = SubResource("PlaneMesh_yvk1a")
+script = ExtResource("2_ieduk")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+
+[node name="Central" type="Control" parent="SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PaperBG" type="ColorRect" parent="SubViewport/Central"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.992157, 1, 0.67451, 1)
+
+[node name="TenantInfo" type="VBoxContainer" parent="SubViewport/Central/PaperBG"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 41.0
+offset_top = -218.0
+offset_right = 962.0
+offset_bottom = 259.0
+grow_vertical = 2
+
+[node name="Infolbl" type="Label" parent="SubViewport/Central/PaperBG/TenantInfo"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_k7c0a")
+theme_override_font_sizes/font_size = 46
+text = "A123
+"
+
+[node name="Infolbl2" type="Label" parent="SubViewport/Central/PaperBG/TenantInfo"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_k7c0a")
+theme_override_font_sizes/font_size = 46
+text = "B123
+"
+
+[node name="Infolbl3" type="Label" parent="SubViewport/Central/PaperBG/TenantInfo"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_k7c0a")
+theme_override_font_sizes/font_size = 46
+text = "C123
+"
+
+[node name="Infolbl4" type="Label" parent="SubViewport/Central/PaperBG/TenantInfo"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_k7c0a")
+theme_override_font_sizes/font_size = 46
+text = "D123
+"
+
+[node name="Infolbl5" type="Label" parent="SubViewport/Central/PaperBG/TenantInfo"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_k7c0a")
+theme_override_font_sizes/font_size = 46
+text = "E123
+"
+
+[node name="Infolbl6" type="Label" parent="SubViewport/Central/PaperBG/TenantInfo"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_k7c0a")
+theme_override_font_sizes/font_size = 46
+text = "F123
+"
+
+[node name="Infolbl7" type="Label" parent="SubViewport/Central/PaperBG/TenantInfo"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_k7c0a")
+theme_override_font_sizes/font_size = 46
+text = "G123
+"
+
+[node name="Infolbl8" type="Label" parent="SubViewport/Central/PaperBG/TenantInfo"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_k7c0a")
+theme_override_font_sizes/font_size = 46
+text = "H123
+"

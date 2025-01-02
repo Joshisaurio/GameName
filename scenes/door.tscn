@@ -163,9 +163,6 @@ transform = Transform3D(-0.459865, 0, -3.41212e-08, 0, 0.518502, 0, 7.70583e-08,
 mesh = SubResource("ArrayMesh_ym2d8")
 skeleton = NodePath("")
 
-[node name="GotoPosition" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.147579, 2, -2)
-
 [node name="Sounds" type="Node" parent="."]
 
 [node name="Door" type="AudioStreamPlayer" parent="Sounds"]
