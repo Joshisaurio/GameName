@@ -22,6 +22,8 @@ var open: bool = false
 @onready var room_position = $RoomPoint
 @onready var room_a = preload("res://Manage/room_a.tscn")
 @onready var room_b = preload("res://Manage/room_b.tscn")
+@onready var room_c = preload("res://Manage/room_c.tscn")
+@onready var room_d = preload("res://Manage/room_d.tscn")
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var audio_door: AudioStreamPlayer = $Sounds/Door
@@ -51,7 +53,7 @@ func _toggle_door_state():
 		animation_player.play("open_door")
 		audio_music.set_stream(music)
 		audio_music.play()
-		room = [room_a, room_b].pick_random()
+		room = [room_a, room_b, room_c, room_d].pick_random()
 		var room_instance = room.instantiate()
 		room_position.add_child(room_instance)
 		await get_tree().create_timer(2)

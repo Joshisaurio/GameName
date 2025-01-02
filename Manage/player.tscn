@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://6d27ul2h641w"]
+[gd_scene load_steps=13 format=3 uid="uid://6d27ul2h641w"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_p2d7i"]
 [ext_resource type="PackedScene" uid="uid://di16lr7iqjtmr" path="res://Manage/head.tscn" id="2_n4tw0"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c4rcu4mcbssxh" path="res://Textures/UI/Dot.png" id="4_gh4pa"]
 [ext_resource type="Texture2D" uid="uid://bylkjbi6mrmrv" path="res://Textures/UI/Interact.png" id="5_g3owc"]
 [ext_resource type="Texture2D" uid="uid://dp7svs0yo6vpk" path="res://Textures/Logo/Evicted.png" id="5_kbp4x"]
+[ext_resource type="AudioStream" uid="uid://b5ayql8j7sisn" path="res://assets/audio/UI/Evict1.wav" id="6_wjnn7"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ne0jo"]
 
@@ -165,6 +166,7 @@ texture = ExtResource("4_gh4pa")
 expand_mode = 1
 
 [node name="EvictedIcon" type="TextureButton" parent="UI"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -184,6 +186,11 @@ stretch_mode = 0
 libraries = {
 "": SubResource("AnimationLibrary_qv1ky")
 }
+
+[node name="EvictAudio" type="AudioStreamPlayer" parent="UI"]
+stream = ExtResource("6_wjnn7")
+pitch_scale = 1.43
+bus = &"Game"
 
 [node name="OtherUI" type="CanvasLayer" parent="."]
 

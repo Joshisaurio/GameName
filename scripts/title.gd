@@ -3,7 +3,7 @@ extends Node3D
 #Game settings
 var Audio := 100
 var Music := 100
-var WindowType = "Windowed"
+var WindowType = 1 #1 is Windowed, 2 is Fullscreen, 3 is Borderless
 
 @onready var play = $FolderMenu/Front/Playlbl
 @onready var settings = $FolderMenu/Front/Settingslbl
@@ -138,6 +138,28 @@ func music_clicked(_camera, event, _event_position, _normal, _shape_idx):
 			elif Music == 0:
 				Music = 100
 		$FolderMenu/Music.set_volume_db(Music)
+
+func audio_clicked(_camera, event, _event_position, _normal, _shape_idx):
+	pass # Replace with function body.
+
+
+func screen_clicked(_camera, event, _event_position, _normal, _shape_idx):
+	
+	match WindowType:
+		1:
+			print("Windowed mode set")
+			WindowType = 2
+		2:
+			print("Fullscreen mode set")
+			WindowType = 3
+		3:
+			print("Borderless windowed")
+			WindowType = 1
+
+
+func data_clicked(_camera, event, _event_position, _normal, _shape_idx):
+	pass # Replace with function body.
+
 
 #Hover stuff
 func _on_play_area_mouse_entered():
