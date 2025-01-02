@@ -45,7 +45,8 @@ var rotation_target_head: float
 var stored_head_x_rotation: float
 var checking_list: bool = false # Is the player currently checking their list?
 var loaded_list: MeshInstance3D
-@onready var gamestate_manager: Node = get_node("/root/Gamemanager/New_Apartment/Core/GameManager") # If there is a god out there, forgive me for this sin
+@onready var apartment: Node = get_node("/root/Gamemanager/New_Apartment")
+@onready var gamestate_manager: Node = apartment.get_node("Core/GameManager")
 
 # Used when bobing head
 @onready var head_start_pos : Vector3 = $Head.position
@@ -57,6 +58,7 @@ var tick = 0 # Current player tick, used in head bob calculation
 var moving := false
 
 func _ready():
+	apartment.find_child("OfficeDoor").begin_game.connect(_show_tab_hint, CONNECT_ONE_SHOT)
 	$Head.find_child("Camera3D").make_current()
 	if Engine.is_editor_hint():
 		return
@@ -231,3 +233,11 @@ func raycast_check():
 			$UI/Dot.visible = true
 	else:
 		$UI/Dot.visible = false
+		
+func _show_tab_hint():
+	$OtherUI.visible = true
+	await get_tree().create_timer(1).timeout
+	$OtherUI/Tab.modulate.a = lerp($OtherUI/Interact.modulate.a, float(1), 0.5)
+	await get_tree().create_timer(1).timeout
+	$OtherUI/Tab.modulate.a = lerp($OtherUI/Interact.modulate.a, float(0), 0.5)
+	$OtherUI.visible = false
