@@ -41,6 +41,8 @@ func _ready():
 	$Frame/DoorHingePoint/Label3D.text = address
 	pass
 
+
+
 func interacted():
 	if !delivery_active or tenant_name == "":
 		print("There is no tenant in this room!")

@@ -104,7 +104,6 @@ func _unhandled_input(event):
 			
 		if collided:
 			print("Raycast collided with " + collided.get_class())
-			
 			if collided is Door:
 				collided.door_interaction_begin.connect(_door_interaction_begin, CONNECT_ONE_SHOT)
 				collided.door_interaction_end.connect(_door_interaction_end, CONNECT_ONE_SHOT)
@@ -178,7 +177,7 @@ func _check_list(delta):
 		loaded_list.queue_free()
 	
 	if !checking_list:
-		_freeze()
+		#_freeze()
 		loaded_list = eviction_list.instantiate()
 		head.get_parent().add_child(loaded_list)
 		loaded_list.position = head.position + Vector3(0, -0.3, -0.1) # Position in front of the player
@@ -193,10 +192,10 @@ func _check_list(delta):
 		loaded_list.get_node("AudioStreamPlayer").play()
 		
 		stored_head_x_rotation = head.rotation.x
-		head.rotation.x = deg_to_rad(-60) # Instantly snap to it
+		head.rotation.x = lerp_angle(head.rotation.x, -60.0, delta)
 	else:
 		head.rotation.x = lerp_angle(head.rotation.x, stored_head_x_rotation, delta)
-		_unfreeze()
+		#_unfreeze()
 		
 	checking_list = !checking_list
 		
@@ -230,7 +229,11 @@ func raycast_check():
 	if ray.is_colliding():
 		var obj = ray.get_collider()
 		if obj.is_in_group("Interactable"):
-			$UI/Dot.visible = true
+			if obj is Door:
+				if not (obj.tenant_name == "" or !obj.delivery_active):
+					$UI/Dot.visible = true
+			else:
+				$UI/Dot.visible = true
 	else:
 		$UI/Dot.visible = false
 		

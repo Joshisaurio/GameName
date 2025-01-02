@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://8vc44fqdsfbh"]
+[gd_scene load_steps=7 format=3 uid="uid://8vc44fqdsfbh"]
 
 [ext_resource type="Script" path="res://scripts/intro_video.gd" id="1_oro1n"]
+[ext_resource type="Theme" uid="uid://bre6n751ipump" path="res://assets/maintheme.tres" id="2_ojlw5"]
 
 [sub_resource type="Animation" id="Animation_6g2fl"]
 resource_name = "FadeVideo"
@@ -120,13 +121,15 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 168.279
-offset_top = -45.6525
-offset_right = 499.279
-offset_bottom = -9.65253
+offset_left = -165.5
+offset_top = -136.0
+offset_right = 165.5
+offset_bottom = -100.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("2_ojlw5")
 theme_override_font_sizes/font_size = 26
 text = "Press [SPACE] to Skip Intro"
+horizontal_alignment = 1
 
 [connection signal="animation_finished" from="VidAnim" to="." method="_on_vid_anim_animation_finished"]

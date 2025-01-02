@@ -179,7 +179,6 @@ func enter_desk():
 	active_player.queue_free()
 
 func _add_time(value: int):
-	
 	time_left += value
 
 func create_eviction():
