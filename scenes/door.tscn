@@ -163,9 +163,20 @@ transform = Transform3D(-0.459865, 0, -3.41212e-08, 0, 0.518502, 0, 7.70583e-08,
 mesh = SubResource("ArrayMesh_ym2d8")
 skeleton = NodePath("")
 
+[node name="Label3D" type="Label3D" parent="Frame/DoorHingePoint"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.479766, 1.63619, -0.0600452)
+pixel_size = 0.02
+render_priority = 1
+text = "A123
+"
+font_size = 10
+outline_size = 4
+
 [node name="Sounds" type="Node" parent="."]
 
 [node name="Door" type="AudioStreamPlayer" parent="Sounds"]
+
+[node name="Music" type="AudioStreamPlayer" parent="Sounds"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

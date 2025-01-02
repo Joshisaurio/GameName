@@ -41,6 +41,8 @@ var rotation_target_head: float
 
 var stored_head_x_rotation: float
 var checking_list: bool = false # Is the player currently checking their list?
+var loaded_list: MeshInstance3D
+@onready var gamestate_manager: Node = get_node("/root/Gamemanager/New_Apartment/Core/GameManager") # If there is a god out there, forgive me for this sin
 
 # Used when bobing head
 @onready var head_start_pos : Vector3 = $Head.position
@@ -164,10 +166,25 @@ func movement_check():
 		audio_player.play()
 		
 func _check_list(delta):	
+	if is_instance_valid(loaded_list):
+		loaded_list.queue_free()
+	
 	if !checking_list:
+		_freeze()
+		loaded_list = eviction_list.instantiate()
+		head.get_parent().add_child(loaded_list)
+		loaded_list.position = head.position + Vector3(0, -0.3, -0.1) # Position in front of the player
+		
+		var vbox = loaded_list.find_child("Addresses", true)
+		for i in gamestate_manager.delivery_doors:
+			print(i.address)
+			var label = vbox.get_child(0).duplicate()
+			vbox.add_child(label)
+			label.text = i.address
+		vbox.get_child(0).queue_free()
+		
 		stored_head_x_rotation = head.rotation.x
 		head.rotation.x = deg_to_rad(-60) # Instantly snap to it
-		_freeze()
 	else:
 		head.rotation.x = lerp_angle(head.rotation.x, stored_head_x_rotation, delta)
 		_unfreeze()
