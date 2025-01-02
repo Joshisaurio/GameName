@@ -64,7 +64,7 @@ _data = {
 }
 
 [sub_resource type="VideoStreamTheora" id="VideoStreamTheora_16ity"]
-file = "res://assets/Media/introadjust.ogg"
+file = "res://assets/Media/IntroAdjust.ogg"
 
 [node name="Intro_Video" type="Node2D"]
 script = ExtResource("1_oro1n")

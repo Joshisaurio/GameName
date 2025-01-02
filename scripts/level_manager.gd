@@ -11,7 +11,8 @@ var current_scene
 @export var default_name := "Landlord"
 
 func _ready():
-	load_level(intro)
+	#load_level(intro)
+	load_level(title_scene)
 
 func load_level(level: PackedScene): #Takes preloaded scenes and swaps them with the current one.
 	if current_scene != null:
