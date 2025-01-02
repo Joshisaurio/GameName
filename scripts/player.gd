@@ -182,6 +182,7 @@ func _check_list(delta):
 			vbox.add_child(label)
 			label.text = i.address
 		vbox.get_child(0).queue_free()
+		loaded_list.get_node("AudioStreamPlayer").play()
 		
 		stored_head_x_rotation = head.rotation.x
 		head.rotation.x = deg_to_rad(-60) # Instantly snap to it

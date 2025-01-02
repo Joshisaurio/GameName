@@ -46,18 +46,19 @@ func _input(event):
 		if event.keycode == KEY_ENTER: # Skip button
 			_proceed()
 		
-		if dialogue_id < intro.size() - 1:
-			# More dialogue to go
+		if dialogue_id < (intro.size() - 1) - 1:
 			next = false
 			dialogue_id += 1
 			_display_dialogue(intro[dialogue_id], dialogue_speed)
 		else:
-			# Finished with the dialogue!
 			input_enabled = false
-			await get_tree().create_timer(1).timeout
+			_display_dialogue(intro[intro.size() - 1], dialogue_speed)
+			await get_tree().create_timer(2).timeout
 			audio.set_stream(SFX_SLAM_PHONE)
 			audio.play()
-			await get_tree().create_timer(4).timeout
+			await get_tree().create_timer(1).timeout
+			_fade_label(3)
+			await get_tree().create_timer(5).timeout # Long silence
 			_proceed()
 			
 func _proceed():
@@ -81,6 +82,10 @@ func _display_dialogue(text: String = "", speed: float = 1):
 		await get_tree().create_timer(1).timeout
 		
 	next = true
+
+func _fade_label(speed: int):
+	var tween = create_tween()
+	tween.tween_property(dialogue, "modulate", Color(modulate.r, modulate.g, modulate.b, 0.0), speed)
 
 func Intro_finished(_anim_name):
 	self.queue_free()
