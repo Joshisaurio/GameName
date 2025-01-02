@@ -3,17 +3,17 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://1554ft4wmkmo"
-path="res://.godot/imported/IntroAdjust.ogg-8f12d75be536d12d4457d9b6b9fc5968.oggvorbisstr"
+path="res://.godot/imported/introadjust.ogg-6ef693edfff0ca01af03fb5fddd71b3d.oggvorbisstr"
 
 [deps]
 
-source_file="res://assets/Media/IntroAdjust.ogg"
-dest_files=["res://.godot/imported/IntroAdjust.ogg-8f12d75be536d12d4457d9b6b9fc5968.oggvorbisstr"]
+source_file="res://assets/Media/introadjust.ogg"
+dest_files=["res://.godot/imported/introadjust.ogg-6ef693edfff0ca01af03fb5fddd71b3d.oggvorbisstr"]
 
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4

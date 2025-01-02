@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bylkjbi6mrmrv" path="res://Textures/UI/Interact.png" id="5_g3owc"]
 [ext_resource type="Texture2D" uid="uid://dp7svs0yo6vpk" path="res://Textures/Logo/Evicted.png" id="5_kbp4x"]
 [ext_resource type="AudioStream" uid="uid://b5ayql8j7sisn" path="res://assets/audio/UI/Evict1.wav" id="6_wjnn7"]
-[ext_resource type="Texture2D" uid="uid://4bpxradr3b2u" path="res://Textures/UI/tab.png" id="8_38sw5"]
+[ext_resource type="Texture2D" uid="uid://dq2egsvdtfb42" path="res://Textures/UI/tab.png" id="8_38sw5"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ne0jo"]
 
