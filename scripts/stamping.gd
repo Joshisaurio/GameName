@@ -131,7 +131,6 @@ func _input(event):
 		if Input.is_action_just_pressed("Interact"):
 			if isSitting:
 				Canim.play("Exit_Stamp")
-				get_tree().get_first_node_in_group("countdown").countdown.emit()
 				
 		if stage < len(stages) - 1:
 			$Guide/Guide.text = stages[stage]
@@ -174,4 +173,5 @@ func CamAnim_Finished(anim_name):
 			active_player.global_position.y = 1.5
 			get_tree().get_first_node_in_group("countdown").starting_time += available_time
 			available_time = 0
+			get_tree().get_first_node_in_group("countdown").countdown.emit()
 			

@@ -4,7 +4,7 @@ signal countdown
 
 var _current_time: String = ""
 @export_category("Settings")
-@export var starting_time: int = 50
+@export var starting_time: int = 0
 @onready var label: Label = $Placeholder
 @onready var timer: Timer = $Timer
 
