@@ -43,6 +43,7 @@ grow_vertical = 2
 color = Color(0.992157, 1, 0.67451, 1)
 
 [node name="TenantInfo" type="VBoxContainer" parent="SubViewport/Central/PaperBG"]
+layout_direction = 2
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -115,4 +116,13 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_k7c0a")
 theme_override_font_sizes/font_size = 46
 text = "H123
+"
+
+[node name="TemplateLabel" type="Label" parent="."]
+offset_right = 95.0
+offset_bottom = 52.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_k7c0a")
+theme_override_font_sizes/font_size = 46
+text = "A123
 "

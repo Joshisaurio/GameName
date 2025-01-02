@@ -1,5 +1,11 @@
 class_name Player; extends CharacterBody3D 
 
+const eviction_list = preload("res://Manage/eviction_list.tscn")
+const FootstepA = preload("res://assets/audio/General/SFX - Footstep 1.wav")
+const FootstepB = preload("res://assets/audio/General/SFX - Footstep 2.wav")
+const FootstepC = preload("res://assets/audio/General/SFX - Footstep 3.wav")
+const FootstepD = preload("res://assets/audio/General/SFX - Footstep 4.wav")
+
 @export_category("Mouse Capture")
 @export var CAPTURE_MOUSE_ON_START := true
 
@@ -33,6 +39,7 @@ var accel = ACCELERATION
 var rotation_target_player: float
 var rotation_target_head: float
 
+var stored_head_x_rotation: float
 var checking_list: bool = false # Is the player currently checking their list?
 
 # Used when bobing head
@@ -41,14 +48,7 @@ var checking_list: bool = false # Is the player currently checking their list?
 @onready var ray: RayCast3D = $Head/Look
 @onready var audio_player = $FootSteps
 
-#Footsteps to pick from
-const FootstepA = preload("res://assets/audio/General/SFX - Footstep 1.wav")
-const FootstepB = preload("res://assets/audio/General/SFX - Footstep 2.wav")
-const FootstepC = preload("res://assets/audio/General/SFX - Footstep 3.wav")
-const FootstepD = preload("res://assets/audio/General/SFX - Footstep 4.wav")
-
-# Current player tick, used in head bob calculation
-var tick = 0
+var tick = 0 # Current player tick, used in head bob calculation
 var moving := false
 
 func _ready():
@@ -163,16 +163,16 @@ func movement_check():
 		audio_player.pitch_scale = randf_range(0.7, 1.3) 
 		audio_player.play()
 		
-func _check_list(delta):
-	pass
-#	if !checking_list:
-#		head.rotation.x = lerp(head.rotation.x, deg_to_rad(-45), delta * 10)
-#		_freeze()
-#	else:
-#		head.rotation.x = lerp(head.rotation.x, deg_to_rad(45), delta * 10)
-#		_unfreeze()
-#		
-#	checking_list = !checking_list
+func _check_list(delta):	
+	if !checking_list:
+		stored_head_x_rotation = head.rotation.x
+		head.rotation.x = deg_to_rad(-60) # Instantly snap to it
+		_freeze()
+	else:
+		head.rotation.x = lerp_angle(head.rotation.x, stored_head_x_rotation, delta)
+		_unfreeze()
+		
+	checking_list = !checking_list
 		
 
 func _freeze() -> void:
