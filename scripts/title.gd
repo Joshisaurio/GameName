@@ -130,6 +130,15 @@ func _on_returncred_area_input_event(_camera, event, _event_position, _normal, _
 			folderaudio.set_stream(Folder_Close) ; folderaudio.play()
 			await get_tree().create_timer(0.35).timeout ; folderaudio.play()
 
+func music_clicked(_camera, event, _event_position, _normal, _shape_idx):
+	if event is InputEventMouseButton:
+		if event.button_mask == 1:
+			if Music > 0:
+				Music -= 10
+			elif Music == 0:
+				Music = 100
+		$FolderMenu/Music.set_volume_db(Music)
+
 #Hover stuff
 func _on_play_area_mouse_entered():
 	play.modulate = hover_color

@@ -2,7 +2,11 @@
 
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
+<<<<<<< Updated upstream
 uid="uid://7a7oypw70p6f"
+=======
+uid="uid://cvjfxklb4wt6m"
+>>>>>>> Stashed changes
 path="res://.godot/imported/IntroAdjust.ogg-8f12d75be536d12d4457d9b6b9fc5968.oggvorbisstr"
 
 [deps]

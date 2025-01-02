@@ -128,6 +128,7 @@ func _input(_event):
 						canStamp = false
 						canRemove = true
 						stage += 1
+						$GeneralAnim.play("Stamp")
 						$Stamp.play()
 				else:
 					available_time -=1
