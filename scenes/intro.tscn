@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bhkk8d63777sk"]
 
-[ext_resource type="Script" path="res://scripts/Intro.gd" id="1_0tyje"]
+[ext_resource type="Script" path="res://scripts/intro.gd" id="1_0tyje"]
 
 [sub_resource type="Animation" id="Animation_pldjm"]
 resource_name = "IntroAnim"

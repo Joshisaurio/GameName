@@ -31,20 +31,19 @@ var delivery_active: bool = false # Is a delivery active on this door?
 var open: bool = false
 
 @export_group("Tenant Info")
-@export var address: String = ""
+@export var address: String = "" # A district character (e.g 'A') followed by three digits (e.g '327')
 @export var tenant_name: String = ""
 
 @export_group("Minigame")
 @export var max_middle_names: int = 3
 @export var minigame = preload("res://scenes/typing_minigame.tscn")
 
+@onready var room_position = $RoomPoint
 @onready var room_a = preload("res://Manage/room_a.tscn")
 @onready var room_b = preload("res://Manage/room_b.tscn")
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var goto_position: Vector3 = $GotoPosition.position
-@onready var current_camera: Camera3D = get_viewport().get_camera_3d()
 @onready var audio_open_door: AudioStreamPlayer = $Sounds/Door
-@onready var room_position = $RoomPoint
 
 var room
 const DOOR_SLAM = preload("res://assets/audio/SFX/Door/Door Close.wav")
@@ -53,15 +52,12 @@ const DOOR_OPEN = preload("res://assets/audio/SFX/Door/Door Open.wav")
 func _ready():
 	pass
 
-func choose(list):
-	list.shuffle()
-	return list.front()
-
-func clicked():
+func interacted():
 	if !delivery_active or tenant_name == "":
 		print("There is no tenant in this room!")
 		return
-	audio_open_door.set_stream(DOOR_OPEN) ; audio_open_door.play()
+	audio_open_door.set_stream(DOOR_OPEN)
+	audio_open_door.play()
 	door_interaction_begin.emit(self)
 	
 func _toggle_door_state():
@@ -69,16 +65,13 @@ func _toggle_door_state():
 		_end_current_minigame()
 	else:
 		animation_player.play("open_door")
-		room = choose([room_a, room_b]).instantiate()
-		room_position.add_child(room)
+		room = [room_a, room_b].pick_random()
+		var room_instance = room.instantiate()
+		room_position.add_child(room_instance)
 		await get_tree().create_timer(2)
 		_start_minigame()
 		
-		
 	open = !open
-		
-func _toggle_camera_focus():
-	var camera = get_viewport().get_camera_3d()
 	
 func _start_minigame():
 	_end_current_minigame()
@@ -90,7 +83,8 @@ func _start_minigame():
 	
 func _end_current_minigame():
 	if current_minigame != null:
-		audio_open_door.set_stream(DOOR_SLAM) ; audio_open_door.play()
+		audio_open_door.set_stream(DOOR_SLAM)
+		audio_open_door.play()
 		current_minigame.queue_free()
 
 func _minigame_completed():

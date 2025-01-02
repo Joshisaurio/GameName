@@ -6,7 +6,6 @@ extends Control
 
 @onready var gamemanager = self.get_parent()
 
-#Audio
 const SFX___TYPING_VAR__1 = preload("res://assets/audio/Typing/SFX - Typing Var  1.wav")
 const SFX___TYPING_VAR__2 = preload("res://assets/audio/Typing/SFX - Typing Var  2.wav")
 const SFX___TYPING_VAR__3 = preload("res://assets/audio/Typing/SFX - Typing Var  3.wav")
@@ -16,9 +15,17 @@ const SFX___TYPING_VAR__5 = preload("res://assets/audio/Typing/SFX - Typing Var 
 var dialogue_speed := 0.03
 
 var dialogues = [
-	"Dialogue\n[Press space to continue]",
-	"More dialog",
-	"Final dialogue"]
+	"Hello? This is [PLAYERNAME]?",
+	"I'll keep it short.",
+	"Profits are down 12% this quarter.",
+	"We're hemorrhaging potential revenue in your district.",
+	"Your eviction record is an embarrassing PR liability.",
+	"Do I even need to say more?",
+	"The board isn't happy with your performance.",
+	"*ahem*",
+	"Clear out your office by the end of the day.",
+	"You're out."
+]
 	
 var dialogue = 0
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_gf6gf"]
 [ext_resource type="AudioStream" uid="uid://cix3w21uo7use" path="res://assets/audio/Ambience/SFX - Fluorescent Light.wav" id="2_p3de2"]
-[ext_resource type="Texture2D" uid="uid://cmn0vk2djqjyk" path="res://Textures/TempTextures/Wood Planks/image.png" id="3_c6sig"]
+[ext_resource type="Texture2D" uid="uid://bppuc03otlr34" path="res://Textures/wood.png" id="3_sqh4b"]
 [ext_resource type="Texture2D" uid="uid://gwmh5hctqh1g" path="res://Textures/TempTextures/Wood Planks/Planks_AO.png" id="4_03bcw"]
 [ext_resource type="Texture2D" uid="uid://b4yqbyfs1e6gn" path="res://Textures/TempTextures/Wood Planks/Planks_Height.png" id="5_7v0dj"]
 [ext_resource type="Texture2D" uid="uid://dletiynfoj8gy" path="res://Textures/TempTextures/Wood Planks/image (3).png" id="6_5x4sn"]
@@ -17,7 +17,7 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jesxm"]
 albedo_color = Color(0.419027, 0.362195, 0.197436, 1)
-albedo_texture = ExtResource("3_c6sig")
+albedo_texture = ExtResource("3_sqh4b")
 metallic_specular = 0.0
 roughness_texture = ExtResource("7_uy1rf")
 normal_enabled = true
@@ -129,6 +129,7 @@ material = SubResource("StandardMaterial3D_jesxm")
 
 [node name="Ceiling" type="CSGBox3D" parent="Build"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14444, 4.74788, 1.0117)
+visible = false
 size = Vector3(112.25, 0.133789, 121.153)
 material = SubResource("StandardMaterial3D_lxs55")
 
@@ -1495,248 +1496,330 @@ script = ExtResource("12_o6k8c")
 
 [node name="Door" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.5346, 0, -37.1959)
+address = "A301"
 
 [node name="Door2" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.5346, 0, -29.5976)
+address = "A302"
 
 [node name="Door3" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.5346, 0, -22.1594)
+address = "A303"
 
 [node name="Door4" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7.86623, 0, -12.6531)
+address = "A304"
 
 [node name="Door5" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 15.5404, 0, -12.6531)
+address = "A305"
 
 [node name="Door6" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 23.2067, 0, -12.6531)
+address = "A306"
 
 [node name="Door7" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 30.857, 0, -12.6531)
+address = "A307"
 
 [node name="Door8" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 38.5435, 0, -12.6531)
+address = "A308"
 
 [node name="Door9" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 46.2824, 0, -12.6531)
+address = "A309"
 
 [node name="Door10" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 50.6423, 0, -12.6531)
+address = "A310"
 
 [node name="Door11" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 47.65, 0, -7.593)
+address = "B311"
 
 [node name="Door12" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 40.2191, 0, -7.593)
+address = "B312"
 
 [node name="Door13" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 30.8203, 0, -2.14566)
+address = "B313"
 
 [node name="Door14" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 30.8203, 0, 5.82235)
+address = "B314"
 
 [node name="Door15" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 30.8203, 0, 13.7982)
+address = "B315"
 
 [node name="Door16" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 30.8203, 0, 21.9054)
+address = "B316"
 
 [node name="Door17" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 43.3235, 0, 24.1363)
+address = "B317"
 
 [node name="Door18" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 51.1052, 0, 24.1363)
+address = "B318"
 
 [node name="Door19" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(1, 0, 3.49691e-07, 0, 1, 0, -3.49691e-07, 0, 1, 50.5241, 0, 29.2277)
+address = "C319"
 
 [node name="Door20" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(1, 0, 3.49691e-07, 0, 1, 0, -3.49691e-07, 0, 1, 42.9188, 0, 29.2277)
+address = "C320"
 
 [node name="Door21" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(1, 0, 3.49691e-07, 0, 1, 0, -3.49691e-07, 0, 1, 38.849, 0, 29.2277)
+address = "C321"
 
 [node name="Door22" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(-3.93403e-07, 0, 1, 0, 1, 0, -1, 0, -3.93403e-07, 30.7757, 0, 34.4095)
+address = "C322"
 
 [node name="Door23" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(-3.93403e-07, 0, 1, 0, 1, 0, -1, 0, -3.93403e-07, 30.7757, 0, 41.8055)
+address = "C323"
 
 [node name="Door24" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(-3.93403e-07, 0, 1, 0, 1, 0, -1, 0, -3.93403e-07, 30.7757, 0, 49.3995)
+address = "C324"
 
 [node name="Door25" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(-3.93403e-07, 0, 1, 0, 1, 0, -1, 0, -3.93403e-07, 30.7757, 0, 56.754)
+address = "C325"
 
 [node name="Door26" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, 25.7786, -4.76837e-07, 53.547)
+address = "D326"
 
 [node name="Door27" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, 25.7786, -4.76837e-07, 46.1107)
+address = "D327"
 
 [node name="Door28" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, 25.7786, -4.76837e-07, 38.7742)
+address = "D328"
 
 [node name="Door29" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, 25.7786, -4.76837e-07, 31.3251)
+address = "D329"
 
 [node name="Door30" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(1, 0, 5.24537e-07, 0, 1, 0, -5.24537e-07, 0, 1, 12.9441, -4.76837e-07, 29.1343)
+address = "D330"
 
 [node name="Door31" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(-5.68248e-07, 0, 1, 0, 1, 0, -1, 0, -5.68248e-07, 2.51276, -9.53674e-07, 34.4661)
+address = "D331"
 
 [node name="Door32" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(-5.68248e-07, 0, 1, 0, 1, 0, -1, 0, -5.68248e-07, 2.51276, -9.53674e-07, 41.9773)
+address = "D332"
 
 [node name="Door33" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(-5.68248e-07, 0, 1, 0, 1, 0, -1, 0, -5.68248e-07, 2.51276, -9.53674e-07, 49.3621)
+address = "D333"
 
 [node name="Door34" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(-5.68248e-07, 0, 1, 0, 1, 0, -1, 0, -5.68248e-07, 2.51276, -9.53674e-07, 56.6949)
+address = "D334"
 
 [node name="Door35" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, -2.53479, -9.53674e-07, 56.5355)
+address = "E335"
 
 [node name="Door36" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, -2.53479, -9.53674e-07, 48.4313)
+address = "E336"
 
 [node name="Door37" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, -2.53479, -9.53674e-07, 40.5604)
+address = "E337"
 
 [node name="Door38" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, -2.53479, -9.53674e-07, 32.6024)
+address = "E338"
 
 [node name="Door39" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, -2.53479, -9.53674e-07, 24.4823)
+address = "E339"
 
 [node name="Door40" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, -2.53479, -9.53674e-07, 16.3783)
+address = "E340"
 
 [node name="Door41" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, -2.53479, -9.53674e-07, 8.53127)
+address = "E341"
 
 [node name="Door42" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(1, 0, 5.24537e-07, 0, 1, 0, -5.24537e-07, 0, 1, -14.7765, -9.53674e-07, 5.98098)
+address = "E342"
 
 [node name="Door43" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(1, 0, 5.24537e-07, 0, 1, 0, -5.24537e-07, 0, 1, -22.2641, -9.53674e-07, 5.98098)
+address = "E343"
 
 [node name="Door44" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(1, 0, 5.24537e-07, 0, 1, 0, -5.24537e-07, 0, 1, -29.8816, -9.53674e-07, 5.98098)
+address = "E344"
 
 [node name="Door45" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(1, 0, 5.24537e-07, 0, 1, 0, -5.24537e-07, 0, 1, -37.3739, -9.53674e-07, 5.98098)
+address = "E345"
 
 [node name="Door46" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(1, 0, 5.24537e-07, 0, 1, 0, -5.24537e-07, 0, 1, -44.7768, -9.53674e-07, 5.98098)
+address = "E346"
 
 [node name="Door47" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(1, 0, 5.24537e-07, 0, 1, 0, -5.24537e-07, 0, 1, -51.6139, -9.53674e-07, 5.98098)
+address = "E347"
 
 [node name="Door48" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(-1, 0, -4.37114e-07, 0, 1, 0, 4.37114e-07, 0, -1, -47.9885, -9.53674e-07, 0.953127)
+address = "F348"
 
 [node name="Door49" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(-1, 0, -4.37114e-07, 0, 1, 0, 4.37114e-07, 0, -1, -41.1611, -9.53674e-07, 0.953127)
+address = "F349"
 
 [node name="Door50" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, -31.2325, -4.76837e-07, -4.34303)
+address = "F350"
 
 [node name="Door51" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, -31.2325, -4.76837e-07, -11.9551)
+address = "F351"
 
 [node name="Door52" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, -31.2325, -4.76837e-07, -18.9343)
+address = "F352"
 
 [node name="Door53" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, -31.2325, -4.76837e-07, -26.5429)
+address = "F353"
 
 [node name="Door54" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(1, 0, 5.24537e-07, 0, 1, 0, -5.24537e-07, 0, 1, -43.4855, -4.76837e-07, -28.892)
+address = "F354"
 
 [node name="Door55" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(1, 0, 5.24537e-07, 0, 1, 0, -5.24537e-07, 0, 1, -51.2676, -4.76837e-07, -28.892)
+address = "F355"
 
 [node name="Door56" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(-1, 0, -4.37114e-07, 0, 1, 0, 4.37114e-07, 0, -1, -50.5832, -4.76837e-07, -33.883)
+address = "G356"
 
 [node name="Door57" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(-1, 0, -4.37114e-07, 0, 1, 0, 4.37114e-07, 0, -1, -42.8194, -4.76837e-07, -33.883)
+address = "G357"
 
 [node name="Door58" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(-1, 0, -4.37114e-07, 0, 1, 0, 4.37114e-07, 0, -1, -35.4475, -4.76837e-07, -33.883)
+address = "G358"
 
 [node name="Door59" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(-1, 0, -4.37114e-07, 0, 1, 0, 4.37114e-07, 0, -1, -28.9574, -4.76837e-07, -45.3973)
+address = "G359"
 
 [node name="Door60" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(-1, 0, -4.37114e-07, 0, 1, 0, 4.37114e-07, 0, -1, -20.3529, -4.76837e-07, -33.8869)
+address = "H360"
 
 [node name="Door61" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(-1, 0, -4.37114e-07, 0, 1, 0, 4.37114e-07, 0, -1, -12.3067, -4.76837e-07, -33.8869)
+address = "H361"
 
 [node name="Door62" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, -2.49205, -4.76837e-07, -39.3581)
+address = "H362"
 
 [node name="Door63" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, -2.49205, -4.76837e-07, -18.7996)
+address = "I363"
 
 [node name="Door64" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, -2.49205, -4.76837e-07, -11.2184)
+address = "I364"
 
 [node name="Door65" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(-1, 0, -4.37114e-07, 0, 1, 0, 4.37114e-07, 0, -1, -4.8227, -4.76837e-07, 0.983395)
+address = "I365"
 
 [node name="Door66" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(-1, 0, -4.37114e-07, 0, 1, 0, 4.37114e-07, 0, -1, -12.6746, -4.76837e-07, 0.983395)
+address = "I366"
 
 [node name="Door67" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(-1, 0, -4.37114e-07, 0, 1, 0, 4.37114e-07, 0, -1, -20.4685, -4.76837e-07, 0.983395)
+address = "I367"
 
 [node name="Door68" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(-3.93403e-07, 0, 1, 0, 1, 0, -1, 0, -3.93403e-07, -26.2285, -4.76837e-07, -8.69926)
+address = "I368"
 
 [node name="Door69" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(-3.93403e-07, 0, 1, 0, 1, 0, -1, 0, -3.93403e-07, -26.2285, -4.76837e-07, -16.0717)
+address = "I369"
 
 [node name="Door70" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(-3.93403e-07, 0, 1, 0, 1, 0, -1, 0, -3.93403e-07, -26.2285, -4.76837e-07, -23.4804)
+address = "I370"
 
 [node name="Door71" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(1, 0, 3.49691e-07, 0, 1, 0, -3.49691e-07, 0, 1, -16.5769, -9.53674e-07, -28.8975)
+address = "I371"
 
 [node name="Door72" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(1, 0, 3.49691e-07, 0, 1, 0, -3.49691e-07, 0, 1, -8.81123, -9.53674e-07, -28.8975)
+address = "I372"
 
 [node name="Door73" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(1, 0, 3.49691e-07, 0, 1, 0, -3.49691e-07, 0, 1, 12.9467, -9.53674e-07, -7.62304)
+address = "J373"
 
 [node name="Door74" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(3.0598e-07, 0, -1, 0, 1, 0, 1, 0, 3.0598e-07, 25.827, -9.53674e-07, -5.26015)
+address = "J374"
 
 [node name="Door75" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(3.0598e-07, 0, -1, 0, 1, 0, 1, 0, 3.0598e-07, 25.827, -9.53674e-07, 2.58224)
+address = "J375"
 
 [node name="Door76" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(3.0598e-07, 0, -1, 0, 1, 0, 1, 0, 3.0598e-07, 25.827, -9.53674e-07, 10.6951)
+address = "J376"
 
 [node name="Door77" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(3.0598e-07, 0, -1, 0, 1, 0, 1, 0, 3.0598e-07, 25.827, -9.53674e-07, 18.8056)
+address = "J377"
 
 [node name="Door78" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 15.752, -9.53674e-07, 24.1478)
+address = "J378"
 
 [node name="Door79" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 2.49922, -9.53674e-07, 21.7289)
+address = "J379"
 
 [node name="Door80" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 2.49922, -9.53674e-07, 13.8597)
+address = "J380"
 
 [node name="Door81" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 2.49922, -9.53674e-07, 5.75002)
+address = "J381"
 
 [node name="Door82" parent="Doors" groups=["Interactable", "Occupied Door"] instance=ExtResource("14_0cn22")]
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 2.49922, -9.53674e-07, -2.37396)
+address = "J382"
 
 [connection signal="finished" from="Environment/Ambience" to="." method="Replay_Ambience"]
