@@ -1,16 +1,17 @@
 [gd_scene load_steps=2 format=3 uid="uid://cmxwqpwqyguep"]
 
-[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_7i7rc"]
-file = "res://assets/Media/video.ogg"
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_8frdg"]
+file = "res://assets/Media/IntroAdjust.ogg"
 
 [node name="Game Intro" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
-offset_left = -438.0
-offset_top = -362.0
-offset_right = 1610.0
-offset_bottom = 1174.0
-stream = SubResource("VideoStreamTheora_7i7rc")
+offset_left = -516.0
+offset_top = -386.0
+offset_right = 1532.0
+offset_bottom = 1150.0
+scale = Vector2(1.02008, 1.02008)
+stream = SubResource("VideoStreamTheora_8frdg")
 autoplay = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://djld5qk1srtgf"]
+[gd_scene load_steps=25 format=3 uid="uid://djld5qk1srtgf"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_gf6gf"]
 [ext_resource type="AudioStream" uid="uid://cix3w21uo7use" path="res://assets/audio/Ambience/SFX - Fluorescent Light.wav" id="2_p3de2"]
@@ -10,8 +10,8 @@
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="12_o6k8c"]
 [ext_resource type="PackedScene" uid="uid://nwc5bj77d8ja" path="res://scenes/countdown.tscn" id="13_d2o7h"]
 [ext_resource type="PackedScene" uid="uid://dgvjlrsae8iq7" path="res://scenes/door.tscn" id="14_0cn22"]
-[ext_resource type="PackedScene" uid="uid://baf8serx6ejna" path="res://Manage/RandomAudio.tscn" id="16_4alpb"]
-[ext_resource type="PackedScene" uid="uid://cw5dlkf4mmv12" path="res://scenes/office_door.tscn" id="17_c8tsd"]
+[ext_resource type="PackedScene" uid="uid://cqlqi34112ycm" path="res://Manage/RandomAudio.tscn" id="16_4alpb"]
+[ext_resource type="PackedScene" path="res://scenes/office_door.tscn" id="17_c8tsd"]
 
 [sub_resource type="Environment" id="Environment_brnmx"]
 background_energy_multiplier = 2.46
