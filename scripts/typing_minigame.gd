@@ -27,6 +27,7 @@ var time: float = 0
 
 @onready var tenant_label: RichTextLabel = $RichTextLabel
 @onready var audio: AudioStreamPlayer = $AudioStreamPlayer
+@onready var miss_audio: AudioStreamPlayer = $Miss
 
 signal minigame_completed(total_score)
 
@@ -85,6 +86,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				minigame_completed.emit(total_score)
 		else:
 			failures += 1
+			miss_audio.play()
 			
 		_update_text()
 	

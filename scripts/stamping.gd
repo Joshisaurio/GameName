@@ -159,6 +159,8 @@ func _input(_event):
 					if tenant_eviction != null:
 						tenant_eviction.isSigned = true
 						canRemove = true
+						stage += 1
+						available_time += TIME_BONUS
 						$Sign.play()
 				else:
 					available_time -= TIME_PENALTY
