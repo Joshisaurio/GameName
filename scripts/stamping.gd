@@ -178,6 +178,10 @@ func enter_desk():
 	Canim.play("Enter_Stamp")
 	active_player.queue_free()
 
+func _add_time(value: int):
+	
+	time_left += value
+
 func create_eviction():
 	_generate_name()
 

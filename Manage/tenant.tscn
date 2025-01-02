@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cb6pvvkenqhc1"]
+
+[ext_resource type="Texture2D" uid="uid://dlmhb8u3sq8eg" path="res://Textures/Tenants/tenant1_default.png" id="1_f2qww"]
+[ext_resource type="Script" path="res://scripts/tenant.gd" id="2_8aqgb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mjm2a"]
+transparency = 2
+alpha_scissor_threshold = 0.358
+alpha_antialiasing_mode = 1
+alpha_antialiasing_edge = 0.45
+albedo_texture = ExtResource("1_f2qww")
+uv1_scale = Vector3(0.42, 0.265, 1)
+uv1_offset = Vector3(0.525, 0.39, 0)
+uv1_triplanar = true
+billboard_mode = 2
+
+[sub_resource type="QuadMesh" id="QuadMesh_fpvar"]
+material = SubResource("StandardMaterial3D_mjm2a")
+size = Vector2(1.4, 3.195)
+
+[node name="Tenant" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.98023e-08, 1.46969, -0.423589)
+mesh = SubResource("QuadMesh_fpvar")
+script = ExtResource("2_8aqgb")
