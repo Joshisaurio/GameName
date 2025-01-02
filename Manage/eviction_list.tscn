@@ -62,10 +62,6 @@ theme_override_font_sizes/font_size = 46
 text = "A123
 "
 
-<<<<<<< Updated upstream
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_s1cp7")
-=======
 [node name="Addresses2" type="VBoxContainer" parent="SubViewport/Central/PaperBG"]
 layout_direction = 2
 layout_mode = 1
@@ -91,4 +87,3 @@ offset_right = 1248.02
 offset_bottom = 244.5
 grow_vertical = 2
 theme_override_constants/separation = -10
->>>>>>> Stashed changes
