@@ -11,10 +11,13 @@ const TIME_PENALTY: int = 1
 @onready var camera = $Camera3D
 @onready var filter = $Camera3D/StampingFilter
 @onready var origin = $PaperOrigin
+@onready var music = $Music
+@onready var guide_label: Label = $Guide/Guide
 
 #Main Nodes
 @onready var Apartment = get_parent().get_parent()
 @onready var Gamemanager = Apartment.find_child("GameManager")
+@onready var office_door = Apartment.find_child("OfficeDoor")
 @onready var door_nodes: Array[Node] = get_tree().get_nodes_in_group("Occupied Door")
 
 @export var max_middle_names: int = 3
@@ -74,6 +77,7 @@ func _ready():
 	$UI/time_left.modulate.a = 0
 
 func _begin():
+	office_door.begin_game.connect(_fade_music, CONNECT_ONE_SHOT)
 	filter.visible = true
 	$Guide.visible = true
 	$UI/time_left.max_value = STAMPING_TIME_LIMIT
@@ -88,7 +92,7 @@ func _process(delta):
 			time_left -= delta
 			
 		if time_left < 0 or Gamemanager.delivery_doors.size() >= Gamemanager.DELIVERY_MAX:
-			$Guide/Guide.hide()
+			guide_label.hide()
 			if isSitting:
 				Canim.play("Exit_Stamp")
 			
@@ -103,6 +107,8 @@ func _input(_event):
 	if begun and isSitting and not Canim.is_playing():
 		if time_left > 0:
 			if Input.is_action_just_pressed("right"):
+				if grace_period_active:
+					music.play()
 				grace_period_active = false # Start taking away time
 				if isSitting and not pageExists:
 					create_eviction()
@@ -160,9 +166,9 @@ func _input(_event):
 					available_time -= TIME_PENALTY
 					
 		if stage < len(stages) - 1:
-			$Guide/Guide.text = stages[stage]
+			guide_label.text = stages[stage]
 		else:
-			$Guide/Guide.hide()
+			guide_label.hide()
 
 func enter_desk():
 	isSitting = true
@@ -188,6 +194,15 @@ func _generate_name() -> String:
 	tenant_first_name = first
 	return first + middle + last
 
+func _fade_music(speed: float = 4) -> void:
+	var tween = create_tween()
+	tween.tween_property(music, "volume_db", -80.0, speed)
+	await tween.finished
+	music.stop()
+		
+func _stepped_into_apartment() -> void:
+	_fade_music(4)
+
 func CamAnim_Finished(anim_name):
 	match anim_name:
 		"Exit_Stamp":
@@ -203,3 +218,7 @@ func CamAnim_Finished(anim_name):
 			time_left = STAMPING_TIME_LIMIT # Reset to default
 			get_tree().get_first_node_in_group("countdown").countdown.emit()
 			
+
+
+func _on_music_finished():
+	music.play()

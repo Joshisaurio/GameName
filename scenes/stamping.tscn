@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=4 uid="uid://cumnita3y3x5e"]
+[gd_scene load_steps=52 format=4 uid="uid://cumnita3y3x5e"]
 
 [ext_resource type="Script" path="res://scripts/stamping.gd" id="1_iqntg"]
 [ext_resource type="Texture2D" uid="uid://c48te6oks4h2s" path="res://Textures/Model Textures/Desk/YouAreOut(SP)_UVGrid_BaseColor.1001.png" id="2_4leee"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://w4gnwoycco2m" path="res://Models/Headset/Headset_Headset(Bake)_BaseColor.1001.png" id="12_d4sym"]
 [ext_resource type="Texture2D" uid="uid://dlviuebi2qhoe" path="res://Models/Walkman/WalkMan(Diffuse).png" id="13_15v6u"]
 [ext_resource type="Texture2D" uid="uid://btot1ato8p7my" path="res://Models/Walkman/WalkMan(Normal).png" id="14_qd88c"]
+[ext_resource type="AudioStream" uid="uid://c5tsbwaljbxlp" path="res://assets/audio/Music/loopable_jazz.wav" id="17_hm3n5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pd3h6"]
 resource_name = "UVGrid"
@@ -658,4 +659,8 @@ mesh = SubResource("ArrayMesh_aljtb")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_fog5h")
 
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_hm3n5")
+
 [connection signal="animation_finished" from="Camera3D/CamAnim" to="." method="CamAnim_Finished"]
+[connection signal="finished" from="Music" to="." method="_on_music_finished"]

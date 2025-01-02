@@ -107,6 +107,9 @@ func _unhandled_input(event):
 				
 			if collided is Stamp:
 				collided.enter_desk()
+				
+			if collided.name == "OfficeDoor": # I think I almost just threw up writing this
+				collided.interacted()
 		
 	if event is InputEventMouseMotion && Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		set_rotation_target(event.relative)
