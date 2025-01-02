@@ -655,9 +655,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -119.0
-offset_top = 317.0
+offset_top = 291.0
 offset_right = 119.0
-offset_bottom = 344.0
+offset_bottom = 318.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("7_1ptb6")
@@ -667,9 +667,9 @@ show_percentage = false
 
 [node name="evictions_filed" type="Label" parent="UI"]
 offset_left = 487.0
-offset_top = 655.0
+offset_top = 629.0
 offset_right = 541.0
-offset_bottom = 690.0
+offset_bottom = 664.0
 theme = ExtResource("7_1ptb6")
 theme_override_fonts/font = ExtResource("8_4cr22")
 text = "0/8"

@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=4 uid="uid://dgvjlrsae8iq7"]
+[gd_scene load_steps=18 format=4 uid="uid://dgvjlrsae8iq7"]
 
 [ext_resource type="Script" path="res://scripts/door.gd" id="1_3lhjc"]
+[ext_resource type="FontFile" uid="uid://bvbm4u6y1bvfr" path="res://Fonts/AdobeGurmukhi-Bold.otf" id="3_40w8p"]
 [ext_resource type="Texture2D" uid="uid://d3000fcg2mjcw" path="res://Models/door and frame_0.png" id="3_516aq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l8t7x"]
@@ -171,6 +172,16 @@ text = "A123
 "
 font_size = 10
 outline_size = 4
+
+[node name="Score" type="Label3D" parent="Frame"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.020981, 0.875258, -0.197811)
+pixel_size = 0.01
+render_priority = 1
+text = "+2000
+"
+font = ExtResource("3_40w8p")
+font_size = 40
+outline_size = 20
 
 [node name="Sounds" type="Node" parent="."]
 

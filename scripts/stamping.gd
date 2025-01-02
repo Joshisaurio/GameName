@@ -217,10 +217,10 @@ func CamAnim_Finished(anim_name):
 			active_player.global_position.x = camera.global_position.x
 			active_player.global_position.z = camera.global_position.z
 			active_player.global_position.y = 1.5
-			get_tree().get_first_node_in_group("countdown").starting_time += available_time
+			get_tree().get_first_node_in_group("countdown").show()
+			get_tree().get_first_node_in_group("countdown").add_time(available_time)
 			available_time = 0
 			time_left = STAMPING_TIME_LIMIT # Reset to default
-			get_tree().get_first_node_in_group("countdown").countdown.emit()
 			
 
 

@@ -43,7 +43,7 @@ meta_underlined = false
 hint_underlined = false
 text_direction = 1
 
-[node name="Score" type="Label" parent="."]
+[node name="CharacterScore" type="Label" parent="."]
 layout_mode = 0
 offset_top = 90.0
 offset_right = 40.0
@@ -62,7 +62,7 @@ layout_mode = 0
 offset_top = 171.0
 offset_right = 157.0
 offset_bottom = 203.0
-text = "Time bonus: "
+text = "Time Bonus: "
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 layout_mode = 1
@@ -92,3 +92,5 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
