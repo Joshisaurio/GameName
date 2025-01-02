@@ -10,7 +10,8 @@ class_name Stamp
 
 #Main Nodes
 @onready var Apartment = get_parent().get_parent()
-@onready var Gamemanager = get_tree().root.get_child(0)
+@onready var Gamemanager = Apartment.find_child("GameManager")
+@onready var door_nodes: Array[Node] = get_tree().get_nodes_in_group("Occupied Door")
 
 @export var max_middle_names: int = 3
 @export var max_time:int = 30
@@ -22,6 +23,8 @@ var active_player
 var tenant_name
 var tenant_eviction
 var tenant_first_name
+
+var next = false
 
 var available_time = 0
 
@@ -84,7 +87,7 @@ func _process(delta):
 		for i in $UI.get_children():
 			i.modulate.a = lerp(i.modulate.a, 0.0, 0.2)
 	
-func _input(event):
+func _input(_event):
 	if begun and isSitting and not Canim.is_playing():
 		if time_left > 0:
 			if Input.is_action_just_pressed("right"):
@@ -93,9 +96,23 @@ func _input(event):
 					pageExists = true
 					canStamp = true
 					tenant_eviction = paper.instantiate()
-					tenant_eviction.tenant_name = tenant_first_name
-					tenant_eviction.tenant_room = randi_range(301, 382)
 					origin.add_child(tenant_eviction)
+					tenant_eviction.tenant_name = tenant_first_name
+					while not next:
+						await get_tree().create_timer(0.2).timeout
+						tenant_eviction.tenant_room = randi_range(301, 382)
+						var check_address = str(tenant_eviction.tenant_room)
+						for i in door_nodes.size():
+							var door = door_nodes[i]
+							if door.address.contains(check_address):
+								print("checking door: ", door.address)
+								if not door.delivery_active:
+									print("Add tenant to this room")
+									next = true
+								else:
+									print("Tenant occupies room, retry.")
+									pass
+					next = false
 					$GeneralAnim.play("Page_In")
 					stage += 1
 					available_time += 3
@@ -120,7 +137,7 @@ func _input(event):
 					$GeneralAnim.play("Page_Out")
 					stage += 1
 					await get_tree().create_timer(0.3).timeout
-					Apartment.new_tenant(tenant_name)
+					Gamemanager._add_tenant(tenant_name, tenant_eviction.tenant_room)
 					pageExists = false
 					canRemove = false
 					$PaperOrigin.get_child(0).queue_free()

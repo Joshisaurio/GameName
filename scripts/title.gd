@@ -36,7 +36,7 @@ const UI_Click = preload("res://assets/audio/UI/SFX - UI Select (click).wav")
 var current_page := 1 # 1 is title, 2 is settings, 3 is credits
 
 func _ready():
-	$Camera3D/CamAnim.play("Camera")
+	$Camera3D/CamAnim.play("Intro_Pan")
 	
 	if gamemanager.player_name != "":
 		$SetName.visible = false
@@ -215,3 +215,8 @@ func Set_Name(new_text):
 	gamemanager.player_name = new_text
 	$Build/MeshInstance3D4/Playername.text = new_text
 	$SetName.visible = false
+
+
+func Intro_Done(anim_name):
+	if anim_name == "Intro_Pan":
+		$Camera3D/CamAnim.play("Camera")

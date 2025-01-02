@@ -68,7 +68,6 @@ transform = Transform3D(1.508, 0, 0, 0, 2.20325, 0, 0, 0, 0.0313017, 2.43843, 3.
 material = SubResource("StandardMaterial3D_pnrvg")
 
 [node name="img2" type="CSGBox3D" parent="Decor/img"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 size = Vector3(0.892578, 0.929688, 1)
 material = SubResource("StandardMaterial3D_7p6mj")
 

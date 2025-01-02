@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=4 uid="uid://bk0cr2wbg71ey"]
 
-[ext_resource type="Texture2D" uid="uid://b2npyd673nrmx" path="res://Textures/Model Textures/Desk/Albedo_Desk_Pixel.png" id="1_782fb"]
+[ext_resource type="Texture2D" uid="uid://c48te6oks4h2s" path="res://Textures/Model Textures/Desk/YouAreOut(SP)_UVGrid_BaseColor.1001.png" id="1_jwueo"]
 [ext_resource type="Texture2D" uid="uid://clh7ewm31gvvq" path="res://Textures/Model Textures/Desk/YouAreOut(SP)_UVGrid_Metallic.1001.png" id="2_7gpj3"]
 [ext_resource type="Texture2D" uid="uid://chfjibbqopj78" path="res://Textures/Model Textures/Desk/Normal_Desk_Pixel.png" id="3_ay8a2"]
 [ext_resource type="Texture2D" uid="uid://dgr1coxuf3s7c" path="res://Textures/Model Textures/Desk/Roughness_Desk_Pixel.png" id="4_ay8fv"]
@@ -47,7 +47,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_fjfpn")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_20g6s"]
-albedo_texture = ExtResource("1_782fb")
+albedo_texture = ExtResource("1_jwueo")
 metallic_specular = 0.15
 metallic_texture = ExtResource("2_7gpj3")
 roughness = 0.81

@@ -1,5 +1,6 @@
 extends Node
 
+@export var intro = preload("res://Manage/intro_video.tscn")
 @export var title_scene = preload("res://scenes/title.tscn")
 @export var stamping = preload("res://scenes/stamping.tscn")
 @export var apartment = preload("res://scenes/new_apartment.tscn")
@@ -10,7 +11,7 @@ var current_scene
 @export var default_name := "Landlord"
 
 func _ready():
-	load_level(title_scene)
+	load_level(intro)
 
 func load_level(level: PackedScene): #Takes preloaded scenes and swaps them with the current one.
 	if current_scene != null:

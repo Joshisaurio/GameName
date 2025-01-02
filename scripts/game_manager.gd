@@ -1,6 +1,6 @@
 extends Node
 
-const STARTING_DELIVERY_COUNT: int = 50 # Temporary, used for debug purposes
+const STARTING_DELIVERY_COUNT: int = 0 # Temporary, used for debug purposes
 
 var first_names = [
 	"James", "Mary", "John", "Patricia", "Robert", "Jennifer", "Michael", "Linda",
@@ -33,11 +33,11 @@ var cycle: int = 1
 var middle_name_cap: int = 3 # Increases by 1 every cycle
 var assigned_address: String = ""
 var completed_doors: int = 0
-var delivery_doors: Array[Door] = [] 
+var delivery_doors: Array[Door] = []
 @onready var door_nodes: Array[Node] = get_tree().get_nodes_in_group("Occupied Door")
 
 func _ready() -> void:
-	print("Game manager has been loaded.")
+	#print("Game manager has been loaded.")
 	_start_cycle()
 	_debug()
 
@@ -56,7 +56,7 @@ func _start_cycle() -> void:
 		delivery_doors.append(door_nodes[i])
 		
 	assigned_address = delivery_doors[completed_doors].address
-	print("Assigned Address: " + assigned_address)
+	#print("Assigned Address: " + assigned_address)
 		
 func _end_cycle() -> void:
 	for i in delivery_doors.size():
@@ -89,3 +89,14 @@ func _generate_tenant_name() -> String:
 		middle += " " + middle_names[randi() % middle_names.size()]
 	
 	return first + middle + last
+
+func _add_tenant(tenant: String, room: int):
+	
+	print("New tenant recieved: ", tenant , " lives at: ", room)
+	for i in door_nodes.size():
+		var door = door_nodes[i]
+		if door.address.contains(str(room)):
+			print("Door found: ", door.name)
+			delivery_doors.append(door)
+			door.delivery_active = true
+			door.tenant_name = tenant

@@ -1,0 +1,128 @@
+[gd_scene load_steps=6 format=3 uid="uid://cigtkibn3tmdc"]
+
+[ext_resource type="Script" path="res://scripts/intro_video.gd" id="1_oro1n"]
+
+[sub_resource type="Animation" id="Animation_6g2fl"]
+resource_name = "FadeVideo"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/VideoStreamPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -78.83]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Fade:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.13333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_gjub5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/VideoStreamPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Fade:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k3h8y"]
+_data = {
+"FadeVideo": SubResource("Animation_6g2fl"),
+"RESET": SubResource("Animation_gjub5")
+}
+
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_16ity"]
+file = "res://assets/Media/IntroAdjust.ogg"
+
+[node name="Intro_Video" type="Node2D"]
+script = ExtResource("1_oro1n")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="VidAnim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_k3h8y")
+}
+
+[node name="Control" type="Control" parent="."]
+z_index = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 6.10352e-05
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fade" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Control"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.004, 1.004)
+stream = SubResource("VideoStreamTheora_16ity")
+autoplay = true
+buffering_msec = 10
+
+[node name="Skiplbl" type="Label" parent="Control/VideoStreamPlayer"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 168.279
+offset_top = -45.6525
+offset_right = 499.279
+offset_bottom = -9.65253
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 26
+text = "Press [SPACE] to Skip Intro"
+
+[connection signal="animation_finished" from="VidAnim" to="." method="_on_vid_anim_animation_finished"]

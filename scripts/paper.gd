@@ -8,7 +8,7 @@ extends MeshInstance3D
 var tenant_room
 var tenant_name
 
-func _process(delta):
+func _process(_delta):
 	
 	namelbl.text = tenant_name
 	roomlbl.text = str(tenant_room)
