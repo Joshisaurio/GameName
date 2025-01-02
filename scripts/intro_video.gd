@@ -4,7 +4,7 @@ extends Node2D
 var length = 27.9
 
 func _ready():
-	if FileAccess.file_exists("res://assets/Media/introadjust.ogg.import"):
+	if FileAccess.file_exists("res://assets/Media/IntroaAdjust.ogg"):
 		print("exists")
 	else:
 		print("doesnt exist")
