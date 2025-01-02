@@ -1,6 +1,7 @@
 extends Node
 
-const STARTING_DELIVERY_COUNT: int = 0 # Temporary, used for debug purposes
+const DELIVERY_MAX: int = 8
+const DELIVERY_MIN: int = 2
 
 var first_names = [
 	"James", "Mary", "John", "Patricia", "Robert", "Jennifer", "Michael", "Linda",
@@ -25,15 +26,10 @@ var last_names = [
 	"Clark", "Lewis", "Robinson", "Walker", "Hall", "Young", "King", "Wright"
 ]
 
-const DELIVERY_CAP: int = 50 # Maximum amount of doors to deliver to
-							# This is normally 8 but has been increased for debug purposes
-
 var score: int = 0
 var cycle: int = 1
 var middle_name_cap: int = 3 # Increases by 1 every cycle
-var assigned_address: String = ""
-var completed_doors: int = 0
-var delivery_doors: Array[Door] = []
+var delivery_doors: Array[Door] = [] 
 @onready var door_nodes: Array[Node] = get_tree().get_nodes_in_group("Occupied Door")
 
 func _ready() -> void:
@@ -42,21 +38,14 @@ func _ready() -> void:
 	_debug()
 
 func _start_cycle() -> void:
-	var num_deliveries: int = STARTING_DELIVERY_COUNT + (2 * cycle)
+	var num_deliveries: int = max(DELIVERY_MIN, DELIVERY_MAX - (cycle-1))
 	var tenant_names: Array[String] = _generate_names(num_deliveries)
 	door_nodes.shuffle()
-
-	var cap = min(DELIVERY_CAP, door_nodes.size())
-	if num_deliveries > cap:
-		num_deliveries = cap
 		
 	for i in num_deliveries:
 		door_nodes[i].delivery_active = true
 		door_nodes[i].tenant_name = tenant_names[i]
 		delivery_doors.append(door_nodes[i])
-		
-	assigned_address = delivery_doors[completed_doors].address
-	#print("Assigned Address: " + assigned_address)
 		
 func _end_cycle() -> void:
 	for i in delivery_doors.size():
@@ -65,7 +54,6 @@ func _end_cycle() -> void:
 			delivery_doors[i].tenant_name = ""
 	
 	delivery_doors.clear()
-	completed_doors = 0
 
 func _debug() -> void:
 	for i in delivery_doors.size():
