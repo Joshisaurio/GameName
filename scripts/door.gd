@@ -62,7 +62,7 @@ func _toggle_door_state():
 		room = [room_a, room_b, room_c, room_d].pick_random()
 		var room_instance = room.instantiate()
 		room_position.add_child(room_instance)
-		await get_tree().create_timer(2)
+		get_tree().create_timer(2)
 		_start_minigame()
 		
 	open = !open

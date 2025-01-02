@@ -16,12 +16,12 @@ func handle_video():
 	$VidAnim.play("FadeVideo")
 	
 
-func _input(event):
+func _input(_event):
 	
 	if Input.is_action_just_released("Spacebar"):
 		print("Beans")
 		_on_vid_anim_animation_finished(true)
 
-func _on_vid_anim_animation_finished(anim_name):
+func _on_vid_anim_animation_finished(_anim_name):
 	
 	gamemanager.load_level(gamemanager.title_scene)
