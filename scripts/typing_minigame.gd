@@ -1,40 +1,63 @@
 extends Control
 
+@onready var countdown: Node = get_node("/root/Gamemanager/New_Apartment/Core/Countdown")
+const SFX_TYPING_1 = preload("res://assets/audio/Typing/SFX - Typing Var  1.wav")
+const SFX_TYPING_2 = preload("res://assets/audio/Typing/SFX - Typing Var  2.wav")
+const SFX_TYPING_3 = preload("res://assets/audio/Typing/SFX - Typing Var  3.wav")
+const SFX_TYPING_4 = preload("res://assets/audio/Typing/SFX - Typing Var  4.wav")
+const SFX_TYPING_5 = preload("res://assets/audio/Typing/SFX - Typing Var  5.wav")
+const CHARACTER_VALUE: int = 55
+
 @export var max_middle_names: int = 3
-@export var maxtime: int = 7
+@export var max_time: int = 6
 
 var game_started: bool = false # Has the player began typing?
 var prompt: String = ""
 var player_input: String = ""
 var current_letter_index: int = 0
 
-var score: int = 0
+var character_score: int = 0
+var accuracy_ratio: float = 0
+var time_bonus: int = 0
+
+var total_score: int = 0
 var correct: int = 0
 var failures: int = 0
 var time: float = 0
 
 @onready var tenant_label: RichTextLabel = $RichTextLabel
+@onready var audio: AudioStreamPlayer = $AudioStreamPlayer
 
-signal minigame_completed
+signal minigame_completed(total_score)
 
 func _ready() -> void:
-	$ProgressBar.max_value = maxtime
+	$ProgressBar.max_value = max_time
 	_update_text()
 
 func _process(delta):
 	if game_started:
 		time += delta
-	$ProgressBar.value = float(maxtime)-time
+	if time > float(max_time):
+		countdown.add_time(float(0))
+		minigame_completed.emit(0)
+	$ProgressBar.value = float(max_time) - time
 	
 	if correct != 0 and failures !=0:
-		$Accuracy.text = "Accuracy: " + str(round(float(correct)/(correct + failures)*100)) + "%"
+		accuracy_ratio = float(correct)/(correct + failures)
+		print(accuracy_ratio)
+		$Accuracy.text = "Accuracy: " + str(round(accuracy_ratio * 100)) + "%"
 	else:
 		$Accuracy.text = "Accuracy: 100%"
 		
 	if time > 0:
-		$TimeBonus.text = "Time bonus: " + str(50-round(50 * time/maxtime))
+		time_bonus = 50 - round(50 * time / max_time)
+		$TimeBonus.text = "Time Bonus: " + str(time_bonus)
 	else:
-		$TimeBonus.text = "Time bonus: 0"
+		$TimeBonus.text = "Time Bonus: 0"
+		
+	character_score = round(CHARACTER_VALUE * accuracy_ratio)
+	total_score += character_score
+	$CharacterScore.text = str(character_score)
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and not event.is_pressed():
@@ -50,33 +73,20 @@ func _unhandled_input(event: InputEvent) -> void:
 			next_key = prompt.substr(current_letter_index, 1).to_lower()
 	
 		if key_typed == next_key:
+			var sound = [SFX_TYPING_1, SFX_TYPING_2, SFX_TYPING_3, SFX_TYPING_4, SFX_TYPING_5].pick_random()
+			audio.set_stream(sound)
+			audio.play()
+			
 			current_letter_index += 1
 			correct += 1
-			print("success " + str(correct))
 			
 			if current_letter_index >= prompt.length():
-				print(correct)
-				print(failures)
-				_update_score()
-				minigame_completed.emit()
+				countdown.add_time(float(time_bonus))
+				minigame_completed.emit(total_score)
 		else:
 			failures += 1
-			print("failure " + str(failures))
 			
 		_update_text()
-
-func _update_score():
-	if time < 20.0:
-		var attempts:int = correct + failures
-		var rawscore:int = int(float(correct)/attempts*100)
-		var timebonus = 50-round(50 * time/maxtime)
-		score += rawscore + timebonus
-	
-	$Score.text = "Score: " + str(score)
-	
-	correct = 0
-	failures = 0
-	time = 0
 	
 func _update_text() -> void:
 	if current_letter_index <= 0:
