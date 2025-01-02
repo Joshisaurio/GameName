@@ -88,33 +88,6 @@ tracks/1/keys = {
 "values": [Vector3(-0.887343, -1.5708, 5.36739e-08), Vector3(-0.926124, -1.5708, 5.64941e-08), Vector3(-0.887343, -1.5708, 5.36739e-08)]
 }
 
-[sub_resource type="Animation" id="Animation_4vcvb"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-1.41655, 2.56875, 4.76837e-07)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.887343, -1.5708, 5.36739e-08)]
-}
-
 [sub_resource type="Animation" id="Animation_2v1qg"]
 resource_name = "Intro_Pan"
 tracks/0/type = "value"
@@ -140,6 +113,33 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector3(-1.50943, -1.57083, 3.4451e-05), Vector3(-0.887343, -1.5708, 5.36739e-08), Vector3(-0.887343, -1.5708, 5.36739e-08)]
+}
+
+[sub_resource type="Animation" id="Animation_4vcvb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.41655, 2.56875, 4.76837e-07)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.887343, -1.5708, 5.36739e-08)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o77eu"]
@@ -694,7 +694,6 @@ albedo_texture = ExtResource("19_pvlbs")
 resource_name = "Walkman(Bake)"
 transparency = 4
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("20_jeod6")
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
@@ -911,7 +910,7 @@ transform = Transform3D(1, 0, -1.25766e-12, 0, 1, 4.28546e-14, 1.42109e-14, -1.4
 shape = SubResource("BoxShape3D_b7gc5")
 
 [node name="Paper" type="MeshInstance3D" parent="FolderMenu"]
-transform = Transform3D(-0.401225, 0, 0.0148786, 0, 0.000773191, 0, -0.0166494, 0, -0.358553, -0.85245, 1.82148, -0.0593742)
+transform = Transform3D(-0.401225, 0, 0.0148787, 0, 0.000773191, 0, -0.0166494, 0, -0.358553, -0.85245, 1.82148, -0.0593742)
 mesh = SubResource("ArrayMesh_i07gh")
 skeleton = NodePath("")
 

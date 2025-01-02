@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dkiwduevatf04"]
+[gd_scene load_steps=6 format=3 uid="uid://dkiwduevatf04"]
 
 [ext_resource type="Shader" path="res://scripts/Shaders/Apply2D.gdshader" id="1_4doq0"]
+[ext_resource type="AudioStream" uid="uid://40o14htkluib" path="res://assets/audio/UI/SFX - UI folder Open.wav" id="2_s1cp7"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_er1wj"]
 viewport_path = NodePath("SubViewport")
@@ -60,3 +61,6 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 46
 text = "A123
 "
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_s1cp7")
