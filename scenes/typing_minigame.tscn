@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dk1cjy61duy5b"]
+[gd_scene load_steps=4 format=3 uid="uid://dk1cjy61duy5b"]
 
+[ext_resource type="Theme" uid="uid://bre6n751ipump" path="res://assets/maintheme.tres" id="1_8cowr"]
 [ext_resource type="Script" path="res://scripts/typing_minigame.gd" id="1_bhoa0"]
+[ext_resource type="FontFile" uid="uid://bvbm4u6y1bvfr" path="res://Fonts/AdobeGurmukhi-Bold.otf" id="3_6kb6m"]
 
 [node name="TypingMinigame" type="Control"]
 layout_mode = 3
@@ -15,15 +17,27 @@ offset_right = 164.0
 offset_bottom = 45.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_8cowr")
 script = ExtResource("1_bhoa0")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_right = 673.0
-offset_bottom = 180.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -165.0
+offset_right = 514.0
+offset_bottom = 36.0
+grow_horizontal = 2
+theme = ExtResource("1_8cowr")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 11
+theme_override_constants/outline_size = 8
+theme_override_fonts/normal_font = ExtResource("3_6kb6m")
+theme_override_font_sizes/normal_font_size = 35
 bbcode_enabled = true
+text = "First Middle Last"
+scroll_active = false
+autowrap_mode = 0
 shortcut_keys_enabled = false
 meta_underlined = false
 hint_underlined = false
@@ -38,16 +52,16 @@ text = "Score: "
 
 [node name="Accuracy" type="Label" parent="."]
 layout_mode = 0
-offset_top = 114.0
-offset_right = 40.0
-offset_bottom = 137.0
+offset_top = 130.0
+offset_right = 121.0
+offset_bottom = 162.0
 text = "Accuracy:"
 
 [node name="TimeBonus" type="Label" parent="."]
 layout_mode = 0
-offset_top = 145.0
-offset_right = 40.0
-offset_bottom = 170.0
+offset_top = 171.0
+offset_right = 157.0
+offset_bottom = 203.0
 text = "Time bonus: "
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
@@ -57,12 +71,13 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = -1.0
-offset_top = -12.0
+offset_top = 4.0
 offset_right = -1.0
-offset_bottom = 15.0
+offset_bottom = 31.0
 grow_horizontal = 2
 grow_vertical = 2
 value = 5.0
+show_percentage = false
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 1

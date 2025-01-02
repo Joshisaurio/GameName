@@ -86,19 +86,19 @@ func _unhandled_input(event):
 	# Switch to this instead once E stops teleporting you back to the desk :p
 	# C
 	
-	if Input.is_action_pressed("Interact"):
-		#if event.button_index == MOUSE_BUTTON_LEFT:
-		var collided = ray.get_collider()
-		
-		if collided:
-			print("Raycast collided with " + collided.get_class())
-			if collided is Door:
-				collided.door_interaction_begin.connect(_door_interaction_begin, CONNECT_ONE_SHOT)
-				collided.door_interaction_end.connect(_door_interaction_end, CONNECT_ONE_SHOT)
-				collided.clicked()
-				
-			if collided is Stamp:
-				collided.enter_desk()
+	if event is InputEventMouseButton and event.pressed:
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			var collided = ray.get_collider()
+			
+			if collided:
+				print("Raycast collided with " + collided.get_class())
+				if collided is Door:
+					collided.door_interaction_begin.connect(_door_interaction_begin, CONNECT_ONE_SHOT)
+					collided.door_interaction_end.connect(_door_interaction_end, CONNECT_ONE_SHOT)
+					collided.clicked()
+					
+				if collided is Stamp:
+					collided.enter_desk()
 				
 		
 	if event is InputEventMouseMotion && Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
