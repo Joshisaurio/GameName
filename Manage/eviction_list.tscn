@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dkiwduevatf04"]
+[gd_scene load_steps=6 format=3 uid="uid://dkiwduevatf04"]
 
 [ext_resource type="Shader" path="res://scripts/Shaders/Apply2D.gdshader" id="1_4doq0"]
+[ext_resource type="AudioStream" uid="uid://40o14htkluib" path="res://assets/audio/UI/SFX - UI folder Open.wav" id="2_wxuw6"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_er1wj"]
 viewport_path = NodePath("SubViewport")
@@ -86,3 +87,6 @@ offset_right = 1248.02
 offset_bottom = 244.5
 grow_vertical = 2
 theme_override_constants/separation = -10
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_wxuw6")
