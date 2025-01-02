@@ -1,6 +1,7 @@
 extends Node
 
-const STARTING_DELIVERY_COUNT: int = 8
+const DELIVERY_MAX: int = 8
+const DELIVERY_MIN: int = 2
 
 var first_names = [
 	"James", "Mary", "John", "Patricia", "Robert", "Jennifer", "Michael", "Linda",
@@ -25,8 +26,6 @@ var last_names = [
 	"Clark", "Lewis", "Robinson", "Walker", "Hall", "Young", "King", "Wright"
 ]
 
-const DELIVERY_MIN: int = 2
-
 var score: int = 0
 var cycle: int = 1
 var middle_name_cap: int = 3 # Increases by 1 every cycle
@@ -34,12 +33,12 @@ var delivery_doors: Array[Door] = []
 @onready var door_nodes: Array[Node] = get_tree().get_nodes_in_group("Occupied Door")
 
 func _ready() -> void:
-	print("Game manager has been loaded.")
+	#print("Game manager has been loaded.")
 	_start_cycle()
 	_debug()
 
 func _start_cycle() -> void:
-	var num_deliveries: int = max(DELIVERY_MIN, STARTING_DELIVERY_COUNT - (cycle-1))
+	var num_deliveries: int = max(DELIVERY_MIN, DELIVERY_MAX - (cycle-1))
 	var tenant_names: Array[String] = _generate_names(num_deliveries)
 	door_nodes.shuffle()
 		
@@ -78,3 +77,14 @@ func _generate_tenant_name() -> String:
 		middle += " " + middle_names[randi() % middle_names.size()]
 	
 	return first + middle + last
+
+func _add_tenant(tenant: String, room: int):
+	
+	print("New tenant recieved: ", tenant , " lives at: ", room)
+	for i in door_nodes.size():
+		var door = door_nodes[i]
+		if door.address.contains(str(room)):
+			print("Door found: ", door.name)
+			delivery_doors.append(door)
+			door.delivery_active = true
+			door.tenant_name = tenant

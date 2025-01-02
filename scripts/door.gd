@@ -4,29 +4,6 @@ const TENANT_THEME_NEUTRAL = preload("res://assets/audio/Music/tenant_theme_1_(n
 const TENANT_THEME_SAD = preload("res://assets/audio/Music/tenant_theme_2_(sad).wav")
 const TENANT_THEME_HIPHOP = preload("res://assets/audio/Music/tenant_theme_3_(hiphop).wav")
 
-var first_names = [
-	"James", "Mary", "John", "Patricia", "Robert", "Jennifer", "Michael", "Linda",
-	"William", "Elizabeth", "David", "Barbara", "Richard", "Susan", "Joseph", "Jessica",
-	"Thomas", "Sarah", "Charles", "Karen", "Emma", "Liam", "Olivia", "Noah",
-	"Ava", "Isabella", "Sophia", "Mia", "Charlotte", "Amelia", "Harper", "Evelyn"
-]
-
-var middle_names = [
-	"Mae", "Rose", "Grace", "Ann", "Marie", "Lynn", "Lee", "Jean",
-	"Ray", "James", "John", "William", "Alan", "Peter", "Scott", "Dean",
-	"Jane", "May", "Beth", "Anne", "Dawn", "Elle", "Faith", "Hope",
-	"Jay", "Cole", "Blake", "Reid", "Kent", "Chase", "Luke", "Ross",
-	"Joy", "Kate", "Ruth", "Sage", "Skye", "Paige", "Claire", "Jade",
-	"Kyle", "Tate", "Finn", "Jack", "Grant", "Pierce", "Troy", "Quinn"
-]
-
-var last_names = [
-	"Smith", "Johnson", "Williams", "Brown", "Jones", "Garcia", "Miller", "Davis",
-	"Rodriguez", "Martinez", "Hernandez", "Lopez", "Gonzalez", "Wilson", "Anderson", "Thomas",
-	"Taylor", "Moore", "Jackson", "Martin", "Lee", "Thompson", "White", "Harris",
-	"Clark", "Lewis", "Robinson", "Walker", "Hall", "Young", "King", "Wright"
-]
-
 signal door_interaction_begin(door_node)
 signal door_interaction_end(door_node)
 
@@ -94,6 +71,8 @@ func _end_current_minigame():
 	if current_minigame != null:
 		audio_door.set_stream(DOOR_SLAM)
 		audio_door.play()
+		delivery_active = false
+		tenant_name = ""
 		current_minigame.queue_free()
 
 func _minigame_completed():
