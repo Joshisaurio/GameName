@@ -11,6 +11,7 @@ const TIME_PENALTY: int = 1
 @onready var camera = $Camera3D
 @onready var filter = $Camera3D/StampingFilter
 @onready var origin = $PaperOrigin
+@onready var PPoint = $PlayerPoint
 @onready var music = $Music
 @onready var guide_label: Label = $Guide/Guide
 
@@ -64,7 +65,8 @@ var stages = [
 	"( Press [D] to grab a paper )",
 	"( [Click] to stamp )",
 	"( Press [A] to remove the paper )",
-	"( Press [E] to exit )"
+	"( Press [E] to exit )",
+	"( Press [TAB] to view your list and evict those tenants!)"
 ]
 
 var time_left = STAMPING_TIME_LIMIT
@@ -145,23 +147,32 @@ func _input(_event):
 					if tenant_eviction != null:
 						tenant_eviction.isStamped = true
 						canStamp = false
-						canRemove = true
+						canRemove = false
 						stage += 1
 						$StampAnim.play("Stamp")
 						$Stamp.play()
 				else:
 					available_time -= TIME_PENALTY
 			
+			if Input.is_action_just_pressed("forward"):
+				if not canStamp and not canRemove:
+					if tenant_eviction != null:
+						tenant_eviction.isSigned = true
+						canRemove = true
+						$Sign.play()
+				else:
+					available_time -= TIME_PENALTY
+			
 			if Input.is_action_just_pressed("left"):
 				if canRemove:
 					$GeneralAnim.play("Page_Out")
+					$Paper.play()
 					stage += 1
 					await get_tree().create_timer(0.3).timeout
 					Gamemanager.add_tenant(tenant_name, tenant_eviction.tenant_room)
 					pageExists = false
 					canRemove = false
 					$PaperOrigin.get_child(0).queue_free()
-					#$Paper.play()
 				else:
 					available_time -= TIME_PENALTY
 					
@@ -214,8 +225,8 @@ func CamAnim_Finished(anim_name):
 			Apartment.add_child(active_player)
 			filter.visible = false
 			isSitting = false
-			active_player.global_position.x = camera.global_position.x
-			active_player.global_position.z = camera.global_position.z
+			active_player.global_position = PPoint.global_position
+			get_tree().get_first_node_in_group("countdown").starting_time += available_time
 			active_player.global_position.y = 1.5
 			get_tree().get_first_node_in_group("countdown").show()
 			get_tree().get_first_node_in_group("countdown").add_time(available_time)

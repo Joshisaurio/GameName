@@ -50,6 +50,8 @@ func interacted():
 		audio_door.set_stream(DOORKNOB)
 		audio_door.play()
 		print("There is no tenant in this room!")
+		audio_door.set_stream(DOORKNOB)
+		audio_door.play()
 		return
 		
 	audio_door.set_stream(DOOR_OPEN)

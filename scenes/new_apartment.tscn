@@ -868,7 +868,7 @@ material = SubResource("StandardMaterial3D_4cyo2")
 [node name="Core" type="Node" parent="."]
 
 [node name="Stamping" parent="Core" instance=ExtResource("10_jxt8k")]
-transform = Transform3D(-7.81378e-08, 0, 1.78758, 0, 1.78758, 0, -1.78758, 0, -7.81378e-08, -4.72791, -2.39003, -56.832)
+transform = Transform3D(2.34413e-07, 0, -1.78758, 0, 1.78758, 0, 1.78758, 0, 2.34413e-07, -0.258733, -2.39003, -50.8474)
 
 [node name="Intro" parent="Core" instance=ExtResource("11_e4v4f")]
 

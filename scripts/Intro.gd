@@ -26,7 +26,7 @@ var intro: Array[String] = [
 	"To put it mildly, the board isn't happy with your performance.",
 	"*ahem*",
 	"Clear out your office by the end of the day.",
-	"You're fired.",
+	"You're OUT!",
 ]
 	
 var dialogue_id: int = 0
