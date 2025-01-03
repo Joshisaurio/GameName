@@ -829,6 +829,7 @@ libraries = {
 
 [node name="Front" type="MeshInstance3D" parent="FolderMenu"]
 transform = Transform3D(-0.414619, 0, 0.0152818, 0, 0.000773191, 0, -0.0172052, 0, -0.368269, -0.85245, 1.83485, -0.0593743)
+visible = false
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_oyx4y")
 skeleton = NodePath("")
@@ -916,6 +917,7 @@ shape = SubResource("BoxShape3D_b7gc5")
 
 [node name="Paper" type="MeshInstance3D" parent="FolderMenu"]
 transform = Transform3D(-0.401225, 0, 0.0148787, 0, 0.000773191, 0, -0.0166494, 0, -0.358553, -0.85245, 1.82148, -0.0593742)
+visible = false
 mesh = SubResource("ArrayMesh_i07gh")
 skeleton = NodePath("")
 
@@ -1135,17 +1137,6 @@ horizontal_alignment = 0
 
 [node name="Bleach" type="Label3D" parent="FolderMenu/Paper2"]
 transform = Transform3D(0.0162391, -4.03473, -1.77214e-07, 6.9246e-07, -6.95512e-07, 15.9154, -4.62587, 0.0753408, 2.3298e-07, 0.554588, 1.24878, -0.552881)
-pixel_size = 0.0015
-render_priority = 1
-modulate = Color(0, 0, 0, 1)
-text = "Bleach"
-font = ExtResource("11_187ot")
-font_size = 37
-outline_size = 0
-horizontal_alignment = 0
-
-[node name="Bleach2" type="Label3D" parent="FolderMenu/Paper2"]
-transform = Transform3D(0.0162391, -4.03473, -1.77214e-07, 6.9246e-07, -6.95512e-07, 15.9154, -4.62587, 0.0753408, 2.3298e-07, -0.1283, 1.24878, -0.552881)
 pixel_size = 0.0015
 render_priority = 1
 modulate = Color(0, 0, 0, 1)
