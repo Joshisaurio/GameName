@@ -14,6 +14,8 @@ var is_display_paused: bool = false
 var is_paused: bool = true
 var grace_period: bool = true
 
+var game_is_over:bool = false
+
 signal game_over
 
 func _ready():
@@ -30,7 +32,10 @@ func _process(delta: float) -> void:
 	else:
 		label.modulate.a = 1.0 
 	
-	if !is_paused:
+	if Input.is_action_just_pressed("lose"):
+		stored_time = 0
+	
+	if !is_paused and !grace_period and !game_is_over:
 		stored_time -= delta
 		if stored_time <= 0:
 			stored_time = 0
@@ -40,7 +45,7 @@ func _process(delta: float) -> void:
 	_update_time()
 	if !is_display_paused:
 		_update_display()
-
+		
 func _get_time(time: float) -> String:
 	var seconds: int = int(time)
 	var centiseconds: int = (time - seconds) * 100
@@ -72,5 +77,11 @@ func add_time(added_time: float) -> void:
 	await tween.finished
 	new_label.hide()
 	is_display_paused = false
-		
+
+func _on_game_over():
+	print("Signal sent")
+	$Game_Over._begin()
+	get_tree().get_first_node_in_group("Player").set_physics_process(false)
+	game_is_over = true
+	
 	

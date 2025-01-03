@@ -4,6 +4,7 @@ extends Node
 @export var title_scene = preload("res://scenes/title.tscn")
 @export var stamping = preload("res://scenes/stamping.tscn")
 @export var apartment = preload("res://scenes/new_apartment.tscn")
+@export var game_over = preload("res://scenes/game_over.tscn")
 var current_scene
 
 @export var player_name := ""
