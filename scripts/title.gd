@@ -156,11 +156,6 @@ func screen_clicked(_camera, _event, _event_position, _normal, _shape_idx):
 			print("Borderless windowed")
 			WindowType = 1
 
-
-func data_clicked(_camera, _event, _event_position, _normal, _shape_idx):
-	pass # Replace with function body.
-
-
 #Hover stuff
 func _on_play_area_mouse_entered():
 	play.modulate = hover_color

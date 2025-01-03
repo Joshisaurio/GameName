@@ -53,13 +53,16 @@ var loaded_list: MeshInstance3D
 @onready var head: Node3D = $Head
 @onready var ray: RayCast3D = $Head/Look
 @onready var audio_player = $FootSteps
+@onready var help_label = $UI/Help
 
 var tick = 0 # Current player tick, used in head bob calculation
 var moving := false
 
 func _ready():
+	$OtherUI.visible = true
 	apartment.find_child("OfficeDoor").begin_game.connect(_show_tab_hint, CONNECT_ONE_SHOT)
 	$Head.find_child("Camera3D").make_current()
+	help_label.modulate.a = 0.0
 	if Engine.is_editor_hint():
 		return
 
@@ -114,7 +117,10 @@ func _unhandled_input(event):
 				collided.interacted()
 				
 			if collided is Stamp:
-				collided.enter_desk()
+				if !gamestate_manager.delivery_doors.size() < gamestate_manager.DELIVERY_MAX:
+					_hint("You have too many eviction notices to stamp more.")
+				else:
+					collided.enter_desk()
 				
 			if collided.name == "OfficeDoor": # I think I almost just threw up writing this
 				collided.interacted()
@@ -239,9 +245,17 @@ func raycast_check():
 	else:
 		$UI/Dot.visible = false
 		
+func _hint(hint: String = "", length: float = 3):
+	help_label.text = hint
+	var tween = create_tween()
+	tween.tween_property(help_label, "modulate:a", 1.0, 0.5)
+	tween.tween_interval(length)
+	tween.tween_property(help_label, "modulate:a", 0.0, 0.5)
+		
 func _show_tab_hint():
-	$OtherUI.visible = true
-	await get_tree().create_timer(2).timeout
+	_hint("Return to your office anytime to fill out more eviction notices.")
+	await get_tree().create_timer(4).timeout
+	_hint("Press [TAB] to see your delivery addresses.")
 	var tween = create_tween()
 	tween.tween_property($OtherUI/Tab, "modulate:a", 1.0, 2.0)
 	tween.tween_interval(2.0)
