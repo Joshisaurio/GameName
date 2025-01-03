@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://6d27ul2h641w"]
+[gd_scene load_steps=15 format=3 uid="uid://6d27ul2h641w"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_p2d7i"]
 [ext_resource type="PackedScene" uid="uid://di16lr7iqjtmr" path="res://Manage/head.tscn" id="2_n4tw0"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bylkjbi6mrmrv" path="res://Textures/UI/Interact.png" id="5_g3owc"]
 [ext_resource type="Texture2D" uid="uid://dp7svs0yo6vpk" path="res://Textures/Logo/Evicted.png" id="5_kbp4x"]
 [ext_resource type="AudioStream" uid="uid://b5ayql8j7sisn" path="res://assets/audio/UI/Evict1.wav" id="6_wjnn7"]
+[ext_resource type="Theme" uid="uid://bre6n751ipump" path="res://assets/maintheme.tres" id="7_pnmjs"]
 [ext_resource type="Texture2D" uid="uid://dq2egsvdtfb42" path="res://Textures/UI/tab.png" id="8_38sw5"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ne0jo"]
@@ -191,6 +192,27 @@ libraries = {
 stream = ExtResource("6_wjnn7")
 pitch_scale = 1.43
 bus = &"Game"
+
+[node name="Help" type="Label" parent="UI"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -153.0
+offset_top = -76.0
+offset_right = 154.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(153.5, 16)
+theme = ExtResource("7_pnmjs")
+text = "( Tip )"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="OtherUI" type="CanvasLayer" parent="."]
 
