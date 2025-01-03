@@ -37,7 +37,7 @@ var tenant_eviction
 var tenant_first_name
 
 var next = false
-var available_time = 120
+var available_time = 0
 
 var first_names = [
 	"James", "Mary", "John", "Patricia", "Robert", "Jennifer", "Michael", "Linda",

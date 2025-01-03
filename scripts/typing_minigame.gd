@@ -48,11 +48,8 @@ func _process(delta):
 	if game_started:
 		time += delta * DRAIN_MODIFIER
 	if time > max_time:
-		countdown.start()
 		countdown.add_time(0)
 		minigame_completed.emit(0)
-	else:
-		countdown.stop()
 		
 	$ProgressBar.value = max_time - time
 	
@@ -98,7 +95,6 @@ func _unhandled_input(event: InputEvent) -> void:
 			correct += 1
 			
 			if current_letter_index >= prompt.length():
-				countdown.start()
 				countdown.add_time(float(time_bonus))
 				minigame_completed.emit(total_score)
 		else:
