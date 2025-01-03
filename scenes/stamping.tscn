@@ -680,9 +680,10 @@ text = "0/8"
 label_settings = SubResource("LabelSettings_qdyd7")
 
 [node name="Guide" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Guide" type="Label" parent="Guide"]
-visible = false
+modulate = Color(1, 1, 1, 0)
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -723,5 +724,10 @@ surface_material_override/0 = SubResource("StandardMaterial3D_p6f03")
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_hm3n5")
 
+[node name="FadeTimer" type="Timer" parent="."]
+wait_time = 20.0
+one_shot = true
+
 [connection signal="animation_finished" from="Camera3D/CamAnim" to="." method="CamAnim_Finished"]
 [connection signal="finished" from="Music" to="." method="_on_music_finished"]
+[connection signal="timeout" from="FadeTimer" to="." method="_on_fade_timer_timeout"]

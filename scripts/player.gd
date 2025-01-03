@@ -82,6 +82,10 @@ func _physics_process(delta):
 		reset_head_bob(delta)
 		
 	if Input.is_action_just_pressed("check_list"):
+		checking_list = false
+		_check_list(delta)
+	elif Input.is_action_just_released("check_list"):
+		checking_list = true
 		_check_list(delta)
 		
 	update_other_ui($UI/Dot.visible)
@@ -175,7 +179,6 @@ func movement_check():
 func _check_list(delta):	
 	if is_instance_valid(loaded_list):
 		loaded_list.queue_free()
-	
 	if !checking_list:
 		#_freeze()
 		loaded_list = eviction_list.instantiate()
@@ -192,12 +195,12 @@ func _check_list(delta):
 		loaded_list.get_node("AudioStreamPlayer").play()
 		
 		stored_head_x_rotation = head.rotation.x
-		head.rotation.x = lerp_angle(head.rotation.x, -60.0, delta)
-	else:
-		head.rotation.x = lerp_angle(head.rotation.x, stored_head_x_rotation, delta)
+		#head.rotation.x = lerp_angle(head.rotation.x, -60.0, delta)
+	#else:
+		#head.rotation.x = lerp_angle(head.rotation.x, stored_head_x_rotation, delta)
 		#_unfreeze()
 		
-	checking_list = !checking_list
+	
 		
 
 func _freeze() -> void:
