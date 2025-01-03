@@ -1,6 +1,6 @@
 extends Control
 
-@export var starting_time: int = 10
+@export var starting_time: int = 0
 
 @onready var apartment: Node = get_node("/root/Gamemanager/New_Apartment")
 @onready var gamestate_manager: Node = apartment.get_node("Core/GameManager")

@@ -37,7 +37,7 @@ var tenant_eviction
 var tenant_first_name
 
 var next = false
-var available_time = 10
+var available_time = 0
 
 var first_names = [
 	"James", "Mary", "John", "Patricia", "Robert", "Jennifer", "Michael", "Linda",
@@ -245,7 +245,7 @@ func CamAnim_Finished(anim_name):
 			countdown.starting_time += available_time
 			active_player.global_position.y = 1.5
 			countdown.add_time(available_time)
-			available_time = 10
+			available_time = 0
 			time_left = STAMPING_TIME_LIMIT # Reset to default
 
 func _on_music_finished():
