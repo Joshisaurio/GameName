@@ -1233,6 +1233,7 @@ color = Color(0, 0, 0, 0)
 transform = Transform3D(-9.2547e-08, 0, -2.11723, 0, 2.11723, 0, 2.11723, 0, -9.2547e-08, -0.663615, 0.141526, 0.0822092)
 
 [node name="SetName" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

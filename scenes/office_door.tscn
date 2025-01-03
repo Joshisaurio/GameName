@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=4 uid="uid://dd2owgnjsyssn"]
+[gd_scene load_steps=17 format=4 uid="uid://dd2owgnjsyssn"]
 
 [ext_resource type="Script" path="res://scripts/office_door.gd" id="1_qk5xf"]
 [ext_resource type="Texture2D" uid="uid://d3000fcg2mjcw" path="res://Models/door and frame_0.png" id="2_r6hfx"]
+[ext_resource type="FontFile" uid="uid://bvbm4u6y1bvfr" path="res://Fonts/AdobeGurmukhi-Bold.otf" id="3_1dvow"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l8t7x"]
 size = Vector3(2, 3.2, 0.2)
@@ -89,6 +90,7 @@ shadow_mesh = SubResource("ArrayMesh_6pnuf")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xxnq3"]
 vertex_color_is_srgb = true
+albedo_color = Color(0.259383, 0.309924, 0.287436, 1)
 metallic = 1.0
 
 [sub_resource type="Animation" id="Animation_wefow"]
@@ -176,5 +178,14 @@ surface_material_override/0 = SubResource("StandardMaterial3D_xxnq3")
 libraries = {
 "": SubResource("AnimationLibrary_teikc")
 }
+
+[node name="InteractTut" type="Label3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.195131, 2.35537, -0.199505)
+pixel_size = 0.0008
+render_priority = 1
+text = "Press [E] to Interact
+With doors."
+font = ExtResource("3_1dvow")
+font_size = 246
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="remove_room"]
