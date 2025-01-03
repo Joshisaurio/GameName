@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://6d27ul2h641w"]
+[gd_scene load_steps=15 format=3 uid="uid://6d27ul2h641w"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_p2d7i"]
 [ext_resource type="PackedScene" uid="uid://di16lr7iqjtmr" path="res://Manage/head.tscn" id="2_n4tw0"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dp7svs0yo6vpk" path="res://Textures/Logo/Evicted.png" id="5_kbp4x"]
 [ext_resource type="AudioStream" uid="uid://b5ayql8j7sisn" path="res://assets/audio/UI/Evict1.wav" id="6_wjnn7"]
 [ext_resource type="Texture2D" uid="uid://dq2egsvdtfb42" path="res://Textures/UI/tab.png" id="8_38sw5"]
+[ext_resource type="FontFile" uid="uid://bvbm4u6y1bvfr" path="res://Fonts/AdobeGurmukhi-Bold.otf" id="9_vfq8e"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ne0jo"]
 
@@ -221,6 +222,21 @@ grow_vertical = 0
 scale = Vector2(0.5, 0.5)
 pivot_offset = Vector2(50, 50)
 texture = ExtResource("8_38sw5")
+
+[node name="Obj" type="Label" parent="OtherUI"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 298.0
+offset_top = -98.0
+offset_right = 740.0
+offset_bottom = -7.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("9_vfq8e")
+theme_override_font_sizes/font_size = 33
+text = "Evict as many tenants before
+your time runs out!"
 
 [connection signal="timeout" from="CheckTimer" to="." method="movement_check"]
 [connection signal="timeout" from="CheckRay" to="." method="raycast_check"]

@@ -20,3 +20,4 @@ func interacted():
 		self.remove_from_group("Interactable")
 		$CollisionShape3D.queue_free()
 		begin_game.emit()
+		$InteractTut.queue_free()

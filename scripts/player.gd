@@ -248,3 +248,14 @@ func _show_tab_hint():
 	tween.tween_property($OtherUI/Tab, "modulate:a", 0.0, 2.0)
 	await tween.finished
 	$OtherUI.visible = false
+	_show_objective()
+
+func _show_objective():
+	$OtherUI.visible = true
+	await get_tree().create_timer(2).timeout
+	var tween = create_tween()
+	tween.tween_property($OtherUI/Obj, "modulate:a", 1.0, 2.0)
+	tween.tween_interval(2.0)
+	tween.tween_property($OtherUI/Obj, "modulate:a", 0.0, 2.0)
+	await tween.finished
+	$OtherUI.visible = false
