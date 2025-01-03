@@ -51,7 +51,9 @@ func _begin():
 	game_over = true
 
 func _on_quit_pressed():
-	gamemanager.load_level(gamemanager.title_scene)
+	if game_over:
+		gamemanager.load_level(gamemanager.title_scene)
 
 func _on_retry_pressed():
-	gamemanager.load_level(gamemanager.apartment)
+	if game_over:
+		gamemanager.load_level(gamemanager.apartment)
