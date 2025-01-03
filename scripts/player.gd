@@ -182,6 +182,7 @@ func _check_list(delta):
 	if !checking_list:
 		_freeze()
 		loaded_list = eviction_list.instantiate()
+		loaded_list.get_node("AudioStreamPlayer").play()
 		head.get_parent().add_child(loaded_list)
 		loaded_list.position = head.position + Vector3(0, -0.3, -0.1) # Position in front of the player
 		
@@ -192,13 +193,13 @@ func _check_list(delta):
 			vbox.add_child(label)
 			label.text = i.address
 		vbox.get_child(0).queue_free()
-		loaded_list.get_node("AudioStreamPlayer").play()
 		
 		stored_head_x_rotation = head.rotation.x
 		var tween = create_tween()
-		tween.tween_property(head, "rotation:x", deg_to_rad(-60.0), 0.08)
+		tween.tween_property(head, "rotation:x", deg_to_rad(-60.0), 0.12)
 	else:
-		head.rotation.x = lerp_angle(head.rotation.x, stored_head_x_rotation, delta)
+		var tween = create_tween()
+		tween.tween_property(head, "rotation:x", stored_head_x_rotation, 0.12)
 		_unfreeze()
 		
 func _freeze() -> void:
@@ -217,9 +218,9 @@ func _door_interaction_begin(door: Door) -> void:
 	
 func _door_interaction_end(door: Door) -> void:
 	_unfreeze()
+	gamestate_manager.remove_tenant(door)
 	INTERACTION_ENABLED = true
 	door._toggle_door_state()
-	gamestate_manager.remove_tenant(door.address)
 	
 	$UI/EvictedIcon.visible = true
 	var audio = [EVICT_1, EVICT_2].pick_random()

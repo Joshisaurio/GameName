@@ -1,7 +1,7 @@
 extends Node3D
 class_name Stamp
 
-const STAMPING_TIME_LIMIT: int = 20
+const STAMPING_TIME_LIMIT: int = 30
 const TIME_BONUS: int = 6
 const TIME_PENALTY: int = 0
 
@@ -153,7 +153,6 @@ func _input(_event):
 									pass
 					next = false
 					$GeneralAnim.play("Page_In")
-					available_time += 1
 					if stage < 4:
 						stage += 1
 					
@@ -195,7 +194,6 @@ func _input(_event):
 			if Input.is_action_just_pressed("left"):
 				if canRemove:
 					$GeneralAnim.play("Page_Out")
-					available_time += 1
 					$Paper.play()
 					if stage < 4:
 						stage += 1

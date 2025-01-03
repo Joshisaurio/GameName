@@ -1,14 +1,16 @@
 extends Control
 
-@onready var countdown: Node = get_node("/root/Gamemanager/New_Apartment/Core/Countdown")
 const SFX_TYPING_1 = preload("res://assets/audio/Typing/SFX - Typing Var  1.wav")
 const SFX_TYPING_2 = preload("res://assets/audio/Typing/SFX - Typing Var  2.wav")
 const SFX_TYPING_3 = preload("res://assets/audio/Typing/SFX - Typing Var  3.wav")
 const SFX_TYPING_4 = preload("res://assets/audio/Typing/SFX - Typing Var  4.wav")
 const SFX_TYPING_5 = preload("res://assets/audio/Typing/SFX - Typing Var  5.wav")
+
 const MAX_TIME_DEFAULT: int = 6
-const CHARACTER_VALUE: int = 55
 const MAX_TIME_BONUS: int = 25
+const CHARACTER_VALUE: int = 55
+const DRAIN_MODIFIER: float = 2.2
+const DENT_MODIFIER: float = 0.3
 
 @export var max_middle_names: int = 3
 
@@ -28,6 +30,7 @@ var correct: int = 0
 var failures: int = 0
 var time: float = 0
 
+@onready var countdown: Node = get_node("/root/Gamemanager/New_Apartment/Core/Countdown")
 @onready var tenant_label: RichTextLabel = $RichTextLabel
 @onready var audio: AudioStreamPlayer = $AudioStreamPlayer
 @onready var miss_audio: AudioStreamPlayer = $Miss
@@ -43,8 +46,9 @@ func _ready() -> void:
 
 func _process(delta):
 	if game_started:
-		time += delta
+		time += delta * DRAIN_MODIFIER
 	if time > max_time:
+		countdown.start()
 		countdown.add_time(0)
 		minigame_completed.emit(0)
 	$ProgressBar.value = max_time - time
@@ -60,6 +64,7 @@ func _process(delta):
 		time_bonus = MAX_TIME_BONUS - round(MAX_TIME_BONUS * time / max_time)
 		$TimeBonus.text = "Time Bonus: " + str(time_bonus)
 	else:
+		time = 0
 		$TimeBonus.text = "Time Bonus: 0"
 		
 	character_score = round(CHARACTER_VALUE * accuracy_ratio)
@@ -76,10 +81,12 @@ func _unhandled_input(event: InputEvent) -> void:
 		var next_key = prompt.substr(current_letter_index, 1).to_lower()
 	
 		if next_key == " ":
+			time += DENT_MODIFIER
 			current_letter_index += 1
 			next_key = prompt.substr(current_letter_index, 1).to_lower()
 	
 		if key_typed == next_key:
+			time -= DENT_MODIFIER
 			var sound = [SFX_TYPING_1, SFX_TYPING_2, SFX_TYPING_3, SFX_TYPING_4, SFX_TYPING_5].pick_random()
 			audio.set_stream(sound)
 			audio.play()
@@ -88,6 +95,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			correct += 1
 			
 			if current_letter_index >= prompt.length():
+				countdown.start()
 				countdown.add_time(float(time_bonus))
 				minigame_completed.emit(total_score)
 		else:

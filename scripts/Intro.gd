@@ -68,7 +68,7 @@ func _input(event):
 			audio.set_stream(SFX_SLAM_PHONE)
 			audio.play()
 			await get_tree().create_timer(1).timeout
-			_fade_label_in(3, dialogue)
+			_fade_label_out(3, dialogue)
 			await get_tree().create_timer(5).timeout # Long silence
 			_proceed()
 			

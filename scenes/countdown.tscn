@@ -25,9 +25,9 @@ text = "00:00"
 [node name="added_time" type="Label" parent="."]
 layout_mode = 0
 offset_left = 60.0
-offset_top = 93.0
+offset_top = 71.0
 offset_right = 289.0
-offset_bottom = 137.0
+offset_bottom = 115.0
 theme = ExtResource("2_yutcg")
 theme_override_fonts/font = ExtResource("3_pb1vm")
 theme_override_font_sizes/font_size = 38
@@ -35,10 +35,10 @@ text = "00:00"
 
 [node name="plus" type="Label" parent="added_time"]
 layout_mode = 0
-offset_left = -30.0
-offset_top = -1.0
-offset_right = 122.0
-offset_bottom = 52.0
+offset_left = -25.0
+offset_top = -2.0
+offset_right = 127.0
+offset_bottom = 51.0
 theme_override_font_sizes/font_size = 38
 text = "+
 "

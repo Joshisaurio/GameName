@@ -633,24 +633,6 @@ shape = SubResource("BoxShape3D_prui7")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="time_earned" type="Label" parent="UI"]
-offset_left = 72.0
-offset_top = 50.0
-offset_right = 289.0
-offset_bottom = 83.0
-theme = ExtResource("7_1ptb6")
-theme_override_fonts/font = ExtResource("8_1peu4")
-text = "00:00"
-label_settings = SubResource("LabelSettings_qdyd7")
-
-[node name="plus" type="Label" parent="UI/time_earned"]
-offset_left = -22.0
-offset_right = 3.0
-offset_bottom = 33.0
-theme = ExtResource("7_1ptb6")
-text = "+"
-label_settings = SubResource("LabelSettings_qdyd7")
-
 [node name="time_left" type="ProgressBar" parent="UI"]
 anchors_preset = 8
 anchor_left = 0.5
@@ -677,6 +659,26 @@ theme = ExtResource("7_1ptb6")
 theme_override_fonts/font = ExtResource("8_4cr22")
 text = "0/8"
 label_settings = SubResource("LabelSettings_qdyd7")
+
+[node name="time_earned" type="Label" parent="UI"]
+offset_left = 59.0
+offset_top = 24.0
+offset_right = 288.0
+offset_bottom = 68.0
+theme = ExtResource("7_1ptb6")
+theme_override_fonts/font = ExtResource("8_1peu4")
+theme_override_font_sizes/font_size = 38
+text = "00:00"
+
+[node name="plus" type="Label" parent="UI/time_earned"]
+layout_mode = 0
+offset_left = -25.0
+offset_top = -2.0
+offset_right = 127.0
+offset_bottom = 51.0
+theme_override_font_sizes/font_size = 38
+text = "+
+"
 
 [node name="Guide" type="CanvasLayer" parent="."]
 visible = false

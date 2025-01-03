@@ -24,18 +24,16 @@ func add_tenant(tenant: String, address: int) -> void:
 			door.tenant_name = tenant
 	delivery_doors.sort_custom(sort_by_district)
 			
-func remove_tenant(address) -> void:
+func remove_tenant(this_door: Door) -> void:
 	if delivery_doors.size() == 0:
 		return
 		
-	for i in delivery_doors.size():
-		var door = delivery_doors[i]
-		if door.address.contains(str(address)):
-			delivery_doors.remove_at(i)
+	for i in delivery_doors.size() - 1:
+		var checked_door = delivery_doors[i]
+		if checked_door.address.contains(str(this_door.address)):
+			delivery_doors.erase(checked_door)
 		delivery_doors.sort_custom(sort_by_district)
-		return
-			
-	print("No address ", address, " found.")
+		
 	return
 	
 func sort_by_district(a: Door, b: Door):
