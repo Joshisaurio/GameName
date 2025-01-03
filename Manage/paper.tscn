@@ -124,7 +124,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("FontFile_nlfl4")
 theme_override_font_sizes/font_size = 46
-text = "Info: Null"
+text = "Age: Null"
 
 [node name="Infolbl2" type="Label" parent="SubViewport/Central/PaperBG/TenantInfo"]
 layout_mode = 2
