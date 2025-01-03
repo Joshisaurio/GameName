@@ -34,7 +34,7 @@ var tenant_eviction
 var tenant_first_name
 
 var next = false
-var available_time = 0
+var available_time = 10
 
 var first_names = [
 	"James", "Mary", "John", "Patricia", "Robert", "Jennifer", "Michael", "Linda",
@@ -140,7 +140,9 @@ func _input(_event):
 					
 					$Paper.play()
 				else:
-					available_time -= TIME_PENALTY
+					if available_time > 0:
+						available_time -= TIME_PENALTY
+					
 			
 			if Input.is_action_just_pressed("Click"):
 				if canStamp:
@@ -152,8 +154,9 @@ func _input(_event):
 						$StampAnim.play("Stamp")
 						$Stamp.play()
 				else:
-					available_time -= TIME_PENALTY
-			
+					if available_time > 0:
+						available_time -= TIME_PENALTY
+					
 			if Input.is_action_just_pressed("forward"):
 				if not canStamp and not canRemove:
 					if tenant_eviction != null:
@@ -163,7 +166,9 @@ func _input(_event):
 						available_time += TIME_BONUS
 						$Sign.play()
 				else:
-					available_time -= TIME_PENALTY
+					if available_time > 0:
+						available_time -= TIME_PENALTY
+					
 			
 			if Input.is_action_just_pressed("left"):
 				if canRemove:
@@ -176,7 +181,8 @@ func _input(_event):
 					canRemove = false
 					$PaperOrigin.get_child(0).queue_free()
 				else:
-					available_time -= TIME_PENALTY
+					if available_time > 0:
+						available_time -= TIME_PENALTY
 					
 		if stage < len(stages) - 1:
 			guide_label.text = stages[stage]
@@ -231,7 +237,7 @@ func CamAnim_Finished(anim_name):
 			active_player.global_position.y = 1.5
 			get_tree().get_first_node_in_group("countdown").show()
 			get_tree().get_first_node_in_group("countdown").add_time(available_time)
-			available_time = 0
+			available_time = 10
 			time_left = STAMPING_TIME_LIMIT # Reset to default
 			
 
