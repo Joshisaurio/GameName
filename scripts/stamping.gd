@@ -18,8 +18,10 @@ const TIME_PENALTY: int = 0
 #Main Nodes
 @onready var Apartment = get_parent().get_parent()
 @onready var Gamemanager = Apartment.find_child("GameManager")
+@onready var countdown = get_tree().get_first_node_in_group("countdown")
 @onready var office_door = Apartment.find_child("OfficeDoor")
 @onready var door_nodes: Array[Node] = get_tree().get_nodes_in_group("Occupied Door")
+@onready var added_time: Label = countdown.get_node("added_time")
 
 @export var max_middle_names: int = 3
 
@@ -35,7 +37,7 @@ var tenant_eviction
 var tenant_first_name
 
 var next = false
-var available_time = 5
+var available_time = 10
 
 var first_names = [
 	"James", "Mary", "John", "Patricia", "Robert", "Jennifer", "Michael", "Linda",
@@ -72,13 +74,10 @@ var time_left = STAMPING_TIME_LIMIT
 var begun = false
 
 func _ready():
-	$UI/time_earned.visible = false
 	$UI/time_left.visible = false
 	$UI/evictions_filed.visible = false
-	$UI/time_earned.modulate.a = 0
 	$UI/time_left.modulate.a = 0
 	$Guide/Guide.modulate.a = 0
-	$UI/time_earned.visible = true
 	$UI/time_left.visible = true
 
 func _begin():
@@ -87,6 +86,7 @@ func _begin():
 	$Guide.visible = true
 	$UI/evictions_filed.visible = true
 	$UI/time_left.max_value = STAMPING_TIME_LIMIT
+	countdown.show()
 	begun = true
 
 func _process(delta):
@@ -108,7 +108,7 @@ func _process(delta):
 				Canim.play("Exit_Stamp")
 			
 		$UI/time_left.value = time_left
-		$UI/time_earned.text = str(available_time) + ":00"
+		added_time.text = str(available_time) + ":00"
 		$UI/evictions_filed.text = str(Gamemanager.delivery_doors.size()) + "/" + str(Gamemanager.DELIVERY_MAX)
 	else:
 		for i in $UI.get_children():
@@ -175,7 +175,7 @@ func _input(_event):
 						canRemove = true
 						if stage == 2 and grace_period_active:
 							stage = 3
-						available_time += TIME_BONUS / 3
+						available_time += TIME_BONUS / 2
 						$Sign.play()
 				else:
 					if available_time > 0:
@@ -242,14 +242,11 @@ func CamAnim_Finished(anim_name):
 			filter.visible = false
 			isSitting = false
 			active_player.global_position = PPoint.global_position
-			get_tree().get_first_node_in_group("countdown").starting_time += available_time
+			countdown.starting_time += available_time
 			active_player.global_position.y = 1.5
-			get_tree().get_first_node_in_group("countdown").show()
-			get_tree().get_first_node_in_group("countdown").add_time(available_time)
+			countdown.add_time(available_time)
 			available_time = 10
 			time_left = STAMPING_TIME_LIMIT # Reset to default
-			
-
 
 func _on_music_finished():
 	music.play()

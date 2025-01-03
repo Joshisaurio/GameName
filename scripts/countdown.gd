@@ -29,14 +29,6 @@ func _process(delta: float) -> void:
 		label.modulate.a = 0.5 + (sin(Time.get_ticks_msec() * 0.005) * 0.5)
 	else:
 		label.modulate.a = 1.0 
-		
-	if get_tree().get_first_node_in_group("stamping").isSitting or get_tree().get_first_node_in_group("stamping").Canim.is_playing():
-		stop()
-		label.modulate.a = lerp(label.modulate.a, 0.0, 0.2)
-	else:
-		if !grace_period:
-			start()
-		label.modulate.a = lerp(label.modulate.a, 1.0, 0.2)
 	
 	if !is_paused:
 		stored_time -= delta

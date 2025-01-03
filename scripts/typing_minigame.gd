@@ -51,6 +51,9 @@ func _process(delta):
 		countdown.start()
 		countdown.add_time(0)
 		minigame_completed.emit(0)
+	else:
+		countdown.stop()
+		
 	$ProgressBar.value = max_time - time
 	
 	if correct != 0 and failures !=0:

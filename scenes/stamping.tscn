@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=4 uid="uid://cumnita3y3x5e"]
+[gd_scene load_steps=56 format=4 uid="uid://cumnita3y3x5e"]
 
 [ext_resource type="Script" path="res://scripts/stamping.gd" id="1_iqntg"]
 [ext_resource type="Texture2D" uid="uid://c48te6oks4h2s" path="res://Textures/Model Textures/Desk/YouAreOut(SP)_UVGrid_BaseColor.1001.png" id="2_4leee"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://chfjibbqopj78" path="res://Textures/Model Textures/Desk/Normal_Desk_Pixel.png" id="4_7obsd"]
 [ext_resource type="Texture2D" uid="uid://dgr1coxuf3s7c" path="res://Textures/Model Textures/Desk/Roughness_Desk_Pixel.png" id="5_f2n1p"]
 [ext_resource type="Theme" uid="uid://bre6n751ipump" path="res://assets/maintheme.tres" id="7_1ptb6"]
-[ext_resource type="FontFile" uid="uid://dh3d18trravwr" path="res://Fonts/e1234.regular.ttf" id="8_1peu4"]
 [ext_resource type="FontFile" uid="uid://b85pwm2y0ga2i" path="res://Fonts/ARJULIAN.ttf" id="8_4cr22"]
 [ext_resource type="Shader" path="res://scripts/Shaders/PixelDither.gdshader" id="8_sxxmg"]
 [ext_resource type="AudioStream" uid="uid://do3kg4qufm5n0" path="res://assets/audio/SFX/Stamping/Stamp.wav" id="8_x03e2"]
@@ -659,26 +658,6 @@ theme = ExtResource("7_1ptb6")
 theme_override_fonts/font = ExtResource("8_4cr22")
 text = "0/8"
 label_settings = SubResource("LabelSettings_qdyd7")
-
-[node name="time_earned" type="Label" parent="UI"]
-offset_left = 59.0
-offset_top = 24.0
-offset_right = 288.0
-offset_bottom = 68.0
-theme = ExtResource("7_1ptb6")
-theme_override_fonts/font = ExtResource("8_1peu4")
-theme_override_font_sizes/font_size = 38
-text = "00:00"
-
-[node name="plus" type="Label" parent="UI/time_earned"]
-layout_mode = 0
-offset_left = -25.0
-offset_top = -2.0
-offset_right = 127.0
-offset_bottom = 51.0
-theme_override_font_sizes/font_size = 38
-text = "+
-"
 
 [node name="Guide" type="CanvasLayer" parent="."]
 visible = false
