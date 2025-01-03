@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="12_o6k8c"]
 [ext_resource type="PackedScene" uid="uid://nwc5bj77d8ja" path="res://scenes/countdown.tscn" id="13_d2o7h"]
 [ext_resource type="PackedScene" uid="uid://dgvjlrsae8iq7" path="res://scenes/door.tscn" id="14_0cn22"]
-[ext_resource type="PackedScene" uid="uid://cqlqi34112ycm" path="res://Manage/RandomAudio.tscn" id="16_4alpb"]
+[ext_resource type="PackedScene" path="res://Manage/RandomAudio.tscn" id="16_4alpb"]
 [ext_resource type="PackedScene" uid="uid://dd2owgnjsyssn" path="res://scenes/office_door.tscn" id="17_c8tsd"]
 
 [sub_resource type="Environment" id="Environment_brnmx"]
@@ -97,8 +97,8 @@ omni_range = 282.196
 omni_attenuation = 0.595
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.1428, 4.01035, 26.2095)
-light_energy = 16.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.363, 4.01, 26.8125)
+light_energy = 8.0
 omni_range = 282.196
 omni_attenuation = 0.595
 
@@ -130,6 +130,7 @@ material = SubResource("StandardMaterial3D_jesxm")
 
 [node name="Ceiling" type="CSGBox3D" parent="Build"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14444, 4.74788, 1.0117)
+visible = false
 size = Vector3(112.25, 0.133789, 121.153)
 material = SubResource("StandardMaterial3D_lxs55")
 
