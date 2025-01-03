@@ -23,6 +23,7 @@ const TIME_PENALTY: int = 0
 
 @export var max_middle_names: int = 3
 
+var first_time: bool = true
 var grace_period_active: bool = true
 var isSitting = true
 var canStamp = false
@@ -61,10 +62,10 @@ var last_names = [
 
 var stage = 0
 var stages = [
-	"( Press [D] to grab a paper )",
-	"( [Click] to stamp )",
-	"( [W] to sign )",
-	"( Press [A] to remove the paper )",
+	"( Press [D] to grab a record )",
+	"( [Left Click] to stamp )",
+	"( Press [W] to sign )",
+	"( Press [A] to file )",
 ]
 
 var time_left = STAMPING_TIME_LIMIT
@@ -77,7 +78,6 @@ func _ready():
 	$UI/time_earned.modulate.a = 0
 	$UI/time_left.modulate.a = 0
 	$Guide/Guide.modulate.a = 0
-	$Guide/Guide.visible = true
 	$UI/time_earned.visible = true
 	$UI/time_left.visible = true
 
@@ -92,6 +92,8 @@ func _begin():
 func _process(delta):
 	if stage < stages.size():
 		$Guide/Guide.text = stages[stage]
+	else:
+		$Guide.visible = false
 		
 	if begun and isSitting and not Canim.is_playing():
 		for i in $UI.get_children():
@@ -116,9 +118,9 @@ func _input(_event):
 	if begun and isSitting and not Canim.is_playing():
 		if time_left > 0:
 			if Input.is_action_just_pressed("right"):
-				if grace_period_active:
+				if first_time:
 					music.play()
-				grace_period_active = false # Start taking away time
+				first_time = false
 				if isSitting and not pageExists:
 					create_eviction()
 					pageExists = true
@@ -142,7 +144,7 @@ func _input(_event):
 									pass
 					next = false
 					$GeneralAnim.play("Page_In")
-					if stage == 0:
+					if stage == 0 and grace_period_active:
 						stage = 1
 					
 					$Paper.play()
@@ -157,7 +159,7 @@ func _input(_event):
 						tenant_eviction.isStamped = true
 						canStamp = false
 						canRemove = false
-						if stage == 1:
+						if stage == 1 and grace_period_active:
 							stage = 2
 						available_time += TIME_BONUS
 						$StampAnim.play("Stamp")
@@ -171,7 +173,7 @@ func _input(_event):
 					if tenant_eviction != null:
 						tenant_eviction.isSigned = true
 						canRemove = true
-						if stage == 2:
+						if stage == 2 and grace_period_active:
 							stage = 3
 						available_time += TIME_BONUS / 3
 						$Sign.play()
@@ -184,9 +186,8 @@ func _input(_event):
 				if canRemove:
 					$GeneralAnim.play("Page_Out")
 					$Paper.play()
-					if stage == 3:
+					if stage == 3 and grace_period_active:
 						grace_period_active = false
-						$Guide/Guide.visible = false
 						stage = 4
 					await get_tree().create_timer(0.3).timeout
 					Gamemanager.add_tenant(tenant_name, tenant_eviction.tenant_room)
@@ -196,11 +197,6 @@ func _input(_event):
 				else:
 					if available_time > 0:
 						available_time -= TIME_PENALTY
-					
-		if stage < len(stages) - 1:
-			guide_label.text = stages[stage]
-		else:
-			guide_label.hide()
 
 func enter_desk():
 	isSitting = true
