@@ -47,9 +47,10 @@ func _process(delta: float) -> void:
 		_update_display()
 		
 func _get_time(time: float) -> String:
-	var seconds: int = int(time)
-	var centiseconds: int = (time - seconds) * 100
-	return "%02d:%02d" % [seconds, centiseconds]
+	var minutes: int = int(time) / 60
+	var seconds: int = int(time) % 60
+	var centiseconds: int = (time - int(time)) * 100
+	return "%02d:%02d:%02d" % [minutes, seconds, centiseconds]
 
 func _update_time() -> void:
 	display_time = _get_time(stored_time)
@@ -66,7 +67,7 @@ func stop() -> void:
 func add_time(added_time: float) -> void:
 	is_display_paused = true
 	stored_time += added_time
-	new_label.text = _get_time(added_time)
+	new_label.text = str(added_time)
 	new_label.show()
 		
 	_update_time()

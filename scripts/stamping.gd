@@ -37,7 +37,7 @@ var tenant_eviction
 var tenant_first_name
 
 var next = false
-var available_time = 0
+var available_time = 120
 
 var first_names = [
 	"James", "Mary", "John", "Patricia", "Robert", "Jennifer", "Michael", "Linda",
@@ -108,7 +108,7 @@ func _process(delta):
 				Canim.play("Exit_Stamp")
 			
 		$UI/time_left.value = time_left
-		added_time.text = str(available_time) + ":00"
+		added_time.text = str(available_time)
 		$UI/evictions_filed.text = str(Gamemanager.delivery_doors.size()) + "/" + str(Gamemanager.DELIVERY_MAX)
 	else:
 		for i in $UI.get_children():
