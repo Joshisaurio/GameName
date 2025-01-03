@@ -46,15 +46,11 @@ const DOORKNOB = preload("res://assets/audio/SFX/Door/doorknob.wav")
 func _ready():
 	$Frame/DoorHingePoint/Label3D.text = address
 
-
-
 func interacted():
 	if !delivery_active or tenant_name == "":
 		audio_door.set_stream(DOORKNOB)
 		audio_door.play()
 		print("There is no tenant in this room!")
-		audio_door.set_stream(DOORKNOB)
-		audio_door.play()
 		return
 		
 	audio_door.set_stream(DOOR_OPEN)
@@ -91,7 +87,6 @@ func _end_current_minigame():
 	if current_minigame != null:
 		audio_door.set_stream(DOOR_SLAM)
 		audio_door.play()
-		TPoint.get_child(0).queue_free()
 		delivery_active = false
 		tenant_name = ""
 		current_minigame.queue_free()
@@ -103,6 +98,8 @@ func _minigame_completed(new_score):
 	animation_player.play("close_door")
 	_display_score(new_score)
 	audio_music.stop()
+	await animation_player.animation_finished
+	TPoint.get_child(0).queue_free()
 	
 func _display_score(score):
 	

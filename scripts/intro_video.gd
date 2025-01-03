@@ -13,10 +13,10 @@ func handle_video():
 	
 	$VidAnim.play("FadeVideo")
 
-func _input(_event):
-	
-	if Input.is_action_just_released("Spacebar"):
-		_on_vid_anim_animation_finished(true)
+func _input(event):
+	if event is InputEventKey:
+		if event.keycode == KEY_ENTER: # Skip button
+			_on_vid_anim_animation_finished(true)
 
 func _on_vid_anim_animation_finished(_anim_name):
 	$VidAnim.play("FadeVideo")

@@ -2,6 +2,7 @@ extends Control
 
 @onready var ui_anim: AnimationPlayer = $UIAnim
 @onready var dialogue: Label = $Fader/Dialogue
+@onready var help: Label = $Fader/Help
 @onready var audio: AudioStreamPlayer = $Audio
 @onready var gamemanager = self.get_parent()
 
@@ -15,6 +16,8 @@ const SFX_TYPING_3 = preload("res://assets/audio/Typing/SFX - Typing Var  3.wav"
 const SFX_TYPING_4 = preload("res://assets/audio/Typing/SFX - Typing Var  4.wav")
 const SFX_TYPING_5 = preload("res://assets/audio/Typing/SFX - Typing Var  5.wav")
 
+var pressed_anything: bool = false
+
 var input_enabled: bool = true
 var dialogue_speed: float = 0.03
 var auto_speed: float = 1
@@ -26,17 +29,22 @@ var intro: Array[String] = [
 	"To put it mildly, the board isn't happy with your performance.",
 	"*ahem*",
 	"Clear out your office by the end of the day.",
-	"You're OUT!",
+	"You're out.",
 ]
 	
 var dialogue_id: int = 0
 var next: bool = false
 
 func _ready():
+	help.modulate.a = 0.0
 	audio.set_stream(SFX_PICK_UP)
 	audio.play()
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(0.5).timeout
 	_display_dialogue(intro[dialogue_id], dialogue_speed)
+	
+	await get_tree().create_timer(4).timeout
+	if !pressed_anything:
+		_fade_label_in(2, help)
 
 func _input(event):
 	if !input_enabled:
@@ -45,6 +53,9 @@ func _input(event):
 	if event is InputEventKey and next:
 		if event.keycode == KEY_ENTER: # Skip button
 			_proceed()
+		
+		pressed_anything = true
+		help.visible = false
 		
 		if dialogue_id < (intro.size() - 1) - 1:
 			next = false
@@ -57,7 +68,7 @@ func _input(event):
 			audio.set_stream(SFX_SLAM_PHONE)
 			audio.play()
 			await get_tree().create_timer(1).timeout
-			_fade_label(3)
+			_fade_label_out(3, dialogue)
 			await get_tree().create_timer(5).timeout # Long silence
 			_proceed()
 			
@@ -83,9 +94,13 @@ func _display_dialogue(text: String = "", speed: float = 1):
 		
 	next = true
 
-func _fade_label(speed: int):
+func _fade_label_out(speed: int, subject: Label):
 	var tween = create_tween()
-	tween.tween_property(dialogue, "modulate", Color(modulate.r, modulate.g, modulate.b, 0.0), speed)
+	tween.tween_property(subject, "modulate", Color(modulate.r, modulate.g, modulate.b, 0.0), speed)
+	
+func _fade_label_in(speed: int, subject: Label):
+	var tween = create_tween()
+	tween.tween_property(subject, "modulate", Color(modulate.r, modulate.g, modulate.b, 1.0), speed)
 
 func Intro_finished(_anim_name):
 	self.queue_free()

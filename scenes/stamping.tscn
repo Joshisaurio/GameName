@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=4 uid="uid://cumnita3y3x5e"]
+[gd_scene load_steps=56 format=4 uid="uid://cumnita3y3x5e"]
 
 [ext_resource type="Script" path="res://scripts/stamping.gd" id="1_iqntg"]
 [ext_resource type="Texture2D" uid="uid://c48te6oks4h2s" path="res://Textures/Model Textures/Desk/YouAreOut(SP)_UVGrid_BaseColor.1001.png" id="2_4leee"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://chfjibbqopj78" path="res://Textures/Model Textures/Desk/Normal_Desk_Pixel.png" id="4_7obsd"]
 [ext_resource type="Texture2D" uid="uid://dgr1coxuf3s7c" path="res://Textures/Model Textures/Desk/Roughness_Desk_Pixel.png" id="5_f2n1p"]
 [ext_resource type="Theme" uid="uid://bre6n751ipump" path="res://assets/maintheme.tres" id="7_1ptb6"]
-[ext_resource type="FontFile" uid="uid://dh3d18trravwr" path="res://Fonts/e1234.regular.ttf" id="8_1peu4"]
 [ext_resource type="FontFile" uid="uid://b85pwm2y0ga2i" path="res://Fonts/ARJULIAN.ttf" id="8_4cr22"]
 [ext_resource type="Shader" path="res://scripts/Shaders/PixelDither.gdshader" id="8_sxxmg"]
 [ext_resource type="AudioStream" uid="uid://do3kg4qufm5n0" path="res://assets/audio/SFX/Stamping/Stamp.wav" id="8_x03e2"]
@@ -633,25 +632,6 @@ shape = SubResource("BoxShape3D_prui7")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="time_earned" type="Label" parent="UI"]
-offset_left = 72.0
-offset_top = 50.0
-offset_right = 289.0
-offset_bottom = 83.0
-theme = ExtResource("7_1ptb6")
-theme_override_fonts/font = ExtResource("8_1peu4")
-text = "00:00"
-label_settings = SubResource("LabelSettings_qdyd7")
-
-[node name="plus" type="Label" parent="UI"]
-offset_left = 50.0
-offset_top = 50.0
-offset_right = 75.0
-offset_bottom = 83.0
-theme = ExtResource("7_1ptb6")
-text = "+"
-label_settings = SubResource("LabelSettings_qdyd7")
-
 [node name="time_left" type="ProgressBar" parent="UI"]
 anchors_preset = 8
 anchor_left = 0.5
@@ -680,18 +660,19 @@ text = "0/8"
 label_settings = SubResource("LabelSettings_qdyd7")
 
 [node name="Guide" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Guide" type="Label" parent="Guide"]
-visible = false
+modulate = Color(1, 1, 1, 0)
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -97.5
-offset_top = -38.0
-offset_right = 97.5
-offset_bottom = -15.0
+offset_left = -153.0
+offset_top = -52.0
+offset_right = 154.0
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.8, 0.8)

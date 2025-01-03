@@ -1,6 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0lt14juguf6w"]
+[gd_scene load_steps=8 format=3 uid="uid://b0lt14juguf6w"]
 
+[ext_resource type="Script" path="res://scenes/game_over.gd" id="1_afp7m"]
 [ext_resource type="Texture2D" uid="uid://bov8loa1qnm2o" path="res://Textures/UI/Game_Over.png" id="1_esc5v"]
+[ext_resource type="Texture2D" uid="uid://fj5wrmeke7io" path="res://Textures/UI/Quit.png" id="2_a4knx"]
+[ext_resource type="AudioStream" uid="uid://biuiq4h6p27du" path="res://assets/audio/Music/Game over.wav" id="4_273hu"]
+[ext_resource type="Texture2D" uid="uid://dgionknnl2ifx" path="res://Textures/UI/Retry.png" id="4_rtipt"]
 
 [sub_resource type="Gradient" id="Gradient_mdk03"]
 offsets = PackedFloat32Array(0)
@@ -9,7 +13,8 @@ colors = PackedColorArray(0.937255, 0.709804, 0.462745, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_nemjf"]
 gradient = SubResource("Gradient_mdk03")
 
-[node name="Game Over" type="CanvasLayer"]
+[node name="Game Over" type="CanvasLayer" groups=["Game_Over"]]
+script = ExtResource("1_afp7m")
 
 [node name="BG" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -28,4 +33,45 @@ offset_top = 50.0
 offset_right = 396.5
 offset_bottom = 521.0
 grow_horizontal = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(396.5, 235.5)
 texture = ExtResource("1_esc5v")
+
+[node name="Quit" type="TextureButton" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 115.0
+offset_top = -181.0
+offset_right = 400.0
+offset_bottom = -60.0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(142.5, 60.5)
+texture_normal = ExtResource("2_a4knx")
+
+[node name="Retry" type="TextureButton" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -404.0
+offset_top = -181.0
+offset_right = -119.0
+offset_bottom = -60.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(142.5, 60.5)
+texture_normal = ExtResource("4_rtipt")
+
+[node name="FinishSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_273hu")
+
+[node name="Cutscene" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Retry" to="." method="_on_retry_pressed"]

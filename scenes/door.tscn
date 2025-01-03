@@ -180,7 +180,7 @@ bus = &"Game"
 
 [node name="Music" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("4_eoq6e")
-volume_db = -20.072
+volume_db = -10.0
 bus = &"Music"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -1144,17 +1144,6 @@ font_size = 37
 outline_size = 0
 horizontal_alignment = 0
 
-[node name="Bleach2" type="Label3D" parent="FolderMenu/Paper2"]
-transform = Transform3D(0.0162391, -4.03473, -1.77214e-07, 6.9246e-07, -6.95512e-07, 15.9154, -4.62587, 0.0753408, 2.3298e-07, -0.1283, 1.24878, -0.552881)
-pixel_size = 0.0015
-render_priority = 1
-modulate = Color(0, 0, 0, 1)
-text = "Bleach"
-font = ExtResource("11_187ot")
-font_size = 37
-outline_size = 0
-horizontal_alignment = 0
-
 [node name="Dajoh" type="Label3D" parent="FolderMenu/Paper2"]
 transform = Transform3D(0.0162391, -4.03473, -1.77214e-07, 6.9246e-07, -6.95512e-07, 15.9154, -4.62587, 0.0753408, 2.3298e-07, -0.370473, 1.24878, -0.545324)
 pixel_size = 0.0015

@@ -1,14 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://nwc5bj77d8ja"]
+[gd_scene load_steps=5 format=3 uid="uid://nwc5bj77d8ja"]
 
 [ext_resource type="Script" path="res://scripts/countdown.gd" id="1_ous3t"]
 [ext_resource type="Theme" uid="uid://bre6n751ipump" path="res://assets/maintheme.tres" id="2_yutcg"]
 [ext_resource type="FontFile" uid="uid://dh3d18trravwr" path="res://Fonts/e1234.regular.ttf" id="3_pb1vm"]
+[ext_resource type="PackedScene" uid="uid://b0lt14juguf6w" path="res://scenes/game_over.tscn" id="4_r5oia"]
 
 [node name="Countdown" type="Control" groups=["countdown"]]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_ous3t")
 
 [node name="Placeholder" type="Label" parent="."]
@@ -25,9 +28,9 @@ text = "00:00"
 [node name="added_time" type="Label" parent="."]
 layout_mode = 0
 offset_left = 60.0
-offset_top = 93.0
+offset_top = 71.0
 offset_right = 289.0
-offset_bottom = 137.0
+offset_bottom = 115.0
 theme = ExtResource("2_yutcg")
 theme_override_fonts/font = ExtResource("3_pb1vm")
 theme_override_font_sizes/font_size = 38
@@ -35,10 +38,33 @@ text = "00:00"
 
 [node name="plus" type="Label" parent="added_time"]
 layout_mode = 0
-offset_left = -30.0
-offset_top = -1.0
-offset_right = 122.0
-offset_bottom = 52.0
+offset_left = -25.0
+offset_top = -2.0
+offset_right = 127.0
+offset_bottom = 51.0
 theme_override_font_sizes/font_size = 38
 text = "+
 "
+
+[node name="TimeUp" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_yutcg")
+theme_override_font_sizes/font_size = 50
+text = "TIME'S UP!
+You've been busted."
+horizontal_alignment = 1
+
+[node name="GameOver" type="Timer" parent="."]
+
+[node name="Game_Over" parent="." instance=ExtResource("4_r5oia")]
+
+[connection signal="game_over" from="." to="." method="_on_game_over"]

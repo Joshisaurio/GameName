@@ -98,7 +98,7 @@ _data = {
 "RESET": SubResource("Animation_d74rc")
 }
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["Player"]]
 top_level = true
 script = ExtResource("1_p2d7i")
 

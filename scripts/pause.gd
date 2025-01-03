@@ -13,7 +13,11 @@ func _process(_delta):
 		get_tree().paused = not get_tree().paused
 		
 	visible = get_tree().paused
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE if get_tree().paused else Input.MOUSE_MODE_CAPTURED)
+	if get_tree().get_first_node_in_group("Game_Over") != null:
+		if !get_tree().get_first_node_in_group("Game_Over").game_over:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE if get_tree().paused else Input.MOUSE_MODE_CAPTURED)
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 	for i in $Buttons.get_children():
 		if i.is_hovered():
