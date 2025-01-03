@@ -1,7 +1,7 @@
 extends Node3D
 class_name Stamp
 
-const STAMPING_TIME_LIMIT: int = 30
+const STAMPING_TIME_LIMIT: int = 20
 const TIME_BONUS: int = 6
 const TIME_PENALTY: int = 0
 
@@ -60,16 +60,11 @@ var last_names = [
 ]
 
 var stage = 0
-
 var stages = [
 	"( Press [D] to grab a paper )",
 	"( [Click] to stamp )",
 	"( [W] to sign )",
 	"( Press [A] to remove the paper )",
-	"( Sign as many papers as you can before time runs out )",
-	"( Press [TAB] to view your list and evict those tenants!)",
-	"( Remember: You can come back to the office to sign \nmore eviction papers, get more time and evict more tenants!)",
-	"( Remember: You can come back to the office to sign \nmore eviction papers, get more time and evict more tenants!)"
 ]
 
 var time_left = STAMPING_TIME_LIMIT
@@ -82,6 +77,7 @@ func _ready():
 	$UI/time_earned.modulate.a = 0
 	$UI/time_left.modulate.a = 0
 	$Guide/Guide.modulate.a = 0
+	$Guide/Guide.visible = true
 	$UI/time_earned.visible = true
 	$UI/time_left.visible = true
 
@@ -94,8 +90,9 @@ func _begin():
 	begun = true
 
 func _process(delta):
-	if stage < 8:
+	if stage < stages.size():
 		$Guide/Guide.text = stages[stage]
+		
 	if begun and isSitting and not Canim.is_playing():
 		for i in $UI.get_children():
 			i.modulate.a = lerp(i.modulate.a, 1.0, 0.2)
@@ -105,10 +102,6 @@ func _process(delta):
 			time_left -= delta
 			
 		if time_left < 0 or Gamemanager.delivery_doors.size() >= Gamemanager.DELIVERY_MAX:
-			if stage < 5:
-				stage = 5
-			else:
-				$Guide/Guide.hide()
 			if isSitting:
 				Canim.play("Exit_Stamp")
 			
@@ -118,10 +111,6 @@ func _process(delta):
 	else:
 		for i in $UI.get_children():
 			i.modulate.a = lerp(i.modulate.a, 0.0, 0.2)
-		if stage < 7:
-			$Guide/Guide.modulate.a = lerp($Guide/Guide.modulate.a, 1.0, 0.2)
-		else:
-			$Guide/Guide.modulate.a = lerp($Guide/Guide.modulate.a, 0.0, 0.2)
 	
 func _input(_event):
 	if begun and isSitting and not Canim.is_playing():
@@ -153,8 +142,8 @@ func _input(_event):
 									pass
 					next = false
 					$GeneralAnim.play("Page_In")
-					if stage < 4:
-						stage += 1
+					if stage == 0:
+						stage = 1
 					
 					$Paper.play()
 				else:
@@ -168,8 +157,8 @@ func _input(_event):
 						tenant_eviction.isStamped = true
 						canStamp = false
 						canRemove = false
-						if stage < 4:
-							stage += 1
+						if stage == 1:
+							stage = 2
 						available_time += TIME_BONUS
 						$StampAnim.play("Stamp")
 						$Stamp.play()
@@ -182,8 +171,8 @@ func _input(_event):
 					if tenant_eviction != null:
 						tenant_eviction.isSigned = true
 						canRemove = true
-						if stage < 4:
-							stage += 1
+						if stage == 2:
+							stage = 3
 						available_time += TIME_BONUS / 3
 						$Sign.play()
 				else:
@@ -195,8 +184,10 @@ func _input(_event):
 				if canRemove:
 					$GeneralAnim.play("Page_Out")
 					$Paper.play()
-					if stage < 4:
-						stage += 1
+					if stage == 3:
+						grace_period_active = false
+						$Guide/Guide.visible = false
+						stage = 4
 					await get_tree().create_timer(0.3).timeout
 					Gamemanager.add_tenant(tenant_name, tenant_eviction.tenant_room)
 					pageExists = false

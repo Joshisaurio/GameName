@@ -829,7 +829,6 @@ libraries = {
 
 [node name="Front" type="MeshInstance3D" parent="FolderMenu"]
 transform = Transform3D(-0.414619, 0, 0.0152818, 0, 0.000773191, 0, -0.0172052, 0, -0.368269, -0.85245, 1.83485, -0.0593743)
-visible = false
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_oyx4y")
 skeleton = NodePath("")
@@ -917,7 +916,6 @@ shape = SubResource("BoxShape3D_b7gc5")
 
 [node name="Paper" type="MeshInstance3D" parent="FolderMenu"]
 transform = Transform3D(-0.401225, 0, 0.0148787, 0, 0.000773191, 0, -0.0166494, 0, -0.358553, -0.85245, 1.82148, -0.0593742)
-visible = false
 mesh = SubResource("ArrayMesh_i07gh")
 skeleton = NodePath("")
 
