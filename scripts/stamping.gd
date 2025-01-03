@@ -2,8 +2,8 @@ extends Node3D
 class_name Stamp
 
 const STAMPING_TIME_LIMIT: int = 20
-const TIME_BONUS: int = 8
-const TIME_PENALTY: int = 1
+const TIME_BONUS: int = 6
+const TIME_PENALTY: int = 0
 
 @onready var Canim = $Camera3D/CamAnim
 @onready var player = preload("res://Manage/player.tscn")
@@ -34,7 +34,7 @@ var tenant_eviction
 var tenant_first_name
 
 var next = false
-var available_time = 10
+var available_time = 5
 
 var first_names = [
 	"James", "Mary", "John", "Patricia", "Robert", "Jennifer", "Michael", "Linda",
@@ -76,23 +76,24 @@ var time_left = STAMPING_TIME_LIMIT
 var begun = false
 
 func _ready():
-	$UI/time_earned.visible = true
-	$UI/time_left.visible = true
+	$UI/time_earned.visible = false
+	$UI/time_left.visible = false
+	$UI/evictions_filed.visible = false
 	$UI/time_earned.modulate.a = 0
 	$UI/time_left.modulate.a = 0
 	$Guide/Guide.modulate.a = 0
+	$UI/time_earned.visible = true
+	$UI/time_left.visible = true
 
 func _begin():
 	office_door.begin_game.connect(_fade_music, CONNECT_ONE_SHOT)
 	filter.visible = true
 	$Guide.visible = true
+	$UI/evictions_filed.visible = true
 	$UI/time_left.max_value = STAMPING_TIME_LIMIT
 	begun = true
 
 func _process(delta):
-	if Input.is_action_just_pressed("check_list"):
-		stage = 6
-		$FadeTimer.start()
 	if stage < 8:
 		$Guide/Guide.text = stages[stage]
 	if begun and isSitting and not Canim.is_playing():
@@ -152,9 +153,9 @@ func _input(_event):
 									pass
 					next = false
 					$GeneralAnim.play("Page_In")
+					available_time += 1
 					if stage < 4:
 						stage += 1
-					available_time += TIME_BONUS
 					
 					$Paper.play()
 				else:
@@ -170,6 +171,7 @@ func _input(_event):
 						canRemove = false
 						if stage < 4:
 							stage += 1
+						available_time += TIME_BONUS
 						$StampAnim.play("Stamp")
 						$Stamp.play()
 				else:
@@ -183,7 +185,7 @@ func _input(_event):
 						canRemove = true
 						if stage < 4:
 							stage += 1
-						available_time += TIME_BONUS
+						available_time += TIME_BONUS / 3
 						$Sign.play()
 				else:
 					if available_time > 0:
@@ -193,6 +195,7 @@ func _input(_event):
 			if Input.is_action_just_pressed("left"):
 				if canRemove:
 					$GeneralAnim.play("Page_Out")
+					available_time += 1
 					$Paper.play()
 					if stage < 4:
 						stage += 1
